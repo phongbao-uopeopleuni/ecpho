@@ -74,4 +74,8 @@ function App() {
           </Routes>
         </BaseLayout>
       </BrowserRouter>
-    </HelmetPr
+    </HelmetProvider>
+  );
+}
+
+export default App;
