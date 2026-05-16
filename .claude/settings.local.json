@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(git add *)",
+      "PowerShell(Get-ChildItem D:\\\\ecpho\\\\public\\\\images -Recurse -File | Where-Object { $_.Name -ne \".gitkeep\" -and $_.Name -ne \"README.md\" } | Select-Object FullName, Length)"
+    ]
+  }
+}

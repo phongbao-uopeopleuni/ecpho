@@ -1,0 +1,8 @@
+{
+  "name": "EC Phở Vietnamese Noodle House",
+  "description": "Authentic Vietnamese restaurant in Greenville, NC, serving Phở, Bánh Mì, and traditional favorites with fresh ingredients and family recipes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

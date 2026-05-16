@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="24" fill="#7BA150"/>
+  <path d="M30 85C30 85 40 105 64 105C88 105 98 85 98 85H30Z" fill="white"/>
+  <path d="M45 85C45 85 50 75 64 75C78 75 83 85 83 85H45Z" fill="white" opacity="0.4"/>
+  <text x="64" y="58" font-family="serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">EC</text>
+</svg>
