@@ -24,7 +24,7 @@ const NotFoundPatch = () => (
 function App() {
   return (
     <HelmetProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <BaseLayout>
           <Routes>
             {/* Main Routes */}
@@ -74,8 +74,4 @@ function App() {
           </Routes>
         </BaseLayout>
       </BrowserRouter>
-    </HelmetProvider>
-  );
-}
-
-export default App;
+    </HelmetPr
