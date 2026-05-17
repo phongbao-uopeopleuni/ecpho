@@ -2,6 +2,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { Container } from '../components/ui/Container';
 import { SEOHead } from '../layouts/shared/SEOHead';
 import { blogPosts } from '../data/blog';
+import { assetUrl } from '../utils/assets';
 import { business } from '../data/business';
 import { Button } from '../components/ui/Button';
 import { ArrowLeft, Clock, Calendar, User, ShoppingBag, ChevronRight } from 'lucide-react';
@@ -59,7 +60,7 @@ export const BlogPostDetail = () => {
           <div className="flex flex-col lg:flex-row gap-24">
             <div className="lg:w-2/3">
               <div className="overflow-hidden mb-20 aspect-[16/9] bg-brand-muted border border-white/5">
-                <img src={post.image} alt={post.title} className="w-full h-full object-cover opacity-80" />
+                <img src={assetUrl(post.image)} alt={post.title} className="w-full h-full object-cover opacity-80" />
               </div>
               
               <article className="max-w-none">
@@ -117,7 +118,7 @@ export const BlogPostDetail = () => {
                   {blogPosts.filter(p => p.slug !== post.slug).slice(0, 3).map(p => (
                     <Link key={p.slug} to={`/blog/${p.slug}`} className="group flex gap-8">
                       <div className="w-28 h-28 shrink-0 overflow-hidden bg-brand-muted border border-white/10 transition-all group-hover:border-brand-red/50">
-                        <img src={p.image} alt={p.title} className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-700" />
+                        <img src={assetUrl(p.image)} alt={p.title} className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-700" />
                       </div>
                       <div className="flex flex-col justify-center">
                         <h5 className="font-serif text-white group-hover:text-brand-red transition-colors line-clamp-2 text-xl leading-tight mb-4 tracking-tight">{p.title}</h5>

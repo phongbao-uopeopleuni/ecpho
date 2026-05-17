@@ -3,6 +3,7 @@ import { Container } from '../components/ui/Container';
 import { Card } from '../components/ui/Card';
 import { SEOHead } from '../layouts/shared/SEOHead';
 import { blogPosts } from '../data/blog';
+import { assetUrl } from '../utils/assets';
 import { ArrowRight, Clock, Calendar } from 'lucide-react';
 
 export const Blog = () => {
@@ -32,7 +33,7 @@ export const Blog = () => {
                 <Card className="h-full flex flex-col border border-brand-dark/5 bg-brand-paper rounded-none transition-all duration-500 group-hover:border-brand-green/30 shadow-sm">
                   <div className="relative h-64 overflow-hidden">
                     <img 
-                      src={post.image || "https://images.unsplash.com/photo-1526318896980-cf78c088247c?q=80&w=1000&auto=format&fit=crop"} 
+                      src={post.image ? assetUrl(post.image) : "https://images.unsplash.com/photo-1526318896980-cf78c088247c?q=80&w=1000&auto=format&fit=crop"} 
                       alt={post.title}
                       className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                     />

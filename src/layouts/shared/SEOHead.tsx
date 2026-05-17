@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { defaultSEO } from '../../data/seo';
 import { business } from '../../data/business';
 import { useLocation } from 'react-router-dom';
+import { absoluteAssetUrl } from '../../utils/assets';
 
 interface SEOHeadProps {
   title?: string;
@@ -15,7 +16,7 @@ export const SEOHead = ({ title, description, image, article, schema }: SEOHeadP
   const location = useLocation();
   const seoTitle = title ? `${title} | ${business.brandName}` : defaultSEO.title;
   const seoDescription = description || defaultSEO.description;
-  const seoImage = image || `${business.canonicalBaseUrl}/images/og-image.jpg`;
+  const seoImage = image ? absoluteAssetUrl(image) : `${business.canonicalBaseUrl}/images/og-image.jpg`;
   
   // Clean canonical URL without trailing slash (consistently) or with it, 
   // but here we force a consistent base.

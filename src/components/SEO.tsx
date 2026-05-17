@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { business } from '../data/business';
+import { assetUrl } from '../utils/assets';
 
 interface SEOProps {
   title?: string;
@@ -57,9 +58,9 @@ export const SEO: React.FC<SEOProps> = ({
       <title>{fullTitle}</title>
       <meta name="description" content={metaDescription} />
       <link rel="canonical" href={url} />
-      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-      <link rel="shortcut icon" href="/favicon.svg" />
-      <link rel="apple-touch-icon" href="/favicon.svg" />
+      <link rel="icon" type="image/svg+xml" href={assetUrl('/favicon.svg')} />
+      <link rel="shortcut icon" href={assetUrl('/favicon.svg')} />
+      <link rel="apple-touch-icon" href={assetUrl('/favicon.svg')} />
 
       {/* Open Graph */}
       <meta property="og:type" content={type} />

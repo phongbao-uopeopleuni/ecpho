@@ -5,6 +5,7 @@ import { Button } from '../../components/ui/Button';
 import { Container } from '../../components/ui/Container';
 import { business } from '../../data/business';
 import { cn } from '../../utils/format';
+import { assetUrl } from '../../utils/assets';
 import { motion, AnimatePresence } from 'motion/react';
 
 export const Header = () => {
@@ -40,7 +41,7 @@ export const Header = () => {
         <nav className="flex items-center justify-between">
           <Link to="/home-page" className="flex items-center group">
             <img
-              src="/images/logo/logoecpho.png"
+              src={assetUrl('/images/logo/logoecpho.png')}
               alt="EC Phở"
               className="h-10 w-auto object-contain transition-opacity duration-300 group-hover:opacity-80"
             />

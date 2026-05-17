@@ -5,6 +5,7 @@ import { Container } from '../ui/Container';
 import { Badge } from '../ui/Badge';
 import { menuItems } from '../../data/menu';
 import { formatPrice } from '../../utils/format';
+import { assetUrl } from '../../utils/assets';
 
 export const FeaturedDishes = () => {
   const featured = menuItems.filter(item => item.tags?.includes('Popular') || item.tags?.includes('Signature'));
@@ -41,7 +42,7 @@ export const FeaturedDishes = () => {
               <div className="group bg-white rounded-[32px] sm:rounded-[40px] overflow-hidden border border-brand-dark/[0.03] hover:shadow-2xl hover:shadow-brand-green/10 transition-all duration-700 flex flex-col w-full">
                 <div className="relative h-64 sm:h-72 overflow-hidden">
                   <img 
-                    src={item.image || "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?q=80&w=800&auto=format&fit=crop"} 
+                    src={item.image ? assetUrl(item.image) : "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?q=80&w=800&auto=format&fit=crop"} 
                     alt={item.name} 
                     loading="lazy"
                     decoding="async"
