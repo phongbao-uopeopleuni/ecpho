@@ -5,9 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(({command}) => {
   return {
-    // Use '/ecpho/' only for production build (GitHub Pages),
-    // and '/' for dev server (localhost) so React Router matches correctly.
-    base: command === 'build' ? '/ecpho/' : '/',
+    base: '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
