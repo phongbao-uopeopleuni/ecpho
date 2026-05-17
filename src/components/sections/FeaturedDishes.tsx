@@ -71,11 +71,8 @@ export const FeaturedDishes = () => {
                     {item.description}
                   </p>
                   
-                  <div className="mt-auto pt-6 sm:pt-8 flex items-center justify-between">
+                  <div className="mt-auto pt-6 sm:pt-8 flex items-center">
                     <span className="w-8 h-px bg-brand-dark/10 group-hover:w-16 group-hover:bg-brand-green transition-all duration-500" />
-                    <button className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-brand-dark/40 group-hover:text-brand-green transition-colors">
-                      Quick Order
-                    </button>
                   </div>
                 </div>
               </div>

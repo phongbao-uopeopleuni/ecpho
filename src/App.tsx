@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { Analytics } from '@vercel/analytics/react';
 import { BaseLayout } from './layouts/BaseLayout';
 import { Home } from './pages/Home';
 import { Menu } from './pages/Menu';
@@ -73,6 +74,7 @@ function App() {
             <Route path="*" element={<NotFoundPatch />} />
           </Routes>
         </BaseLayout>
+        <Analytics />
       </BrowserRouter>
     </HelmetProvider>
   );
