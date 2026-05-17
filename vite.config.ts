@@ -3,10 +3,11 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
 
-export default defineConfig(() => {
+export default defineConfig(({command}) => {
   return {
-    // Base path for GitHub Pages deployment at https://phongbao-uopeopleuni.github.io/ecpho/
-    base: '/ecpho/',
+    // Use '/ecpho/' only for production build (GitHub Pages),
+    // and '/' for dev server (localhost) so React Router matches correctly.
+    base: command === 'build' ? '/ecpho/' : '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
