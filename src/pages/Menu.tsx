@@ -16,8 +16,8 @@ export const Menu = () => {
 
   // Handle scrolling to category
   const scrollToCategory = (category: string) => {
-    if (activeCategory === category && !isScrollingRef.current) return;
-    
+    if (isScrollingRef.current) return;
+
     isScrollingRef.current = true;
     setActiveCategory(category);
     
