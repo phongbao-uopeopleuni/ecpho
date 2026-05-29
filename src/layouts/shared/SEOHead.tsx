@@ -9,7 +9,8 @@ interface SEOHeadProps {
   description?: string;
   image?: string;
   article?: boolean;
-  schema?: any;
+  /** Single schema object or array of schema objects (e.g. [restaurantSchema, faqSchema]) */
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 export const SEOHead = ({ title, description, image, article, schema }: SEOHeadProps) => {
@@ -17,12 +18,14 @@ export const SEOHead = ({ title, description, image, article, schema }: SEOHeadP
   const seoTitle = title ? `${title} | ${business.brandName}` : defaultSEO.title;
   const seoDescription = description || defaultSEO.description;
   const seoImage = image ? absoluteAssetUrl(image) : `${business.canonicalBaseUrl}/images/og-image.jpg`;
-  
-  // Clean canonical URL without trailing slash (consistently) or with it, 
-  // but here we force a consistent base.
-  // We point both "/" and "/home-page" to the root domain canonical.
+
+  // Canonical URL convention:
+  //   - Homepage (/) → https://www.ecphonoodlehousenc.com/   (trailing slash on root only)
+  //   - All other pages → no trailing slash (matches Vercel served URL)
+  // /home-page is a redirect (Phase 2) so it never renders SEOHead in practice;
+  // kept here as a safety fallback so canonical still points to root if it ever does.
   const path = (location.pathname === '/' || location.pathname === '/home-page' || location.pathname === '/home-page/') ? '' : location.pathname;
-  const canonicalUrl = `${business.canonicalBaseUrl}${path}/`;
+  const canonicalUrl = `${business.canonicalBaseUrl}${path || '/'}`;
 
   return (
     <Helmet>
@@ -40,14 +43,15 @@ export const SEOHead = ({ title, description, image, article, schema }: SEOHeadP
       <meta name="twitter:title" content={seoTitle} />
       <meta name="twitter:description" content={seoDescription} />
       <meta name="twitter:image" content={seoImage} />
-      
+
       <link rel="canonical" href={canonicalUrl} />
 
-      {schema && (
-        <script type="application/ld+json">
-          {JSON.stringify(schema)}
+      {/* Render one <script> per schema — supports both single object and array */}
+      {schema && (Array.isArray(schema) ? schema : [schema]).map((s, i) => (
+        <script key={i} type="application/ld+json">
+          {JSON.stringify(s)}
         </script>
-      )}
+      ))}
     </Helmet>
   );
 };

@@ -120,34 +120,34 @@ export const Menu = () => {
   return (
     <>
       <SEOHead 
-        title="Menu" 
-        description="Authentic Vietnamese comfort food in Greenville, NC. Explore our Phở, Bánh Mì, Vermicelli, and Rice Plates." 
+        title="Vietnamese Menu — Phở, Bánh Mì & More"
+        description="Explore our full menu: authentic Phở, Bánh Mì, Vermicelli, Rice Plates, and House Specials. Fresh Vietnamese comfort food in Greenville, NC."
       />
       
       {/* Page Header */}
-      <section className="pt-32 sm:pt-40 pb-16 sm:pb-24 bg-brand-green text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')]" />
+      <section className="pt-32 sm:pt-40 pb-16 sm:pb-24 bg-brand-cream border-b border-brand-dark/5 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.04] bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')]" />
         <Container className="relative z-10 text-center">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-[10px] font-bold uppercase tracking-[0.4em] mb-4 block text-white/60"
+            className="text-[10px] font-bold uppercase tracking-[0.4em] mb-4 block text-brand-green"
           >
             Traditional Heritage
           </motion.span>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold mb-6 tracking-tighter uppercase"
+            className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold mb-6 tracking-tighter uppercase text-brand-dark"
           >
             Our Menu
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-white/70 max-w-2xl mx-auto font-light text-base sm:text-lg"
+            className="text-brand-dark/50 max-w-2xl mx-auto font-light text-base sm:text-lg"
           >
             Every dish is prepared using natural ingredients and recipes passed down through generations.
           </motion.p>

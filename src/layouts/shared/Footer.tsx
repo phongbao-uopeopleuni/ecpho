@@ -10,7 +10,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-20">
           {/* Brand */}
           <div className="space-y-8 lg:col-span-1">
-            <Link to="/home-page" className="inline-block">
+            <Link to="/" className="inline-block">
               <span className="text-4xl font-serif tracking-tighter text-white">
                 EC <span className="italic text-brand-gold">Phở</span>
               </span>
@@ -35,7 +35,7 @@ export const Footer = () => {
           <div>
             <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold mb-10">Quick Links</h3>
             <ul className="space-y-4 text-xs font-bold uppercase tracking-widest">
-              <li><Link to="/home-page" className="hover:text-white transition-colors">Home</Link></li>
+              <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
               <li><Link to="/menu" className="hover:text-white transition-colors">Our Menu</Link></li>
               <li><Link to="/gallery" className="hover:text-white transition-colors">Gallery</Link></li>
               <li><Link to="/blog" className="hover:text-white transition-colors">Stories</Link></li>
@@ -75,9 +75,9 @@ export const Footer = () => {
                 </a>
               </li>
               <li className="pt-2">
-                <a 
-                  href={business.social.doorDash} 
-                  target="_blank" 
+                <a
+                  href={business.social.doorDash}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 text-white font-bold text-xs uppercase tracking-widest hover:text-brand-gold transition-colors"
                 >

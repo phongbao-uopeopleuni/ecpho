@@ -6,8 +6,8 @@ export const Privacy = () => {
   return (
     <>
       <SEOHead 
-        title="Privacy Policy - EC Phở" 
-        description="Privacy policy for EC Phở Vietnamese Noodle House."
+        title="Privacy Policy"
+        description="Privacy policy for EC Phở Vietnamese Noodle House in Greenville, NC."
       />
       <section className="pt-40 pb-32">
         <Container>

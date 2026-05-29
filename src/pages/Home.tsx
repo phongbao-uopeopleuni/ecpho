@@ -6,23 +6,22 @@ import { Link } from 'react-router-dom';
 import { Heart, Leaf, Users, Star } from 'lucide-react';
 import { business } from '../data/business';
 import { SEOHead } from '../layouts/shared/SEOHead';
-import { generateRestaurantSchema } from '../utils/schema';
+import { generateRestaurantSchema, generateFAQSchema } from '../utils/schema';
 import { motion } from 'motion/react';
 
 export const Home = () => {
-  const schema = generateRestaurantSchema();
+  const schemas = [generateRestaurantSchema(), generateFAQSchema()];
 
   return (
     <>
-      <SEOHead schema={schema} />
+      <SEOHead schema={schemas} />
       <Hero />
 
-      
       {/* Short Value Prop */}
       <section className="py-20 sm:py-32 bg-[#FAF9F6] border-y border-brand-dark/5">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -37,7 +36,7 @@ export const Home = () => {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
@@ -53,7 +52,7 @@ export const Home = () => {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -73,7 +72,7 @@ export const Home = () => {
       </section>
 
       <FeaturedDishes />
-      
+
       {/* CTA Section */}
       <section className="py-20 sm:py-32 bg-brand-paper text-brand-dark overflow-hidden relative border-t border-brand-dark/5">
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')]" />
@@ -91,10 +90,10 @@ export const Home = () => {
             <p className="text-lg sm:text-xl text-brand-dark/50 mb-4 font-light max-w-2xl mx-auto px-4">
               Whether you're looking for a quick lunch or a celebratory dinner with family, we're here to serve you the finest heritage phở in Greenville.
             </p>
-            
+
             <ReviewMarquee />
-            
-            <a 
+
+            <a
               href="https://www.google.com/search?q=ec+pho+vietnamese+noodle+house+reviews"
               target="_blank"
               rel="noopener noreferrer"
@@ -104,7 +103,7 @@ export const Home = () => {
             </a>
           </motion.div>
         </Container>
-        
+
         {/* Artistic accent */}
         <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-brand-green/5 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute -top-32 -right-32 w-96 h-96 bg-brand-gold/5 rounded-full blur-[120px] pointer-events-none" />

@@ -6,8 +6,8 @@ export const Terms = () => {
   return (
     <>
       <SEOHead 
-        title="Terms of Service - EC Phở" 
-        description="Terms of service for EC Phở Vietnamese Noodle House."
+        title="Terms of Service"
+        description="Terms of service for EC Phở Vietnamese Noodle House in Greenville, NC."
       />
       <section className="pt-40 pb-32">
         <Container>

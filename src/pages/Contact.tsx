@@ -94,15 +94,35 @@ export const Contact = () => {
                 <div className="border-t border-brand-dark/[0.05] pt-12">
                   <h2 className="text-[10px] font-bold text-brand-green uppercase tracking-[0.3em] mb-8">Hours</h2>
                   <div className="grid grid-cols-1 gap-4">
-                    {business.hours.map((h, i) => (
-                      <div key={h.day} className="flex justify-between items-center text-sm group">
-                        <span className="font-bold text-[10px] uppercase tracking-widest text-brand-dark/40 group-hover:text-brand-green transition-colors">{h.day}</span>
-                        <span className="h-px bg-brand-dark/[0.05] flex-grow mx-4"></span>
-                        <span className="font-medium text-brand-dark/70">
-                          {h.open === "Closed" ? "Closed" : `${h.open} – ${h.close}`}
-                        </span>
-                      </div>
-                    ))}
+                    {(() => {
+                      // Group consecutive days with the same open/close hours
+                      const groups: { days: string[]; open: string; close: string }[] = [];
+                      business.hours.forEach(h => {
+                        const last = groups[groups.length - 1];
+                        if (last && last.open === h.open && last.close === h.close) {
+                          last.days.push(h.day);
+                        } else {
+                          groups.push({ days: [h.day], open: h.open, close: h.close });
+                        }
+                      });
+                      return groups.map((g) => {
+                        const label = g.days.length === 1
+                          ? g.days[0]
+                          : `${g.days[0]} – ${g.days[g.days.length - 1]}`;
+                        const hours = g.open === "Closed" ? "Closed" : `${g.open} – ${g.close}`;
+                        return (
+                          <div key={label} className="flex justify-between items-center text-sm group">
+                            <span className="font-bold text-[10px] uppercase tracking-widest text-brand-dark/40 group-hover:text-brand-green transition-colors">
+                              {label}
+                            </span>
+                            <span className="h-px bg-brand-dark/[0.05] flex-grow mx-4" />
+                            <span className={`font-medium ${g.open === "Closed" ? "text-brand-red/60" : "text-brand-dark/70"}`}>
+                              {hours}
+                            </span>
+                          </div>
+                        );
+                      });
+                    })()}
                     <p className="mt-4 text-[10px] text-brand-dark/30 italic">Hours may change on holidays</p>
                   </div>
                 </div>

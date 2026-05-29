@@ -21,7 +21,7 @@ export const Header = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', path: '/home-page' },
+    { name: 'Home', path: '/' },
     { name: 'Menu', path: '/menu' },
     { name: 'Gallery', path: '/gallery' },
     { name: 'Blog', path: '/blog' },
@@ -29,17 +29,17 @@ export const Header = () => {
   ];
 
   return (
-    <header 
+    <header
       className={cn(
         'fixed top-0 z-50 w-full transition-all duration-700 ease-in-out',
-        isScrolled 
-          ? 'bg-brand-cream/80 backdrop-blur-md border-b border-brand-dark/5 py-4 shadow-[0_2px_20px_rgba(0,0,0,0.02)]' 
+        isScrolled
+          ? 'bg-brand-cream/80 backdrop-blur-md border-b border-brand-dark/5 py-4 shadow-[0_2px_20px_rgba(0,0,0,0.02)]'
           : 'bg-transparent py-8'
       )}
     >
       <Container>
         <nav className="flex items-center justify-between">
-          <Link to="/home-page" className="flex items-center group">
+          <Link to="/" className="flex items-center group">
             <img
               src={assetUrl('/images/logo/logoecpho.png')}
               alt="EC Phở"
@@ -51,7 +51,7 @@ export const Header = () => {
           <ul className="hidden lg:flex items-center gap-12">
             {navLinks.map((link) => (
               <li key={`desktop-${link.path}`}>
-                <NavLink 
+                <NavLink
                   to={link.path}
                   className={({ isActive }) => cn(
                     "relative text-[10px] font-bold uppercase tracking-[0.3em] transition-all duration-300 hover:text-brand-green",
@@ -59,7 +59,6 @@ export const Header = () => {
                   )}
                 >
                   {link.name}
-                  {/* Subtle underline for active state */}
                   <span className={cn(
                     "absolute -bottom-1 left-0 w-0 h-[1.5px] bg-brand-green transition-all duration-300",
                     "group-hover:w-full"
@@ -81,7 +80,7 @@ export const Header = () => {
             </a>
           </div>
 
-          <button 
+          <button
             className="lg:hidden p-2 text-brand-dark focus:outline-none transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
@@ -89,20 +88,18 @@ export const Header = () => {
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </nav>
-
       </Container>
 
-      {/* Mobile Nav Overlay - Moved outside Container to ensure viewport-relative positioning */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300, mass: 0.8 }}
             className="lg:hidden fixed inset-0 w-full h-screen bg-brand-cream z-[70] flex flex-col p-6 sm:p-10 pt-24"
           >
-            <button 
+            <button
               onClick={() => setIsOpen(false)}
               className="absolute top-6 right-6 p-2 text-brand-dark hover:text-brand-green transition-colors"
               aria-label="Close Menu"
@@ -112,14 +109,14 @@ export const Header = () => {
 
             <ul className="flex flex-col gap-4 sm:gap-6 overflow-y-auto no-scrollbar">
               {navLinks.map((link, i) => (
-                <motion.li 
-                  key={`mobile-${link.path}`} 
+                <motion.li
+                  key={`mobile-${link.path}`}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 + i * 0.05 }}
                   onClick={() => setIsOpen(false)}
                 >
-                  <NavLink 
+                  <NavLink
                     to={link.path}
                     className={({ isActive }) => cn(
                       "text-4xl sm:text-5xl font-serif tracking-tighter uppercase transition-all duration-300",
