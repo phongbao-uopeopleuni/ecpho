@@ -4,10 +4,21 @@ import { Container } from '../components/ui/Container';
 import { Badge } from '../components/ui/Badge';
 import { Button } from '../components/ui/Button';
 import { menuItems, menuCategories, menuDisclaimer } from '../data/menu';
+import { menuGallery } from '../data/gallery';
 import { formatPrice, cn } from '../utils/format';
 import { SEOHead } from '../layouts/shared/SEOHead';
 import { Info } from 'lucide-react';
 import { business } from '../data/business';
+import { assetUrl } from '../utils/assets';
+
+const menuHeroGalleryImages = menuGallery
+  .flatMap((section) =>
+    section.images.slice(0, 2).map((image) => ({
+      ...image,
+      label: section.label,
+    }))
+  )
+  .slice(0, 16);
 
 export const Menu = () => {
   const [activeCategory, setActiveCategory] = useState(menuCategories[0]);
@@ -131,7 +142,7 @@ export const Menu = () => {
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-[10px] font-bold uppercase tracking-[0.4em] mb-4 block text-brand-green"
+            className="text-xs font-bold uppercase tracking-[0.4em] mb-4 block text-brand-green"
           >
             Traditional Heritage
           </motion.span>
@@ -151,6 +162,40 @@ export const Menu = () => {
           >
             Every dish is prepared using natural ingredients and recipes passed down through generations.
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.7 }}
+            className="relative mt-12 sm:mt-14"
+          >
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-10 sm:w-20 bg-gradient-to-r from-brand-cream via-brand-cream/90 to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-10 sm:w-20 bg-gradient-to-l from-brand-cream via-brand-cream/90 to-transparent z-10" />
+
+            <div className="menu-gallery-marquee">
+              <div className="menu-gallery-marquee-track">
+                {[...menuHeroGalleryImages, ...menuHeroGalleryImages].map((image, index) => (
+                  <figure
+                    key={`${image.src}-${index}`}
+                    className="relative h-[9rem] w-[13rem] sm:h-[11rem] sm:w-[16rem] md:h-[12rem] md:w-[18rem] flex-none overflow-hidden rounded-[1.75rem] border border-brand-dark/8 bg-brand-paper shadow-[0_18px_50px_-24px_rgba(45,36,36,0.28)]"
+                  >
+                    <img
+                      src={assetUrl(image.src)}
+                      alt={image.alt}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/55 via-brand-dark/10 to-transparent" />
+                    <figcaption className="absolute left-4 bottom-4 text-left">
+                      <span className="block text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em] text-white/75">
+                        {image.label}
+                      </span>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </Container>
       </section>
 
@@ -171,7 +216,7 @@ export const Menu = () => {
                 data-category={category}
                 onClick={() => scrollToCategory(category)}
                 className={cn(
-                  "relative text-[10px] font-bold uppercase tracking-[0.25em] transition-all py-1",
+                  "relative text-xs font-bold uppercase tracking-[0.25em] transition-all py-1",
                   activeCategory === category 
                     ? "text-brand-green" 
                     : "text-brand-dark/40 hover:text-brand-dark"
@@ -203,7 +248,7 @@ export const Menu = () => {
                   className="mb-32 scroll-mt-40"
                 >
                   <div className="mb-12">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-brand-green mb-4 block">Selection</span>
+                    <span className="text-xs font-bold uppercase tracking-[0.4em] text-brand-green mb-4 block">Selection</span>
                     <h2 className="text-4xl md:text-5xl font-serif text-brand-dark mb-8 uppercase tracking-tighter">{category}</h2>
                     <div className="h-px w-32 bg-brand-green/30" />
                   </div>
@@ -222,7 +267,7 @@ export const Menu = () => {
                           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-6 gap-2 sm:gap-6 relative z-10">
                             <div className="flex flex-col gap-1">
                               {item.code && (
-                                <span className="text-[10px] font-bold text-brand-green tracking-[0.2em]">{item.code}</span>
+                                <span className="text-xs font-bold text-brand-green tracking-[0.2em]">{item.code}</span>
                               )}
                               <h3 className="text-xl sm:text-2xl font-serif text-brand-dark leading-tight group-hover:text-brand-green transition-colors">{item.name}</h3>
                             </div>
@@ -232,25 +277,25 @@ export const Menu = () => {
                           
                           <div className="flex flex-wrap gap-4 mb-8">
                             {item.vietnameseName && (
-                              <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-brand-gold border border-brand-gold/20 px-4 py-1.5">{item.vietnameseName}</span>
+                              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold border border-brand-gold/20 px-4 py-1.5">{item.vietnameseName}</span>
                             )}
                             {item.tags?.map(tag => (
-                              <Badge key={`${item.id}-${tag}`} variant="green" className="text-[9px] uppercase tracking-widest px-4">{tag}</Badge>
+                              <Badge key={`${item.id}-${tag}`} variant="green" className="text-[10px] uppercase tracking-widest px-4">{tag}</Badge>
                             ))}
                           </div>
 
-                          <p className="text-sm text-brand-dark/50 leading-relaxed font-light relative z-10 mb-6">
+                          <p className="text-base text-brand-dark/50 leading-relaxed font-light relative z-10 mb-6">
                             {item.description}
                           </p>
 
                           {item.variations && (
                             <div className="relative z-10 pt-6 border-t border-brand-dark/5 space-y-3">
-                              <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-brand-dark/30 mb-2">Options</p>
+                              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-dark/30 mb-2">Options</p>
                               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 {item.variations.map((v, i) => (
                                   <div key={`${item.id}-var-${i}`} className="flex justify-between items-center bg-brand-cream/40 px-4 py-2.5 rounded-sm border border-brand-dark/[0.02]">
-                                    <span className="text-[10px] uppercase tracking-wide text-brand-dark/60">{v.name}</span>
-                                    <span className="text-[10px] font-serif text-brand-green">{formatPrice(v.price)}</span>
+                                    <span className="text-xs uppercase tracking-wide text-brand-dark/60">{v.name}</span>
+                                    <span className="text-xs font-serif text-brand-green">{formatPrice(v.price)}</span>
                                   </div>
                                 ))}
                               </div>
@@ -269,7 +314,7 @@ export const Menu = () => {
           <div className="mt-20 pt-20 border-t border-brand-dark/5 flex flex-col items-center text-center space-y-8">
             <div className="flex items-center gap-4 text-brand-dark/40 max-w-2xl">
               <Info size={16} className="shrink-0 text-brand-gold" />
-              <p className="text-[10px] uppercase tracking-[0.2em] leading-relaxed font-bold">{menuDisclaimer}</p>
+              <p className="text-xs uppercase tracking-[0.2em] leading-relaxed font-bold">{menuDisclaimer}</p>
             </div>
             <Button 
               as="a" 

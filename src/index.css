@@ -49,3 +49,34 @@
   @apply border border-brand-dark/5;
 }
 
+.menu-gallery-marquee {
+  overflow: hidden;
+}
+
+.menu-gallery-marquee-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: menu-gallery-marquee 85s linear infinite;
+  will-change: transform;
+}
+
+.menu-gallery-marquee:hover .menu-gallery-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes menu-gallery-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-gallery-marquee-track {
+    animation: none;
+  }
+}
