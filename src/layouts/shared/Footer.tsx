@@ -107,6 +107,14 @@ export const Footer = () => {
 
         <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase tracking-[0.2em] font-bold">
           <p className="opacity-40">© {new Date().getFullYear()} {business.name}. All Rights Reserved.</p>
+          <a
+            href="https://www.facebook.com/pbao280/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="opacity-50 hover:opacity-100 hover:text-brand-gold transition-colors"
+          >
+            Web designer by PhongB
+          </a>
         </div>
       </Container>
     </footer>
