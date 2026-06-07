@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { Container } from '../components/ui/Container';
 import { SEOHead } from '../layouts/shared/SEOHead';
 import { restaurantImages, menuGallery } from '../data/gallery';
-import { assetUrl } from '../utils/assets';
+import { optimizedImageSrcSet, optimizedImageUrl } from '../utils/assets';
 import { motion, AnimatePresence } from 'motion/react';
 
 export const Gallery = () => {
@@ -62,7 +62,9 @@ export const Gallery = () => {
                 className="group relative overflow-hidden rounded-3xl"
               >
                 <img
-                  src={assetUrl(img.src)}
+                  src={optimizedImageUrl(img.src)}
+                  srcSet={optimizedImageSrcSet(img.src)}
+                  sizes="(max-width: 640px) 50vw, 480px"
                   alt={img.alt}
                   loading="lazy"
                   decoding="async"
@@ -143,7 +145,9 @@ export const Gallery = () => {
                       className="group relative overflow-hidden rounded-2xl bg-brand-muted aspect-square"
                     >
                       <img
-                        src={assetUrl(img.src)}
+                        src={optimizedImageUrl(img.src, 480)}
+                        srcSet={optimizedImageSrcSet(img.src)}
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                         alt={img.alt}
                         loading="lazy"
                         decoding="async"

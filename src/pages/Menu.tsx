@@ -9,7 +9,7 @@ import { formatPrice, cn } from '../utils/format';
 import { SEOHead } from '../layouts/shared/SEOHead';
 import { Info } from 'lucide-react';
 import { business } from '../data/business';
-import { assetUrl } from '../utils/assets';
+import { optimizedImageSrcSet, optimizedImageUrl } from '../utils/assets';
 
 const menuHeroGalleryImages = menuGallery
   .flatMap((section) =>
@@ -18,7 +18,7 @@ const menuHeroGalleryImages = menuGallery
       label: section.label,
     }))
   )
-  .slice(0, 16);
+  .slice(0, 8);
 
 export const Menu = () => {
   const [activeCategory, setActiveCategory] = useState(menuCategories[0]);
@@ -179,7 +179,9 @@ export const Menu = () => {
                     className="relative h-[9rem] w-[13rem] sm:h-[11rem] sm:w-[16rem] md:h-[12rem] md:w-[18rem] flex-none overflow-hidden rounded-[1.75rem] border border-brand-dark/8 bg-brand-paper shadow-[0_18px_50px_-24px_rgba(45,36,36,0.28)]"
                   >
                     <img
-                      src={assetUrl(image.src)}
+                      src={optimizedImageUrl(image.src, 480)}
+                      srcSet={optimizedImageSrcSet(image.src)}
+                      sizes="(max-width: 640px) 208px, (max-width: 768px) 256px, 288px"
                       alt={image.alt}
                       loading="lazy"
                       decoding="async"

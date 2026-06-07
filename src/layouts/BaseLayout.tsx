@@ -16,13 +16,13 @@ export const BaseLayout = ({ children }: BaseLayoutProps) => {
     <div className="flex flex-col min-h-screen bg-brand-cream selection:bg-brand-red selection:text-white">
       <Header />
       <main className="flex-grow">
-        <AnimatePresence mode="wait">
+        <AnimatePresence initial={false}>
           <motion.div
             key={pathname}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
           >
             {children}
           </motion.div>

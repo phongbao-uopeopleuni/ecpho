@@ -3,8 +3,8 @@ import { Container } from '../components/ui/Container';
 import { Card } from '../components/ui/Card';
 import { SEOHead } from '../layouts/shared/SEOHead';
 import { blogPosts } from '../data/blog';
-import { assetUrl } from '../utils/assets';
-import { ArrowRight, Clock, Calendar } from 'lucide-react';
+import { optimizedImageSrcSet, optimizedImageUrl } from '../utils/assets';
+import { ArrowRight } from 'lucide-react';
 
 export const Blog = () => {
   return (
@@ -33,8 +33,12 @@ export const Blog = () => {
                 <Card className="h-full flex flex-col border border-brand-dark/5 bg-brand-paper rounded-none transition-all duration-500 group-hover:border-brand-green/30 shadow-sm">
                   <div className="relative h-64 overflow-hidden">
                     <img 
-                      src={post.image ? assetUrl(post.image) : "https://images.unsplash.com/photo-1526318896980-cf78c088247c?q=80&w=1000&auto=format&fit=crop"} 
+                      src={post.image ? optimizedImageUrl(post.image, 480) : "https://images.unsplash.com/photo-1526318896980-cf78c088247c?q=80&w=1000&auto=format&fit=crop"}
+                      srcSet={post.image ? optimizedImageSrcSet(post.image) : undefined}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       alt={post.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                     />
                   </div>

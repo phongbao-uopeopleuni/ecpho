@@ -138,7 +138,6 @@ export const menuGallery: MenuGallerySection[] = [
       { src: '/images/menu/drinks/passion-fruit.jpg', alt: 'Drink' },
       { src: '/images/menu/drinks/strawberry-smoothie.jpg', alt: 'Drink' },
       { src: '/images/menu/drinks/taro.jpg', alt: 'Drink' },
-      { src: '/images/menu/drinks/vietnamese-iced-coffee.jpg', alt: 'Drink' },
     ],
   },
 ];

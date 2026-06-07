@@ -2,7 +2,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { Container } from '../components/ui/Container';
 import { SEOHead } from '../layouts/shared/SEOHead';
 import { blogPosts } from '../data/blog';
-import { assetUrl } from '../utils/assets';
+import { optimizedImageSrcSet, optimizedImageUrl } from '../utils/assets';
 import { ArrowLeft, Clock3, CalendarDays, User } from 'lucide-react';
 
 type ContentBlock =
@@ -123,7 +123,14 @@ export const BlogPostDetail = () => {
             <div className="min-w-0">
               <div className="mb-10 border border-brand-dark/8 bg-brand-paper p-4 md:p-5 shadow-[0_20px_60px_rgba(45,36,36,0.06)]">
                 <div className="overflow-hidden aspect-[16/9] bg-brand-muted">
-                  <img src={assetUrl(post.image)} alt={post.title} className="w-full h-full object-cover" />
+                  <img
+                    src={optimizedImageUrl(post.image)}
+                    srcSet={optimizedImageSrcSet(post.image)}
+                    sizes="(max-width: 1280px) 100vw, 780px"
+                    alt={post.title}
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 {post.imageCredit ? (
                   <p className="mt-4 text-sm text-brand-dark/45 font-light">
@@ -220,7 +227,15 @@ export const BlogPostDetail = () => {
                     {blogPosts.filter(p => p.slug !== post.slug).slice(0, 3).map(p => (
                       <Link key={p.slug} to={`/blog/${p.slug}`} className="group flex gap-5">
                         <div className="w-24 h-24 shrink-0 overflow-hidden bg-brand-muted border border-brand-dark/8">
-                          <img src={assetUrl(p.image)} alt={p.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                          <img
+                            src={optimizedImageUrl(p.image, 480)}
+                            srcSet={optimizedImageSrcSet(p.image)}
+                            sizes="96px"
+                            alt={p.title}
+                            loading="lazy"
+                            decoding="async"
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          />
                         </div>
                         <div className="min-w-0 flex flex-col justify-center">
                           <h5 className="font-serif text-brand-dark group-hover:text-brand-red transition-colors text-xl leading-tight tracking-tight mb-2">

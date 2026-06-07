@@ -8,6 +8,22 @@ export function assetUrl(path: string): string {
   return `${base}${normalized}`;
 }
 
+export function optimizedImageUrl(path: string, width = 960): string {
+  if (!path || /^(https?:|data:)/.test(path)) return assetUrl(path);
+  if (!/^\/?images\//.test(path) || !/\.(jpe?g|png)$/i.test(path)) return assetUrl(path);
+
+  const normalized = path.startsWith('/') ? path.slice('/images/'.length) : path.slice('images/'.length);
+  return assetUrl(`/images/optimized/${width}/${normalized.replace(/\.(jpe?g|png)$/i, '.jpg')}`);
+}
+
+export function optimizedImageSrcSet(path: string): string | undefined {
+  if (!path || /^(https?:|data:)/.test(path) || !/^\/?images\//.test(path) || !/\.(jpe?g|png)$/i.test(path)) {
+    return undefined;
+  }
+
+  return `${optimizedImageUrl(path, 480)} 480w, ${optimizedImageUrl(path, 960)} 960w`;
+}
+
 /** Absolute URL for meta tags (og:image, etc.). */
 export function absoluteAssetUrl(path: string): string {
   if (/^https?:/.test(path)) return path;
