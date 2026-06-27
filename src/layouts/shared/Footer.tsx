@@ -113,7 +113,7 @@ export const Footer = () => {
             rel="noopener noreferrer"
             className="opacity-50 hover:opacity-100 hover:text-brand-gold transition-colors"
           >
-            Web designer by PhongB
+            Website designed by PhongB
           </a>
         </div>
       </Container>

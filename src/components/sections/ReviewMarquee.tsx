@@ -26,11 +26,12 @@ const reviewsData = [
 ];
 
 export const ReviewMarquee = () => {
-  // Triple the reviews to ensure seamless loop
-  const displayReviews = [...reviewsData, ...reviewsData, ...reviewsData];
+  // Duplicate once for a seamless marquee loop; clones are hidden from assistive tech.
+  const displayReviews = [...reviewsData, ...reviewsData];
+  const originalReviewCount = reviewsData.length;
 
   return (
-    <div className="relative w-full overflow-hidden py-12">
+    <div className="relative w-full overflow-hidden py-12" aria-label="Customer reviews">
       {/* Fade Edges */}
       <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-brand-paper to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-brand-paper to-transparent z-10 pointer-events-none" />
@@ -38,7 +39,7 @@ export const ReviewMarquee = () => {
       <motion.div 
         className="flex gap-6 w-max"
         animate={{ 
-          x: ["0%", "-33.33%"] 
+          x: ["0%", "-50%"]
         }}
         transition={{ 
           duration: 180, 
@@ -46,29 +47,35 @@ export const ReviewMarquee = () => {
           ease: "linear" 
         }}
       >
-        {displayReviews.map((review, idx) => (
-          <div
-            key={`${review.author}-${idx}`}
-            className="w-[350px] flex-shrink-0 bg-white p-8 rounded-[30px] border border-brand-dark/[0.03] shadow-sm hover:shadow-md transition-all duration-300 text-left flex flex-col justify-between"
-          >
-            <div>
-              <div className="flex gap-1 mb-4 text-brand-gold">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={`star-${idx}-${i}`} size={12} fill="currentColor" />
-                ))}
+        {displayReviews.map((review, idx) => {
+          const isClone = idx >= originalReviewCount;
+
+          return (
+            <div
+              key={`${review.author}-${idx}`}
+              aria-hidden={isClone ? true : undefined}
+              role={isClone ? 'presentation' : undefined}
+              className="w-[350px] flex-shrink-0 bg-white p-8 rounded-[30px] border border-brand-dark/[0.03] shadow-sm hover:shadow-md transition-all duration-300 text-left flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex gap-1 mb-4 text-brand-gold" aria-hidden="true">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={`star-${idx}-${i}`} size={12} fill="currentColor" />
+                  ))}
+                </div>
+                <p className="text-sm font-light leading-relaxed mb-6 italic text-brand-dark/70">
+                  "{review.text.length > 150 ? review.text.substring(0, 150) + '...' : review.text}"
+                </p>
               </div>
-              <p className="text-sm font-light leading-relaxed mb-6 italic text-brand-dark/70">
-                "{review.text.length > 150 ? review.text.substring(0, 150) + '...' : review.text}"
-              </p>
-            </div>
-            <div className="flex justify-between items-center border-t border-brand-dark/5 pt-4">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-brand-green">{review.author}</span>
-              <div className="flex items-center gap-1">
-                <span className="text-[8px] text-brand-dark/20 uppercase font-bold tracking-tighter">Verified Review</span>
+              <div className="flex justify-between items-center border-t border-brand-dark/5 pt-4">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-brand-green">{review.author}</span>
+                <div className="flex items-center gap-1">
+                  <span className="text-[8px] text-brand-dark/20 uppercase font-bold tracking-tighter">Verified Review</span>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </motion.div>
     </div>
   );

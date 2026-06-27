@@ -17,12 +17,15 @@ export const generateRestaurantSchema = () => {
     "@context": "https://schema.org",
     "@type": "Restaurant",
     "name": business.name,
+    "description": business.description,
     "image": [
       `${business.canonicalBaseUrl}/images/og-image.jpg`
     ],
+    "logo": `${business.canonicalBaseUrl}/images/logo/logoecpho.png`,
     "@id": business.canonicalBaseUrl,
     "url": business.canonicalBaseUrl,
     "telephone": business.contact.phone,
+    "email": business.contact.email,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": business.location.address,
@@ -38,6 +41,8 @@ export const generateRestaurantSchema = () => {
     },
     "servesCuisine": business.cuisine,
     "priceRange": "$$",
+    "currenciesAccepted": "USD",
+    "paymentAccepted": "Cash, Credit Card",
     "openingHoursSpecification": business.hours
       .filter(h => h.open !== 'Closed')
       .map(h => ({
@@ -46,9 +51,15 @@ export const generateRestaurantSchema = () => {
         "opens":  to24h(h.open),
         "closes": to24h(h.close),
       })),
-    "menu": `${business.canonicalBaseUrl}/menu`,
-    "acceptsReservations": "False",
-    "orderAction": {
+    "hasMenu": `${business.canonicalBaseUrl}/menu`,
+    "acceptsReservations": false,
+    "hasMap": business.location.googleMapsLink,
+    "sameAs": [
+      business.social.facebook,
+      business.social.instagram,
+      business.social.google
+    ],
+    "potentialAction": {
       "@type": "OrderAction",
       "target": {
         "@type": "EntryPoint",
