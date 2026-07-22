@@ -1,5 +1,5 @@
-import { motion } from 'motion/react';
-import { Star } from 'lucide-react';
+import { useState } from 'react';
+import { Pause, Play, Star } from 'lucide-react';
 
 const reviewsData = [
   { text: "The best pho I've had in ages. The broth is incredibly deep and flavorful. Highly recommend the rare beef pho!", author: "Sarah J." },
@@ -26,57 +26,62 @@ const reviewsData = [
 ];
 
 export const ReviewMarquee = () => {
-  // Duplicate once for a seamless marquee loop; clones are hidden from assistive tech.
-  const displayReviews = [...reviewsData, ...reviewsData];
-  const originalReviewCount = reviewsData.length;
+  const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <div className="relative w-full overflow-hidden py-12" aria-label="Customer reviews">
+    <section className="review-marquee relative w-full overflow-hidden py-12" aria-label="Customer reviews">
       {/* Fade Edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-brand-paper to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-brand-paper to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-r from-brand-paper to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-l from-brand-paper to-transparent z-10 pointer-events-none" />
 
-      <motion.div 
-        className="flex gap-6 w-max"
-        animate={{ 
-          x: ["0%", "-50%"]
-        }}
-        transition={{ 
-          duration: 180, 
-          repeat: Infinity, 
-          ease: "linear" 
-        }}
+      <button
+        type="button"
+        className="review-marquee-control absolute right-2 top-2 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full border border-brand-dark/10 bg-white/90 text-brand-dark/60 shadow-sm transition-colors hover:text-brand-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green/50"
+        aria-label={isPaused ? 'Play customer reviews' : 'Pause customer reviews'}
+        aria-controls="customer-review-track"
+        aria-pressed={isPaused}
+        title={isPaused ? 'Play customer reviews' : 'Pause customer reviews'}
+        onClick={() => setIsPaused((paused) => !paused)}
       >
-        {displayReviews.map((review, idx) => {
-          const isClone = idx >= originalReviewCount;
+        {isPaused ? <Play size={16} fill="currentColor" aria-hidden="true" /> : <Pause size={16} fill="currentColor" aria-hidden="true" />}
+      </button>
 
-          return (
-            <div
-              key={`${review.author}-${idx}`}
-              aria-hidden={isClone ? true : undefined}
-              role={isClone ? 'presentation' : undefined}
-              className="w-[350px] flex-shrink-0 bg-white p-8 rounded-[30px] border border-brand-dark/[0.03] shadow-sm hover:shadow-md transition-all duration-300 text-left flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex gap-1 mb-4 text-brand-gold" aria-hidden="true">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={`star-${idx}-${i}`} size={12} fill="currentColor" />
-                  ))}
+      <div
+        id="customer-review-track"
+        className={`review-marquee-track${isPaused ? ' is-paused' : ''}`}
+      >
+        {[false, true].map((isClone, groupIndex) => (
+          <ul
+            key={isClone ? 'review-clones' : 'review-originals'}
+            className="review-marquee-group m-0 list-none p-0"
+            aria-hidden={isClone ? true : undefined}
+          >
+            {reviewsData.map((review, reviewIndex) => (
+              <li
+                key={`${review.author}-${groupIndex}-${reviewIndex}`}
+                className="w-[280px] sm:w-[350px] flex-shrink-0 bg-white p-6 sm:p-8 rounded-[30px] border border-brand-dark/[0.03] shadow-sm hover:shadow-md transition-shadow duration-300 text-left flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex gap-1 mb-4 text-brand-gold" aria-hidden="true">
+                    {[...Array(5)].map((_, starIndex) => (
+                      <Star key={`star-${groupIndex}-${reviewIndex}-${starIndex}`} size={12} fill="currentColor" />
+                    ))}
+                  </div>
+                  <p className="text-sm font-light leading-relaxed mb-6 italic text-brand-dark/70">
+                    "{review.text.length > 150 ? review.text.substring(0, 150) + '...' : review.text}"
+                  </p>
                 </div>
-                <p className="text-sm font-light leading-relaxed mb-6 italic text-brand-dark/70">
-                  "{review.text.length > 150 ? review.text.substring(0, 150) + '...' : review.text}"
-                </p>
-              </div>
-              <div className="flex justify-between items-center border-t border-brand-dark/5 pt-4">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-brand-green">{review.author}</span>
-                <div className="flex items-center gap-1">
-                  <span className="text-[8px] text-brand-dark/20 uppercase font-bold tracking-tighter">Verified Review</span>
+                <div className="flex justify-between items-center border-t border-brand-dark/5 pt-4">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-brand-green">{review.author}</span>
+                  <span className="text-[8px] text-brand-dark/20 uppercase font-bold tracking-tighter">
+                    Verified Review
+                  </span>
                 </div>
-              </div>
-            </div>
-          );
-        })}
-      </motion.div>
-    </div>
+              </li>
+            ))}
+          </ul>
+        ))}
+      </div>
+    </section>
   );
 };

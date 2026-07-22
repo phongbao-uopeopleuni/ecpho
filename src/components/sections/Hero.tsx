@@ -59,23 +59,15 @@ export const Hero = () => {
             </div>
             
             {/* Floating Badges */}
-            <motion.div 
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-4 -left-4 z-20 bg-brand-paper p-6 shadow-xl border-subtle"
-            >
+            <div className="hero-float-up absolute -top-4 -left-4 z-20 bg-brand-paper p-6 shadow-xl border-subtle">
               <div className="text-brand-green font-serif text-3xl mb-1">12h</div>
               <div className="text-[10px] uppercase font-bold tracking-widest text-brand-dark/40">Slow Simmered</div>
-            </motion.div>
+            </div>
 
-            <motion.div 
-              animate={{ y: [0, 15, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -bottom-4 -right-4 z-20 bg-brand-dark p-6 shadow-xl"
-            >
+            <div className="hero-float-down absolute -bottom-4 -right-4 z-20 bg-brand-dark p-6 shadow-xl">
               <div className="text-brand-gold font-serif text-3xl mb-1">100%</div>
               <div className="text-[10px] uppercase font-bold tracking-widest text-white/40">Natural Broth</div>
-            </motion.div>
+            </div>
 
             {/* Artistic accents */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-brand-green/5 rounded-full blur-3xl -z-10" />
