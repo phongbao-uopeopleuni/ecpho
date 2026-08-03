@@ -3,6 +3,65 @@
 All notable changes to this project are documented here.  
 Format: `[Phase X] — YYYY-MM-DD — Short description`
 
+> Chỉ mục toàn bộ tài liệu: [`docs/README.md`](./README.md)
+
+---
+
+## [Phase 6] — 2026-08-03 — Sửa lỗi điều hướng & cuộn trang
+
+### Context
+Báo lỗi từ người dùng: click "Menu" trên desktop bị nhảy xuống footer. Truy vết bằng cách instrument `window.scrollTo` / `Element.prototype.scrollIntoView` cho thấy đây là **hai lỗi độc lập chồng lên nhau**, và audit tiếp theo phát hiện thêm 3 vấn đề trong cùng khu vực.
+
+Báo cáo đầy đủ kèm bằng chứng đo đạc: [`docs/navigation-audit.md`](./navigation-audit.md)
+
+### Change
+
+**`src/components/ScrollToTop.tsx`** *(mới)* — React Router không tự reset cuộn khi đổi route:
+```tsx
+if (navigationType === 'POP') return;  // back/forward giữ vị trí cũ
+if (hash) return;                       // /menu#drinks tự cuộn tới section
+window.scrollTo(0, 0);
+```
+Dependency dùng `location.key` chứ không phải `pathname`, vì `Menu.tsx` gọi thẳng `window.history.pushState` nên router không biết hash đã đổi.
+
+**`src/pages/Menu.tsx`** — effect auto-scroll thanh danh mục kéo cả cửa sổ xuống ~20000px. `scrollIntoView` cuộn **mọi** ancestor kể cả window; các nút nằm trong thanh `position: sticky` nên `block: 'nearest'` tính theo vị trí layout sâu trong document:
+```diff
+- activeElement.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
++ const offset = (itemRect.left - navRect.left) - (navRect.width - itemRect.width) / 2;
++ nav.scrollTo({ left: nav.scrollLeft + offset, behavior: 'smooth' });
+```
+
+**`src/utils/format.ts`** — thêm `slugify()` + `legacySlugify()`. Logic sinh slug trước đây lặp 5 lần trong `Menu.tsx` và gõ tay một bộ khác trong `App.tsx`, khiến `/pho` và `/bun` trỏ tới ID không tồn tại:
+
+| Danh mục | ID cũ | ID mới |
+|---|---|---|
+| Noodle Soups (Phở) | `noodle-soups--ph--` | `noodle-soups-pho` |
+| Vermicelli (Bún) | `vermicelli--b-n-` | `vermicelli-bun` |
+| Beer & Wine | `beer---wine` | `beer-wine` |
+
+`legacySlugify()` giữ tương thích ngược: link mang anchor cũ vẫn vào đúng section, đồng thời URL tự chuẩn hoá về dạng sạch.
+
+**`src/pages/Menu.tsx`** — `scrollToCategory` mở đầu bằng `if (isScrollingRef.current) return;` với cờ khoá 750ms, khiến click danh mục thứ hai bị nuốt im lặng. Sửa để click mới **khởi động lại** cửa sổ khoá thay vì bị loại bỏ, kèm dọn timeout khi unmount.
+
+**`src/pages/Gallery.tsx`** — cùng mẫu `scrollIntoView` rủi ro ở thanh tab (không sticky nên rủi ro thấp hơn). Đổi sang cuộn container. Sửa phòng ngừa.
+
+**`src/index.css`** — tốc độ marquee ảnh menu `85s` → `50s` theo yêu cầu riêng, không thuộc phạm vi sửa lỗi.
+
+### Verification
+- 11 lần chuyển route từ đáy trang → tất cả về `scrollY = 0` ✅
+- Back/forward khôi phục đúng vị trí cũ (`scrollY = 2211`), không bị ép về đầu ✅
+- 11/11 section ID sạch và duy nhất; 8/8 anchor cam kết phân giải được ✅
+- Anchor cũ `#vermicelli--b-n-` vẫn vào đúng section, URL tự chuẩn hoá ✅
+- Click nhanh 5 danh mục cách 120ms: trước mất một nửa, nay 5/5 đúng ✅
+- Gallery 9 tab desktop + 4 tab mobile: cửa sổ dịch 0px ✅
+- `tsc --noEmit` sạch, `vite build` thành công ✅
+
+### Known limitation
+Browser pane dùng để kiểm chứng không vẽ frame (`rAF = 0 fps`) nên mọi cuộn `behavior: 'smooth'` không chạy — lần verify đầu đã bỏ sót lỗi thứ hai vì lý do này. Các lần sau ép `behavior: 'instant'` khi instrument. Chi tiết ở §5 của `navigation-audit.md`.
+
+### Còn tồn
+Trang 404 thiếu `noindex` (soft 404) · `urlMigration.ts` dead code · bundle 532 kB.
+
 ---
 
 ## [Hotfix] — 2026-05-29 — CSP: thêm transparenttextures.com vào img-src
@@ -260,20 +319,39 @@ Two critical bugs identified in SEO audit: (1) the OG image referenced in every 
 
 ---
 
-## Upcoming Phases
+## Phase Status
+
+> Cập nhật 2026-08-03: bảng này trước đây ghi Phase 3–5 là *Pending* trong khi các mục hoàn thành của chúng đã nằm ngay phía trên trong cùng file. Đã sửa cho khớp.
 
 | Phase | Description | Status |
 |-------|-------------|--------|
-| Phase 3 | Fix canonical trailing slash · Delete unused `SEO.tsx` · Clean `seo.ts` · Improve Menu title | Pending |
-| Phase 4 | Fix Schema.org time format (AM/PM → 24h) · Filter closed days · Rebuild sitemap.xml | Pending |
-| Phase 5 | Add FAQ schema · Blog post meta descriptions · Homepage schema array | Pending |
+| Phase 1 | OG image · Privacy/Terms 404 | ✅ Done — 2026-05-29 |
+| Phase 2 | Duplicate routes → 301 redirects · Update nav links | ✅ Done — 2026-05-29 |
+| Phase 3 | Fix canonical trailing slash · Delete unused `SEO.tsx` · Clean `seo.ts` · Improve Menu title | ✅ Done — 2026-05-29 |
+| Phase 4 | Fix Schema.org time format (AM/PM → 24h) · Filter closed days · Rebuild sitemap.xml | ✅ Done — 2026-05-29 |
+| Phase 5 | Add FAQ schema · Blog post meta descriptions · Homepage schema array | ✅ Done — 2026-05-29 |
+| Phase 6 | Sửa lỗi điều hướng & cuộn trang | ✅ Done — 2026-08-03 |
+
+### Việc còn tồn
+
+| Việc | Mức | Nguồn |
+|---|---|---|
+| Trang 404 thiếu `noindex` → soft 404 | Trung bình | [`navigation-audit.md` §6.4](./navigation-audit.md) |
+| `urlMigration.ts` là dead code | Thấp | [`navigation-audit.md` §6.1](./navigation-audit.md) |
+| Bundle JS 532 kB vượt ngưỡng 500 kB | Thấp | [`navigation-audit.md` §6.2](./navigation-audit.md) |
 
 ---
 
 ## Reference Documents
 
+> Danh sách đầy đủ và phân loại: [`docs/README.md`](./README.md)
+
 | Document | Description |
 |----------|-------------|
+| [`docs/README.md`](./README.md) | **Chỉ mục tài liệu** — điểm vào cho mọi tra cứu |
+| [`docs/navigation-audit.md`](./navigation-audit.md) | Audit routing/cuộn trang/anchor kèm checklist hồi quy |
+| [`docs/SEO_REFACTOR_PLAN.md`](./SEO_REFACTOR_PLAN.md) | Kế hoạch SEO 5 phase (đã hoàn thành) |
+| [`docs/code-knowledge-graph/OVERVIEW.md`](./code-knowledge-graph/OVERVIEW.md) | Bản đồ phụ thuộc mã nguồn |
 | [`docs/ec-pho-seo-audit.docx`](./ec-pho-seo-audit.docx) | Full SEO audit report with issue tables and keyword opportunities |
 | [`docs/ec-pho-refactor-plan.docx`](./ec-pho-refactor-plan.docx) | Phased refactoring plan with code snippets and risk assessment |
 | [`docs/MIGRATION.md`](./MIGRATION.md) | Google Sites → Vercel deployment and DNS migration guide |

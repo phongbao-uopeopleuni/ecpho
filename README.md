@@ -2,6 +2,12 @@
 
 Production-ready static website for EC Phở, Greenville, NC.
 
+## Documentation
+
+📖 **[docs/README.md](./docs/README.md)** — chỉ mục toàn bộ tài liệu, phân loại kèm ngày tháng. Bắt đầu tra cứu từ đó.
+
+Lối tắt hay dùng: [Changelog](./docs/CHANGELOG.md) · [Audit điều hướng](./docs/navigation-audit.md) · [Migration & URL](./docs/MIGRATION.md) · [Bảo mật](./SECURITY.md)
+
 ## Tech Stack
 - React + Vite
 - TypeScript
