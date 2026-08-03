@@ -5,7 +5,7 @@ import { Badge } from '../components/ui/Badge';
 import { Button } from '../components/ui/Button';
 import { menuItems, menuCategories, menuDisclaimer } from '../data/menu';
 import { menuGallery } from '../data/gallery';
-import { formatPrice, cn } from '../utils/format';
+import { formatPrice, cn, slugify, legacySlugify } from '../utils/format';
 import { SEOHead } from '../layouts/shared/SEOHead';
 import { Info } from 'lucide-react';
 import { business } from '../data/business';
@@ -23,37 +23,33 @@ const menuHeroGalleryImages = menuGallery
 export const Menu = () => {
   const [activeCategory, setActiveCategory] = useState(menuCategories[0]);
   const isScrollingRef = useRef(false);
+  const scrollTimeoutRef = useRef<number | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
 
   // Handle scrolling to category
   const scrollToCategory = (category: string) => {
-    if (isScrollingRef.current) return;
-
-    isScrollingRef.current = true;
-    setActiveCategory(category);
-    
-    // Generate a safe ID from the category name
-    const id = category.toLowerCase().replace(/[^a-z0-9]/g, '-');
+    const id = slugify(category);
     const element = document.getElementById(id);
-    
-    if (element) {
-      // Use scrollIntoView with scroll-margin-top defined in CSS (scroll-mt-40)
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+    if (!element) return;
 
-      // Update URL hash without jumping
-      window.history.pushState(null, '', `#${id}`);
+    setActiveCategory(category);
 
-      // Reset scrolling flag after animation completes
-      // Reduced timeout for faster re-interaction
-      setTimeout(() => {
-        isScrollingRef.current = false;
-      }, 750);
-    } else {
-      isScrollingRef.current = false;
+    // Suppress the scroll spy while the smooth scroll runs. A second click
+    // restarts that window instead of being dropped.
+    isScrollingRef.current = true;
+    if (scrollTimeoutRef.current !== null) {
+      window.clearTimeout(scrollTimeoutRef.current);
     }
+    scrollTimeoutRef.current = window.setTimeout(() => {
+      isScrollingRef.current = false;
+      scrollTimeoutRef.current = null;
+    }, 750);
+
+    // Uses scroll-margin-top defined in CSS (scroll-mt-40)
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Update URL hash without jumping
+    window.history.pushState(null, '', `#${id}`);
   };
 
   // Sync active category on scroll and handle initial hash
@@ -62,8 +58,9 @@ export const Menu = () => {
     const handleInitialHash = () => {
       const hash = window.location.hash.replace('#', '');
       if (hash) {
-        const category = menuCategories.find(c => 
-          c.toLowerCase().replace(/[^a-z0-9]/g, '-') === hash
+        // Accept the legacy slug too, so anchors shared from the old build still land.
+        const category = menuCategories.find(c =>
+          slugify(c) === hash || legacySlugify(c) === hash
         );
         if (category) {
           setTimeout(() => scrollToCategory(category), 500);
@@ -92,9 +89,7 @@ export const Menu = () => {
       if (intersectingEntries.length > 0) {
         const topEntry = intersectingEntries[0];
         const categoryId = topEntry.target.id;
-        const category = menuCategories.find(c => 
-          c.toLowerCase().replace(/[^a-z0-9]/g, '-') === categoryId
-        );
+        const category = menuCategories.find(c => slugify(c) === categoryId);
         if (category && category !== activeCategory) {
           setActiveCategory(category);
         }
@@ -104,28 +99,36 @@ export const Menu = () => {
     const observer = new IntersectionObserver(handleIntersect, observerOptions);
 
     menuCategories.forEach((category) => {
-      const id = category.toLowerCase().replace(/[^a-z0-9]/g, '-');
-      const element = document.getElementById(id);
+      const element = document.getElementById(slugify(category));
       if (element) {
         observer.observe(element);
       }
     });
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (scrollTimeoutRef.current !== null) {
+        window.clearTimeout(scrollTimeoutRef.current);
+      }
+    };
   }, []);
 
   // Auto-scroll the horizontal nav to keep active item in view
   useEffect(() => {
-    if (navRef.current && activeCategory) {
-      const activeElement = navRef.current.querySelector(`[data-category="${activeCategory}"]`);
-      if (activeElement) {
-        activeElement.scrollIntoView({
-          behavior: 'smooth',
-          inline: 'center',
-          block: 'nearest'
-        });
-      }
-    }
+    const nav = navRef.current;
+    if (!nav || !activeCategory) return;
+
+    const activeElement = nav.querySelector(`[data-category="${activeCategory}"]`);
+    if (!activeElement) return;
+
+    // Scroll the nav strip itself rather than using scrollIntoView: the buttons
+    // live in a sticky bar, so scrollIntoView also scrolls the window vertically
+    // and throws the visitor far down the page.
+    const navRect = nav.getBoundingClientRect();
+    const itemRect = activeElement.getBoundingClientRect();
+    const offset = (itemRect.left - navRect.left) - (navRect.width - itemRect.width) / 2;
+
+    nav.scrollTo({ left: nav.scrollLeft + offset, behavior: 'smooth' });
   }, [activeCategory]);
 
   return (
@@ -246,7 +249,7 @@ export const Menu = () => {
               {menuCategories.map((category) => (
                 <div 
                   key={category} 
-                  id={category.toLowerCase().replace(/[^a-z0-9]/g, '-')}
+                  id={slugify(category)}
                   className="mb-32 scroll-mt-40"
                 >
                   <div className="mb-12">

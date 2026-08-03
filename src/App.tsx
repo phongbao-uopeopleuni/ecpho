@@ -12,6 +12,8 @@ import { Contact } from './pages/Contact';
 import { Privacy } from './pages/Privacy';
 import { Terms } from './pages/Terms';
 import { CompatibilityPage } from './components/CompatibilityPage';
+import { ScrollToTop } from './components/ScrollToTop';
+import { slugify } from './utils/format';
 import { Link } from 'react-router-dom';
 
 const NotFoundPatch = () => (
@@ -28,6 +30,7 @@ function App() {
   return (
     <HelmetProvider>
       <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <ScrollToTop />
         <BaseLayout>
           <Routes>
             {/* Main Routes */}
@@ -53,11 +56,11 @@ function App() {
             />
             <Route
               path="/pho"
-              element={<CompatibilityPage categoryName="Phở" targetAnchor="noodle-soups-pho" />}
+              element={<CompatibilityPage categoryName="Phở" targetAnchor={slugify('Noodle Soups (Phở)')} />}
             />
             <Route
               path="/bun"
-              element={<CompatibilityPage categoryName="Vermicelli" targetAnchor="vermicelli-bun" />}
+              element={<CompatibilityPage categoryName="Vermicelli" targetAnchor={slugify('Vermicelli (Bún)')} />}
             />
             <Route
               path="/rice-plates"

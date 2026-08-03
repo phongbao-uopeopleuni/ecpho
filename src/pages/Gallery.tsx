@@ -13,7 +13,15 @@ export const Gallery = () => {
 
   const handleTabClick = (id: string, el: HTMLButtonElement) => {
     setActiveTab(id);
-    el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+
+    // Scroll the tab strip itself: scrollIntoView also walks up to the window
+    // and can nudge the page vertically when the tab sits near a viewport edge.
+    const tabs = tabsRef.current;
+    if (!tabs) return;
+    const tabsRect = tabs.getBoundingClientRect();
+    const elRect = el.getBoundingClientRect();
+    const offset = (elRect.left - tabsRect.left) - (tabsRect.width - elRect.width) / 2;
+    tabs.scrollTo({ left: tabs.scrollLeft + offset, behavior: 'smooth' });
   };
 
   return (
