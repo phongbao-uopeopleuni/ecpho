@@ -1,82 +1,216 @@
-import { motion } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Pause, Play } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Container } from '../ui/Container';
-import { Badge } from '../ui/Badge';
-import { menuItems } from '../../data/menu';
-import { formatPrice } from '../../utils/format';
-import { optimizedImageSrcSet, optimizedImageUrl } from '../../utils/assets';
+import { assetUrl } from '../../utils/assets';
+
+interface SignaturePiece {
+  id: string;
+  title: string;
+  category: string;
+}
+
+const signaturePieces: SignaturePiece[] = [
+  { id: 'food_3_A2', title: 'Eye Round Steak & Brisket Pho', category: 'Pho' },
+  { id: 'food_28_A2', title: 'Oxtail Beef Pho', category: 'Pho' },
+  { id: 'food_27_A2', title: 'Rib Beef Pho', category: 'Pho' },
+  { id: 'food_16_A2', title: 'Seafood Pho', category: 'Pho' },
+  { id: 'food_11_A2', title: 'Shaking Beef with Steamed Rice', category: 'House Special' },
+  { id: 'food_2_A2', title: 'Banh Mi Viet Nam', category: 'Vietnamese Classic' },
+  { id: 'food_14_A2', title: 'House Special Fried Rice', category: 'Rice' },
+  { id: 'food_9_A2', title: 'Chicken Pad Thai', category: 'Noodles' },
+  { id: 'food_1_A2', title: 'Crispy Egg Noodles', category: 'Noodles' },
+  { id: 'food_10_A2', title: 'Clay Pot', category: 'House Special' },
+  { id: 'food_12_A2', title: 'Egg Rolls & Fresh Shrimp Spring Rolls', category: 'Appetizers' },
+  { id: 'food_13_A2', title: 'Chow Fun Noodle', category: 'Noodles' },
+  { id: 'food_15_A2', title: 'Beef Stew with Bread', category: 'House Special' },
+  { id: 'food_17_A2', title: 'Shaking Tofu with Steamed Rice', category: 'Vegetarian' },
+  { id: 'food_18_A2', title: 'Vegetable Pho', category: 'Vegetarian' },
+  { id: 'food_19_A2', title: 'Vermicelli with Lemongrass Beef', category: 'Vermicelli' },
+  { id: 'food_20_A2', title: 'Vermicelli with Grilled Chicken & Egg Roll', category: 'Vermicelli' },
+  { id: 'food_21_A2', title: 'Chicken Noodle Soup', category: 'Noodle Soup' },
+  { id: 'food_22_A2', title: 'Wonton with Egg Noodle Soup', category: 'Noodle Soup' },
+  { id: 'food_23_A2', title: 'Spicy Beef Noodle Soup', category: 'Noodle Soup' },
+  { id: 'food_25_A2', title: 'Appetizer Favorites', category: 'Appetizers' },
+  { id: 'food_26_A2', title: "Orange Chicken & General Tso's Chicken", category: 'Chicken' },
+  { id: 'food_4_A2', title: 'Sesame Chicken with Steamed Rice', category: 'Chicken' },
+  { id: 'food_5_A2', title: 'Papaya Salad', category: 'Salad' },
+  { id: 'food_6_A2', title: 'Grilled Beef & Shrimp with Steamed Rice', category: 'Rice' },
+  { id: 'food_7_A2', title: 'Grilled Pork Chop & Eggs with Steamed Rice', category: 'Rice' },
+  { id: 'food_8_A2', title: 'Five Spice Chicken with Garlic Rice', category: 'Rice' },
+  { id: 'drink_1_A2', title: 'Vietnamese Drinks', category: 'Drinks' },
+  { id: 'drink_2_A2', title: 'Fresh Smoothies', category: 'Drinks' },
+];
+
+const signatureImage = (id: string, width: 480 | 960) =>
+  assetUrl(`/images/signature-masterpieces/${width}/${id}.webp`);
 
 export const FeaturedDishes = () => {
-  const featured = menuItems.filter(item => item.tags?.includes('Popular') || item.tags?.includes('Signature'));
+  const galleryRef = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+  const [isAutoPaused, setIsAutoPaused] = useState(false);
+
+  useEffect(() => {
+    if (isAutoPaused || prefersReducedMotion) return;
+
+    const intervalId = window.setInterval(() => {
+      const gallery = galleryRef.current;
+      if (!gallery) return;
+
+      const scrollStep = Math.min(gallery.clientWidth * 0.82, 920);
+      const maxScroll = gallery.scrollWidth - gallery.clientWidth;
+      const hasReachedEnd = gallery.scrollLeft >= maxScroll - 12;
+
+      gallery.scrollTo({
+        left: hasReachedEnd ? 0 : Math.min(gallery.scrollLeft + scrollStep, maxScroll),
+        behavior: 'smooth',
+      });
+    }, 10_000);
+
+    return () => window.clearInterval(intervalId);
+  }, [isAutoPaused, prefersReducedMotion]);
+
+  const scrollGallery = (direction: -1 | 1) => {
+    const gallery = galleryRef.current;
+    if (!gallery) return;
+
+    gallery.scrollBy({
+      left: direction * Math.min(gallery.clientWidth * 0.82, 920),
+      behavior: 'smooth',
+    });
+  };
 
   return (
-    <section className="py-20 sm:py-32 bg-[#FAF9F6]">
-      <Container>
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-24 gap-8">
-          <div className="max-w-xl">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+    <section
+      id="signature-masterpieces"
+      className="relative overflow-hidden bg-[#211915] py-20 text-white sm:py-28 lg:py-32"
+    >
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_12%,rgba(123,161,80,0.18),transparent_32%),radial-gradient(circle_at_88%_72%,rgba(197,160,89,0.12),transparent_30%)]" />
+      <div className="pointer-events-none absolute -left-28 top-28 h-64 w-64 rounded-full border border-white/[0.04] sm:h-96 sm:w-96" />
+
+      <Container className="relative z-10">
+        <div className="grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-end lg:gap-16">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-3xl"
+          >
+            <div className="mb-6 flex items-center gap-4">
+              <span className="h-px w-10 bg-brand-gold" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.38em] text-brand-gold">
+                Our New Collection
+              </span>
+            </div>
+            <h2 className="font-serif text-5xl uppercase leading-[0.84] tracking-[-0.055em] text-white sm:text-6xl md:text-7xl lg:text-[5.7rem]">
+              Signature
+              <span className="mt-2 block font-serif italic text-brand-green sm:mt-3">
+                Masterpieces
+              </span>
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ delay: 0.12, duration: 0.7 }}
+            className="max-w-lg lg:justify-self-end"
+          >
+            <p className="text-sm font-light leading-7 text-white/58 sm:text-base">
+              From slow-simmered pho to sizzling house favorites, discover the dishes that define the EC Pho table.
+            </p>
+            <div className="mt-7 flex flex-wrap items-center gap-5">
+              <Link
+                to="/menu"
+                className="group inline-flex items-center gap-3 rounded-full bg-brand-green px-6 py-3.5 text-[10px] font-bold uppercase tracking-[0.22em] text-white transition-colors hover:bg-[#8cad62]"
+              >
+                View Full Menu
+                <ArrowUpRight size={15} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
+              <span className="w-full text-[10px] font-bold uppercase tracking-[0.24em] text-white/35 sm:w-auto">
+                29 favorites
+              </span>
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="mt-10 flex items-center justify-end border-t border-white/10 pt-5 sm:mt-20 sm:pt-6">
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => scrollGallery(-1)}
+              aria-label="Previous signature dishes"
+              className="hidden h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white/70 transition-all hover:border-brand-green hover:bg-brand-green hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-green sm:flex"
             >
-              <h2 className="text-[10px] font-bold text-brand-green uppercase tracking-[0.4em] mb-4 sm:mb-6">Our Favorites</h2>
-              <p className="text-4xl sm:text-5xl md:text-7xl font-serif text-brand-dark leading-[0.85] tracking-tighter uppercase">
-                Signature <br />
-                <span className="italic text-brand-green">Masterpieces</span>
-              </p>
-            </motion.div>
+              <ArrowLeft size={17} />
+            </button>
+            <button
+              type="button"
+              onClick={() => setIsAutoPaused(current => !current)}
+              aria-label={isAutoPaused ? 'Resume automatic gallery scrolling' : 'Pause automatic gallery scrolling'}
+              aria-pressed={isAutoPaused}
+              title={isAutoPaused ? 'Resume auto-scroll' : 'Pause auto-scroll'}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/70 transition-all hover:border-brand-green hover:bg-brand-green hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-green sm:h-11 sm:w-11"
+            >
+              {isAutoPaused ? <Play size={15} /> : <Pause size={15} />}
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollGallery(1)}
+              aria-label="Next signature dishes"
+              className="hidden h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white/70 transition-all hover:border-brand-green hover:bg-brand-green hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-green sm:flex"
+            >
+              <ArrowRight size={17} />
+            </button>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {featured.map((item, index) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 30 }}
+        <div
+          ref={galleryRef}
+          className="no-scrollbar -mr-4 flex snap-x snap-mandatory items-start gap-4 overflow-x-auto overscroll-x-contain scroll-smooth pb-4 pr-4 pt-7 sm:-mr-6 sm:gap-6 sm:pb-14 sm:pr-6 sm:pt-9 lg:-mr-8 lg:pr-8"
+          aria-label="Signature dishes gallery"
+        >
+          {signaturePieces.map((piece, index) => (
+            <motion.article
+              key={piece.id}
+              initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.8 }}
-              viewport={{ once: true }}
-              className="flex"
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.65, delay: Math.min(index, 5) * 0.06 }}
+              className={`group w-[78vw] max-w-[310px] flex-none snap-start ${index % 2 === 1 ? 'sm:mt-12' : ''} sm:w-[310px] lg:w-[330px] lg:max-w-[330px]`}
             >
-              <div className="group bg-white rounded-[32px] sm:rounded-[40px] overflow-hidden border border-brand-dark/[0.03] hover:shadow-2xl hover:shadow-brand-green/10 transition-all duration-700 flex flex-col w-full">
-                <div className="relative h-64 sm:h-72 overflow-hidden">
-                  <img 
-                    src={item.image ? optimizedImageUrl(item.image, 480) : "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?q=80&w=800&auto=format&fit=crop"}
-                    srcSet={item.image ? optimizedImageSrcSet(item.image) : undefined}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    alt={item.name} 
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                  <div className="absolute top-4 left-4 sm:top-6 sm:left-6">
-                    <div className="bg-white/90 backdrop-blur-md px-3 py-1 sm:px-4 sm:py-1.5 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-brand-green shadow-sm">
-                      {item.tags?.[0] || 'Signature'}
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="p-6 sm:p-10 flex flex-col flex-grow">
-                  <div className="flex justify-between items-start gap-4 mb-4">
-                    <div>
-                      <h3 className="text-xl sm:text-2xl font-serif text-brand-dark leading-tight tracking-tight group-hover:text-brand-green transition-colors">{item.name}</h3>
-                      {item.vietnameseName && (
-                        <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-brand-dark/30 mt-2">{item.vietnameseName}</p>
-                      )}
-                    </div>
-                    <span className="font-serif text-xl sm:text-2xl text-brand-green whitespace-nowrap">{formatPrice(item.price)}</span>
-                  </div>
-                  
-                  <p className="text-brand-dark/50 text-xs sm:text-sm leading-relaxed font-light mt-2 sm:mt-4 line-clamp-2">
-                    {item.description}
-                  </p>
-                  
-                  <div className="mt-auto pt-6 sm:pt-8 flex items-center">
-                    <span className="w-8 h-px bg-brand-dark/10 group-hover:w-16 group-hover:bg-brand-green transition-all duration-500" />
-                  </div>
-                </div>
+              <div className="relative aspect-[210/297] overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.04] shadow-[0_28px_70px_rgba(0,0,0,0.28)] sm:rounded-[34px]">
+                <img
+                  src={signatureImage(piece.id, 480)}
+                  srcSet={`${signatureImage(piece.id, 480)} 480w, ${signatureImage(piece.id, 960)} 960w`}
+                  sizes="(max-width: 640px) 78vw, (max-width: 1024px) 310px, 330px"
+                  alt={piece.title}
+                  loading="lazy"
+                  decoding="async"
+                  width="960"
+                  height="1358"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+                />
+                <div className="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-inset ring-white/10" />
               </div>
-            </motion.div>
+
+              <div className="flex items-start justify-between gap-4 px-1 pt-5">
+                <div>
+                  <p className="mb-2 text-[9px] font-bold uppercase tracking-[0.26em] text-brand-gold/75">
+                    {piece.category}
+                  </p>
+                  <h3 className="font-serif text-lg leading-snug tracking-tight text-white/88 transition-colors group-hover:text-brand-green">
+                    {piece.title}
+                  </h3>
+                </div>
+                <span className="font-serif text-sm italic text-white/25">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+              </div>
+            </motion.article>
           ))}
         </div>
       </Container>
