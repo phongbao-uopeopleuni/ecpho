@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { motion } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 import { Container } from '../components/ui/Container';
 import { Badge } from '../components/ui/Badge';
 import { Button } from '../components/ui/Button';
@@ -7,7 +7,7 @@ import { menuItems, menuCategories, menuDisclaimer } from '../data/menu';
 import { menuGallery } from '../data/gallery';
 import { formatPrice, cn, slugify, legacySlugify } from '../utils/format';
 import { SEOHead } from '../layouts/shared/SEOHead';
-import { Info } from 'lucide-react';
+import { ChevronDown, ChevronRight, Info, ListFilter } from 'lucide-react';
 import { business } from '../data/business';
 import { optimizedImageSrcSet, optimizedImageUrl } from '../utils/assets';
 
@@ -22,9 +22,10 @@ const menuHeroGalleryImages = menuGallery
 
 export const Menu = () => {
   const [activeCategory, setActiveCategory] = useState(menuCategories[0]);
+  const [isMobileCategoryListOpen, setIsMobileCategoryListOpen] = useState(false);
   const isScrollingRef = useRef(false);
   const scrollTimeoutRef = useRef<number | null>(null);
-  const navRef = useRef<HTMLDivElement>(null);
+  const scrollFrameRef = useRef<number | null>(null);
 
   // Handle scrolling to category
   const scrollToCategory = (category: string) => {
@@ -33,20 +34,46 @@ export const Menu = () => {
     if (!element) return;
 
     setActiveCategory(category);
+    setIsMobileCategoryListOpen(false);
 
-    // Suppress the scroll spy while the smooth scroll runs. A second click
-    // restarts that window instead of being dropped.
+    // Keep the selected category stable until the browser has actually
+    // finished scrolling. Long jumps can take well over a fixed timeout.
     isScrollingRef.current = true;
     if (scrollTimeoutRef.current !== null) {
       window.clearTimeout(scrollTimeoutRef.current);
     }
-    scrollTimeoutRef.current = window.setTimeout(() => {
+    if (scrollFrameRef.current !== null) {
+      window.cancelAnimationFrame(scrollFrameRef.current);
+    }
+
+    const finishScroll = () => {
       isScrollingRef.current = false;
       scrollTimeoutRef.current = null;
-    }, 750);
+      scrollFrameRef.current = null;
+    };
+
+    let lastScrollY = window.scrollY;
+    let stableFrames = 0;
+
+    const watchScroll = () => {
+      const currentScrollY = window.scrollY;
+      stableFrames = Math.abs(currentScrollY - lastScrollY) < 0.5 ? stableFrames + 1 : 0;
+      lastScrollY = currentScrollY;
+
+      if (stableFrames >= 4) {
+        finishScroll();
+        return;
+      }
+
+      scrollFrameRef.current = window.requestAnimationFrame(watchScroll);
+    };
+
+    scrollFrameRef.current = window.requestAnimationFrame(watchScroll);
+    scrollTimeoutRef.current = window.setTimeout(finishScroll, 2400);
 
     // Uses scroll-margin-top defined in CSS (scroll-mt-40)
-    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    element.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
 
     // Update URL hash without jumping
     window.history.pushState(null, '', `#${id}`);
@@ -110,26 +137,11 @@ export const Menu = () => {
       if (scrollTimeoutRef.current !== null) {
         window.clearTimeout(scrollTimeoutRef.current);
       }
+      if (scrollFrameRef.current !== null) {
+        window.cancelAnimationFrame(scrollFrameRef.current);
+      }
     };
   }, []);
-
-  // Auto-scroll the horizontal nav to keep active item in view
-  useEffect(() => {
-    const nav = navRef.current;
-    if (!nav || !activeCategory) return;
-
-    const activeElement = nav.querySelector(`[data-category="${activeCategory}"]`);
-    if (!activeElement) return;
-
-    // Scroll the nav strip itself rather than using scrollIntoView: the buttons
-    // live in a sticky bar, so scrollIntoView also scrolls the window vertically
-    // and throws the visitor far down the page.
-    const navRect = nav.getBoundingClientRect();
-    const itemRect = activeElement.getBoundingClientRect();
-    const offset = (itemRect.left - navRect.left) - (navRect.width - itemRect.width) / 2;
-
-    nav.scrollTo({ left: nav.scrollLeft + offset, behavior: 'smooth' });
-  }, [activeCategory]);
 
   return (
     <>
@@ -204,61 +216,150 @@ export const Menu = () => {
         </Container>
       </section>
 
-      {/* Menu Navigation Sticky Bar */}
-      <div className="sticky top-[72px] sm:top-[80px] z-30 bg-brand-cream/90 backdrop-blur-md border-b border-brand-dark/5">
-        <Container className="relative">
-          {/* Fade masks for horizontal scroll */}
-          <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-brand-cream/80 to-transparent z-10 pointer-events-none md:hidden" />
-          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-brand-cream/80 to-transparent z-10 pointer-events-none md:hidden" />
-          
-          <div 
-            ref={navRef}
-            className="flex whitespace-nowrap gap-8 py-6 overflow-x-auto no-scrollbar scroll-smooth"
-          >
-            {menuCategories.map((category) => (
-              <button
-                key={category}
-                data-category={category}
-                onClick={() => scrollToCategory(category)}
-                className={cn(
-                  "relative text-xs font-bold uppercase tracking-[0.25em] transition-all py-1",
-                  activeCategory === category 
-                    ? "text-brand-green" 
-                    : "text-brand-dark/40 hover:text-brand-dark"
-                )}
-              >
-                {category}
-                {activeCategory === category && (
-                  <motion.div 
-                    layoutId="activeCategory"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-green"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
-              </button>
-            ))}
-          </div>
-        </Container>
-      </div>
-
       {/* Content */}
-      <section className="py-24 bg-brand-cream min-h-screen">
-        <Container>
-          {/* Menu Items List */}
-          <div className="w-full">
+      <section className="bg-brand-cream min-h-screen">
+        {/* Compact category control for phones and tablets */}
+        <div className="lg:hidden sticky top-[72px] sm:top-[80px] z-30 bg-brand-cream/95 backdrop-blur-md border-y border-brand-dark/5 shadow-[0_12px_30px_-24px_rgba(45,36,36,0.4)]">
+          <Container>
+            <button
+              type="button"
+              aria-expanded={isMobileCategoryListOpen}
+              aria-controls="mobile-menu-categories"
+              onClick={() => setIsMobileCategoryListOpen((isOpen) => !isOpen)}
+              className="w-full min-h-20 py-4 flex items-center justify-between gap-4 text-left"
+            >
+              <span className="flex items-center gap-3 min-w-0">
+                <span className="w-10 h-10 rounded-full bg-brand-green/10 text-brand-green flex items-center justify-center shrink-0">
+                  <ListFilter size={18} aria-hidden="true" />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-[10px] font-bold uppercase tracking-[0.28em] text-brand-dark/35 mb-1">
+                    Browse menu
+                  </span>
+                  <span className="block font-serif text-lg text-brand-dark truncate">
+                    {activeCategory}
+                  </span>
+                </span>
+              </span>
+              <ChevronDown
+                size={20}
+                aria-hidden="true"
+                className={cn(
+                  'shrink-0 text-brand-green transition-transform duration-300',
+                  isMobileCategoryListOpen && 'rotate-180'
+                )}
+              />
+            </button>
+          </Container>
+
+          <AnimatePresence initial={false}>
+            {isMobileCategoryListOpen && (
+              <motion.div
+                id="mobile-menu-categories"
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2, ease: 'easeOut' }}
+                className="absolute inset-x-0 top-full bg-brand-cream/98 border-b border-brand-dark/5 shadow-[0_24px_45px_-28px_rgba(45,36,36,0.45)]"
+              >
+                <Container>
+                  <div className="max-h-[55vh] overflow-y-auto border-t border-brand-dark/5 py-2 pb-4">
+                    {menuCategories.map((category, index) => {
+                      const isActive = activeCategory === category;
+
+                      return (
+                        <button
+                          key={category}
+                          type="button"
+                          aria-current={isActive ? 'location' : undefined}
+                          onClick={() => scrollToCategory(category)}
+                          className={cn(
+                            'w-full flex items-center gap-3 px-3 py-3 text-left rounded-xl transition-colors',
+                            isActive
+                              ? 'bg-brand-green text-white'
+                              : 'text-brand-dark/60 hover:bg-brand-green/8 hover:text-brand-dark'
+                          )}
+                        >
+                          <span className={cn('text-[10px] font-bold tracking-[0.18em]', isActive ? 'text-white/65' : 'text-brand-green')}>
+                            {String(index + 1).padStart(2, '0')}
+                          </span>
+                          <span className="flex-1 text-xs font-bold uppercase tracking-[0.14em]">
+                            {category}
+                          </span>
+                          <ChevronRight size={15} aria-hidden="true" className={isActive ? 'opacity-100' : 'opacity-30'} />
+                        </button>
+                      );
+                    })}
+                  </div>
+                </Container>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        <Container className="py-16 sm:py-20 lg:py-24">
+          <div className="lg:grid lg:grid-cols-[16rem_minmax(0,1fr)] xl:grid-cols-[17rem_minmax(0,1fr)] lg:gap-12 xl:gap-16 items-start">
+            {/* Persistent side navigation on desktop */}
+            <aside className="hidden lg:block sticky top-28" aria-label="Menu categories">
+              <div className="bg-brand-paper border border-brand-dark/5 rounded-[1.75rem] p-4 shadow-[0_24px_70px_-42px_rgba(45,36,36,0.35)]">
+                <div className="px-4 pt-3 pb-5 border-b border-brand-dark/5">
+                  <span className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.28em] text-brand-green mb-2">
+                    <ListFilter size={14} aria-hidden="true" />
+                    Browse menu
+                  </span>
+                  <p className="font-serif text-2xl text-brand-dark">Categories</p>
+                </div>
+
+                <nav className="py-3">
+                  {menuCategories.map((category, index) => {
+                    const isActive = activeCategory === category;
+
+                    return (
+                      <button
+                        key={category}
+                        type="button"
+                        aria-current={isActive ? 'location' : undefined}
+                        onClick={() => scrollToCategory(category)}
+                        className={cn(
+                          'group w-full flex items-center gap-3 px-4 py-3.5 text-left rounded-xl transition-colors duration-300',
+                          isActive
+                            ? 'bg-brand-green text-white shadow-[0_12px_28px_-18px_rgba(123,161,80,0.9)]'
+                            : 'text-brand-dark/55 hover:bg-brand-green/8 hover:text-brand-dark'
+                        )}
+                      >
+                        <span className={cn('text-[10px] font-bold tracking-[0.18em]', isActive ? 'text-white/65' : 'text-brand-green/70')}>
+                          {String(index + 1).padStart(2, '0')}
+                        </span>
+                        <span className="flex-1 text-[11px] font-bold uppercase tracking-[0.12em] leading-snug">
+                          {category}
+                        </span>
+                        <ChevronRight
+                          size={15}
+                          aria-hidden="true"
+                          className={cn('transition-transform duration-300', isActive ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-1 group-hover:opacity-40 group-hover:translate-x-0')}
+                        />
+                      </button>
+                    );
+                  })}
+                </nav>
+              </div>
+            </aside>
+
+            {/* Menu Items List */}
+            <div className="min-w-0">
               {menuCategories.map((category) => (
                 <div 
                   key={category} 
                   id={slugify(category)}
-                  className="mb-32 scroll-mt-40"
+                  className="mb-24 lg:mb-28 last:mb-0 scroll-mt-[168px] lg:scroll-mt-28"
                 >
-                  <div className="mb-12">
+                  <div className="mb-8 sm:mb-10">
                     <span className="text-xs font-bold uppercase tracking-[0.4em] text-brand-green mb-4 block">Selection</span>
                     <h2 className="text-4xl md:text-5xl font-serif text-brand-dark mb-8 uppercase tracking-tighter">{category}</h2>
                     <div className="h-px w-32 bg-brand-green/30" />
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-10">
+                  <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 sm:gap-8">
                     {menuItems
                       .filter(item => item.category === category)
                       .map((item) => (
@@ -314,7 +415,8 @@ export const Menu = () => {
                 </div>
               ))}
             </div>
-          
+          </div>
+
           {/* Menu Disclaimer & Footer Action */}
           <div className="mt-20 pt-20 border-t border-brand-dark/5 flex flex-col items-center text-center space-y-8">
             <div className="flex items-center gap-4 text-brand-dark/40 max-w-2xl">
