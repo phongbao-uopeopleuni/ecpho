@@ -1,8 +1,13 @@
 import { Phone, MapPin, ShoppingBag } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { business } from '../../data/business';
+import { useLocation } from 'react-router-dom';
 
 export const FloatingActions = () => {
+  const { pathname } = useLocation();
+  // Menu contact links live in its introduction so floating buttons do not cover prices.
+  if (pathname === '/menu') return null;
+
   return (
     <div className="pointer-events-none fixed bottom-4 right-4 z-[60] flex flex-col gap-2 sm:bottom-8 sm:right-8 sm:gap-4">
       <AnimatePresence>

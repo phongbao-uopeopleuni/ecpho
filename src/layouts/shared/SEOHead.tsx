@@ -6,16 +6,18 @@ import { absoluteAssetUrl } from '../../utils/assets';
 
 interface SEOHeadProps {
   title?: string;
+  appendBrand?: boolean;
   description?: string;
+  keywords?: string[];
   image?: string;
   article?: boolean;
   /** Single schema object or array of schema objects (e.g. [restaurantSchema, faqSchema]) */
   schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-export const SEOHead = ({ title, description, image, article, schema }: SEOHeadProps) => {
+export const SEOHead = ({ title, appendBrand = true, description, keywords, image, article, schema }: SEOHeadProps) => {
   const location = useLocation();
-  const seoTitle = title ? `${title} | ${business.brandName}` : defaultSEO.title;
+  const seoTitle = title ? (appendBrand ? `${title} | ${business.brandName}` : title) : defaultSEO.title;
   const seoDescription = description || defaultSEO.description;
   const seoImage = image ? absoluteAssetUrl(image) : `${business.canonicalBaseUrl}/images/og-image.jpg`;
 
@@ -31,7 +33,7 @@ export const SEOHead = ({ title, description, image, article, schema }: SEOHeadP
     <Helmet>
       <title>{seoTitle}</title>
       <meta name="description" content={seoDescription} />
-      <meta name="keywords" content={defaultSEO.keywords.join(', ')} />
+      <meta name="keywords" content={(keywords ?? defaultSEO.keywords).join(', ')} />
 
       <meta property="og:title" content={seoTitle} />
       <meta property="og:description" content={seoDescription} />

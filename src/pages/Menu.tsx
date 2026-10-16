@@ -1,440 +1,320 @@
-import { useState, useEffect, useRef } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Container } from '../components/ui/Container';
-import { Badge } from '../components/ui/Badge';
 import { Button } from '../components/ui/Button';
 import { menuItems, menuCategories, menuDisclaimer } from '../data/menu';
 import { menuGallery } from '../data/gallery';
-import { formatPrice, cn, slugify, legacySlugify } from '../utils/format';
+import { formatPrice, slugify, legacySlugify } from '../utils/format';
 import { SEOHead } from '../layouts/shared/SEOHead';
-import { ChevronDown, ChevronRight, Info, ListFilter } from 'lucide-react';
+import { Info } from 'lucide-react';
 import { business } from '../data/business';
 import { optimizedImageSrcSet, optimizedImageUrl } from '../utils/assets';
+import './Menu.css';
 
 const menuHeroGalleryImages = menuGallery
-  .flatMap((section) =>
-    section.images.slice(0, 2).map((image) => ({
-      ...image,
-      label: section.label,
-    }))
-  )
+  .flatMap((section) => section.images.slice(0, 2).map((image) => ({
+    ...image,
+    label: section.label,
+  })))
   .slice(0, 8);
+
+const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 export const Menu = () => {
   const [activeCategory, setActiveCategory] = useState(menuCategories[0]);
-  const [isMobileCategoryListOpen, setIsMobileCategoryListOpen] = useState(false);
-  const isScrollingRef = useRef(false);
-  const scrollTimeoutRef = useRef<number | null>(null);
+  const pageRef = useRef<HTMLDivElement>(null);
+  const mobileNavRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const scrollFrameRef = useRef<number | null>(null);
+  const trackingFrameRef = useRef<number | null>(null);
+  const sectionPositionsRef = useRef<{ category: string; top: number }[]>([]);
+  const headerRef = useRef<HTMLElement | null>(null);
+  const scrollInsetRef = useRef(96);
 
-  // Handle scrolling to category
-  const scrollToCategory = (category: string) => {
+  const getScrollInset = useCallback(() => scrollInsetRef.current, []);
+
+  const syncActiveCategory = useCallback(() => {
+    if (scrollFrameRef.current !== null) return;
+    // A small reading zone also covers the site's header settling after the first jump.
+    const readingPosition = window.scrollY + getScrollInset() + 48;
+    let currentCategory = menuCategories[0];
+    for (const section of sectionPositionsRef.current) {
+      if (section.top > readingPosition) break;
+      currentCategory = section.category;
+    }
+    setActiveCategory(currentCategory);
+  }, [getScrollInset]);
+
+  const cancelCategoryScroll = useCallback(() => {
+    if (scrollFrameRef.current !== null) {
+      window.cancelAnimationFrame(scrollFrameRef.current);
+      scrollFrameRef.current = null;
+    }
+  }, []);
+
+  const revealCategory = useCallback((category: string) => {
+    const nav = mobileNavRef.current;
+    const item = nav?.querySelector<HTMLElement>(`[href="#${slugify(category)}"]`);
+    if (!nav?.clientWidth || !item) return;
+
+    const navRect = nav.getBoundingClientRect();
+    const itemRect = item.getBoundingClientRect();
+    // Lead with the selected category on phones, leaving room for the next one.
+    const offset = window.matchMedia('(width < 640px)').matches
+      ? itemRect.left - navRect.left - 16
+      : itemRect.left < navRect.left + 16
+        ? itemRect.left - navRect.left - 16
+        : itemRect.right > navRect.right - 16 ? itemRect.right - navRect.right + 16 : 0;
+    if (offset) nav.scrollTo({ left: nav.scrollLeft + offset, behavior: prefersReducedMotion() ? 'instant' : 'smooth' });
+  }, []);
+
+  const scrollToCategory = useCallback((category: string, updateHash = true, immediate = false) => {
     const id = slugify(category);
     const element = document.getElementById(id);
     if (!element) return;
 
+    cancelCategoryScroll();
     setActiveCategory(category);
-    setIsMobileCategoryListOpen(false);
+    revealCategory(category);
 
-    // Keep the selected category stable until the browser has actually
-    // finished scrolling. Long jumps can take well over a fixed timeout.
-    isScrollingRef.current = true;
-    if (scrollTimeoutRef.current !== null) {
-      window.clearTimeout(scrollTimeoutRef.current);
+    const startY = window.scrollY;
+    const sectionTop = element.getBoundingClientRect().top + startY;
+    const destination = () => Math.max(0, Math.min(
+      sectionTop - getScrollInset(),
+      document.documentElement.scrollHeight - window.innerHeight,
+    ));
+
+    if (prefersReducedMotion() || immediate) {
+      window.scrollTo({ top: destination(), behavior: 'instant' });
+    } else {
+      const startTime = performance.now();
+      const animateScroll = (time: number) => {
+        const progress = Math.min((time - startTime) / 240, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        window.scrollTo({ top: startY + (destination() - startY) * eased, behavior: 'instant' });
+        if (progress < 1) {
+          scrollFrameRef.current = window.requestAnimationFrame(animateScroll);
+        } else {
+          scrollFrameRef.current = null;
+          syncActiveCategory();
+        }
+      };
+      scrollFrameRef.current = window.requestAnimationFrame(animateScroll);
     }
-    if (scrollFrameRef.current !== null) {
-      window.cancelAnimationFrame(scrollFrameRef.current);
+
+    if (updateHash && window.location.hash !== `#${id}`) {
+      window.history.pushState(null, '', `#${id}`);
     }
+  }, [cancelCategoryScroll, getScrollInset, revealCategory, syncActiveCategory]);
 
-    const finishScroll = () => {
-      isScrollingRef.current = false;
-      scrollTimeoutRef.current = null;
-      scrollFrameRef.current = null;
-    };
-
-    let lastScrollY = window.scrollY;
-    let stableFrames = 0;
-
-    const watchScroll = () => {
-      const currentScrollY = window.scrollY;
-      stableFrames = Math.abs(currentScrollY - lastScrollY) < 0.5 ? stableFrames + 1 : 0;
-      lastScrollY = currentScrollY;
-
-      if (stableFrames >= 4) {
-        finishScroll();
-        return;
-      }
-
-      scrollFrameRef.current = window.requestAnimationFrame(watchScroll);
-    };
-
-    scrollFrameRef.current = window.requestAnimationFrame(watchScroll);
-    scrollTimeoutRef.current = window.setTimeout(finishScroll, 2400);
-
-    // Uses scroll-margin-top defined in CSS (scroll-mt-40)
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    element.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
-
-    // Update URL hash without jumping
-    window.history.pushState(null, '', `#${id}`);
-  };
-
-  // Sync active category on scroll and handle initial hash
   useEffect(() => {
-    // Initial hash scroll
-    const handleInitialHash = () => {
-      const hash = window.location.hash.replace('#', '');
-      if (hash) {
-        // Accept the legacy slug too, so anchors shared from the old build still land.
-        const category = menuCategories.find(c =>
-          slugify(c) === hash || legacySlugify(c) === hash
-        );
-        if (category) {
-          setTimeout(() => scrollToCategory(category), 500);
-        }
+    headerRef.current = document.querySelector('header');
+    const sections = menuCategories.map((category) => ({
+      category,
+      element: document.getElementById(slugify(category)),
+    }));
+
+    // Cache document positions on layout changes; scrolling only reads scrollY.
+    const measure = () => {
+      const headerHeight = headerRef.current?.getBoundingClientRect().height ?? 80;
+      scrollInsetRef.current = headerHeight + (mobileNavRef.current?.getBoundingClientRect().height ?? 0) + 16;
+      pageRef.current?.style.setProperty('--menu-header-height', `${headerHeight}px`);
+      sectionPositionsRef.current = sections.flatMap(({ category, element }) => element
+        ? [{ category, top: element.getBoundingClientRect().top + window.scrollY }]
+        : []);
+      syncActiveCategory();
+    };
+    const onScroll = () => {
+      if (trackingFrameRef.current !== null) return;
+      trackingFrameRef.current = window.requestAnimationFrame(() => {
+        trackingFrameRef.current = null;
+        syncActiveCategory();
+      });
+    };
+    const interruptScroll = () => {
+      cancelCategoryScroll();
+      onScroll();
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)) {
+        interruptScroll();
       }
     };
-
-    handleInitialHash();
-
-    const observerOptions = {
-      root: null,
-      // Focus detection on the top portion of the viewport
-      rootMargin: '-160px 0px -70% 0px',
-      threshold: 0
+    const followHash = () => {
+      const hash = window.location.hash.slice(1);
+      const category = menuCategories.find((item) => slugify(item) === hash || legacySlugify(item) === hash);
+      if (category) scrollToCategory(category, false, true);
     };
 
-    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
-      if (isScrollingRef.current) return;
-
-      // Find the first intersecting entry (since they are in document order)
-      const intersectingEntries = entries
-        .filter(entry => entry.isIntersecting)
-        // Sort by distance from top of detection area
-        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-
-      if (intersectingEntries.length > 0) {
-        const topEntry = intersectingEntries[0];
-        const categoryId = topEntry.target.id;
-        const category = menuCategories.find(c => slugify(c) === categoryId);
-        if (category && category !== activeCategory) {
-          setActiveCategory(category);
-        }
-      }
-    };
-
-    const observer = new IntersectionObserver(handleIntersect, observerOptions);
-
-    menuCategories.forEach((category) => {
-      const element = document.getElementById(slugify(category));
-      if (element) {
-        observer.observe(element);
-      }
-    });
+    const resizeObserver = new ResizeObserver(measure);
+    [headerRef.current, mobileNavRef.current, contentRef.current, ...sections.map(({ element }) => element)]
+      .forEach((element) => { if (element) resizeObserver.observe(element, { box: 'border-box' }); });
+    measure();
+    const initialHashFrame = window.requestAnimationFrame(followHash);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', measure);
+    window.addEventListener('wheel', interruptScroll, { passive: true });
+    window.addEventListener('touchstart', interruptScroll, { passive: true });
+    window.addEventListener('keydown', onKeyDown);
+    window.addEventListener('hashchange', followHash);
+    window.addEventListener('popstate', followHash);
 
     return () => {
-      observer.disconnect();
-      if (scrollTimeoutRef.current !== null) {
-        window.clearTimeout(scrollTimeoutRef.current);
+      resizeObserver.disconnect();
+      window.cancelAnimationFrame(initialHashFrame);
+      cancelCategoryScroll();
+      if (trackingFrameRef.current !== null) {
+        window.cancelAnimationFrame(trackingFrameRef.current);
+        trackingFrameRef.current = null;
       }
-      if (scrollFrameRef.current !== null) {
-        window.cancelAnimationFrame(scrollFrameRef.current);
-      }
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', measure);
+      window.removeEventListener('wheel', interruptScroll);
+      window.removeEventListener('touchstart', interruptScroll);
+      window.removeEventListener('keydown', onKeyDown);
+      window.removeEventListener('hashchange', followHash);
+      window.removeEventListener('popstate', followHash);
     };
-  }, []);
+  }, [cancelCategoryScroll, scrollToCategory, syncActiveCategory]);
+
+  useEffect(() => {
+    const nav = mobileNavRef.current;
+    if (!nav) return;
+    const revealActiveCategory = () => revealCategory(activeCategory);
+    revealActiveCategory();
+    const resizeObserver = new ResizeObserver(revealActiveCategory);
+    resizeObserver.observe(nav);
+    return () => resizeObserver.disconnect();
+  }, [activeCategory, revealCategory]);
+
+  const categoryLinks = (mobile = false) => menuCategories.map((category, index) => (
+    <a
+      key={category}
+      href={`#${slugify(category)}`}
+      aria-current={activeCategory === category ? 'location' : undefined}
+      className="ec-menu-category"
+      onClick={(event) => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        scrollToCategory(category);
+      }}
+    >
+      {!mobile && <span className="ec-menu-category-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>}
+      <span>{category}</span>
+    </a>
+  ));
 
   return (
-    <>
-      <SEOHead 
-        title="Vietnamese Menu — Phở, Bánh Mì & More"
+    <div className="ec-menu" ref={pageRef}>
+      <SEOHead
+        title="EC Phở Menu"
+        appendBrand={false}
         description="Explore our full menu: authentic Phở, Bánh Mì, Vermicelli, Rice Plates, and House Specials. Fresh Vietnamese comfort food in Greenville, NC."
       />
-      
-      {/* Page Header */}
-      <section className="pt-32 sm:pt-40 pb-16 sm:pb-24 bg-brand-cream border-b border-brand-dark/5 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.04] bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')]" />
-        <Container className="relative z-10 text-center">
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-xs font-bold uppercase tracking-[0.4em] mb-4 block text-brand-green"
-          >
-            Traditional Heritage
-          </motion.span>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold mb-6 tracking-tighter uppercase text-brand-dark"
-          >
-            Our Menu
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-brand-dark/50 max-w-2xl mx-auto font-light text-base sm:text-lg"
-          >
-            Every dish is prepared using natural ingredients and recipes passed down through generations.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.7 }}
-            className="relative mt-12 sm:mt-14"
-          >
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-10 sm:w-20 bg-gradient-to-r from-brand-cream via-brand-cream/90 to-transparent z-10" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-10 sm:w-20 bg-gradient-to-l from-brand-cream via-brand-cream/90 to-transparent z-10" />
 
-            <div className="menu-gallery-marquee">
-              <div className="menu-gallery-marquee-track">
-                {[...menuHeroGalleryImages, ...menuHeroGalleryImages].map((image, index) => (
-                  <figure
-                    key={`${image.src}-${index}`}
-                    className="relative h-[9rem] w-[13rem] sm:h-[11rem] sm:w-[16rem] md:h-[12rem] md:w-[18rem] flex-none overflow-hidden rounded-[1.75rem] border border-brand-dark/8 bg-brand-paper shadow-[0_18px_50px_-24px_rgba(45,36,36,0.28)]"
-                  >
-                    <img
-                      src={optimizedImageUrl(image.src, 480)}
-                      srcSet={optimizedImageSrcSet(image.src)}
-                      sizes="(max-width: 640px) 208px, (max-width: 768px) 256px, 288px"
-                      alt={image.alt}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/55 via-brand-dark/10 to-transparent" />
-                    <figcaption className="absolute left-4 bottom-4 text-left">
-                      <span className="block text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em] text-white/75">
-                        {image.label}
-                      </span>
-                    </figcaption>
-                  </figure>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </Container>
-      </section>
-
-      {/* Content */}
-      <section className="bg-brand-cream min-h-screen">
-        {/* Compact category control for phones and tablets */}
-        <div className="lg:hidden sticky top-[72px] sm:top-[80px] z-30 bg-brand-cream/95 backdrop-blur-md border-y border-brand-dark/5 shadow-[0_12px_30px_-24px_rgba(45,36,36,0.4)]">
-          <Container>
-            <button
-              type="button"
-              aria-expanded={isMobileCategoryListOpen}
-              aria-controls="mobile-menu-categories"
-              onClick={() => setIsMobileCategoryListOpen((isOpen) => !isOpen)}
-              className="w-full min-h-20 py-4 flex items-center justify-between gap-4 text-left"
-            >
-              <span className="flex items-center gap-3 min-w-0">
-                <span className="w-10 h-10 rounded-full bg-brand-green/10 text-brand-green flex items-center justify-center shrink-0">
-                  <ListFilter size={18} aria-hidden="true" />
-                </span>
-                <span className="min-w-0">
-                  <span className="block text-[10px] font-bold uppercase tracking-[0.28em] text-brand-dark/35 mb-1">
-                    Browse menu
-                  </span>
-                  <span className="block font-serif text-lg text-brand-dark truncate">
-                    {activeCategory}
-                  </span>
-                </span>
-              </span>
-              <ChevronDown
-                size={20}
-                aria-hidden="true"
-                className={cn(
-                  'shrink-0 text-brand-green transition-transform duration-300',
-                  isMobileCategoryListOpen && 'rotate-180'
-                )}
-              />
-            </button>
-          </Container>
-
-          <AnimatePresence initial={false}>
-            {isMobileCategoryListOpen && (
-              <motion.div
-                id="mobile-menu-categories"
-                initial={{ opacity: 0, y: -8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.2, ease: 'easeOut' }}
-                className="absolute inset-x-0 top-full bg-brand-cream/98 border-b border-brand-dark/5 shadow-[0_24px_45px_-28px_rgba(45,36,36,0.45)]"
-              >
-                <Container>
-                  <div className="max-h-[55vh] overflow-y-auto border-t border-brand-dark/5 py-2 pb-4">
-                    {menuCategories.map((category, index) => {
-                      const isActive = activeCategory === category;
-
-                      return (
-                        <button
-                          key={category}
-                          type="button"
-                          aria-current={isActive ? 'location' : undefined}
-                          onClick={() => scrollToCategory(category)}
-                          className={cn(
-                            'w-full flex items-center gap-3 px-3 py-3 text-left rounded-xl transition-colors',
-                            isActive
-                              ? 'bg-brand-green text-white'
-                              : 'text-brand-dark/60 hover:bg-brand-green/8 hover:text-brand-dark'
-                          )}
-                        >
-                          <span className={cn('text-[10px] font-bold tracking-[0.18em]', isActive ? 'text-white/65' : 'text-brand-green')}>
-                            {String(index + 1).padStart(2, '0')}
-                          </span>
-                          <span className="flex-1 text-xs font-bold uppercase tracking-[0.14em]">
-                            {category}
-                          </span>
-                          <ChevronRight size={15} aria-hidden="true" className={isActive ? 'opacity-100' : 'opacity-30'} />
-                        </button>
-                      );
-                    })}
-                  </div>
-                </Container>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-
-        <Container className="py-16 sm:py-20 lg:py-24">
-          <div className="lg:grid lg:grid-cols-[16rem_minmax(0,1fr)] xl:grid-cols-[17rem_minmax(0,1fr)] lg:gap-12 xl:gap-16 items-start">
-            {/* Persistent side navigation on desktop */}
-            <aside className="hidden lg:block sticky top-28" aria-label="Menu categories">
-              <div className="bg-brand-paper border border-brand-dark/5 rounded-[1.75rem] p-4 shadow-[0_24px_70px_-42px_rgba(45,36,36,0.35)]">
-                <div className="px-4 pt-3 pb-5 border-b border-brand-dark/5">
-                  <span className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.28em] text-brand-green mb-2">
-                    <ListFilter size={14} aria-hidden="true" />
-                    Browse menu
-                  </span>
-                  <p className="font-serif text-2xl text-brand-dark">Categories</p>
-                </div>
-
-                <nav className="py-3">
-                  {menuCategories.map((category, index) => {
-                    const isActive = activeCategory === category;
-
-                    return (
-                      <button
-                        key={category}
-                        type="button"
-                        aria-current={isActive ? 'location' : undefined}
-                        onClick={() => scrollToCategory(category)}
-                        className={cn(
-                          'group w-full flex items-center gap-3 px-4 py-3.5 text-left rounded-xl transition-colors duration-300',
-                          isActive
-                            ? 'bg-brand-green text-white shadow-[0_12px_28px_-18px_rgba(123,161,80,0.9)]'
-                            : 'text-brand-dark/55 hover:bg-brand-green/8 hover:text-brand-dark'
-                        )}
-                      >
-                        <span className={cn('text-[10px] font-bold tracking-[0.18em]', isActive ? 'text-white/65' : 'text-brand-green/70')}>
-                          {String(index + 1).padStart(2, '0')}
-                        </span>
-                        <span className="flex-1 text-[11px] font-bold uppercase tracking-[0.12em] leading-snug">
-                          {category}
-                        </span>
-                        <ChevronRight
-                          size={15}
-                          aria-hidden="true"
-                          className={cn('transition-transform duration-300', isActive ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-1 group-hover:opacity-40 group-hover:translate-x-0')}
-                        />
-                      </button>
-                    );
-                  })}
-                </nav>
-              </div>
-            </aside>
-
-            {/* Menu Items List */}
-            <div className="min-w-0">
-              {menuCategories.map((category) => (
-                <div 
-                  key={category} 
-                  id={slugify(category)}
-                  className="mb-24 lg:mb-28 last:mb-0 scroll-mt-[168px] lg:scroll-mt-28"
-                >
-                  <div className="mb-8 sm:mb-10">
-                    <span className="text-xs font-bold uppercase tracking-[0.4em] text-brand-green mb-4 block">Selection</span>
-                    <h2 className="text-4xl md:text-5xl font-serif text-brand-dark mb-8 uppercase tracking-tighter">{category}</h2>
-                    <div className="h-px w-32 bg-brand-green/30" />
-                  </div>
-
-                  <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 sm:gap-8">
-                    {menuItems
-                      .filter(item => item.category === category)
-                      .map((item) => (
-                        <motion.div 
-                          key={item.id}
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true, margin: "-50px" }}
-                          className="group bg-brand-paper p-6 sm:p-10 border border-brand-dark/5 transition-all hover:border-brand-green/20 shadow-sm relative overflow-hidden"
-                        >
-                          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-6 gap-2 sm:gap-6 relative z-10">
-                            <div className="flex flex-col gap-1">
-                              {item.code && (
-                                <span className="text-xs font-bold text-brand-green tracking-[0.2em]">{item.code}</span>
-                              )}
-                              <h3 className="text-xl sm:text-2xl font-serif text-brand-dark leading-tight group-hover:text-brand-green transition-colors">{item.name}</h3>
-                            </div>
-                            <div className="hidden sm:block h-px flex-grow border-t border-brand-dark/10" />
-                            <span className="font-serif text-xl sm:text-2xl text-brand-green whitespace-nowrap">{formatPrice(item.price)}</span>
-                          </div>
-                          
-                          <div className="flex flex-wrap gap-4 mb-8">
-                            {item.vietnameseName && (
-                              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold border border-brand-gold/20 px-4 py-1.5">{item.vietnameseName}</span>
-                            )}
-                            {item.tags?.map(tag => (
-                              <Badge key={`${item.id}-${tag}`} variant="green" className="text-[10px] uppercase tracking-widest px-4">{tag}</Badge>
-                            ))}
-                          </div>
-
-                          <p className="text-base text-brand-dark/50 leading-relaxed font-light relative z-10 mb-6">
-                            {item.description}
-                          </p>
-
-                          {item.variations && (
-                            <div className="relative z-10 pt-6 border-t border-brand-dark/5 space-y-3">
-                              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-dark/30 mb-2">Options</p>
-                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                {item.variations.map((v, i) => (
-                                  <div key={`${item.id}-var-${i}`} className="flex justify-between items-center bg-brand-cream/40 px-4 py-2.5 rounded-sm border border-brand-dark/[0.02]">
-                                    <span className="text-xs uppercase tracking-wide text-brand-dark/60">{v.name}</span>
-                                    <span className="text-xs font-serif text-brand-green">{formatPrice(v.price)}</span>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          )}
-
-                          <div className="absolute top-0 right-0 w-32 h-32 bg-brand-green/5 -rotate-45 translate-x-16 -translate-y-16 group-hover:translate-x-14 transition-transform duration-500" />
-                        </motion.div>
-                      ))}
-                  </div>
+      <section className="ec-menu-hero">
+        <Container className="text-center">
+          <p className="ec-menu-eyebrow">Traditional Heritage</p>
+          <h1>EC Phở Menu</h1>
+          <p className="ec-menu-intro">Every dish is prepared using natural ingredients and recipes passed down through generations.</p>
+          <div className="ec-menu-actions">
+            <a href={business.social.doorDash} target="_blank" rel="noopener noreferrer">Order online</a>
+            <a href={`tel:${business.contact.phone}`}>Call us</a>
+            <a href={business.location.googleMapsLink} target="_blank" rel="noopener noreferrer">Directions</a>
+          </div>
+          <div className="ec-menu-photos menu-gallery-marquee">
+            <div className="menu-gallery-marquee-track">
+              {[0, 1].map((copy) => (
+                <div className="ec-menu-photo-group" key={copy} aria-hidden={copy === 1 ? true : undefined}>
+                  {menuHeroGalleryImages.map((image) => (
+                    <figure key={image.src}>
+                      <img
+                        src={optimizedImageUrl(image.src, 480)}
+                        srcSet={optimizedImageSrcSet(image.src)}
+                        sizes="(max-width: 640px) 184px, 280px"
+                        alt={image.alt}
+                        loading="eager"
+                        decoding="async"
+                      />
+                      <figcaption>{image.label}</figcaption>
+                    </figure>
+                  ))}
                 </div>
               ))}
             </div>
           </div>
-
-          {/* Menu Disclaimer & Footer Action */}
-          <div className="mt-20 pt-20 border-t border-brand-dark/5 flex flex-col items-center text-center space-y-8">
-            <div className="flex items-center gap-4 text-brand-dark/40 max-w-2xl">
-              <Info size={16} className="shrink-0 text-brand-gold" />
-              <p className="text-xs uppercase tracking-[0.2em] leading-relaxed font-bold">{menuDisclaimer}</p>
-            </div>
-            <Button 
-              as="a" 
-              href={business.social.doorDash}
-              target="_blank"
-              rel="noopener noreferrer"
-              size="lg"
-            >
-              Order Online for Delivery
-            </Button>
-          </div>
         </Container>
       </section>
-    </>
+
+      <nav className="ec-menu-mobile-nav" aria-label="Menu categories" ref={mobileNavRef}>
+        {categoryLinks(true)}
+      </nav>
+
+      <Container className="ec-menu-content">
+        <div className="ec-menu-layout">
+          <aside className="ec-menu-sidebar">
+            <p className="ec-menu-eyebrow">Browse menu</p>
+            <nav aria-label="Menu categories">{categoryLinks()}</nav>
+          </aside>
+
+          <div className="ec-menu-sections" ref={contentRef}>
+            {menuCategories.map((category) => (
+              <section
+                key={category}
+                id={slugify(category)}
+                aria-labelledby={`${slugify(category)}-heading`}
+                className="ec-menu-section"
+              >
+                <h2 id={`${slugify(category)}-heading`}>{category}</h2>
+                <div className="ec-menu-items">
+                  {menuItems.filter((item) => item.category === category).map((item) => (
+                    <article key={item.id} className="ec-menu-item">
+                      <div className="ec-menu-item-header">
+                        <div className="ec-menu-item-title">
+                          {item.code && <span className="ec-menu-item-code">{item.code}</span>}
+                          <h3>{item.name}</h3>
+                        </div>
+                        <span className="ec-menu-price">{formatPrice(item.price)}</span>
+                      </div>
+
+                      {(item.vietnameseName || Boolean(item.tags?.length)) && (
+                        <div className="ec-menu-labels">
+                          {item.vietnameseName && <span className="ec-menu-vietnamese">{item.vietnameseName}</span>}
+                          {item.tags?.map((tag) => <span className="ec-menu-tag" key={`${item.id}-${tag}`}>{tag}</span>)}
+                        </div>
+                      )}
+                      <p className="ec-menu-description">{item.description}</p>
+
+                      {item.variations && (
+                        <div className="ec-menu-options">
+                          <p>Options</p>
+                          <dl>
+                            {item.variations.map((variation, index) => (
+                              <div key={`${item.id}-var-${index}`}>
+                                <dt>{variation.name}</dt>
+                                <dd>{formatPrice(variation.price)}</dd>
+                              </div>
+                            ))}
+                          </dl>
+                        </div>
+                      )}
+                    </article>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        </div>
+
+        <div className="ec-menu-note">
+          <div>
+            <Info size={18} aria-hidden="true" />
+            <p>{menuDisclaimer}</p>
+          </div>
+          <Button as="a" href={business.social.doorDash} target="_blank" rel="noopener noreferrer" size="lg">
+            Order Online for Delivery
+          </Button>
+        </div>
+      </Container>
+    </div>
   );
 };
