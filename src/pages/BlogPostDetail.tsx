@@ -4,6 +4,9 @@ import { SEOHead } from '../layouts/shared/SEOHead';
 import { blogPosts } from '../data/blog';
 import { optimizedImageSrcSet, optimizedImageUrl } from '../utils/assets';
 import { ArrowLeft, Clock3, CalendarDays, User } from 'lucide-react';
+import { business } from '../data/business';
+import { menuItems } from '../data/menu';
+import { slugify } from '../utils/format';
 
 type ContentBlock =
   | { type: 'quote'; content: string }
@@ -18,6 +21,10 @@ const parseContent = (content: string): ContentBlock[] =>
     .filter(Boolean)
     .map((block, index) => {
       const lines = block.split('\n').map(line => line.trim()).filter(Boolean);
+
+      if (lines.length === 1 && lines[0].startsWith('## ')) {
+        return { type: 'heading', content: lines[0].slice(3) };
+      }
 
       if (index === 0 && lines.length === 1 && /^".*"$/.test(lines[0])) {
         return { type: 'quote', content: lines[0] };
@@ -53,14 +60,46 @@ export const BlogPostDetail = () => {
   }
 
   const blocks = parseContent(post.content);
+  const menuItem = menuItems.find(item => item.id === post.menuItemId);
+  const relatedPosts = post.relatedSlugs
+    ? post.relatedSlugs.map(relatedSlug => blogPosts.find(item => item.slug === relatedSlug)).filter(Boolean)
+    : blogPosts.filter(item => item.slug !== post.slug).slice(0, 3);
+  const postUrl = `${business.canonicalBaseUrl}/blog/${post.slug}`;
 
   return (
     <>
       <SEOHead
-        title={post.title}
+        title={post.seoTitle ?? post.title}
         description={post.excerpt}
+        keywords={post.keywords}
         image={post.image}
         article={true}
+        schema={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            '@id': `${postUrl}#article`,
+            headline: post.title,
+            description: post.excerpt,
+            image: new URL(post.image, business.canonicalBaseUrl).href,
+            datePublished: post.date,
+            inLanguage: 'en-US',
+            keywords: post.keywords,
+            author: { '@type': 'Organization', name: post.author, url: business.canonicalBaseUrl },
+            publisher: { '@type': 'Organization', name: business.name, url: business.canonicalBaseUrl },
+            mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
+            isPartOf: { '@type': 'Blog', '@id': `${business.canonicalBaseUrl}/blog` },
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: `${business.canonicalBaseUrl}/` },
+              { '@type': 'ListItem', position: 2, name: 'Stories', item: `${business.canonicalBaseUrl}/blog` },
+              { '@type': 'ListItem', position: 3, name: post.title, item: postUrl },
+            ],
+          },
+        ]}
       />
 
       <section className="relative overflow-hidden bg-brand-cream pt-40 pb-16">
@@ -98,7 +137,7 @@ export const BlogPostDetail = () => {
                   <span className="text-[10px] font-bold uppercase tracking-[0.28em]">Published</span>
                 </div>
                 <p className="font-serif text-2xl md:text-[2rem] text-brand-dark leading-none">
-                  {new Date(post.date).toLocaleDateString('en-US', {
+                  {new Date(`${post.date}T12:00:00`).toLocaleDateString('en-US', {
                     month: 'long',
                     day: 'numeric',
                     year: 'numeric',
@@ -127,7 +166,7 @@ export const BlogPostDetail = () => {
                     src={optimizedImageUrl(post.image)}
                     srcSet={optimizedImageSrcSet(post.image)}
                     sizes="(max-width: 1280px) 100vw, 780px"
-                    alt={post.title}
+                    alt={post.imageAlt ?? post.title}
                     decoding="async"
                     className="w-full h-full object-cover"
                   />
@@ -209,40 +248,57 @@ export const BlogPostDetail = () => {
                 </div>
               </article>
 
+              {menuItem && (
+                <div className="mt-8 border border-brand-green/20 bg-brand-paper p-6 md:p-8">
+                  <h2 className="font-serif text-3xl text-brand-dark mb-3">Find your next meal at EC Phở</h2>
+                  <p className="text-brand-dark/70 leading-8 mb-5">
+                    Visit us at {business.location.address}, {business.location.city}, {business.location.state} {business.location.zip}.
+                  </p>
+                  <div className="flex flex-wrap gap-x-8 gap-y-4">
+                    <Link reloadDocument to={`/menu#${slugify(menuItem.category)}`} className="text-brand-green underline underline-offset-4 font-medium">
+                      View {menuItem.name} on the menu
+                    </Link>
+                    <Link to="/contact" className="text-brand-green underline underline-offset-4 font-medium">
+                      Contact EC Phở in Greenville
+                    </Link>
+                  </div>
+                </div>
+              )}
+
             </div>
 
             <div className="space-y-8 xl:pt-4">
               <div className="xl:sticky xl:top-24 space-y-8">
                 <div className="border border-brand-dark/8 bg-brand-paper p-8 shadow-[0_20px_60px_rgba(45,36,36,0.05)]">
                   <div className="flex items-center justify-between gap-6 mb-8 border-b border-brand-dark/8 pb-5">
-                    <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-red">
+                    <h2 className="text-[10px] font-bold uppercase tracking-[0.3em] text-brand-red">
                       More Stories
-                    </h4>
+                    </h2>
                     <Link to="/blog" className="text-brand-dark/45 hover:text-brand-red transition-colors text-[10px] uppercase tracking-[0.24em] font-bold">
                       Browse All
                     </Link>
                   </div>
 
                   <div className="space-y-8">
-                    {blogPosts.filter(p => p.slug !== post.slug).slice(0, 3).map(p => (
+                    {relatedPosts.map(p => (
                       <Link key={p.slug} to={`/blog/${p.slug}`} className="group flex gap-5">
                         <div className="w-24 h-24 shrink-0 overflow-hidden bg-brand-muted border border-brand-dark/8">
                           <img
                             src={optimizedImageUrl(p.image, 480)}
                             srcSet={optimizedImageSrcSet(p.image)}
                             sizes="96px"
-                            alt={p.title}
+                            alt={p.imageAlt ?? p.title}
                             loading="lazy"
                             decoding="async"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                           />
                         </div>
                         <div className="min-w-0 flex flex-col justify-center">
-                          <h5 className="font-serif text-brand-dark group-hover:text-brand-red transition-colors text-xl leading-tight tracking-tight mb-2">
+                          <h3 className="font-serif text-brand-dark group-hover:text-brand-red transition-colors text-xl leading-tight tracking-tight mb-2">
                             {p.title}
-                          </h5>
+                          </h3>
                           <p className="text-[10px] uppercase tracking-[0.2em] text-brand-dark/35 font-bold">
-                            {new Date(p.date).toLocaleDateString('en-US', {
+                            {new Date(`${p.date}T12:00:00`).toLocaleDateString('en-US', {
                               month: 'short',
                               day: 'numeric',
                               year: 'numeric',

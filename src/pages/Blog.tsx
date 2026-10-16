@@ -5,13 +5,24 @@ import { SEOHead } from '../layouts/shared/SEOHead';
 import { blogPosts } from '../data/blog';
 import { optimizedImageSrcSet, optimizedImageUrl } from '../utils/assets';
 import { ArrowRight } from 'lucide-react';
+import { business } from '../data/business';
 
 export const Blog = () => {
   return (
     <>
       <SEOHead 
-        title="The Story Behind the Bowl" 
-        description="Learn about the history, ingredients, and soul of Vietnamese cuisine. Articles on Phở, Bún Bò Huế, Bánh Mì, and more." 
+        title="Vietnamese Food Stories & Guides in Greenville, NC"
+        description="Explore Vietnamese dishes at EC Phở in Greenville, NC. Read guides to phở, vermicelli, rice plates, appetizers, and more, then find your next meal."
+        keywords={['Vietnamese food Greenville NC', 'Vietnamese dishes guide', 'EC Phở blog']}
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Blog',
+          name: 'The Soul Behind the Bowl',
+          url: `${business.canonicalBaseUrl}/blog`,
+          inLanguage: 'en-US',
+          publisher: { '@type': 'Organization', name: business.name, url: business.canonicalBaseUrl },
+          blogPost: blogPosts.map(post => ({ '@type': 'BlogPosting', headline: post.title, url: `${business.canonicalBaseUrl}/blog/${post.slug}` })),
+        }}
       />
       
       {/* Page Header */}
@@ -20,7 +31,7 @@ export const Blog = () => {
           <span className="text-brand-gold font-bold uppercase tracking-[0.4em] text-[10px] mb-6 block">Our Stories</span>
           <h1 className="text-5xl md:text-8xl font-serif mb-8 tracking-tighter text-brand-dark uppercase">The Soul <span className="italic text-brand-green">Behind</span> The Bowl</h1>
           <p className="text-brand-dark/50 max-w-2xl mx-auto italic font-light text-xl">
-            Exploring the rich culinary heritage of Vietnam, one story at a time.
+            Get to know the dishes on our Vietnamese menu in Greenville, NC, one story at a time.
           </p>
         </Container>
       </section>
@@ -36,7 +47,7 @@ export const Blog = () => {
                       src={post.image ? optimizedImageUrl(post.image, 480) : "https://images.unsplash.com/photo-1526318896980-cf78c088247c?q=80&w=1000&auto=format&fit=crop"}
                       srcSet={post.image ? optimizedImageSrcSet(post.image) : undefined}
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      alt={post.title}
+                      alt={post.imageAlt ?? post.title}
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"

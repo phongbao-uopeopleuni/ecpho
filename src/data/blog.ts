@@ -1,3 +1,5 @@
+import { dishStories } from './dishStories';
+
 export interface BlogImageCredit {
   photographerName: string;
   photographerUrl: string;
@@ -15,9 +17,15 @@ export interface BlogPost {
   image: string;
   imageCredit?: BlogImageCredit;
   readTime: string;
+  seoTitle?: string;
+  keywords?: string[];
+  imageAlt?: string;
+  menuItemId?: string;
+  relatedSlugs?: string[];
 }
 
 export const blogPosts: BlogPost[] = [
+  ...dishStories,
   {
     slug: "royal-soul-of-bun-bo-hue",
     title: 'Part 1 — The "Royal Soul" of Bún Bò Huế',

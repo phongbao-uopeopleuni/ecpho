@@ -30,12 +30,72 @@
   <!-- Blog index -->
   <url>
     <loc>https://www.ecphonoodlehousenc.com/blog</loc>
-    <lastmod>2026-05-01</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Blog posts -->
+  <url>
+    <loc>https://www.ecphonoodlehousenc.com/blog/vietnamese-egg-rolls-greenville-nc</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.ecphonoodlehousenc.com/blog/grilled-beef-vermicelli-greenville-nc</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.ecphonoodlehousenc.com/blog/grilled-pork-rice-plate-greenville-nc</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.ecphonoodlehousenc.com/blog/vegetarian-pho-greenville-nc</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.ecphonoodlehousenc.com/blog/bo-kho-beef-stew-greenville-nc</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.ecphonoodlehousenc.com/blog/shrimp-fried-rice-greenville-nc</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.ecphonoodlehousenc.com/blog/grilled-chicken-egg-rolls-rice-greenville-nc</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.ecphonoodlehousenc.com/blog/sweet-sour-chicken-rice-greenville-nc</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.ecphonoodlehousenc.com/blog/green-papaya-salad-greenville-nc</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.ecphonoodlehousenc.com/blog/stir-fried-vegetables-tofu-rice-greenville-nc</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <url>
     <loc>https://www.ecphonoodlehousenc.com/blog/royal-soul-of-bun-bo-hue</loc>
     <lastmod>2026-03-01</lastmod>
