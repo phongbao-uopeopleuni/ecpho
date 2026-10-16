@@ -266,7 +266,7 @@ window.__GRAPH_DATA__ = {
       "isDatabaseRelated": false,
       "hasManyDependencies": true,
       "isOrphan": false,
-      "dependencyCount": 31,
+      "dependencyCount": 35,
       "dependentCount": 1,
       "learningNotes": [
         "This node is a hub. Small changes here likely have wide UI or routing impact."
@@ -311,6 +311,31 @@ window.__GRAPH_DATA__ = {
     },
     {
       "parentId": null,
+      "description": "Component module src/components/ScrollToTop.tsx.",
+      "tags": [],
+      "technicalKinds": [
+        "component"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 1,
+      "dependentCount": 1,
+      "learningNotes": [],
+      "suggestedTests": [],
+      "securityNotes": [],
+      "id": "file:src/components/ScrollToTop.tsx",
+      "label": "ScrollToTop.tsx",
+      "type": "file",
+      "path": "src/components/ScrollToTop.tsx",
+      "language": "typescript",
+      "extension": ".tsx"
+    },
+    {
+      "parentId": null,
       "description": "Homepage or section component module src/components/sections/FeaturedDishes.tsx.",
       "tags": [],
       "technicalKinds": [
@@ -322,7 +347,7 @@ window.__GRAPH_DATA__ = {
       "isDatabaseRelated": false,
       "hasManyDependencies": true,
       "isOrphan": false,
-      "dependencyCount": 7,
+      "dependencyCount": 5,
       "dependentCount": 1,
       "learningNotes": [
         "This node is a hub. Small changes here likely have wide UI or routing impact."
@@ -402,7 +427,7 @@ window.__GRAPH_DATA__ = {
       "hasManyDependencies": false,
       "isOrphan": false,
       "dependencyCount": 2,
-      "dependentCount": 2,
+      "dependentCount": 0,
       "learningNotes": [],
       "suggestedTests": [],
       "securityNotes": [],
@@ -427,7 +452,7 @@ window.__GRAPH_DATA__ = {
       "hasManyDependencies": false,
       "isOrphan": false,
       "dependencyCount": 2,
-      "dependentCount": 7,
+      "dependentCount": 9,
       "learningNotes": [
         "Trace outgoing helper calls here to understand downstream behavior quickly."
       ],
@@ -454,7 +479,7 @@ window.__GRAPH_DATA__ = {
       "hasManyDependencies": false,
       "isOrphan": false,
       "dependencyCount": 2,
-      "dependentCount": 2,
+      "dependentCount": 1,
       "learningNotes": [],
       "suggestedTests": [],
       "securityNotes": [],
@@ -479,7 +504,7 @@ window.__GRAPH_DATA__ = {
       "hasManyDependencies": false,
       "isOrphan": false,
       "dependencyCount": 2,
-      "dependentCount": 13,
+      "dependentCount": 14,
       "learningNotes": [],
       "suggestedTests": [],
       "securityNotes": [],
@@ -503,8 +528,8 @@ window.__GRAPH_DATA__ = {
       "isDatabaseRelated": false,
       "hasManyDependencies": false,
       "isOrphan": false,
-      "dependencyCount": 0,
-      "dependentCount": 4,
+      "dependencyCount": 1,
+      "dependentCount": 5,
       "learningNotes": [],
       "suggestedTests": [],
       "securityNotes": [],
@@ -529,7 +554,7 @@ window.__GRAPH_DATA__ = {
       "hasManyDependencies": false,
       "isOrphan": false,
       "dependencyCount": 0,
-      "dependentCount": 19,
+      "dependentCount": 24,
       "learningNotes": [],
       "suggestedTests": [],
       "securityNotes": [],
@@ -537,6 +562,31 @@ window.__GRAPH_DATA__ = {
       "label": "business.ts",
       "type": "file",
       "path": "src/data/business.ts",
+      "language": "typescript",
+      "extension": ".ts"
+    },
+    {
+      "parentId": null,
+      "description": "Static data module src/data/dishStories.ts.",
+      "tags": [],
+      "technicalKinds": [
+        "data"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 1,
+      "dependentCount": 1,
+      "learningNotes": [],
+      "suggestedTests": [],
+      "securityNotes": [],
+      "id": "file:src/data/dishStories.ts",
+      "label": "dishStories.ts",
+      "type": "file",
+      "path": "src/data/dishStories.ts",
       "language": "typescript",
       "extension": ".ts"
     },
@@ -554,7 +604,7 @@ window.__GRAPH_DATA__ = {
       "hasManyDependencies": false,
       "isOrphan": false,
       "dependencyCount": 0,
-      "dependentCount": 2,
+      "dependentCount": 3,
       "learningNotes": [],
       "suggestedTests": [],
       "securityNotes": [],
@@ -579,7 +629,7 @@ window.__GRAPH_DATA__ = {
       "hasManyDependencies": false,
       "isOrphan": false,
       "dependencyCount": 0,
-      "dependentCount": 6,
+      "dependentCount": 8,
       "learningNotes": [],
       "suggestedTests": [],
       "securityNotes": [],
@@ -847,7 +897,7 @@ window.__GRAPH_DATA__ = {
       "isDatabaseRelated": false,
       "hasManyDependencies": true,
       "isOrphan": false,
-      "dependencyCount": 6,
+      "dependencyCount": 7,
       "dependentCount": 1,
       "learningNotes": [
         "This node is a hub. Small changes here likely have wide UI or routing impact."
@@ -874,7 +924,7 @@ window.__GRAPH_DATA__ = {
       "isDatabaseRelated": false,
       "hasManyDependencies": true,
       "isOrphan": false,
-      "dependencyCount": 6,
+      "dependencyCount": 9,
       "dependentCount": 1,
       "learningNotes": [
         "This route shows route-param handling and content parsing in one place.",
@@ -974,6 +1024,31 @@ window.__GRAPH_DATA__ = {
     },
     {
       "parentId": null,
+      "description": "Style sheet src/pages/Menu.css.",
+      "tags": [],
+      "technicalKinds": [
+        "styles"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 0,
+      "dependentCount": 1,
+      "learningNotes": [],
+      "suggestedTests": [],
+      "securityNotes": [],
+      "id": "style:src/pages/Menu.css",
+      "label": "Menu.css",
+      "type": "style",
+      "path": "src/pages/Menu.css",
+      "language": "css",
+      "extension": ".css"
+    },
+    {
+      "parentId": null,
       "description": "Page module src/pages/Menu.tsx.",
       "tags": [],
       "technicalKinds": [
@@ -985,11 +1060,12 @@ window.__GRAPH_DATA__ = {
       "isDatabaseRelated": false,
       "hasManyDependencies": true,
       "isOrphan": false,
-      "dependencyCount": 11,
+      "dependencyCount": 20,
       "dependentCount": 1,
       "learningNotes": [
         "This page contains the richest client-side behavior: hash sync, scrolling, and category state.",
-        "This node is a hub. Small changes here likely have wide UI or routing impact."
+        "This node is a hub. Small changes here likely have wide UI or routing impact.",
+        "Trace outgoing helper calls here to understand downstream behavior quickly."
       ],
       "suggestedTests": [
         "Verify category navigation syncs scroll position and URL hash on mobile and desktop."
@@ -999,6 +1075,35 @@ window.__GRAPH_DATA__ = {
       "label": "Menu.tsx",
       "type": "file",
       "path": "src/pages/Menu.tsx",
+      "language": "typescript",
+      "extension": ".tsx"
+    },
+    {
+      "parentId": null,
+      "description": "Page module src/pages/MenuPreview.tsx.",
+      "tags": [],
+      "technicalKinds": [
+        "page"
+      ],
+      "riskLevel": "medium",
+      "isEntryPoint": false,
+      "isSecurityRelated": true,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": true,
+      "isOrphan": false,
+      "dependencyCount": 10,
+      "dependentCount": 1,
+      "learningNotes": [
+        "This node is a hub. Small changes here likely have wide UI or routing impact."
+      ],
+      "suggestedTests": [],
+      "securityNotes": [
+        "Review trust boundaries, external URLs, and header/canonical behavior before modifying this node."
+      ],
+      "id": "file:src/pages/MenuPreview.tsx",
+      "label": "MenuPreview.tsx",
+      "type": "file",
+      "path": "src/pages/MenuPreview.tsx",
       "language": "typescript",
       "extension": ".tsx"
     },
@@ -1059,15 +1164,17 @@ window.__GRAPH_DATA__ = {
       "technicalKinds": [
         "utility"
       ],
-      "riskLevel": "low",
+      "riskLevel": "medium",
       "isEntryPoint": false,
       "isSecurityRelated": false,
       "isDatabaseRelated": false,
-      "hasManyDependencies": false,
+      "hasManyDependencies": true,
       "isOrphan": false,
-      "dependencyCount": 2,
-      "dependentCount": 6,
-      "learningNotes": [],
+      "dependencyCount": 4,
+      "dependentCount": 8,
+      "learningNotes": [
+        "This node is a hub. Small changes here likely have wide UI or routing impact."
+      ],
       "suggestedTests": [],
       "securityNotes": [],
       "id": "file:src/utils/assets.ts",
@@ -1084,15 +1191,17 @@ window.__GRAPH_DATA__ = {
       "technicalKinds": [
         "utility"
       ],
-      "riskLevel": "low",
+      "riskLevel": "medium",
       "isEntryPoint": false,
       "isSecurityRelated": false,
       "isDatabaseRelated": false,
-      "hasManyDependencies": false,
+      "hasManyDependencies": true,
       "isOrphan": false,
-      "dependencyCount": 2,
-      "dependentCount": 7,
-      "learningNotes": [],
+      "dependencyCount": 4,
+      "dependentCount": 9,
+      "learningNotes": [
+        "This node is a hub. Small changes here likely have wide UI or routing impact."
+      ],
       "suggestedTests": [],
       "securityNotes": [],
       "id": "file:src/utils/format.ts",
@@ -1126,6 +1235,33 @@ window.__GRAPH_DATA__ = {
       "label": "schema.ts",
       "type": "file",
       "path": "src/utils/schema.ts",
+      "language": "typescript",
+      "extension": ".ts"
+    },
+    {
+      "parentId": null,
+      "description": "Source file src/vite-env.d.ts.",
+      "tags": [],
+      "technicalKinds": [
+        "source"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": true,
+      "dependencyCount": 0,
+      "dependentCount": 0,
+      "learningNotes": [
+        "This node is currently detached from the main graph and is a candidate for cleanup or future wiring."
+      ],
+      "suggestedTests": [],
+      "securityNotes": [],
+      "id": "file:src/vite-env.d.ts",
+      "label": "vite-env.d.ts",
+      "type": "file",
+      "path": "src/vite-env.d.ts",
       "language": "typescript",
       "extension": ".ts"
     },
@@ -1359,10 +1495,11 @@ window.__GRAPH_DATA__ = {
       "isDatabaseRelated": false,
       "hasManyDependencies": true,
       "isOrphan": false,
-      "dependencyCount": 11,
+      "dependencyCount": 14,
       "dependentCount": 2,
       "learningNotes": [
-        "This node is a hub. Small changes here likely have wide UI or routing impact."
+        "This node is a hub. Small changes here likely have wide UI or routing impact.",
+        "Trace outgoing helper calls here to understand downstream behavior quickly."
       ],
       "suggestedTests": [],
       "securityNotes": [],
@@ -1468,6 +1605,37 @@ window.__GRAPH_DATA__ = {
       "language": "typescript",
       "extension": ".tsx",
       "routePath": "/menu",
+      "httpMethod": "GET"
+    },
+    {
+      "parentId": "file:src/App.tsx",
+      "description": "Client route /menu-preview declared in App.tsx.",
+      "tags": [],
+      "technicalKinds": [
+        "client-route"
+      ],
+      "riskLevel": "medium",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 1,
+      "dependentCount": 1,
+      "learningNotes": [
+        "Use this route as an anchor for tracing URL to component handler."
+      ],
+      "suggestedTests": [
+        "Verify GET /menu-preview reaches the expected handler."
+      ],
+      "securityNotes": [],
+      "id": "api_route:src/App.tsx#GET:/menu-preview",
+      "label": "GET /menu-preview",
+      "type": "api_route",
+      "path": "src/App.tsx",
+      "language": "typescript",
+      "extension": ".tsx",
+      "routePath": "/menu-preview",
       "httpMethod": "GET"
     },
     {
@@ -2004,6 +2172,62 @@ window.__GRAPH_DATA__ = {
       "functionRole": "rendering"
     },
     {
+      "parentId": "file:src/components/ScrollToTop.tsx",
+      "description": "ScrollToTop is a function assigned in ScrollToTop.tsx.",
+      "tags": [
+        "exported"
+      ],
+      "technicalKinds": [
+        "exported"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 0,
+      "dependentCount": 2,
+      "learningNotes": [],
+      "suggestedTests": [],
+      "securityNotes": [],
+      "id": "function:src/components/ScrollToTop.tsx#ScrollToTop",
+      "label": "ScrollToTop",
+      "type": "function",
+      "path": "src/components/ScrollToTop.tsx",
+      "language": "typescript",
+      "extension": ".tsx",
+      "functionRole": "rendering"
+    },
+    {
+      "parentId": "file:src/components/sections/FeaturedDishes.tsx",
+      "description": "signatureImage is a function assigned in FeaturedDishes.tsx.",
+      "tags": [],
+      "technicalKinds": [
+        "local"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 1,
+      "dependentCount": 2,
+      "learningNotes": [
+        "Trace outgoing helper calls here to understand downstream behavior quickly."
+      ],
+      "suggestedTests": [],
+      "securityNotes": [],
+      "id": "function:src/components/sections/FeaturedDishes.tsx#signatureImage",
+      "label": "signatureImage",
+      "type": "function",
+      "path": "src/components/sections/FeaturedDishes.tsx",
+      "language": "typescript",
+      "extension": ".tsx",
+      "functionRole": "helper"
+    },
+    {
       "parentId": "file:src/components/sections/FeaturedDishes.tsx",
       "description": "FeaturedDishes component renders part of the UI.",
       "tags": [
@@ -2013,16 +2237,15 @@ window.__GRAPH_DATA__ = {
         "exported",
         "section-component"
       ],
-      "riskLevel": "medium",
+      "riskLevel": "low",
       "isEntryPoint": false,
       "isSecurityRelated": false,
       "isDatabaseRelated": false,
-      "hasManyDependencies": true,
+      "hasManyDependencies": false,
       "isOrphan": false,
-      "dependencyCount": 4,
+      "dependencyCount": 3,
       "dependentCount": 2,
       "learningNotes": [
-        "This node is a hub. Small changes here likely have wide UI or routing impact.",
         "Trace outgoing helper calls here to understand downstream behavior quickly."
       ],
       "suggestedTests": [],
@@ -2034,6 +2257,32 @@ window.__GRAPH_DATA__ = {
       "language": "typescript",
       "extension": ".tsx",
       "functionRole": "rendering"
+    },
+    {
+      "parentId": "component:src/components/sections/FeaturedDishes.tsx#FeaturedDishes",
+      "description": "scrollGallery is a function assigned in FeaturedDishes.tsx.",
+      "tags": [],
+      "technicalKinds": [
+        "local"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 0,
+      "dependentCount": 2,
+      "learningNotes": [],
+      "suggestedTests": [],
+      "securityNotes": [],
+      "id": "function:src/components/sections/FeaturedDishes.tsx#scrollGallery",
+      "label": "scrollGallery",
+      "type": "function",
+      "path": "src/components/sections/FeaturedDishes.tsx",
+      "language": "typescript",
+      "extension": ".tsx",
+      "functionRole": "helper"
     },
     {
       "parentId": "file:src/components/sections/Hero.tsx",
@@ -2110,7 +2359,7 @@ window.__GRAPH_DATA__ = {
       "hasManyDependencies": false,
       "isOrphan": false,
       "dependencyCount": 1,
-      "dependentCount": 2,
+      "dependentCount": 1,
       "learningNotes": [
         "Trace outgoing helper calls here to understand downstream behavior quickly."
       ],
@@ -2172,7 +2421,7 @@ window.__GRAPH_DATA__ = {
       "hasManyDependencies": false,
       "isOrphan": false,
       "dependencyCount": 1,
-      "dependentCount": 14,
+      "dependentCount": 16,
       "learningNotes": [
         "Trace outgoing helper calls here to understand downstream behavior quickly."
       ],
@@ -2394,7 +2643,7 @@ window.__GRAPH_DATA__ = {
       "isDatabaseRelated": false,
       "hasManyDependencies": true,
       "isOrphan": false,
-      "dependencyCount": 5,
+      "dependencyCount": 7,
       "dependentCount": 3,
       "learningNotes": [
         "Read this page after App.tsx to understand a full user-facing route.",
@@ -2460,7 +2709,7 @@ window.__GRAPH_DATA__ = {
       "isDatabaseRelated": false,
       "hasManyDependencies": true,
       "isOrphan": false,
-      "dependencyCount": 5,
+      "dependencyCount": 9,
       "dependentCount": 3,
       "learningNotes": [
         "Read this page after App.tsx to understand a full user-facing route.",
@@ -2533,7 +2782,7 @@ window.__GRAPH_DATA__ = {
       "isDatabaseRelated": false,
       "hasManyDependencies": true,
       "isOrphan": false,
-      "dependencyCount": 5,
+      "dependencyCount": 6,
       "dependentCount": 3,
       "learningNotes": [
         "Read this page after App.tsx to understand a full user-facing route.",
@@ -2577,7 +2826,38 @@ window.__GRAPH_DATA__ = {
       "path": "src/pages/Gallery.tsx",
       "language": "typescript",
       "extension": ".tsx",
-      "functionRole": "helper"
+      "functionRole": "rendering"
+    },
+    {
+      "parentId": "file:src/pages/Home.tsx",
+      "description": "ValuePropositions page renders part of the UI.",
+      "tags": [],
+      "technicalKinds": [
+        "local",
+        "page-component"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 1,
+      "dependentCount": 2,
+      "learningNotes": [
+        "Read this page after App.tsx to understand a full user-facing route."
+      ],
+      "suggestedTests": [
+        "Render the page and verify SEO tags, content sections, and link targets."
+      ],
+      "securityNotes": [],
+      "id": "component:src/pages/Home.tsx#ValuePropositions",
+      "label": "ValuePropositions",
+      "type": "component",
+      "path": "src/pages/Home.tsx",
+      "language": "typescript",
+      "extension": ".tsx",
+      "functionRole": "rendering"
     },
     {
       "parentId": "file:src/pages/Home.tsx",
@@ -2595,7 +2875,7 @@ window.__GRAPH_DATA__ = {
       "isDatabaseRelated": false,
       "hasManyDependencies": true,
       "isOrphan": false,
-      "dependencyCount": 7,
+      "dependencyCount": 8,
       "dependentCount": 3,
       "learningNotes": [
         "Read this page after App.tsx to understand a full user-facing route.",
@@ -2617,6 +2897,36 @@ window.__GRAPH_DATA__ = {
     },
     {
       "parentId": "file:src/pages/Menu.tsx",
+      "description": "prefersReducedMotion is a function assigned in Menu.tsx.",
+      "tags": [],
+      "technicalKinds": [
+        "local"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 0,
+      "dependentCount": 2,
+      "learningNotes": [
+        "This page contains the richest client-side behavior: hash sync, scrolling, and category state."
+      ],
+      "suggestedTests": [
+        "Verify category navigation syncs scroll position and URL hash on mobile and desktop."
+      ],
+      "securityNotes": [],
+      "id": "function:src/pages/Menu.tsx#prefersReducedMotion",
+      "label": "prefersReducedMotion",
+      "type": "function",
+      "path": "src/pages/Menu.tsx",
+      "language": "typescript",
+      "extension": ".tsx",
+      "functionRole": "helper"
+    },
+    {
+      "parentId": "file:src/pages/Menu.tsx",
       "description": "Menu page renders part of the UI.",
       "tags": [
         "exported"
@@ -2631,7 +2941,7 @@ window.__GRAPH_DATA__ = {
       "isDatabaseRelated": false,
       "hasManyDependencies": true,
       "isOrphan": false,
-      "dependencyCount": 10,
+      "dependencyCount": 14,
       "dependentCount": 3,
       "learningNotes": [
         "Read this page after App.tsx to understand a full user-facing route.",
@@ -2655,7 +2965,7 @@ window.__GRAPH_DATA__ = {
     },
     {
       "parentId": "component:src/pages/Menu.tsx#Menu",
-      "description": "scrollToCategory is a function assigned in Menu.tsx.",
+      "description": "destination is a function assigned in Menu.tsx.",
       "tags": [],
       "technicalKinds": [
         "local"
@@ -2675,39 +2985,8 @@ window.__GRAPH_DATA__ = {
         "Verify category navigation syncs scroll position and URL hash on mobile and desktop."
       ],
       "securityNotes": [],
-      "id": "function:src/pages/Menu.tsx#scrollToCategory",
-      "label": "scrollToCategory",
-      "type": "function",
-      "path": "src/pages/Menu.tsx",
-      "language": "typescript",
-      "extension": ".tsx",
-      "functionRole": "rendering"
-    },
-    {
-      "parentId": "component:src/pages/Menu.tsx#Menu",
-      "description": "handleInitialHash is a function assigned in Menu.tsx.",
-      "tags": [],
-      "technicalKinds": [
-        "local"
-      ],
-      "riskLevel": "low",
-      "isEntryPoint": false,
-      "isSecurityRelated": false,
-      "isDatabaseRelated": false,
-      "hasManyDependencies": false,
-      "isOrphan": false,
-      "dependencyCount": 2,
-      "dependentCount": 2,
-      "learningNotes": [
-        "This page contains the richest client-side behavior: hash sync, scrolling, and category state.",
-        "Trace outgoing helper calls here to understand downstream behavior quickly."
-      ],
-      "suggestedTests": [
-        "Verify category navigation syncs scroll position and URL hash on mobile and desktop."
-      ],
-      "securityNotes": [],
-      "id": "function:src/pages/Menu.tsx#handleInitialHash",
-      "label": "handleInitialHash",
+      "id": "function:src/pages/Menu.tsx#destination",
+      "label": "destination",
       "type": "function",
       "path": "src/pages/Menu.tsx",
       "language": "typescript",
@@ -2716,7 +2995,7 @@ window.__GRAPH_DATA__ = {
     },
     {
       "parentId": "component:src/pages/Menu.tsx#Menu",
-      "description": "handleIntersect is a function assigned in Menu.tsx.",
+      "description": "animateScroll is a function assigned in Menu.tsx.",
       "tags": [],
       "technicalKinds": [
         "local"
@@ -2737,10 +3016,344 @@ window.__GRAPH_DATA__ = {
         "Verify category navigation syncs scroll position and URL hash on mobile and desktop."
       ],
       "securityNotes": [],
-      "id": "function:src/pages/Menu.tsx#handleIntersect",
-      "label": "handleIntersect",
+      "id": "function:src/pages/Menu.tsx#animateScroll",
+      "label": "animateScroll",
       "type": "function",
       "path": "src/pages/Menu.tsx",
+      "language": "typescript",
+      "extension": ".tsx",
+      "functionRole": "helper"
+    },
+    {
+      "parentId": "component:src/pages/Menu.tsx#Menu",
+      "description": "measure is a function assigned in Menu.tsx.",
+      "tags": [],
+      "technicalKinds": [
+        "local"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 0,
+      "dependentCount": 2,
+      "learningNotes": [
+        "This page contains the richest client-side behavior: hash sync, scrolling, and category state."
+      ],
+      "suggestedTests": [
+        "Verify category navigation syncs scroll position and URL hash on mobile and desktop."
+      ],
+      "securityNotes": [],
+      "id": "function:src/pages/Menu.tsx#measure",
+      "label": "measure",
+      "type": "function",
+      "path": "src/pages/Menu.tsx",
+      "language": "typescript",
+      "extension": ".tsx",
+      "functionRole": "helper"
+    },
+    {
+      "parentId": "component:src/pages/Menu.tsx#Menu",
+      "description": "onScroll is a function assigned in Menu.tsx.",
+      "tags": [],
+      "technicalKinds": [
+        "local"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 0,
+      "dependentCount": 2,
+      "learningNotes": [
+        "This page contains the richest client-side behavior: hash sync, scrolling, and category state."
+      ],
+      "suggestedTests": [
+        "Verify category navigation syncs scroll position and URL hash on mobile and desktop."
+      ],
+      "securityNotes": [],
+      "id": "function:src/pages/Menu.tsx#onScroll",
+      "label": "onScroll",
+      "type": "function",
+      "path": "src/pages/Menu.tsx",
+      "language": "typescript",
+      "extension": ".tsx",
+      "functionRole": "helper"
+    },
+    {
+      "parentId": "component:src/pages/Menu.tsx#Menu",
+      "description": "interruptScroll is a function assigned in Menu.tsx.",
+      "tags": [],
+      "technicalKinds": [
+        "local"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 1,
+      "dependentCount": 2,
+      "learningNotes": [
+        "This page contains the richest client-side behavior: hash sync, scrolling, and category state.",
+        "Trace outgoing helper calls here to understand downstream behavior quickly."
+      ],
+      "suggestedTests": [
+        "Verify category navigation syncs scroll position and URL hash on mobile and desktop."
+      ],
+      "securityNotes": [],
+      "id": "function:src/pages/Menu.tsx#interruptScroll",
+      "label": "interruptScroll",
+      "type": "function",
+      "path": "src/pages/Menu.tsx",
+      "language": "typescript",
+      "extension": ".tsx",
+      "functionRole": "helper"
+    },
+    {
+      "parentId": "component:src/pages/Menu.tsx#Menu",
+      "description": "onKeyDown is a function assigned in Menu.tsx.",
+      "tags": [],
+      "technicalKinds": [
+        "local"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 1,
+      "dependentCount": 1,
+      "learningNotes": [
+        "This page contains the richest client-side behavior: hash sync, scrolling, and category state.",
+        "Trace outgoing helper calls here to understand downstream behavior quickly."
+      ],
+      "suggestedTests": [
+        "Verify category navigation syncs scroll position and URL hash on mobile and desktop."
+      ],
+      "securityNotes": [],
+      "id": "function:src/pages/Menu.tsx#onKeyDown",
+      "label": "onKeyDown",
+      "type": "function",
+      "path": "src/pages/Menu.tsx",
+      "language": "typescript",
+      "extension": ".tsx",
+      "functionRole": "helper"
+    },
+    {
+      "parentId": "component:src/pages/Menu.tsx#Menu",
+      "description": "followHash is a function assigned in Menu.tsx.",
+      "tags": [],
+      "technicalKinds": [
+        "local"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 3,
+      "dependentCount": 1,
+      "learningNotes": [
+        "This page contains the richest client-side behavior: hash sync, scrolling, and category state.",
+        "Trace outgoing helper calls here to understand downstream behavior quickly."
+      ],
+      "suggestedTests": [
+        "Verify category navigation syncs scroll position and URL hash on mobile and desktop."
+      ],
+      "securityNotes": [],
+      "id": "function:src/pages/Menu.tsx#followHash",
+      "label": "followHash",
+      "type": "function",
+      "path": "src/pages/Menu.tsx",
+      "language": "typescript",
+      "extension": ".tsx",
+      "functionRole": "helper"
+    },
+    {
+      "parentId": "component:src/pages/Menu.tsx#Menu",
+      "description": "revealActiveCategory is a function assigned in Menu.tsx.",
+      "tags": [],
+      "technicalKinds": [
+        "local"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 0,
+      "dependentCount": 2,
+      "learningNotes": [
+        "This page contains the richest client-side behavior: hash sync, scrolling, and category state."
+      ],
+      "suggestedTests": [
+        "Verify category navigation syncs scroll position and URL hash on mobile and desktop."
+      ],
+      "securityNotes": [],
+      "id": "function:src/pages/Menu.tsx#revealActiveCategory",
+      "label": "revealActiveCategory",
+      "type": "function",
+      "path": "src/pages/Menu.tsx",
+      "language": "typescript",
+      "extension": ".tsx",
+      "functionRole": "helper"
+    },
+    {
+      "parentId": "component:src/pages/Menu.tsx#Menu",
+      "description": "categoryLinks is a function assigned in Menu.tsx.",
+      "tags": [],
+      "technicalKinds": [
+        "local"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 2,
+      "dependentCount": 2,
+      "learningNotes": [
+        "This page contains the richest client-side behavior: hash sync, scrolling, and category state.",
+        "Trace outgoing helper calls here to understand downstream behavior quickly."
+      ],
+      "suggestedTests": [
+        "Verify category navigation syncs scroll position and URL hash on mobile and desktop."
+      ],
+      "securityNotes": [],
+      "id": "function:src/pages/Menu.tsx#categoryLinks",
+      "label": "categoryLinks",
+      "type": "function",
+      "path": "src/pages/Menu.tsx",
+      "language": "typescript",
+      "extension": ".tsx",
+      "functionRole": "helper"
+    },
+    {
+      "parentId": "file:src/pages/MenuPreview.tsx",
+      "description": "normalizeSearchText is a function assigned in MenuPreview.tsx.",
+      "tags": [],
+      "technicalKinds": [
+        "local"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 0,
+      "dependentCount": 2,
+      "learningNotes": [],
+      "suggestedTests": [],
+      "securityNotes": [],
+      "id": "function:src/pages/MenuPreview.tsx#normalizeSearchText",
+      "label": "normalizeSearchText",
+      "type": "function",
+      "path": "src/pages/MenuPreview.tsx",
+      "language": "typescript",
+      "extension": ".tsx",
+      "functionRole": "helper"
+    },
+    {
+      "parentId": "file:src/pages/MenuPreview.tsx",
+      "description": "MenuPreview page renders part of the UI.",
+      "tags": [
+        "exported"
+      ],
+      "technicalKinds": [
+        "exported",
+        "page-component"
+      ],
+      "riskLevel": "medium",
+      "isEntryPoint": false,
+      "isSecurityRelated": true,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": true,
+      "isOrphan": false,
+      "dependencyCount": 11,
+      "dependentCount": 3,
+      "learningNotes": [
+        "Read this page after App.tsx to understand a full user-facing route.",
+        "This node is a hub. Small changes here likely have wide UI or routing impact.",
+        "This handler sits directly behind a route, so route regressions will surface here first.",
+        "Trace outgoing helper calls here to understand downstream behavior quickly."
+      ],
+      "suggestedTests": [
+        "Render the page and verify SEO tags, content sections, and link targets."
+      ],
+      "securityNotes": [
+        "Review trust boundaries, external URLs, and header/canonical behavior before modifying this node."
+      ],
+      "id": "component:src/pages/MenuPreview.tsx#MenuPreview",
+      "label": "MenuPreview",
+      "type": "component",
+      "path": "src/pages/MenuPreview.tsx",
+      "language": "typescript",
+      "extension": ".tsx",
+      "functionRole": "rendering"
+    },
+    {
+      "parentId": "component:src/pages/MenuPreview.tsx#MenuPreview",
+      "description": "scrollToCategory is a function assigned in MenuPreview.tsx.",
+      "tags": [],
+      "technicalKinds": [
+        "local"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 1,
+      "dependentCount": 2,
+      "learningNotes": [
+        "Trace outgoing helper calls here to understand downstream behavior quickly."
+      ],
+      "suggestedTests": [],
+      "securityNotes": [],
+      "id": "function:src/pages/MenuPreview.tsx#scrollToCategory",
+      "label": "scrollToCategory",
+      "type": "function",
+      "path": "src/pages/MenuPreview.tsx",
+      "language": "typescript",
+      "extension": ".tsx",
+      "functionRole": "helper"
+    },
+    {
+      "parentId": "component:src/pages/MenuPreview.tsx#MenuPreview",
+      "description": "resetFilters is a function assigned in MenuPreview.tsx.",
+      "tags": [],
+      "technicalKinds": [
+        "local"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": true,
+      "dependencyCount": 0,
+      "dependentCount": 1,
+      "learningNotes": [
+        "This node is currently detached from the main graph and is a candidate for cleanup or future wiring."
+      ],
+      "suggestedTests": [],
+      "securityNotes": [],
+      "id": "function:src/pages/MenuPreview.tsx#resetFilters",
+      "label": "resetFilters",
+      "type": "function",
+      "path": "src/pages/MenuPreview.tsx",
       "language": "typescript",
       "extension": ".tsx",
       "functionRole": "helper"
@@ -2829,12 +3442,72 @@ window.__GRAPH_DATA__ = {
       "hasManyDependencies": false,
       "isOrphan": false,
       "dependencyCount": 0,
-      "dependentCount": 7,
+      "dependentCount": 5,
       "learningNotes": [],
       "suggestedTests": [],
       "securityNotes": [],
       "id": "function:src/utils/assets.ts#assetUrl",
       "label": "assetUrl",
+      "type": "function",
+      "path": "src/utils/assets.ts",
+      "language": "typescript",
+      "extension": ".ts",
+      "functionRole": "helper"
+    },
+    {
+      "parentId": "file:src/utils/assets.ts",
+      "description": "optimizedImageUrl is a local function in assets.ts.",
+      "tags": [
+        "exported"
+      ],
+      "technicalKinds": [
+        "exported"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 1,
+      "dependentCount": 7,
+      "learningNotes": [
+        "Trace outgoing helper calls here to understand downstream behavior quickly."
+      ],
+      "suggestedTests": [],
+      "securityNotes": [],
+      "id": "function:src/utils/assets.ts#optimizedImageUrl",
+      "label": "optimizedImageUrl",
+      "type": "function",
+      "path": "src/utils/assets.ts",
+      "language": "typescript",
+      "extension": ".ts",
+      "functionRole": "helper"
+    },
+    {
+      "parentId": "file:src/utils/assets.ts",
+      "description": "optimizedImageSrcSet is a local function in assets.ts.",
+      "tags": [
+        "exported"
+      ],
+      "technicalKinds": [
+        "exported"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 1,
+      "dependentCount": 6,
+      "learningNotes": [
+        "Trace outgoing helper calls here to understand downstream behavior quickly."
+      ],
+      "suggestedTests": [],
+      "securityNotes": [],
+      "id": "function:src/utils/assets.ts#optimizedImageSrcSet",
+      "label": "optimizedImageSrcSet",
       "type": "function",
       "path": "src/utils/assets.ts",
       "language": "typescript",
@@ -2921,6 +3594,62 @@ window.__GRAPH_DATA__ = {
       "securityNotes": [],
       "id": "function:src/utils/format.ts#formatPrice",
       "label": "formatPrice",
+      "type": "function",
+      "path": "src/utils/format.ts",
+      "language": "typescript",
+      "extension": ".ts",
+      "functionRole": "helper"
+    },
+    {
+      "parentId": "file:src/utils/format.ts",
+      "description": "slugify is a local function in format.ts.",
+      "tags": [
+        "exported"
+      ],
+      "technicalKinds": [
+        "exported"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 0,
+      "dependentCount": 8,
+      "learningNotes": [],
+      "suggestedTests": [],
+      "securityNotes": [],
+      "id": "function:src/utils/format.ts#slugify",
+      "label": "slugify",
+      "type": "function",
+      "path": "src/utils/format.ts",
+      "language": "typescript",
+      "extension": ".ts",
+      "functionRole": "helper"
+    },
+    {
+      "parentId": "file:src/utils/format.ts",
+      "description": "legacySlugify is a local function in format.ts.",
+      "tags": [
+        "exported"
+      ],
+      "technicalKinds": [
+        "exported"
+      ],
+      "riskLevel": "low",
+      "isEntryPoint": false,
+      "isSecurityRelated": false,
+      "isDatabaseRelated": false,
+      "hasManyDependencies": false,
+      "isOrphan": false,
+      "dependencyCount": 0,
+      "dependentCount": 2,
+      "learningNotes": [],
+      "suggestedTests": [],
+      "securityNotes": [],
+      "id": "function:src/utils/format.ts#legacySlugify",
+      "label": "legacySlugify",
       "type": "function",
       "path": "src/utils/format.ts",
       "language": "typescript",
@@ -3116,6 +3845,14 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "high",
       "source": "file:src/App.tsx",
+      "target": "file:src/pages/MenuPreview.tsx",
+      "type": "imports",
+      "label": "imports",
+      "description": "App.tsx imports MenuPreview.tsx."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/App.tsx",
       "target": "file:src/pages/Gallery.tsx",
       "type": "imports",
       "label": "imports",
@@ -3172,6 +3909,22 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "high",
       "source": "file:src/App.tsx",
+      "target": "file:src/components/ScrollToTop.tsx",
+      "type": "imports",
+      "label": "imports",
+      "description": "App.tsx imports ScrollToTop.tsx."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/App.tsx",
+      "target": "file:src/utils/format.ts",
+      "type": "imports",
+      "label": "imports",
+      "description": "App.tsx imports format.ts."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/App.tsx",
       "target": "component:src/App.tsx#NotFoundPatch",
       "type": "defines",
       "label": "defines",
@@ -3208,6 +3961,14 @@ window.__GRAPH_DATA__ = {
       "type": "defines",
       "label": "defines",
       "description": "App.tsx defines GET /menu."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/App.tsx",
+      "target": "api_route:src/App.tsx#GET:/menu-preview",
+      "type": "defines",
+      "label": "defines",
+      "description": "App.tsx defines GET /menu-preview."
     },
     {
       "confidence": "high",
@@ -3355,11 +4116,11 @@ window.__GRAPH_DATA__ = {
     },
     {
       "confidence": "high",
-      "source": "file:src/components/sections/FeaturedDishes.tsx",
-      "target": "file:src/components/ui/Card.tsx",
-      "type": "imports",
-      "label": "imports",
-      "description": "FeaturedDishes.tsx imports Card.tsx."
+      "source": "file:src/components/ScrollToTop.tsx",
+      "target": "function:src/components/ScrollToTop.tsx#ScrollToTop",
+      "type": "defines",
+      "label": "defines",
+      "description": "ScrollToTop.tsx defines ScrollToTop."
     },
     {
       "confidence": "high",
@@ -3372,30 +4133,6 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "high",
       "source": "file:src/components/sections/FeaturedDishes.tsx",
-      "target": "file:src/components/ui/Badge.tsx",
-      "type": "imports",
-      "label": "imports",
-      "description": "FeaturedDishes.tsx imports Badge.tsx."
-    },
-    {
-      "confidence": "high",
-      "source": "file:src/components/sections/FeaturedDishes.tsx",
-      "target": "file:src/data/menu.ts",
-      "type": "imports",
-      "label": "imports",
-      "description": "FeaturedDishes.tsx imports menu.ts."
-    },
-    {
-      "confidence": "high",
-      "source": "file:src/components/sections/FeaturedDishes.tsx",
-      "target": "file:src/utils/format.ts",
-      "type": "imports",
-      "label": "imports",
-      "description": "FeaturedDishes.tsx imports format.ts."
-    },
-    {
-      "confidence": "high",
-      "source": "file:src/components/sections/FeaturedDishes.tsx",
       "target": "file:src/utils/assets.ts",
       "type": "imports",
       "label": "imports",
@@ -3404,10 +4141,26 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "high",
       "source": "file:src/components/sections/FeaturedDishes.tsx",
+      "target": "function:src/components/sections/FeaturedDishes.tsx#signatureImage",
+      "type": "defines",
+      "label": "defines",
+      "description": "FeaturedDishes.tsx defines signatureImage."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/components/sections/FeaturedDishes.tsx",
       "target": "component:src/components/sections/FeaturedDishes.tsx#FeaturedDishes",
       "type": "defines",
       "label": "defines",
       "description": "FeaturedDishes.tsx defines FeaturedDishes."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/components/sections/FeaturedDishes.tsx",
+      "target": "function:src/components/sections/FeaturedDishes.tsx#scrollGallery",
+      "type": "defines",
+      "label": "defines",
+      "description": "FeaturedDishes.tsx defines scrollGallery."
     },
     {
       "confidence": "high",
@@ -3504,6 +4257,22 @@ window.__GRAPH_DATA__ = {
       "type": "defines",
       "label": "defines",
       "description": "Container.tsx defines Container."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/data/blog.ts",
+      "target": "file:src/data/dishStories.ts",
+      "type": "imports",
+      "label": "imports",
+      "description": "blog.ts imports dishStories.ts."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/data/dishStories.ts",
+      "target": "file:src/data/blog.ts",
+      "type": "imports",
+      "label": "imports",
+      "description": "dishStories.ts imports blog.ts."
     },
     {
       "confidence": "high",
@@ -3732,6 +4501,14 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "high",
       "source": "file:src/pages/Blog.tsx",
+      "target": "file:src/data/business.ts",
+      "type": "imports",
+      "label": "imports",
+      "description": "Blog.tsx imports business.ts."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/Blog.tsx",
       "target": "component:src/pages/Blog.tsx#Blog",
       "type": "defines",
       "label": "defines",
@@ -3768,6 +4545,30 @@ window.__GRAPH_DATA__ = {
       "type": "imports",
       "label": "imports",
       "description": "BlogPostDetail.tsx imports assets.ts."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/BlogPostDetail.tsx",
+      "target": "file:src/data/business.ts",
+      "type": "imports",
+      "label": "imports",
+      "description": "BlogPostDetail.tsx imports business.ts."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/BlogPostDetail.tsx",
+      "target": "file:src/data/menu.ts",
+      "type": "imports",
+      "label": "imports",
+      "description": "BlogPostDetail.tsx imports menu.ts."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/BlogPostDetail.tsx",
+      "target": "file:src/utils/format.ts",
+      "type": "imports",
+      "label": "imports",
+      "description": "BlogPostDetail.tsx imports format.ts."
     },
     {
       "confidence": "high",
@@ -3876,14 +4677,6 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "high",
       "source": "file:src/pages/Home.tsx",
-      "target": "file:src/components/sections/Hero.tsx",
-      "type": "imports",
-      "label": "imports",
-      "description": "Home.tsx imports Hero.tsx."
-    },
-    {
-      "confidence": "high",
-      "source": "file:src/pages/Home.tsx",
       "target": "file:src/components/sections/FeaturedDishes.tsx",
       "type": "imports",
       "label": "imports",
@@ -3892,10 +4685,10 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "high",
       "source": "file:src/pages/Home.tsx",
-      "target": "file:src/components/ui/Container.tsx",
+      "target": "file:src/components/sections/Hero.tsx",
       "type": "imports",
       "label": "imports",
-      "description": "Home.tsx imports Container.tsx."
+      "description": "Home.tsx imports Hero.tsx."
     },
     {
       "confidence": "high",
@@ -3908,10 +4701,10 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "high",
       "source": "file:src/pages/Home.tsx",
-      "target": "file:src/data/business.ts",
+      "target": "file:src/components/ui/Container.tsx",
       "type": "imports",
       "label": "imports",
-      "description": "Home.tsx imports business.ts."
+      "description": "Home.tsx imports Container.tsx."
     },
     {
       "confidence": "high",
@@ -3932,6 +4725,14 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "high",
       "source": "file:src/pages/Home.tsx",
+      "target": "component:src/pages/Home.tsx#ValuePropositions",
+      "type": "defines",
+      "label": "defines",
+      "description": "Home.tsx defines ValuePropositions."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/Home.tsx",
       "target": "component:src/pages/Home.tsx#Home",
       "type": "defines",
       "label": "defines",
@@ -3948,14 +4749,6 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "high",
       "source": "file:src/pages/Menu.tsx",
-      "target": "file:src/components/ui/Badge.tsx",
-      "type": "imports",
-      "label": "imports",
-      "description": "Menu.tsx imports Badge.tsx."
-    },
-    {
-      "confidence": "high",
-      "source": "file:src/pages/Menu.tsx",
       "target": "file:src/components/ui/Button.tsx",
       "type": "imports",
       "label": "imports",
@@ -3968,6 +4761,14 @@ window.__GRAPH_DATA__ = {
       "type": "imports",
       "label": "imports",
       "description": "Menu.tsx imports menu.ts."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/Menu.tsx",
+      "target": "file:src/data/gallery.ts",
+      "type": "imports",
+      "label": "imports",
+      "description": "Menu.tsx imports gallery.ts."
     },
     {
       "confidence": "high",
@@ -3996,6 +4797,30 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "high",
       "source": "file:src/pages/Menu.tsx",
+      "target": "file:src/utils/assets.ts",
+      "type": "imports",
+      "label": "imports",
+      "description": "Menu.tsx imports assets.ts."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/Menu.tsx",
+      "target": "style:src/pages/Menu.css",
+      "type": "imports",
+      "label": "imports",
+      "description": "Menu.tsx imports Menu.css."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/Menu.tsx",
+      "target": "function:src/pages/Menu.tsx#prefersReducedMotion",
+      "type": "defines",
+      "label": "defines",
+      "description": "Menu.tsx defines prefersReducedMotion."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/Menu.tsx",
       "target": "component:src/pages/Menu.tsx#Menu",
       "type": "defines",
       "label": "defines",
@@ -4004,26 +4829,154 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "high",
       "source": "file:src/pages/Menu.tsx",
-      "target": "function:src/pages/Menu.tsx#scrollToCategory",
+      "target": "function:src/pages/Menu.tsx#destination",
       "type": "defines",
       "label": "defines",
-      "description": "Menu.tsx defines scrollToCategory."
+      "description": "Menu.tsx defines destination."
     },
     {
       "confidence": "high",
       "source": "file:src/pages/Menu.tsx",
-      "target": "function:src/pages/Menu.tsx#handleInitialHash",
+      "target": "function:src/pages/Menu.tsx#animateScroll",
       "type": "defines",
       "label": "defines",
-      "description": "Menu.tsx defines handleInitialHash."
+      "description": "Menu.tsx defines animateScroll."
     },
     {
       "confidence": "high",
       "source": "file:src/pages/Menu.tsx",
-      "target": "function:src/pages/Menu.tsx#handleIntersect",
+      "target": "function:src/pages/Menu.tsx#measure",
       "type": "defines",
       "label": "defines",
-      "description": "Menu.tsx defines handleIntersect."
+      "description": "Menu.tsx defines measure."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/Menu.tsx",
+      "target": "function:src/pages/Menu.tsx#onScroll",
+      "type": "defines",
+      "label": "defines",
+      "description": "Menu.tsx defines onScroll."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/Menu.tsx",
+      "target": "function:src/pages/Menu.tsx#interruptScroll",
+      "type": "defines",
+      "label": "defines",
+      "description": "Menu.tsx defines interruptScroll."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/Menu.tsx",
+      "target": "function:src/pages/Menu.tsx#onKeyDown",
+      "type": "defines",
+      "label": "defines",
+      "description": "Menu.tsx defines onKeyDown."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/Menu.tsx",
+      "target": "function:src/pages/Menu.tsx#followHash",
+      "type": "defines",
+      "label": "defines",
+      "description": "Menu.tsx defines followHash."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/Menu.tsx",
+      "target": "function:src/pages/Menu.tsx#revealActiveCategory",
+      "type": "defines",
+      "label": "defines",
+      "description": "Menu.tsx defines revealActiveCategory."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/Menu.tsx",
+      "target": "function:src/pages/Menu.tsx#categoryLinks",
+      "type": "defines",
+      "label": "defines",
+      "description": "Menu.tsx defines categoryLinks."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/MenuPreview.tsx",
+      "target": "file:src/components/ui/Container.tsx",
+      "type": "imports",
+      "label": "imports",
+      "description": "MenuPreview.tsx imports Container.tsx."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/MenuPreview.tsx",
+      "target": "file:src/components/ui/Button.tsx",
+      "type": "imports",
+      "label": "imports",
+      "description": "MenuPreview.tsx imports Button.tsx."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/MenuPreview.tsx",
+      "target": "file:src/data/menu.ts",
+      "type": "imports",
+      "label": "imports",
+      "description": "MenuPreview.tsx imports menu.ts."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/MenuPreview.tsx",
+      "target": "file:src/data/business.ts",
+      "type": "imports",
+      "label": "imports",
+      "description": "MenuPreview.tsx imports business.ts."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/MenuPreview.tsx",
+      "target": "file:src/utils/format.ts",
+      "type": "imports",
+      "label": "imports",
+      "description": "MenuPreview.tsx imports format.ts."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/MenuPreview.tsx",
+      "target": "file:src/utils/assets.ts",
+      "type": "imports",
+      "label": "imports",
+      "description": "MenuPreview.tsx imports assets.ts."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/MenuPreview.tsx",
+      "target": "function:src/pages/MenuPreview.tsx#normalizeSearchText",
+      "type": "defines",
+      "label": "defines",
+      "description": "MenuPreview.tsx defines normalizeSearchText."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/MenuPreview.tsx",
+      "target": "component:src/pages/MenuPreview.tsx#MenuPreview",
+      "type": "defines",
+      "label": "defines",
+      "description": "MenuPreview.tsx defines MenuPreview."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/MenuPreview.tsx",
+      "target": "function:src/pages/MenuPreview.tsx#scrollToCategory",
+      "type": "defines",
+      "label": "defines",
+      "description": "MenuPreview.tsx defines scrollToCategory."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/pages/MenuPreview.tsx",
+      "target": "function:src/pages/MenuPreview.tsx#resetFilters",
+      "type": "defines",
+      "label": "defines",
+      "description": "MenuPreview.tsx defines resetFilters."
     },
     {
       "confidence": "high",
@@ -4084,6 +5037,22 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "high",
       "source": "file:src/utils/assets.ts",
+      "target": "function:src/utils/assets.ts#optimizedImageUrl",
+      "type": "defines",
+      "label": "defines",
+      "description": "assets.ts defines optimizedImageUrl."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/utils/assets.ts",
+      "target": "function:src/utils/assets.ts#optimizedImageSrcSet",
+      "type": "defines",
+      "label": "defines",
+      "description": "assets.ts defines optimizedImageSrcSet."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/utils/assets.ts",
       "target": "function:src/utils/assets.ts#absoluteAssetUrl",
       "type": "defines",
       "label": "defines",
@@ -4104,6 +5073,22 @@ window.__GRAPH_DATA__ = {
       "type": "defines",
       "label": "defines",
       "description": "format.ts defines formatPrice."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/utils/format.ts",
+      "target": "function:src/utils/format.ts#slugify",
+      "type": "defines",
+      "label": "defines",
+      "description": "format.ts defines slugify."
+    },
+    {
+      "confidence": "high",
+      "source": "file:src/utils/format.ts",
+      "target": "function:src/utils/format.ts#legacySlugify",
+      "type": "defines",
+      "label": "defines",
+      "description": "format.ts defines legacySlugify."
     },
     {
       "confidence": "high",
@@ -4164,6 +5149,14 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "high",
       "source": "component:src/App.tsx#App",
+      "target": "function:src/components/ScrollToTop.tsx#ScrollToTop",
+      "type": "uses",
+      "label": "uses",
+      "description": "App uses ScrollToTop."
+    },
+    {
+      "confidence": "high",
+      "source": "component:src/App.tsx#App",
       "target": "component:src/layouts/BaseLayout.tsx#BaseLayout",
       "type": "renders",
       "label": "renders",
@@ -4200,6 +5193,22 @@ window.__GRAPH_DATA__ = {
       "type": "renders",
       "label": "renders",
       "description": "App renders Menu."
+    },
+    {
+      "confidence": "high",
+      "source": "api_route:src/App.tsx#GET:/menu-preview",
+      "target": "component:src/pages/MenuPreview.tsx#MenuPreview",
+      "type": "route_to_handler",
+      "label": "route_to_handler",
+      "description": "GET /menu-preview is handled by MenuPreview."
+    },
+    {
+      "confidence": "high",
+      "source": "component:src/App.tsx#App",
+      "target": "component:src/pages/MenuPreview.tsx#MenuPreview",
+      "type": "renders",
+      "label": "renders",
+      "description": "App renders MenuPreview."
     },
     {
       "confidence": "high",
@@ -4330,6 +5339,14 @@ window.__GRAPH_DATA__ = {
       "description": "GET /pho is handled by CompatibilityPage."
     },
     {
+      "confidence": "medium",
+      "source": "component:src/App.tsx#App",
+      "target": "function:src/utils/format.ts#slugify",
+      "type": "calls",
+      "label": "calls",
+      "description": "App calls slugify."
+    },
+    {
       "confidence": "high",
       "source": "api_route:src/App.tsx#GET:/bun",
       "target": "component:src/components/CompatibilityPage.tsx#CompatibilityPage",
@@ -4411,19 +5428,11 @@ window.__GRAPH_DATA__ = {
     },
     {
       "confidence": "medium",
-      "source": "component:src/components/sections/FeaturedDishes.tsx#FeaturedDishes",
-      "target": "file:src/data/menu.ts",
+      "source": "function:src/components/sections/FeaturedDishes.tsx#signatureImage",
+      "target": "function:src/utils/assets.ts#assetUrl",
       "type": "calls",
       "label": "calls",
-      "description": "FeaturedDishes calls menu.ts."
-    },
-    {
-      "confidence": "medium",
-      "source": "component:src/components/sections/FeaturedDishes.tsx#FeaturedDishes",
-      "target": "file:src/data/menu.ts",
-      "type": "uses",
-      "label": "uses",
-      "description": "FeaturedDishes uses menu.ts."
+      "description": "signatureImage calls assetUrl."
     },
     {
       "confidence": "high",
@@ -4436,18 +5445,18 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "medium",
       "source": "component:src/components/sections/FeaturedDishes.tsx#FeaturedDishes",
-      "target": "function:src/utils/assets.ts#assetUrl",
+      "target": "function:src/components/sections/FeaturedDishes.tsx#scrollGallery",
       "type": "calls",
       "label": "calls",
-      "description": "FeaturedDishes calls assetUrl."
+      "description": "FeaturedDishes calls scrollGallery."
     },
     {
       "confidence": "medium",
       "source": "component:src/components/sections/FeaturedDishes.tsx#FeaturedDishes",
-      "target": "function:src/utils/format.ts#formatPrice",
+      "target": "function:src/components/sections/FeaturedDishes.tsx#signatureImage",
       "type": "calls",
       "label": "calls",
-      "description": "FeaturedDishes calls formatPrice."
+      "description": "FeaturedDishes calls signatureImage."
     },
     {
       "confidence": "high",
@@ -4496,6 +5505,22 @@ window.__GRAPH_DATA__ = {
       "type": "calls",
       "label": "calls",
       "description": "Container calls cn."
+    },
+    {
+      "confidence": "medium",
+      "source": "file:src/data/blog.ts",
+      "target": "file:src/data/dishStories.ts",
+      "type": "uses",
+      "label": "uses",
+      "description": "blog.ts uses dishStories.ts."
+    },
+    {
+      "confidence": "medium",
+      "source": "file:src/data/dishStories.ts",
+      "target": "file:src/data/blog.ts",
+      "type": "uses",
+      "label": "uses",
+      "description": "dishStories.ts uses blog.ts."
     },
     {
       "confidence": "medium",
@@ -4626,12 +5651,12 @@ window.__GRAPH_DATA__ = {
       "description": "Blog renders SEOHead."
     },
     {
-      "confidence": "high",
+      "confidence": "medium",
       "source": "component:src/pages/Blog.tsx#Blog",
-      "target": "component:src/components/ui/Container.tsx#Container",
-      "type": "renders",
-      "label": "renders",
-      "description": "Blog renders Container."
+      "target": "file:src/data/business.ts",
+      "type": "uses",
+      "label": "uses",
+      "description": "Blog uses business.ts."
     },
     {
       "confidence": "medium",
@@ -4652,6 +5677,14 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "high",
       "source": "component:src/pages/Blog.tsx#Blog",
+      "target": "component:src/components/ui/Container.tsx#Container",
+      "type": "renders",
+      "label": "renders",
+      "description": "Blog renders Container."
+    },
+    {
+      "confidence": "high",
+      "source": "component:src/pages/Blog.tsx#Blog",
       "target": "component:src/components/ui/Card.tsx#Card",
       "type": "renders",
       "label": "renders",
@@ -4660,10 +5693,18 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "medium",
       "source": "component:src/pages/Blog.tsx#Blog",
-      "target": "function:src/utils/assets.ts#assetUrl",
+      "target": "function:src/utils/assets.ts#optimizedImageUrl",
       "type": "calls",
       "label": "calls",
-      "description": "Blog calls assetUrl."
+      "description": "Blog calls optimizedImageUrl."
+    },
+    {
+      "confidence": "medium",
+      "source": "component:src/pages/Blog.tsx#Blog",
+      "target": "function:src/utils/assets.ts#optimizedImageSrcSet",
+      "type": "calls",
+      "label": "calls",
+      "description": "Blog calls optimizedImageSrcSet."
     },
     {
       "confidence": "medium",
@@ -4690,6 +5731,30 @@ window.__GRAPH_DATA__ = {
       "description": "BlogPostDetail calls parseContent."
     },
     {
+      "confidence": "medium",
+      "source": "component:src/pages/BlogPostDetail.tsx#BlogPostDetail",
+      "target": "file:src/data/menu.ts",
+      "type": "calls",
+      "label": "calls",
+      "description": "BlogPostDetail calls menu.ts."
+    },
+    {
+      "confidence": "medium",
+      "source": "component:src/pages/BlogPostDetail.tsx#BlogPostDetail",
+      "target": "file:src/data/menu.ts",
+      "type": "uses",
+      "label": "uses",
+      "description": "BlogPostDetail uses menu.ts."
+    },
+    {
+      "confidence": "medium",
+      "source": "component:src/pages/BlogPostDetail.tsx#BlogPostDetail",
+      "target": "file:src/data/business.ts",
+      "type": "uses",
+      "label": "uses",
+      "description": "BlogPostDetail uses business.ts."
+    },
+    {
       "confidence": "high",
       "source": "component:src/pages/BlogPostDetail.tsx#BlogPostDetail",
       "target": "component:src/layouts/shared/SEOHead.tsx#SEOHead",
@@ -4708,10 +5773,26 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "medium",
       "source": "component:src/pages/BlogPostDetail.tsx#BlogPostDetail",
-      "target": "function:src/utils/assets.ts#assetUrl",
+      "target": "function:src/utils/assets.ts#optimizedImageUrl",
       "type": "calls",
       "label": "calls",
-      "description": "BlogPostDetail calls assetUrl."
+      "description": "BlogPostDetail calls optimizedImageUrl."
+    },
+    {
+      "confidence": "medium",
+      "source": "component:src/pages/BlogPostDetail.tsx#BlogPostDetail",
+      "target": "function:src/utils/assets.ts#optimizedImageSrcSet",
+      "type": "calls",
+      "label": "calls",
+      "description": "BlogPostDetail calls optimizedImageSrcSet."
+    },
+    {
+      "confidence": "medium",
+      "source": "component:src/pages/BlogPostDetail.tsx#BlogPostDetail",
+      "target": "function:src/utils/format.ts#slugify",
+      "type": "calls",
+      "label": "calls",
+      "description": "BlogPostDetail calls slugify."
     },
     {
       "confidence": "high",
@@ -4780,10 +5861,18 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "medium",
       "source": "component:src/pages/Gallery.tsx#Gallery",
-      "target": "function:src/utils/assets.ts#assetUrl",
+      "target": "function:src/utils/assets.ts#optimizedImageUrl",
       "type": "calls",
       "label": "calls",
-      "description": "Gallery calls assetUrl."
+      "description": "Gallery calls optimizedImageUrl."
+    },
+    {
+      "confidence": "medium",
+      "source": "component:src/pages/Gallery.tsx#Gallery",
+      "target": "function:src/utils/assets.ts#optimizedImageSrcSet",
+      "type": "calls",
+      "label": "calls",
+      "description": "Gallery calls optimizedImageSrcSet."
     },
     {
       "confidence": "medium",
@@ -4792,6 +5881,14 @@ window.__GRAPH_DATA__ = {
       "type": "calls",
       "label": "calls",
       "description": "Gallery calls handleTabClick."
+    },
+    {
+      "confidence": "high",
+      "source": "component:src/pages/Home.tsx#ValuePropositions",
+      "target": "component:src/components/ui/Container.tsx#Container",
+      "type": "renders",
+      "label": "renders",
+      "description": "ValuePropositions renders Container."
     },
     {
       "confidence": "medium",
@@ -4828,14 +5925,6 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "high",
       "source": "component:src/pages/Home.tsx#Home",
-      "target": "component:src/components/ui/Container.tsx#Container",
-      "type": "renders",
-      "label": "renders",
-      "description": "Home renders Container."
-    },
-    {
-      "confidence": "high",
-      "source": "component:src/pages/Home.tsx#Home",
       "target": "component:src/components/sections/FeaturedDishes.tsx#FeaturedDishes",
       "type": "renders",
       "label": "renders",
@@ -4844,10 +5933,42 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "high",
       "source": "component:src/pages/Home.tsx#Home",
+      "target": "component:src/components/ui/Container.tsx#Container",
+      "type": "renders",
+      "label": "renders",
+      "description": "Home renders Container."
+    },
+    {
+      "confidence": "high",
+      "source": "component:src/pages/Home.tsx#Home",
       "target": "component:src/components/sections/ReviewMarquee.tsx#ReviewMarquee",
       "type": "renders",
       "label": "renders",
       "description": "Home renders ReviewMarquee."
+    },
+    {
+      "confidence": "high",
+      "source": "component:src/pages/Home.tsx#Home",
+      "target": "component:src/pages/Home.tsx#ValuePropositions",
+      "type": "renders",
+      "label": "renders",
+      "description": "Home renders ValuePropositions."
+    },
+    {
+      "confidence": "medium",
+      "source": "file:src/pages/Menu.tsx",
+      "target": "file:src/data/gallery.ts",
+      "type": "calls",
+      "label": "calls",
+      "description": "Menu.tsx calls gallery.ts."
+    },
+    {
+      "confidence": "medium",
+      "source": "file:src/pages/Menu.tsx",
+      "target": "file:src/data/gallery.ts",
+      "type": "uses",
+      "label": "uses",
+      "description": "Menu.tsx uses gallery.ts."
     },
     {
       "confidence": "medium",
@@ -4859,51 +5980,35 @@ window.__GRAPH_DATA__ = {
     },
     {
       "confidence": "medium",
-      "source": "function:src/pages/Menu.tsx#handleInitialHash",
-      "target": "file:src/data/menu.ts",
+      "source": "component:src/pages/Menu.tsx#Menu",
+      "target": "function:src/utils/format.ts#slugify",
       "type": "calls",
       "label": "calls",
-      "description": "handleInitialHash calls menu.ts."
-    },
-    {
-      "confidence": "medium",
-      "source": "function:src/pages/Menu.tsx#handleInitialHash",
-      "target": "file:src/data/menu.ts",
-      "type": "uses",
-      "label": "uses",
-      "description": "handleInitialHash uses menu.ts."
-    },
-    {
-      "confidence": "medium",
-      "source": "function:src/pages/Menu.tsx#handleInitialHash",
-      "target": "function:src/pages/Menu.tsx#scrollToCategory",
-      "type": "calls",
-      "label": "calls",
-      "description": "handleInitialHash calls scrollToCategory."
+      "description": "Menu calls slugify."
     },
     {
       "confidence": "medium",
       "source": "component:src/pages/Menu.tsx#Menu",
-      "target": "function:src/pages/Menu.tsx#handleInitialHash",
+      "target": "function:src/pages/Menu.tsx#prefersReducedMotion",
       "type": "calls",
       "label": "calls",
-      "description": "Menu calls handleInitialHash."
+      "description": "Menu calls prefersReducedMotion."
     },
     {
       "confidence": "medium",
-      "source": "function:src/pages/Menu.tsx#handleIntersect",
-      "target": "file:src/data/menu.ts",
+      "source": "component:src/pages/Menu.tsx#Menu",
+      "target": "function:src/pages/Menu.tsx#destination",
       "type": "calls",
       "label": "calls",
-      "description": "handleIntersect calls menu.ts."
+      "description": "Menu calls destination."
     },
     {
       "confidence": "medium",
-      "source": "function:src/pages/Menu.tsx#handleIntersect",
-      "target": "file:src/data/menu.ts",
-      "type": "uses",
-      "label": "uses",
-      "description": "handleIntersect uses menu.ts."
+      "source": "function:src/pages/Menu.tsx#animateScroll",
+      "target": "function:src/pages/Menu.tsx#destination",
+      "type": "calls",
+      "label": "calls",
+      "description": "animateScroll calls destination."
     },
     {
       "confidence": "medium",
@@ -4912,6 +6017,94 @@ window.__GRAPH_DATA__ = {
       "type": "calls",
       "label": "calls",
       "description": "Menu calls menu.ts."
+    },
+    {
+      "confidence": "medium",
+      "source": "function:src/pages/Menu.tsx#interruptScroll",
+      "target": "function:src/pages/Menu.tsx#onScroll",
+      "type": "calls",
+      "label": "calls",
+      "description": "interruptScroll calls onScroll."
+    },
+    {
+      "confidence": "medium",
+      "source": "function:src/pages/Menu.tsx#onKeyDown",
+      "target": "function:src/pages/Menu.tsx#interruptScroll",
+      "type": "calls",
+      "label": "calls",
+      "description": "onKeyDown calls interruptScroll."
+    },
+    {
+      "confidence": "medium",
+      "source": "function:src/pages/Menu.tsx#followHash",
+      "target": "file:src/data/menu.ts",
+      "type": "calls",
+      "label": "calls",
+      "description": "followHash calls menu.ts."
+    },
+    {
+      "confidence": "medium",
+      "source": "function:src/pages/Menu.tsx#followHash",
+      "target": "file:src/data/menu.ts",
+      "type": "uses",
+      "label": "uses",
+      "description": "followHash uses menu.ts."
+    },
+    {
+      "confidence": "medium",
+      "source": "function:src/pages/Menu.tsx#followHash",
+      "target": "function:src/utils/format.ts#slugify",
+      "type": "calls",
+      "label": "calls",
+      "description": "followHash calls slugify."
+    },
+    {
+      "confidence": "medium",
+      "source": "function:src/pages/Menu.tsx#followHash",
+      "target": "function:src/utils/format.ts#legacySlugify",
+      "type": "calls",
+      "label": "calls",
+      "description": "followHash calls legacySlugify."
+    },
+    {
+      "confidence": "medium",
+      "source": "component:src/pages/Menu.tsx#Menu",
+      "target": "function:src/pages/Menu.tsx#measure",
+      "type": "calls",
+      "label": "calls",
+      "description": "Menu calls measure."
+    },
+    {
+      "confidence": "medium",
+      "source": "component:src/pages/Menu.tsx#Menu",
+      "target": "function:src/pages/Menu.tsx#revealActiveCategory",
+      "type": "calls",
+      "label": "calls",
+      "description": "Menu calls revealActiveCategory."
+    },
+    {
+      "confidence": "medium",
+      "source": "function:src/pages/Menu.tsx#categoryLinks",
+      "target": "file:src/data/menu.ts",
+      "type": "calls",
+      "label": "calls",
+      "description": "categoryLinks calls menu.ts."
+    },
+    {
+      "confidence": "medium",
+      "source": "function:src/pages/Menu.tsx#categoryLinks",
+      "target": "file:src/data/menu.ts",
+      "type": "uses",
+      "label": "uses",
+      "description": "categoryLinks uses menu.ts."
+    },
+    {
+      "confidence": "medium",
+      "source": "function:src/pages/Menu.tsx#categoryLinks",
+      "target": "function:src/utils/format.ts#slugify",
+      "type": "calls",
+      "label": "calls",
+      "description": "categoryLinks calls slugify."
     },
     {
       "confidence": "high",
@@ -4932,18 +6125,34 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "medium",
       "source": "component:src/pages/Menu.tsx#Menu",
-      "target": "function:src/pages/Menu.tsx#scrollToCategory",
-      "type": "calls",
-      "label": "calls",
-      "description": "Menu calls scrollToCategory."
+      "target": "file:src/data/business.ts",
+      "type": "uses",
+      "label": "uses",
+      "description": "Menu uses business.ts."
     },
     {
       "confidence": "medium",
       "source": "component:src/pages/Menu.tsx#Menu",
-      "target": "function:src/utils/format.ts#cn",
+      "target": "function:src/utils/assets.ts#optimizedImageUrl",
       "type": "calls",
       "label": "calls",
-      "description": "Menu calls cn."
+      "description": "Menu calls optimizedImageUrl."
+    },
+    {
+      "confidence": "medium",
+      "source": "component:src/pages/Menu.tsx#Menu",
+      "target": "function:src/utils/assets.ts#optimizedImageSrcSet",
+      "type": "calls",
+      "label": "calls",
+      "description": "Menu calls optimizedImageSrcSet."
+    },
+    {
+      "confidence": "medium",
+      "source": "component:src/pages/Menu.tsx#Menu",
+      "target": "function:src/pages/Menu.tsx#categoryLinks",
+      "type": "calls",
+      "label": "calls",
+      "description": "Menu calls categoryLinks."
     },
     {
       "confidence": "medium",
@@ -4956,14 +6165,6 @@ window.__GRAPH_DATA__ = {
     {
       "confidence": "high",
       "source": "component:src/pages/Menu.tsx#Menu",
-      "target": "component:src/components/ui/Badge.tsx#Badge",
-      "type": "renders",
-      "label": "renders",
-      "description": "Menu renders Badge."
-    },
-    {
-      "confidence": "high",
-      "source": "component:src/pages/Menu.tsx#Menu",
       "target": "file:src/components/ui/Button.tsx",
       "type": "uses",
       "label": "uses",
@@ -4971,11 +6172,107 @@ window.__GRAPH_DATA__ = {
     },
     {
       "confidence": "medium",
-      "source": "component:src/pages/Menu.tsx#Menu",
+      "source": "component:src/pages/MenuPreview.tsx#MenuPreview",
+      "target": "file:src/data/menu.ts",
+      "type": "uses",
+      "label": "uses",
+      "description": "MenuPreview uses menu.ts."
+    },
+    {
+      "confidence": "medium",
+      "source": "component:src/pages/MenuPreview.tsx#MenuPreview",
+      "target": "function:src/pages/MenuPreview.tsx#normalizeSearchText",
+      "type": "calls",
+      "label": "calls",
+      "description": "MenuPreview calls normalizeSearchText."
+    },
+    {
+      "confidence": "medium",
+      "source": "component:src/pages/MenuPreview.tsx#MenuPreview",
+      "target": "file:src/data/menu.ts",
+      "type": "calls",
+      "label": "calls",
+      "description": "MenuPreview calls menu.ts."
+    },
+    {
+      "confidence": "medium",
+      "source": "component:src/pages/MenuPreview.tsx#MenuPreview",
+      "target": "function:src/utils/format.ts#slugify",
+      "type": "calls",
+      "label": "calls",
+      "description": "MenuPreview calls slugify."
+    },
+    {
+      "confidence": "medium",
+      "source": "function:src/pages/MenuPreview.tsx#scrollToCategory",
+      "target": "function:src/utils/format.ts#slugify",
+      "type": "calls",
+      "label": "calls",
+      "description": "scrollToCategory calls slugify."
+    },
+    {
+      "confidence": "high",
+      "source": "component:src/pages/MenuPreview.tsx#MenuPreview",
+      "target": "component:src/components/ui/Container.tsx#Container",
+      "type": "renders",
+      "label": "renders",
+      "description": "MenuPreview renders Container."
+    },
+    {
+      "confidence": "high",
+      "source": "component:src/pages/MenuPreview.tsx#MenuPreview",
+      "target": "file:src/components/ui/Button.tsx",
+      "type": "uses",
+      "label": "uses",
+      "description": "MenuPreview uses Button.tsx."
+    },
+    {
+      "confidence": "medium",
+      "source": "component:src/pages/MenuPreview.tsx#MenuPreview",
       "target": "file:src/data/business.ts",
       "type": "uses",
       "label": "uses",
-      "description": "Menu uses business.ts."
+      "description": "MenuPreview uses business.ts."
+    },
+    {
+      "confidence": "medium",
+      "source": "component:src/pages/MenuPreview.tsx#MenuPreview",
+      "target": "function:src/utils/format.ts#cn",
+      "type": "calls",
+      "label": "calls",
+      "description": "MenuPreview calls cn."
+    },
+    {
+      "confidence": "medium",
+      "source": "component:src/pages/MenuPreview.tsx#MenuPreview",
+      "target": "function:src/utils/assets.ts#optimizedImageUrl",
+      "type": "calls",
+      "label": "calls",
+      "description": "MenuPreview calls optimizedImageUrl."
+    },
+    {
+      "confidence": "medium",
+      "source": "component:src/pages/MenuPreview.tsx#MenuPreview",
+      "target": "function:src/utils/assets.ts#optimizedImageSrcSet",
+      "type": "calls",
+      "label": "calls",
+      "description": "MenuPreview calls optimizedImageSrcSet."
+    },
+    {
+      "confidence": "medium",
+      "source": "component:src/pages/MenuPreview.tsx#MenuPreview",
+      "target": "function:src/pages/MenuPreview.tsx#scrollToCategory",
+      "type": "calls",
+      "label": "calls",
+      "description": "MenuPreview calls scrollToCategory."
+    },
+    {
+      "confidence": "medium",
+      "source": "component:src/pages/MenuPreview.tsx#MenuPreview",
+      "target": "function:src/utils/format.ts#formatPrice",
+      "type": "calls",
+      "label": "calls",
+      "description": "MenuPreview calls formatPrice."
     },
     {
       "confidence": "high",
@@ -5008,6 +6305,22 @@ window.__GRAPH_DATA__ = {
       "type": "renders",
       "label": "renders",
       "description": "Terms renders Container."
+    },
+    {
+      "confidence": "medium",
+      "source": "function:src/utils/assets.ts#optimizedImageUrl",
+      "target": "function:src/utils/assets.ts#assetUrl",
+      "type": "calls",
+      "label": "calls",
+      "description": "optimizedImageUrl calls assetUrl."
+    },
+    {
+      "confidence": "medium",
+      "source": "function:src/utils/assets.ts#optimizedImageSrcSet",
+      "target": "function:src/utils/assets.ts#optimizedImageUrl",
+      "type": "calls",
+      "label": "calls",
+      "description": "optimizedImageSrcSet calls optimizedImageUrl."
     },
     {
       "confidence": "medium",
@@ -5051,23 +6364,23 @@ window.__GRAPH_DATA__ = {
     }
   ],
   "meta": {
-    "generatedAt": "2026-05-29T16:05:56.288Z",
+    "generatedAt": "2026-10-16T04:53:43.558Z",
     "scannedRoot": ".",
     "graphVersion": "1.0.0",
-    "totalFiles": 45,
-    "totalFunctions": 38,
-    "totalRoutes": 20,
-    "totalNodes": 103,
-    "totalEdges": 251,
-    "scannedFileCount": 45,
+    "totalFiles": 50,
+    "totalFunctions": 57,
+    "totalRoutes": 21,
+    "totalNodes": 128,
+    "totalEdges": 324,
+    "scannedFileCount": 50,
     "highRiskNodeCount": 2,
-    "orphanNodeCount": 2,
+    "orphanNodeCount": 4,
     "topFileDependencies": [
       {
         "id": "file:src/App.tsx",
         "label": "App.tsx",
         "path": "src/App.tsx",
-        "dependencyCount": 31,
+        "dependencyCount": 35,
         "dependentCount": 1,
         "riskLevel": "medium"
       },
@@ -5075,7 +6388,23 @@ window.__GRAPH_DATA__ = {
         "id": "file:src/pages/Menu.tsx",
         "label": "Menu.tsx",
         "path": "src/pages/Menu.tsx",
-        "dependencyCount": 11,
+        "dependencyCount": 20,
+        "dependentCount": 1,
+        "riskLevel": "medium"
+      },
+      {
+        "id": "file:src/pages/MenuPreview.tsx",
+        "label": "MenuPreview.tsx",
+        "path": "src/pages/MenuPreview.tsx",
+        "dependencyCount": 10,
+        "dependentCount": 1,
+        "riskLevel": "medium"
+      },
+      {
+        "id": "file:src/pages/BlogPostDetail.tsx",
+        "label": "BlogPostDetail.tsx",
+        "path": "src/pages/BlogPostDetail.tsx",
+        "dependencyCount": 9,
         "dependentCount": 1,
         "riskLevel": "medium"
       },
@@ -5086,22 +6415,6 @@ window.__GRAPH_DATA__ = {
         "dependencyCount": 8,
         "dependentCount": 1,
         "riskLevel": "medium"
-      },
-      {
-        "id": "file:src/components/sections/FeaturedDishes.tsx",
-        "label": "FeaturedDishes.tsx",
-        "path": "src/components/sections/FeaturedDishes.tsx",
-        "dependencyCount": 7,
-        "dependentCount": 1,
-        "riskLevel": "medium"
-      },
-      {
-        "id": "file:src/layouts/shared/Header.tsx",
-        "label": "Header.tsx",
-        "path": "src/layouts/shared/Header.tsx",
-        "dependencyCount": 7,
-        "dependentCount": 1,
-        "riskLevel": "medium"
       }
     ],
     "topNodeCalledMost": [
@@ -5109,7 +6422,7 @@ window.__GRAPH_DATA__ = {
         "id": "component:src/components/ui/Container.tsx#Container",
         "label": "Container",
         "path": "src/components/ui/Container.tsx",
-        "callCount": 13
+        "callCount": 15
       },
       {
         "id": "component:src/components/CompatibilityPage.tsx#CompatibilityPage",
@@ -5124,15 +6437,15 @@ window.__GRAPH_DATA__ = {
         "callCount": 8
       },
       {
-        "id": "function:src/utils/assets.ts#assetUrl",
-        "label": "assetUrl",
-        "path": "src/utils/assets.ts",
-        "callCount": 6
+        "id": "function:src/utils/format.ts#slugify",
+        "label": "slugify",
+        "path": "src/utils/format.ts",
+        "callCount": 7
       },
       {
-        "id": "function:src/utils/format.ts#cn",
-        "label": "cn",
-        "path": "src/utils/format.ts",
+        "id": "function:src/utils/assets.ts#optimizedImageUrl",
+        "label": "optimizedImageUrl",
+        "path": "src/utils/assets.ts",
         "callCount": 6
       }
     ],

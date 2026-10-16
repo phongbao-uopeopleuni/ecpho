@@ -52,6 +52,7 @@
 - `GET /gallery` -> `Gallery`
 - `GET /home-page` -> redirect or inline behavior
 - `GET /menu` -> `Menu`
+- `GET /menu-preview` -> `MenuPreview`
 - `GET /pho` -> `CompatibilityPage`
 - `GET /privacy` -> `Privacy`
 - `GET /rice-plates` -> `CompatibilityPage`
@@ -62,12 +63,12 @@
 ## 6. Risk And Dead-Code Signals
 
 - High-risk node count: 2
-- Orphan node count: 2
-- Top dependency hubs: `src/App.tsx` (31), `src/pages/Menu.tsx` (11), `src/pages/Home.tsx` (8), `src/components/sections/FeaturedDishes.tsx` (7), `src/layouts/shared/Header.tsx` (7)
-- Top called/rendered nodes: `Container` (13), `CompatibilityPage` (9), `SEOHead` (8), `assetUrl` (6), `cn` (6)
+- Orphan node count: 4
+- Top dependency hubs: `src/App.tsx` (35), `src/pages/Menu.tsx` (20), `src/pages/MenuPreview.tsx` (10), `src/pages/BlogPostDetail.tsx` (9), `src/pages/Home.tsx` (8)
+- Top called/rendered nodes: `Container` (15), `CompatibilityPage` (9), `SEOHead` (8), `slugify` (7), `optimizedImageUrl` (6)
 
 - High-risk nodes to read first: `public/_headers`, `vercel.json`
-- Likely orphan/dead-code candidates: `src/data/urlMigration.ts`, `handleScroll` (function in `src/layouts/shared/Header.tsx`)
+- Likely orphan/dead-code candidates: `src/data/urlMigration.ts`, `src/vite-env.d.ts`, `handleScroll` (function in `src/layouts/shared/Header.tsx`), `resetFilters` (function in `src/pages/MenuPreview.tsx`)
 
 ## 7. How To Read This Project Fast
 
