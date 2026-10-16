@@ -1381,7 +1381,8 @@ function buildMeta(scannedFiles) {
   const routeNodes = graph.nodes.filter((node) => node.type === 'api_route');
   graph.meta = {
     generatedAt: new Date().toISOString(),
-    scannedRoot: normalizeSlashes(root),
+    // Relative so the graph does not record the absolute path of the machine that generated it.
+    scannedRoot: relPath(root) || '.',
     graphVersion,
     totalFiles: fileNodes.length,
     totalFunctions: functionNodes.length,

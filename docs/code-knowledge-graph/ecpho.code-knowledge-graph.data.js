@@ -5052,7 +5052,7 @@ window.__GRAPH_DATA__ = {
   ],
   "meta": {
     "generatedAt": "2026-05-29T16:05:56.288Z",
-    "scannedRoot": "D:/ecpho",
+    "scannedRoot": ".",
     "graphVersion": "1.0.0",
     "totalFiles": 45,
     "totalFunctions": 38,
