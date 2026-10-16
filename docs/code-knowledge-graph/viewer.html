@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Knowledge Graph Viewer</title>
+    <style>
+      :root {
+        --bg: #f5f1e8;
+        --panel: #fffdf8;
+        --ink: #2b2622;
+        --muted: #73685f;
+        --accent: #8d4f2b;
+        --accent-soft: #dbc4a7;
+        --border: #e6dccf;
+        --chip: #efe6da;
+        --low: #5a7f52;
+        --medium: #b07d2e;
+        --high: #a13d34;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", system-ui, sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(141, 79, 43, 0.08), transparent 30%),
+          radial-gradient(circle at bottom right, rgba(131, 94, 48, 0.08), transparent 32%),
+          var(--bg);
+      }
+
+      header {
+        padding: 20px 24px 12px;
+      }
+
+      header h1 {
+        margin: 0 0 6px;
+        font-size: 28px;
+      }
+
+      header p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .toolbar {
+        display: grid;
+        grid-template-columns: minmax(220px, 2fr) repeat(2, minmax(120px, 160px)) auto auto;
+        gap: 12px;
+        padding: 16px 24px 20px;
+      }
+
+      input,
+      select,
+      button {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--panel);
+        color: var(--ink);
+        padding: 10px 12px;
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+        background: linear-gradient(180deg, #fffdf8, #f4ebde);
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: 340px minmax(340px, 1fr) 420px;
+        gap: 16px;
+        padding: 0 24px 24px;
+      }
+
+      .panel {
+        background: rgba(255, 253, 248, 0.92);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 16px;
+        min-height: 70vh;
+        overflow: auto;
+        box-shadow: 0 18px 60px rgba(43, 38, 34, 0.06);
+      }
+
+      .panel h2,
+      .panel h3 {
+        margin: 0 0 12px;
+      }
+
+      .filters {
+        display: grid;
+        gap: 8px;
+        margin: 12px 0 16px;
+      }
+
+      .check {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        color: var(--muted);
+      }
+
+      .check input {
+        width: auto;
+      }
+
+      .view-modes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+
+      .view-modes button.active {
+        background: var(--accent);
+        color: white;
+        border-color: var(--accent);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+
+      .stat {
+        padding: 12px;
+        border-radius: 14px;
+        background: var(--chip);
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 18px;
+      }
+
+      .node-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .node-card {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: white;
+        padding: 12px;
+        cursor: pointer;
+      }
+
+      .node-card.active {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 2px rgba(141, 79, 43, 0.12);
+      }
+
+      .node-card small {
+        color: var(--muted);
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 8px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 4px 8px;
+        background: var(--chip);
+        border-radius: 999px;
+        font-size: 12px;
+      }
+
+      .risk-low { color: var(--low); }
+      .risk-medium { color: var(--medium); }
+      .risk-high { color: var(--high); }
+
+      .detail-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .detail-box {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 12px;
+        background: white;
+      }
+
+      .detail-box pre {
+        white-space: pre-wrap;
+        word-break: break-word;
+        margin: 0;
+        color: var(--muted);
+        font-family: ui-monospace, SFMono-Regular, monospace;
+      }
+
+      .edge-list {
+        display: grid;
+        gap: 8px;
+      }
+
+      .edge-item {
+        padding: 10px;
+        border-radius: 12px;
+        background: var(--chip);
+      }
+
+      .trace-actions {
+        display: flex;
+        gap: 8px;
+      }
+
+      .empty {
+        color: var(--muted);
+      }
+
+      @media (max-width: 1200px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+
+        .toolbar {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .toolbar {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Code Knowledge Graph Viewer</h1>
+      <p>Search, filter, inspect traces, and export the generated onboarding/debugging graph.</p>
+    </header>
+
+    <section class="toolbar">
+      <input id="search" type="search" placeholder="Search node label, path, tags, notes...">
+      <select id="typeFilter"></select>
+      <select id="riskFilter">
+        <option value="">All risk levels</option>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <button id="loadJsonFile">Load JSON File</button>
+      <button id="openJson">Open JSON</button>
+      <button id="openOverview">Open Markdown Summary</button>
+    </section>
+
+    <section class="layout">
+      <aside class="panel">
+        <h2>Filters</h2>
+        <div class="view-modes" id="viewModes"></div>
+        <div class="filters">
+          <label class="check"><input type="checkbox" id="entryOnly"> Entry points only</label>
+          <label class="check"><input type="checkbox" id="securityOnly"> Security-related only</label>
+          <label class="check"><input type="checkbox" id="databaseOnly"> Database-related only</label>
+          <label class="check"><input type="checkbox" id="orphanOnly"> Orphans only</label>
+          <label class="check"><input type="checkbox" id="manyDepsOnly"> Many dependencies only</label>
+        </div>
+        <div class="stats" id="stats"></div>
+      </aside>
+
+      <main class="panel">
+        <h2>Nodes</h2>
+        <div class="node-list" id="nodeList"></div>
+      </main>
+
+      <section class="panel">
+        <h2>Details</h2>
+        <div id="details" class="detail-grid">
+          <p class="empty">Select a node to inspect metadata and trace flow.</p>
+        </div>
+      </section>
+    </section>
+
+    <input id="jsonFileInput" type="file" accept=".json,application/json" hidden>
+    <script src="./ecpho.code-knowledge-graph.data.js"></script>
+    <script>
+      const graphUrl = './ecpho.code-knowledge-graph.json';
+      const overviewUrl = './OVERVIEW.md';
+      const views = {
+        all: { label: 'Learning View' },
+        files: { label: 'File Dependency View', type: 'file' },
+        functions: { label: 'Function View', typeGroup: ['function', 'component'] },
+        api: { label: 'API Flow View', type: 'api_route' },
+        security: { label: 'Security Review View', securityOnly: true },
+        onboarding: { label: 'Learning View', entryOnly: true },
+      };
+
+      const state = {
+        graph: null,
+        selectedId: null,
+        activeView: 'all',
+      };
+
+      const searchInput = document.getElementById('search');
+      const typeFilter = document.getElementById('typeFilter');
+      const riskFilter = document.getElementById('riskFilter');
+      const nodeList = document.getElementById('nodeList');
+      const details = document.getElementById('details');
+      const stats = document.getElementById('stats');
+      const viewModes = document.getElementById('viewModes');
+      const jsonFileInput = document.getElementById('jsonFileInput');
+      const filters = {
+        entryOnly: document.getElementById('entryOnly'),
+        securityOnly: document.getElementById('securityOnly'),
+        databaseOnly: document.getElementById('databaseOnly'),
+        orphanOnly: document.getElementById('orphanOnly'),
+        manyDepsOnly: document.getElementById('manyDepsOnly'),
+      };
+
+      function escapeHtml(value) {
+        return String(value ?? '').replace(/[&<>"]/g, (char) => ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+        }[char]));
+      }
+
+      function nodeMap() {
+        return new Map(state.graph.nodes.map((node) => [node.id, node]));
+      }
+
+      function edgesForNode(id) {
+        return {
+          outgoing: state.graph.edges.filter((edge) => edge.source === id),
+          incoming: state.graph.edges.filter((edge) => edge.target === id),
+        };
+      }
+
+      function applyViewPreset(viewKey) {
+        state.activeView = viewKey;
+        const preset = views[viewKey] || views.all;
+        filters.entryOnly.checked = !!preset.entryOnly;
+        filters.securityOnly.checked = !!preset.securityOnly;
+        filters.databaseOnly.checked = !!preset.databaseOnly;
+        filters.orphanOnly.checked = !!preset.orphanOnly;
+        filters.manyDepsOnly.checked = !!preset.manyDepsOnly;
+        if (preset.type) {
+          typeFilter.value = preset.type;
+        } else {
+          typeFilter.value = '';
+        }
+        renderViewButtons();
+        render();
+      }
+
+      function renderViewButtons() {
+        viewModes.innerHTML = '';
+        Object.entries(views).forEach(([key, value]) => {
+          const button = document.createElement('button');
+          button.textContent = value.label;
+          button.className = key === state.activeView ? 'active' : '';
+          button.addEventListener('click', () => applyViewPreset(key));
+          viewModes.appendChild(button);
+        });
+      }
+
+      function populateTypeFilter() {
+        const types = [...new Set(state.graph.nodes.map((node) => node.type))].sort();
+        typeFilter.innerHTML = '<option value="">All node types</option>' +
+          types.map((type) => `<option value="${type}">${type}</option>`).join('');
+      }
+
+      function filteredNodes() {
+        const query = searchInput.value.trim().toLowerCase();
+        const selectedType = typeFilter.value;
+        const selectedRisk = riskFilter.value;
+        const preset = views[state.activeView] || views.all;
+
+        return state.graph.nodes.filter((node) => {
+          if (selectedType && node.type !== selectedType) return false;
+          if (preset.typeGroup && !preset.typeGroup.includes(node.type)) return false;
+          if (selectedRisk && node.riskLevel !== selectedRisk) return false;
+          if (filters.entryOnly.checked && !node.isEntryPoint) return false;
+          if (filters.securityOnly.checked && !node.isSecurityRelated) return false;
+          if (filters.databaseOnly.checked && !node.isDatabaseRelated) return false;
+          if (filters.orphanOnly.checked && !node.isOrphan) return false;
+          if (filters.manyDepsOnly.checked && !node.hasManyDependencies) return false;
+
+          if (!query) return true;
+          const haystack = [
+            node.label,
+            node.path,
+            node.description,
+            ...(node.tags || []),
+            ...(node.technicalKinds || []),
+            ...(node.learningNotes || []),
+          ].join(' ').toLowerCase();
+          return haystack.includes(query);
+        }).sort((a, b) => {
+          const rank = { high: 0, medium: 1, low: 2 };
+          return rank[a.riskLevel] - rank[b.riskLevel] || b.dependentCount - a.dependentCount || a.label.localeCompare(b.label);
+        });
+      }
+
+      function renderStats(nodes) {
+        const high = nodes.filter((node) => node.riskLevel === 'high').length;
+        const orphan = nodes.filter((node) => node.isOrphan).length;
+        const entry = nodes.filter((node) => node.isEntryPoint).length;
+        const security = nodes.filter((node) => node.isSecurityRelated).length;
+        stats.innerHTML = `
+          <div class="stat"><strong>${nodes.length}</strong>Visible nodes</div>
+          <div class="stat"><strong>${high}</strong>High risk</div>
+          <div class="stat"><strong>${entry}</strong>Entry points</div>
+          <div class="stat"><strong>${security}</strong>Security nodes</div>
+          <div class="stat"><strong>${orphan}</strong>Orphans</div>
+          <div class="stat"><strong>${state.graph.meta.totalEdges}</strong>Total edges</div>
+        `;
+      }
+
+      function renderNodeList(nodes) {
+        nodeList.innerHTML = '';
+        if (!nodes.length) {
+          nodeList.innerHTML = '<p class="empty">No nodes match the current filters.</p>';
+          return;
+        }
+        nodes.forEach((node) => {
+          const card = document.createElement('article');
+          card.className = `node-card ${node.id === state.selectedId ? 'active' : ''}`;
+          card.innerHTML = `
+            <strong>${escapeHtml(node.label)}</strong>
+            <div><small>${escapeHtml(node.type)} • ${escapeHtml(node.path)}</small></div>
+            <div class="chips">
+              <span class="chip risk-${escapeHtml(node.riskLevel)}">${escapeHtml(node.riskLevel)}</span>
+              <span class="chip">deps ${node.dependencyCount}</span>
+              <span class="chip">used by ${node.dependentCount}</span>
+              ${node.isEntryPoint ? '<span class="chip">entry</span>' : ''}
+              ${node.isSecurityRelated ? '<span class="chip">security</span>' : ''}
+              ${node.isDatabaseRelated ? '<span class="chip">database</span>' : ''}
+              ${node.isOrphan ? '<span class="chip">orphan</span>' : ''}
+            </div>
+          `;
+          card.addEventListener('click', () => {
+            state.selectedId = node.id;
+            render();
+          });
+          nodeList.appendChild(card);
+        });
+      }
+
+      function traceFlow(startId, direction) {
+        const visited = new Set([startId]);
+        const queue = [{ id: startId, depth: 0 }];
+        const maxDepth = 3;
+        const results = [];
+
+        while (queue.length) {
+          const current = queue.shift();
+          const relevantEdges = state.graph.edges.filter((edge) =>
+            direction === 'incoming'
+              ? edge.target === current.id
+              : direction === 'outgoing'
+                ? edge.source === current.id
+                : edge.source === current.id || edge.target === current.id
+          );
+
+          relevantEdges.forEach((edge) => {
+            const nextId = edge.source === current.id ? edge.target : edge.source;
+            results.push(edge);
+            if (!visited.has(nextId) && current.depth < maxDepth) {
+              visited.add(nextId);
+              queue.push({ id: nextId, depth: current.depth + 1 });
+            }
+          });
+        }
+
+        return {
+          nodes: [...visited].map((id) => nodeMap().get(id)).filter(Boolean),
+          edges: [...new Map(results.map((edge) => [`${edge.source}|${edge.target}|${edge.type}`, edge])).values()],
+        };
+      }
+
+      function renderDetails() {
+        if (!state.selectedId) {
+          details.innerHTML = '<p class="empty">Select a node to inspect metadata and trace flow.</p>';
+          return;
+        }
+
+        const nodesById = nodeMap();
+        const node = nodesById.get(state.selectedId);
+        const { outgoing, incoming } = edgesForNode(node.id);
+        const bothTrace = traceFlow(node.id, 'both');
+
+        const renderEdgeList = (edges, incomingMode) => {
+          if (!edges.length) return '<p class="empty">No edges.</p>';
+          return `<div class="edge-list">${edges.map((edge) => {
+            const other = nodesById.get(incomingMode ? edge.source : edge.target);
+            return `
+              <div class="edge-item">
+                <strong>${escapeHtml(edge.type)}</strong><br />
+                ${escapeHtml(other?.label || 'unknown')}<br />
+                <small>${escapeHtml(other?.path || '')}</small>
+              </div>
+            `;
+          }).join('')}</div>`;
+        };
+
+        details.innerHTML = `
+          <div class="detail-box">
+            <strong>${escapeHtml(node.label)}</strong>
+            <pre>${escapeHtml(JSON.stringify({
+              type: node.type,
+              path: node.path,
+              parentId: node.parentId,
+              routePath: node.routePath,
+              httpMethod: node.httpMethod,
+              functionRole: node.functionRole,
+              riskLevel: node.riskLevel,
+              isEntryPoint: node.isEntryPoint,
+              isSecurityRelated: node.isSecurityRelated,
+              isDatabaseRelated: node.isDatabaseRelated,
+              hasManyDependencies: node.hasManyDependencies,
+              isOrphan: node.isOrphan,
+              dependencyCount: node.dependencyCount,
+              dependentCount: node.dependentCount,
+            }, null, 2))}</pre>
+          </div>
+          <div class="detail-box">
+            <h3>Description</h3>
+            <p>${escapeHtml(node.description || 'No description.')}</p>
+            <div class="chips">
+              ${(node.tags || []).map((tag) => `<span class="chip">${escapeHtml(tag)}</span>`).join('')}
+              ${(node.technicalKinds || []).map((tag) => `<span class="chip">${escapeHtml(tag)}</span>`).join('')}
+            </div>
+          </div>
+          <div class="detail-box">
+            <h3>Learning Notes</h3>
+            ${(node.learningNotes || []).length ? `<ul>${node.learningNotes.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : '<p class="empty">No notes.</p>'}
+          </div>
+          <div class="detail-box">
+            <h3>Suggested Tests</h3>
+            ${(node.suggestedTests || []).length ? `<ul>${node.suggestedTests.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : '<p class="empty">No tests suggested.</p>'}
+          </div>
+          <div class="detail-box">
+            <h3>Security Notes</h3>
+            ${(node.securityNotes || []).length ? `<ul>${node.securityNotes.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : '<p class="empty">No security notes.</p>'}
+          </div>
+          <div class="detail-box">
+            <h3>Outgoing</h3>
+            ${renderEdgeList(outgoing, false)}
+          </div>
+          <div class="detail-box">
+            <h3>Incoming</h3>
+            ${renderEdgeList(incoming, true)}
+          </div>
+          <div class="detail-box">
+            <h3>Trace Flow</h3>
+            <div class="trace-actions">
+              <button id="traceOutgoing">Trace Outgoing</button>
+              <button id="traceIncoming">Trace Incoming</button>
+              <button id="traceBoth">Trace Both</button>
+            </div>
+            <div id="traceResult" class="edge-list" style="margin-top: 12px;">
+              <div class="edge-item">
+                <strong>${bothTrace.nodes.length}</strong> nodes and <strong>${bothTrace.edges.length}</strong> edges in 3-hop trace.
+              </div>
+            </div>
+          </div>
+        `;
+
+        const traceResult = document.getElementById('traceResult');
+        const bindTrace = (buttonId, direction) => {
+          document.getElementById(buttonId).addEventListener('click', () => {
+            const trace = traceFlow(node.id, direction);
+            traceResult.innerHTML = `
+              <div class="edge-item"><strong>${trace.nodes.length}</strong> nodes, <strong>${trace.edges.length}</strong> edges.</div>
+              ${trace.nodes.map((item) => `<div class="edge-item"><strong>${escapeHtml(item.label)}</strong><br /><small>${escapeHtml(item.type)} • ${escapeHtml(item.path)}</small></div>`).join('')}
+            `;
+          });
+        };
+        bindTrace('traceOutgoing', 'outgoing');
+        bindTrace('traceIncoming', 'incoming');
+        bindTrace('traceBoth', 'both');
+      }
+
+      function render() {
+        const nodes = filteredNodes();
+        renderStats(nodes);
+        renderNodeList(nodes);
+        if (state.selectedId && !nodes.some((node) => node.id === state.selectedId)) {
+          state.selectedId = nodes[0]?.id || null;
+        }
+        renderDetails();
+      }
+
+      function attachInteractions() {
+        [searchInput, typeFilter, riskFilter, ...Object.values(filters)].forEach((element) => {
+          element.addEventListener('input', render);
+          element.addEventListener('change', render);
+        });
+
+        document.getElementById('openJson').addEventListener('click', () => window.open(graphUrl, '_blank'));
+        document.getElementById('openOverview').addEventListener('click', () => window.open(overviewUrl, '_blank'));
+        document.getElementById('loadJsonFile').addEventListener('click', () => jsonFileInput.click());
+        jsonFileInput.addEventListener('change', async (event) => {
+          const file = event.target.files && event.target.files[0];
+          if (!file) return;
+          try {
+            const text = await file.text();
+            state.graph = JSON.parse(text);
+            state.selectedId = state.graph.nodes.find((node) => node.isEntryPoint)?.id || state.graph.nodes[0]?.id || null;
+            populateTypeFilter();
+            render();
+          } catch (error) {
+            details.innerHTML = `<div class="detail-box"><strong>Failed to load selected JSON</strong><pre>${escapeHtml(String(error))}</pre></div>`;
+          } finally {
+            jsonFileInput.value = '';
+          }
+        });
+      }
+
+      async function boot() {
+        state.graph = window.__GRAPH_DATA__ || null;
+        if (!state.graph) {
+          throw new Error('Embedded graph data not found. Regenerate the graph or load a JSON file manually.');
+        }
+        populateTypeFilter();
+        renderViewButtons();
+        attachInteractions();
+        state.selectedId = state.graph.nodes.find((node) => node.isEntryPoint)?.id || state.graph.nodes[0]?.id || null;
+        render();
+      }
+
+      boot().catch((error) => {
+        renderViewButtons();
+        attachInteractions();
+        details.innerHTML = `<div class="detail-box"><strong>Failed to load embedded graph</strong><pre>${escapeHtml(String(error))}</pre><p>You can still use <strong>Load JSON File</strong> to open a graph manually.</p></div>`;
+      });
+    </script>
+  </body>
+</html>
