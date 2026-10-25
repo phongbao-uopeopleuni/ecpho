@@ -1,0 +1,837 @@
+{
+  "viewports": [
+    {
+      "collisions": 0,
+      "height": 812,
+      "items": 80,
+      "overflow": 0,
+      "width": 375
+    },
+    {
+      "collisions": 0,
+      "height": 844,
+      "items": 80,
+      "minTargetHeight": 44,
+      "overflow": 0,
+      "width": 390
+    },
+    {
+      "collisions": 0,
+      "height": 932,
+      "items": 80,
+      "minTargetHeight": 44,
+      "overflow": 0,
+      "width": 430
+    },
+    {
+      "collisions": 0,
+      "height": 1024,
+      "items": 80,
+      "overflow": 0,
+      "width": 768
+    },
+    {
+      "collisions": 0,
+      "columns": "442.4px 442.4px",
+      "height": 800,
+      "items": 80,
+      "overflow": 0,
+      "width": 1280
+    },
+    {
+      "collisions": 0,
+      "columns": "450px 450px",
+      "height": 900,
+      "items": 80,
+      "overflow": 0,
+      "width": 1440
+    }
+  ],
+  "categories": [
+    {
+      "active": "Appetizers",
+      "activeVisible": true,
+      "category": "Appetizers",
+      "headingTop": 153,
+      "occlusion": 137,
+      "width": 768
+    },
+    {
+      "active": "Salads",
+      "activeVisible": true,
+      "category": "Salads",
+      "headingTop": 154,
+      "occlusion": 137,
+      "width": 768
+    },
+    {
+      "active": "Noodle Soups (Phở)",
+      "activeVisible": true,
+      "category": "Noodle Soups (Phở)",
+      "headingTop": 153,
+      "occlusion": 137,
+      "width": 768
+    },
+    {
+      "active": "Vermicelli (Bún)",
+      "activeVisible": true,
+      "category": "Vermicelli (Bún)",
+      "headingTop": 153,
+      "occlusion": 137,
+      "width": 768
+    },
+    {
+      "active": "Rice Plates",
+      "activeVisible": true,
+      "category": "Rice Plates",
+      "headingTop": 153,
+      "occlusion": 137,
+      "width": 768
+    },
+    {
+      "active": "Fried Rice",
+      "activeVisible": true,
+      "category": "Fried Rice",
+      "headingTop": 153,
+      "occlusion": 137,
+      "width": 768
+    },
+    {
+      "active": "Vegetarian",
+      "activeVisible": true,
+      "category": "Vegetarian",
+      "headingTop": 153,
+      "occlusion": 137,
+      "width": 768
+    },
+    {
+      "active": "House Specials",
+      "activeVisible": true,
+      "category": "House Specials",
+      "headingTop": 153,
+      "occlusion": 137,
+      "width": 768
+    },
+    {
+      "active": "Drinks",
+      "activeVisible": true,
+      "category": "Drinks",
+      "headingTop": 153,
+      "occlusion": 137,
+      "width": 768
+    },
+    {
+      "active": "Beer & Wine",
+      "activeVisible": true,
+      "category": "Beer & Wine",
+      "headingTop": 153,
+      "occlusion": 137,
+      "width": 768
+    },
+    {
+      "active": "Extras",
+      "activeVisible": true,
+      "category": "Extras",
+      "headingTop": 153,
+      "occlusion": 137,
+      "width": 768
+    },
+    {
+      "active": "Appetizers",
+      "activeVisible": true,
+      "category": "Appetizers",
+      "headingTop": 94,
+      "occlusion": 77,
+      "width": 1280
+    },
+    {
+      "active": "Salads",
+      "activeVisible": true,
+      "category": "Salads",
+      "headingTop": 93,
+      "occlusion": 77,
+      "width": 1280
+    },
+    {
+      "active": "Noodle Soups (Phở)",
+      "activeVisible": true,
+      "category": "Noodle Soups (Phở)",
+      "headingTop": 93,
+      "occlusion": 77,
+      "width": 1280
+    },
+    {
+      "active": "Vermicelli (Bún)",
+      "activeVisible": true,
+      "category": "Vermicelli (Bún)",
+      "headingTop": 93,
+      "occlusion": 77,
+      "width": 1280
+    },
+    {
+      "active": "Rice Plates",
+      "activeVisible": true,
+      "category": "Rice Plates",
+      "headingTop": 93,
+      "occlusion": 77,
+      "width": 1280
+    },
+    {
+      "active": "Fried Rice",
+      "activeVisible": true,
+      "category": "Fried Rice",
+      "headingTop": 93,
+      "occlusion": 77,
+      "width": 1280
+    },
+    {
+      "active": "Vegetarian",
+      "activeVisible": true,
+      "category": "Vegetarian",
+      "headingTop": 93,
+      "occlusion": 77,
+      "width": 1280
+    },
+    {
+      "active": "House Specials",
+      "activeVisible": true,
+      "category": "House Specials",
+      "headingTop": 94,
+      "occlusion": 77,
+      "width": 1280
+    },
+    {
+      "active": "Drinks",
+      "activeVisible": true,
+      "category": "Drinks",
+      "headingTop": 93,
+      "occlusion": 77,
+      "width": 1280
+    },
+    {
+      "active": "Beer & Wine",
+      "activeVisible": true,
+      "category": "Beer & Wine",
+      "headingTop": 94,
+      "occlusion": 77,
+      "width": 1280
+    },
+    {
+      "active": "Extras",
+      "activeVisible": true,
+      "category": "Extras",
+      "headingTop": 93,
+      "occlusion": 77,
+      "width": 1280
+    },
+    {
+      "active": "Appetizers",
+      "activeVisible": true,
+      "category": "Appetizers",
+      "headingTop": 93,
+      "occlusion": 77,
+      "width": 1440
+    },
+    {
+      "active": "Salads",
+      "activeVisible": true,
+      "category": "Salads",
+      "headingTop": 93,
+      "occlusion": 77,
+      "width": 1440
+    },
+    {
+      "active": "Noodle Soups (Phở)",
+      "activeVisible": true,
+      "category": "Noodle Soups (Phở)",
+      "headingTop": 93,
+      "occlusion": 77,
+      "width": 1440
+    },
+    {
+      "active": "Vermicelli (Bún)",
+      "activeVisible": true,
+      "category": "Vermicelli (Bún)",
+      "headingTop": 94,
+      "occlusion": 77,
+      "width": 1440
+    },
+    {
+      "active": "Rice Plates",
+      "activeVisible": true,
+      "category": "Rice Plates",
+      "headingTop": 93,
+      "occlusion": 77,
+      "width": 1440
+    },
+    {
+      "active": "Fried Rice",
+      "activeVisible": true,
+      "category": "Fried Rice",
+      "headingTop": 93,
+      "occlusion": 77,
+      "width": 1440
+    },
+    {
+      "active": "Vegetarian",
+      "activeVisible": true,
+      "category": "Vegetarian",
+      "headingTop": 94,
+      "occlusion": 77,
+      "width": 1440
+    },
+    {
+      "active": "House Specials",
+      "activeVisible": true,
+      "category": "House Specials",
+      "headingTop": 93,
+      "occlusion": 77,
+      "width": 1440
+    },
+    {
+      "active": "Drinks",
+      "activeVisible": true,
+      "category": "Drinks",
+      "headingTop": 93,
+      "occlusion": 77,
+      "width": 1440
+    },
+    {
+      "active": "Beer & Wine",
+      "activeVisible": true,
+      "category": "Beer & Wine",
+      "headingTop": 94,
+      "occlusion": 77,
+      "width": 1440
+    },
+    {
+      "active": "Extras",
+      "activeVisible": true,
+      "category": "Extras",
+      "headingTop": 94,
+      "occlusion": 77,
+      "width": 1440
+    },
+    {
+      "active": "Appetizers",
+      "activeVisible": true,
+      "category": "Appetizers",
+      "headingTop": 184,
+      "occlusion": 167,
+      "width": 390
+    },
+    {
+      "active": "Salads",
+      "activeVisible": true,
+      "category": "Salads",
+      "headingTop": 181,
+      "occlusion": 160,
+      "width": 390
+    },
+    {
+      "active": "Noodle Soups (Phở)",
+      "activeVisible": true,
+      "category": "Noodle Soups (Phở)",
+      "headingTop": 155,
+      "occlusion": 138,
+      "width": 390
+    },
+    {
+      "active": "Vermicelli (Bún)",
+      "activeVisible": true,
+      "category": "Vermicelli (Bún)",
+      "headingTop": 150,
+      "occlusion": 133,
+      "width": 390
+    },
+    {
+      "active": "Rice Plates",
+      "activeVisible": true,
+      "category": "Rice Plates",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 390
+    },
+    {
+      "active": "Fried Rice",
+      "activeVisible": true,
+      "category": "Fried Rice",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 390
+    },
+    {
+      "active": "Vegetarian",
+      "activeVisible": true,
+      "category": "Vegetarian",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 390
+    },
+    {
+      "active": "House Specials",
+      "activeVisible": true,
+      "category": "House Specials",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 390
+    },
+    {
+      "active": "Drinks",
+      "activeVisible": true,
+      "category": "Drinks",
+      "headingTop": 150,
+      "occlusion": 133,
+      "width": 390
+    },
+    {
+      "active": "Beer & Wine",
+      "activeVisible": true,
+      "category": "Beer & Wine",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 390
+    },
+    {
+      "active": "Extras",
+      "activeVisible": true,
+      "category": "Extras",
+      "headingTop": 150,
+      "occlusion": 133,
+      "width": 390
+    },
+    {
+      "active": "Appetizers",
+      "activeVisible": true,
+      "category": "Appetizers",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 430
+    },
+    {
+      "active": "Salads",
+      "activeVisible": true,
+      "category": "Salads",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 430
+    },
+    {
+      "active": "Noodle Soups (Phở)",
+      "activeVisible": true,
+      "category": "Noodle Soups (Phở)",
+      "headingTop": 150,
+      "occlusion": 133,
+      "width": 430
+    },
+    {
+      "active": "Vermicelli (Bún)",
+      "activeVisible": true,
+      "category": "Vermicelli (Bún)",
+      "headingTop": 150,
+      "occlusion": 133,
+      "width": 430
+    },
+    {
+      "active": "Rice Plates",
+      "activeVisible": true,
+      "category": "Rice Plates",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 430
+    },
+    {
+      "active": "Fried Rice",
+      "activeVisible": true,
+      "category": "Fried Rice",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 430
+    },
+    {
+      "active": "Vegetarian",
+      "activeVisible": true,
+      "category": "Vegetarian",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 430
+    },
+    {
+      "active": "House Specials",
+      "activeVisible": true,
+      "category": "House Specials",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 430
+    },
+    {
+      "active": "Drinks",
+      "activeVisible": true,
+      "category": "Drinks",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 430
+    },
+    {
+      "active": "Beer & Wine",
+      "activeVisible": true,
+      "category": "Beer & Wine",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 430
+    },
+    {
+      "active": "Extras",
+      "activeVisible": true,
+      "category": "Extras",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 430
+    },
+    {
+      "active": "Appetizers",
+      "activeVisible": true,
+      "category": "Appetizers",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 375
+    },
+    {
+      "active": "Salads",
+      "activeVisible": true,
+      "category": "Salads",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 375
+    },
+    {
+      "active": "Noodle Soups (Phở)",
+      "activeVisible": true,
+      "category": "Noodle Soups (Phở)",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 375
+    },
+    {
+      "active": "Vermicelli (Bún)",
+      "activeVisible": true,
+      "category": "Vermicelli (Bún)",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 375
+    },
+    {
+      "active": "Rice Plates",
+      "activeVisible": true,
+      "category": "Rice Plates",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 375
+    },
+    {
+      "active": "Fried Rice",
+      "activeVisible": true,
+      "category": "Fried Rice",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 375
+    },
+    {
+      "active": "Vegetarian",
+      "activeVisible": true,
+      "category": "Vegetarian",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 375
+    },
+    {
+      "active": "House Specials",
+      "activeVisible": true,
+      "category": "House Specials",
+      "headingTop": 150,
+      "occlusion": 133,
+      "width": 375
+    },
+    {
+      "active": "Drinks",
+      "activeVisible": true,
+      "category": "Drinks",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 375
+    },
+    {
+      "active": "Beer & Wine",
+      "activeVisible": true,
+      "category": "Beer & Wine",
+      "headingTop": 150,
+      "occlusion": 133,
+      "width": 375
+    },
+    {
+      "active": "Extras",
+      "activeVisible": true,
+      "category": "Extras",
+      "headingTop": 149,
+      "occlusion": 133,
+      "width": 375
+    }
+  ],
+  "normalMotion": [
+    {
+      "active": "Appetizers",
+      "activeVisible": true,
+      "category": "Appetizers",
+      "headingTop": 140,
+      "occlusion": 133,
+      "width": 375
+    },
+    {
+      "active": "Noodle Soups (Phở)",
+      "activeVisible": true,
+      "category": "Noodle Soups (Phở)",
+      "headingTop": 191,
+      "occlusion": 133,
+      "width": 375
+    },
+    {
+      "active": "Vegetarian",
+      "activeVisible": true,
+      "category": "Vegetarian",
+      "headingTop": 193,
+      "occlusion": 133,
+      "width": 375
+    },
+    {
+      "active": "Drinks",
+      "activeVisible": true,
+      "category": "Drinks",
+      "headingTop": 189,
+      "occlusion": 133,
+      "width": 375
+    },
+    {
+      "active": "Extras",
+      "activeVisible": true,
+      "category": "Extras",
+      "headingTop": 184,
+      "occlusion": 133,
+      "width": 375
+    },
+    {
+      "active": "Appetizers",
+      "activeVisible": true,
+      "category": "Appetizers",
+      "headingTop": 147,
+      "occlusion": 133,
+      "width": 375
+    }
+  ],
+  "keyboard": {
+    "active": "Salads",
+    "activeVisible": true,
+    "category": "Salads",
+    "headingTop": 149,
+    "occlusion": 133,
+    "width": 375
+  },
+  "rapid": {
+    "active": "Extras",
+    "activeVisible": true,
+    "category": "Extras",
+    "headingTop": 149,
+    "occlusion": 133,
+    "width": 375
+  },
+  "manual": {
+    "active": "Drinks",
+    "headings": [
+      {
+        "text": "Drinks",
+        "top": -596
+      },
+      {
+        "text": "Beer & Wine",
+        "top": 363
+      }
+    ],
+    "y": 11012.7998046875
+  },
+  "horizontal": {
+    "before": {
+      "x": 0,
+      "y": 410.3999938964844
+    },
+    "after": {
+      "x": 375.2000122070313,
+      "y": 410.3999938964844
+    }
+  },
+  "hover": {
+    "background": "rgba(123, 161, 80, 0.08)",
+    "color": "rgb(82, 107, 53)",
+    "hoverCapable": true
+  },
+  "resize": [
+    {
+      "collisions": 0,
+      "contentWidth": 304.8000183105469,
+      "overflow": 0,
+      "width": 320
+    },
+    {
+      "collisions": 0,
+      "contentWidth": 584.7999877929688,
+      "overflow": 0,
+      "width": 600
+    },
+    {
+      "collisions": 0,
+      "contentWidth": 624.7999877929688,
+      "overflow": 0,
+      "width": 640
+    },
+    {
+      "collisions": 0,
+      "contentWidth": 752,
+      "overflow": 0,
+      "width": 767
+    },
+    {
+      "collisions": 0,
+      "contentWidth": 760,
+      "overflow": 0,
+      "width": 900
+    },
+    {
+      "collisions": 0,
+      "contentWidth": 1008,
+      "overflow": 0,
+      "width": 1023
+    },
+    {
+      "collisions": 0,
+      "contentWidth": 1008.7999877929688,
+      "overflow": 0,
+      "width": 1024
+    },
+    {
+      "collisions": 0,
+      "contentWidth": 1184.800048828125,
+      "overflow": 0,
+      "width": 1200
+    },
+    {
+      "collisions": 0,
+      "contentWidth": 1264,
+      "overflow": 0,
+      "width": 1279
+    },
+    {
+      "collisions": 0,
+      "contentWidth": 1264.800048828125,
+      "overflow": 0,
+      "width": 1280
+    },
+    {
+      "collisions": 0,
+      "contentWidth": 1280,
+      "overflow": 0,
+      "width": 1920
+    }
+  ],
+  "finalResponsive": [
+    {
+      "contentWidth": 624,
+      "mobileNavHeight": 56,
+      "navOverflowY": 0,
+      "overflow": 0,
+      "width": 639
+    },
+    {
+      "contentWidth": 625,
+      "mobileNavHeight": 60,
+      "navOverflowY": 0,
+      "overflow": 0,
+      "width": 640
+    },
+    {
+      "contentWidth": 752,
+      "mobileNavHeight": 60,
+      "navOverflowY": 0,
+      "overflow": 0,
+      "width": 767
+    },
+    {
+      "contentWidth": 753,
+      "mobileNavHeight": 60,
+      "navOverflowY": 0,
+      "overflow": 0,
+      "width": 768
+    },
+    {
+      "contentWidth": 760,
+      "mobileNavHeight": 60,
+      "navOverflowY": 0,
+      "overflow": 0,
+      "width": 1023
+    },
+    {
+      "contentWidth": 1009,
+      "mobileNavHeight": 0,
+      "navOverflowY": 0,
+      "overflow": 0,
+      "width": 1024
+    },
+    {
+      "contentWidth": 1264,
+      "mobileNavHeight": 0,
+      "navOverflowY": 0,
+      "overflow": 0,
+      "width": 1279
+    },
+    {
+      "contentWidth": 1265,
+      "mobileNavHeight": 0,
+      "navOverflowY": 0,
+      "overflow": 0,
+      "width": 1280
+    }
+  ],
+  "regression": [
+    {
+      "floatingOrder": 1,
+      "h1": "Soulful Comfort.",
+      "menuStylesPresent": false,
+      "path": "/"
+    },
+    {
+      "floatingOrder": 1,
+      "h1": "Visual Story",
+      "menuStylesPresent": false,
+      "path": "/gallery"
+    },
+    {
+      "floatingOrder": 1,
+      "h1": "Let's Connect.",
+      "menuStylesPresent": false,
+      "path": "/contact"
+    }
+  ],
+  "legacyHash": {
+    "active": "Noodle Soups (Phở)",
+    "activeVisible": true,
+    "category": "Noodle Soups (Phở)",
+    "headingTop": 183,
+    "occlusion": 133,
+    "width": 390
+  },
+  "history": {
+    "active": "Vegetarian",
+    "activeVisible": true,
+    "category": "Vegetarian",
+    "headingTop": 149,
+    "occlusion": 133,
+    "width": 390
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "distFiles": 305,
+  "distChanges": [],
+  "preserved": [
+    {
+      "path": "D:\\ecpho\\src\\data\\menu.ts",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\ecpho\\package.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\ecpho\\package-lock.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\ecpho\\src\\App.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\ecpho\\src\\layouts\\BaseLayout.tsx",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\ecpho\\src\\layouts\\shared\\Header.tsx",
+      "unchanged": true
+    }
+  ],
+  "cacheBefore": 34,
+  "cacheAfter": 34,
+  "cacheChanges": [],
+  "sourceMtimes": [
+    {
+      "FullName": "D:\\ecpho\\src\\pages\\Menu.tsx",
+      "LastWriteTimeUtc": "2026-10-16T03:16:07.0909697Z"
+    },
+    {
+      "FullName": "D:\\ecpho\\src\\pages\\Menu.css",
+      "LastWriteTimeUtc": "2026-10-16T03:12:49.0228257Z"
+    },
+    {
+      "FullName": "D:\\ecpho\\src\\layouts\\shared\\FloatingActions.tsx",
+      "LastWriteTimeUtc": "2026-10-16T03:03:01.7189998Z"
+    }
+  ],
+  "viteTempFiles": [],
+  "auditFiles": [
+    {
+      "Name": "browser-checks.json",
+      "Length": 17327
+    },
+    {
+      "Name": "content-check.json",
+      "Length": 69
+    },
+    {
+      "Name": "desktop-1440.jpg",
+      "Length": 109800
+    },
+    {
+      "Name": "dev-stderr.log",
+      "Length": 0
+    },
+    {
+      "Name": "dev-stdout.log",
+      "Length": 654
+    },
+    {
+      "Name": "mobile-375-extras.jpg",
+      "Length": 29266
+    },
+    {
+      "Name": "mobile-375.jpg",
+      "Length": 40250
+    },
+    {
+      "Name": "mobile-390-pho.jpg",
+      "Length": 32546
+    },
+    {
+      "Name": "mobile-390.jpg",
+      "Length": 44286
+    },
+    {
+      "Name": "mobile-430.jpg",
+      "Length": 50461
+    },
+    {
+      "Name": "preview-stderr.log",
+      "Length": 0
+    },
+    {
+      "Name": "preview-stdout.log",
+      "Length": 75
+    },
+    {
+      "Name": "production-check.json",
+      "Length": 419
+    },
+    {
+      "Name": "rendered-menu.json",
+      "Length": 25281
+    },
+    {
+      "Name": "tablet-768.jpg",
+      "Length": 50553
+    }
+  ]
+}

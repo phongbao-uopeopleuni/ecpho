@@ -7,6 +7,41 @@ Format: `[Phase X] — YYYY-MM-DD — Short description`
 
 ---
 
+## [Phase 9] — 2026-10-25 — Lưu đầy đủ báo cáo và bằng chứng trong docs
+
+### Context
+
+Rà soát sau yêu cầu kiểm tra thư mục docs: source Menu / Blog và báo cáo Blog đã có trên main, nhưng báo cáo Menu và các bằng chứng chính còn ở cache bị gitignore. Chỉ mục / changelog chưa ghi các thay đổi tháng 10.
+
+### Change
+
+- Thêm [báo cáo Menu](./menu-review-2026-10-16.md) và [báo cáo rà soát docs](./documentation-review-2026-10-25.md).
+- Lưu 20 file bằng chứng ngày 16/10 và manifest SHA256 vào [docs/evidence](./evidence/2026-10-16/README.md); chuyển các liên kết chính của báo cáo Blog sang bản đã lưu trong Git.
+- Cập nhật chỉ mục, mốc Menu / Blog, trạng thái kế hoạch SEO và tài liệu migration / audit cũ. Ghi rõ code graph là snapshot working tree có MenuPreview chưa commit.
+- Tooling / graph và báo cáo Blog đã có ở các commit trước: `c560ed9`, `0a24bd4`, `30502d2`, `441c535`; lượt này không sinh lại graph.
+
+### Verification and limits
+
+Đối chiếu hash bản sao, link tương đối và JSON. Chỉ thay đổi docs; không chạy lại browser, build, plagiarism search hoặc xác minh deploy. Số liệu 16/10 được giữ nguyên ngày kiểm chứng, không gắn ngày 25/10 như một lần test mới.
+
+---
+
+## [Phase 8] — 2026-10-16 — Thêm 10 bài món ăn và SEO blog
+
+Commit source: `65e179e`. Thêm `dishStories.ts` và nối vào blog để có tổng 15 bài; mỗi bài mới có keyword theo món / Greenville NC, title / description, ảnh đúng món, liên kết menu và bài liên quan. Bổ sung Blog / BlogPosting / BreadcrumbList schema, alt ảnh và 10 URL sitemap.
+
+Kiểm tra local 10 trang ở 375 px, danh sách ở 1280 px, ảnh, canonical và liên kết menu. Rà trùng lặp nội bộ và 20 câu mẫu trên web; không phải quét toàn văn qua dịch vụ plagiarism chuyên dụng. Chi tiết và bằng chứng: [báo cáo Blog](./blog-content-review-2026-10-16.md).
+
+---
+
+## [Phase 7] — 2026-10-16 — Hoàn thiện Menu và thanh danh mục mobile
+
+Commit source: `d049fc4`. Menu có bố cục tên / giá gọn, sidebar desktop, thanh danh mục ngang sticky, cuộn section 240 ms và nút liên hệ trong hero. Khôi phục dải 8 ảnh tự chạy 50 giây, hỗ trợ hover / reduced motion; tiêu đề cuối là EC Phở Menu. Câu giới thiệu dùng Lora nghiêng và vùng chữ rộng hơn. Trên điện thoại dưới 640 px, chọn mục đưa mục đó về trái để thấy mục kế tiếp.
+
+Giữ nguyên dữ liệu 80 món. Kiểm tra nhiều viewport, đối chiếu nội dung, tiêu đề, ảnh chạy và 21 thao tác thanh mục mobile. Các vòng test có thời điểm khác nhau; [báo cáo Menu](./menu-review-2026-10-16.md) phân biệt rõ production vòng đầu và các cập nhật cuối.
+
+---
+
 ## [Phase 6] — 2026-08-03 — Sửa lỗi điều hướng & cuộn trang
 
 ### Context

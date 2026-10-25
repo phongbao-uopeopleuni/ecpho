@@ -1,0 +1,88 @@
+[
+  {
+    "slug": "vietnamese-egg-rolls-greenville-nc",
+    "wordCount": 403,
+    "descriptionLength": 142,
+    "titleLengthWithBrand": 47,
+    "overlap": []
+  },
+  {
+    "slug": "grilled-beef-vermicelli-greenville-nc",
+    "wordCount": 394,
+    "descriptionLength": 139,
+    "titleLengthWithBrand": 50,
+    "overlap": []
+  },
+  {
+    "slug": "grilled-pork-rice-plate-greenville-nc",
+    "wordCount": 411,
+    "descriptionLength": 150,
+    "titleLengthWithBrand": 50,
+    "overlap": [
+      {
+        "slug": "stir-fried-vegetables-tofu-rice-greenville-nc",
+        "phrases": [
+          "at 109 greenville blvd se suite 100 in greenville north carolina review",
+          "109 greenville blvd se suite 100 in greenville north carolina review the"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "vegetarian-pho-greenville-nc",
+    "wordCount": 399,
+    "descriptionLength": 138,
+    "titleLengthWithBrand": 41,
+    "overlap": []
+  },
+  {
+    "slug": "bo-kho-beef-stew-greenville-nc",
+    "wordCount": 412,
+    "descriptionLength": 138,
+    "titleLengthWithBrand": 54,
+    "overlap": []
+  },
+  {
+    "slug": "shrimp-fried-rice-greenville-nc",
+    "wordCount": 408,
+    "descriptionLength": 149,
+    "titleLengthWithBrand": 44,
+    "overlap": []
+  },
+  {
+    "slug": "grilled-chicken-egg-rolls-rice-greenville-nc",
+    "wordCount": 414,
+    "descriptionLength": 141,
+    "titleLengthWithBrand": 54,
+    "overlap": []
+  },
+  {
+    "slug": "sweet-sour-chicken-rice-greenville-nc",
+    "wordCount": 407,
+    "descriptionLength": 141,
+    "titleLengthWithBrand": 47,
+    "overlap": []
+  },
+  {
+    "slug": "green-papaya-salad-greenville-nc",
+    "wordCount": 408,
+    "descriptionLength": 141,
+    "titleLengthWithBrand": 45,
+    "overlap": []
+  },
+  {
+    "slug": "stir-fried-vegetables-tofu-rice-greenville-nc",
+    "wordCount": 404,
+    "descriptionLength": 143,
+    "titleLengthWithBrand": 54,
+    "overlap": [
+      {
+        "slug": "grilled-pork-rice-plate-greenville-nc",
+        "phrases": [
+          "at 109 greenville blvd se suite 100 in greenville north carolina review",
+          "109 greenville blvd se suite 100 in greenville north carolina review the"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "mobile": {
+    "brokenImages": 0,
+    "height": 844,
+    "items": 80,
+    "overflow": 0,
+    "title": "EC Pho Menu",
+    "width": 390
+  },
+  "desktop": {
+    "active": "Extras",
+    "activeVisible": true,
+    "category": "Extras",
+    "headingTop": 127,
+    "occlusion": 77,
+    "width": 1440
+  },
+  "bottom": {
+    "active": "11Extras",
+    "atBottom": true,
+    "footerVisible": true
+  },
+  "consoleErrors": []
+}

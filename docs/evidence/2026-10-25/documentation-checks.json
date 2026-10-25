@@ -1,0 +1,165 @@
+{
+  "ReviewDate": "2026-10-25",
+  "HistoricalEvidenceDate": "2026-10-16",
+  "SourceHead": "441c535caa6b5ab85f68c61e4355784ad603e972",
+  "MarkdownFiles": 11,
+  "RelativeLinksChecked": 131,
+  "BrokenLinks": [],
+  "JsonFiles": 18,
+  "InvalidJson": [],
+  "EvidenceFilesVerified": 20,
+  "EvidenceChecks": [
+    {
+      "Path": "menu/audit.md",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    },
+    {
+      "Path": "menu/browser-checks.json",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    },
+    {
+      "Path": "menu/content-check.json",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    },
+    {
+      "Path": "menu/production-check.json",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    },
+    {
+      "Path": "menu/filesystem-check.json",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    },
+    {
+      "Path": "menu/marquee-restored-checks.json",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    },
+    {
+      "Path": "menu/menu-title-verified.json",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    },
+    {
+      "Path": "menu/menu-intro-checks.json",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    },
+    {
+      "Path": "menu/mobile-category-next-checks.json",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    },
+    {
+      "Path": "menu/mobile-category-next-extra-checks.json",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    },
+    {
+      "Path": "menu/mobile-category-next.jpg",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    },
+    {
+      "Path": "menu/marquee-restored-desktop.jpg",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    },
+    {
+      "Path": "blog/browser-checks.json",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    },
+    {
+      "Path": "blog/content-checks.json",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    },
+    {
+      "Path": "blog/originality-samples.json",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    },
+    {
+      "Path": "blog/web-originality-checks.json",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    },
+    {
+      "Path": "blog/menu-link-check.json",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    },
+    {
+      "Path": "blog/legacy-check.json",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    },
+    {
+      "Path": "blog/blog-desktop.jpg",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    },
+    {
+      "Path": "blog/blog-article-mobile.jpg",
+      "ArchiveMatchesManifest": true,
+      "ArchiveMatchesSource": true,
+      "BytesMatch": true
+    }
+  ],
+  "PreservedWorktreeFiles": [
+    {
+      "Path": "package-lock.json",
+      "HashUnchanged": true,
+      "MtimeUnchanged": true
+    },
+    {
+      "Path": "src/App.tsx",
+      "HashUnchanged": true,
+      "MtimeUnchanged": true
+    },
+    {
+      "Path": "src/layouts/BaseLayout.tsx",
+      "HashUnchanged": true,
+      "MtimeUnchanged": true
+    },
+    {
+      "Path": "src/layouts/shared/Header.tsx",
+      "HashUnchanged": true,
+      "MtimeUnchanged": true
+    },
+    {
+      "Path": "src/pages/MenuPreview.tsx",
+      "HashUnchanged": true,
+      "MtimeUnchanged": true
+    }
+  ],
+  "BuildRun": false,
+  "BrowserChecksRerun": false,
+  "PlagiarismSearchRerun": false,
+  "ExternalLinksChecked": false,
+  "GitEvidenceBlobsVerified": 20
+}

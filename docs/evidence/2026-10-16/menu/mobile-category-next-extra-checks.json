@@ -1,0 +1,58 @@
+{
+  "beforeManual": {
+    "activeLeft": 16,
+    "activeVisible": true,
+    "barBottom": 133,
+    "category": "Noodle Soups (Phở)",
+    "headingTop": 149,
+    "next": "Vermicelli (Bún)",
+    "nextVisible": true,
+    "nextVisiblePixels": 117,
+    "pageY": 2617.60009765625,
+    "scrollLeft": 156,
+    "width": 375
+  },
+  "manuallyMoved": {
+    "x": 0,
+    "y": 2617.60009765625
+  },
+  "reselected": {
+    "activeLeft": 16,
+    "activeVisible": true,
+    "barBottom": 133,
+    "category": "Noodle Soups (Phở)",
+    "headingTop": 149,
+    "next": "Vermicelli (Bún)",
+    "nextVisible": true,
+    "nextVisiblePixels": 117,
+    "pageY": 2617.60009765625,
+    "scrollLeft": 156,
+    "width": 375
+  },
+  "reducedNext": {
+    "activeLeft": 16,
+    "activeVisible": true,
+    "barBottom": 133,
+    "category": "Vermicelli (Bún)",
+    "headingTop": 149,
+    "next": "Rice Plates",
+    "nextVisible": true,
+    "nextVisiblePixels": 87,
+    "pageY": 4776,
+    "scrollLeft": 302.3999938964844,
+    "width": 375
+  },
+  "finalNextCheck": {
+    "activeLeft": 16,
+    "activeVisible": true,
+    "barBottom": 133,
+    "category": "Noodle Soups (Phở)",
+    "headingTop": 149,
+    "next": "Vermicelli (Bún)",
+    "nextVisible": true,
+    "nextVisiblePixels": 117,
+    "pageY": 2617.60009765625,
+    "scrollLeft": 156,
+    "width": 375
+  }
+}

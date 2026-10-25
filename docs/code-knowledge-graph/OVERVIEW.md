@@ -1,5 +1,13 @@
 # Code Knowledge Graph Overview
 
+**Generated snapshot:** 2026-10-16T04:53:43.558Z
+
+**Scope:** Working-tree source scan, including uncommitted files
+
+**Status:** Historical snapshot; documentation reviewed 2026-10-25
+
+The graph includes `src/pages/MenuPreview.tsx` and `/menu-preview` from the working tree. Those files/route changes remain uncommitted in the 2026-10-25 review; the graph does not establish that every listed route exists in `main`. The scan was not rerun during this documentation review. [Documentation index](../README.md).
+
 ## Deliverables
 
 - JSON graph: `docs/code-knowledge-graph/ecpho.code-knowledge-graph.json`

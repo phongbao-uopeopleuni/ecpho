@@ -1,0 +1,127 @@
+{
+  "EvidenceDate": "2026-10-16",
+  "ArchivedOn": "2026-10-25",
+  "Scope": "Historical local checks; archival does not rerun browser or plagiarism checks.",
+  "Files": [
+    {
+      "Path": "menu/audit.md",
+      "Source": "node_modules/.cache/ecpho-menu-audit-20261016/audit.md",
+      "SHA256": "0B823D2582632F40D4974E5F0BA20D81396EE8604573C1AD560EADE002F94A96",
+      "Bytes": 9977
+    },
+    {
+      "Path": "menu/browser-checks.json",
+      "Source": "node_modules/.cache/ecpho-menu-audit-20261016/browser-checks.json",
+      "SHA256": "D3CE938FBD0E359E5CEF4F5DD8D28505C6F77FDCF82B55A60A26FFE3F5EAA053",
+      "Bytes": 17327
+    },
+    {
+      "Path": "menu/content-check.json",
+      "Source": "node_modules/.cache/ecpho-menu-audit-20261016/content-check.json",
+      "SHA256": "D7365DAEF0A57ABC67FABBDD4AE26823FE0D9B9E0D475C74881A6B8E0B8EF0DB",
+      "Bytes": 69
+    },
+    {
+      "Path": "menu/production-check.json",
+      "Source": "node_modules/.cache/ecpho-menu-audit-20261016/production-check.json",
+      "SHA256": "FFA28263D7C24D3A25A24E13B624F02A47746DD3967B5D5790BC39430E45821F",
+      "Bytes": 419
+    },
+    {
+      "Path": "menu/filesystem-check.json",
+      "Source": "node_modules/.cache/ecpho-menu-audit-20261016/filesystem-check.json",
+      "SHA256": "FBACB1707EE5B7838C6677306F0E3CA09D6C5FC247E63CE5D81A6B9BB11E06B2",
+      "Bytes": 2131
+    },
+    {
+      "Path": "menu/marquee-restored-checks.json",
+      "Source": "node_modules/.cache/ecpho-menu-audit-20261016/marquee-restored-checks.json",
+      "SHA256": "D258D52A1170262BCCB967B69360A5E1EDFC6F84389983D585966597935131A9",
+      "Bytes": 1982
+    },
+    {
+      "Path": "menu/menu-title-verified.json",
+      "Source": "node_modules/.cache/ecpho-menu-audit-20261016/menu-title-verified.json",
+      "SHA256": "2DEC0FB7FC0329A447904EC53D172670B3C8A5412ACC87C0B44FBF2602EF4450",
+      "Bytes": 122
+    },
+    {
+      "Path": "menu/menu-intro-checks.json",
+      "Source": "node_modules/.cache/ecpho-menu-audit-20261016/menu-intro-checks.json",
+      "SHA256": "58FE5D8A3093C26A4F89B63FA8E14A24D67EDC4E01B95CA9B882C598430ACD5C",
+      "Bytes": 881
+    },
+    {
+      "Path": "menu/mobile-category-next-checks.json",
+      "Source": "node_modules/.cache/ecpho-menu-audit-20261016/mobile-category-next-checks.json",
+      "SHA256": "FE7DA61FB9E9360CB52AEDC75A387C58DA149BED5D1E66046A509E6D4C6DBDB1",
+      "Bytes": 6105
+    },
+    {
+      "Path": "menu/mobile-category-next-extra-checks.json",
+      "Source": "node_modules/.cache/ecpho-menu-audit-20261016/mobile-category-next-extra-checks.json",
+      "SHA256": "BF784E5E2908FF49CE51B91F72CD56D5F7CA26E7717B12B5EC06C8376955D4C9",
+      "Bytes": 1329
+    },
+    {
+      "Path": "menu/mobile-category-next.jpg",
+      "Source": "node_modules/.cache/ecpho-menu-audit-20261016/mobile-category-next.jpg",
+      "SHA256": "FAB859D54EE154C4C49DC2A9773BA89E15D54D7DF539159457D2AADDBF71BDC3",
+      "Bytes": 31437
+    },
+    {
+      "Path": "menu/marquee-restored-desktop.jpg",
+      "Source": "node_modules/.cache/ecpho-menu-audit-20261016/marquee-restored-desktop.jpg",
+      "SHA256": "26B6251F4E4C553AF308BBFD0F5DBA784A61D97A3DE12AC399D1A6DB8F6FE196",
+      "Bytes": 90117
+    },
+    {
+      "Path": "blog/browser-checks.json",
+      "Source": "node_modules/.cache/ecpho-blog-audit-20261016/browser-checks.json",
+      "SHA256": "24005D2A987C088A1DABE2BDE21CE70EBAE78C3020406C1A8F5F9BCF675DE9C5",
+      "Bytes": 7309
+    },
+    {
+      "Path": "blog/content-checks.json",
+      "Source": "node_modules/.cache/ecpho-blog-audit-20261016/content-checks.json",
+      "SHA256": "5A21206C56CC7AD8B78EF80F5FB12FE132887209E5DDE8F7D5ED9232BD2FBD3A",
+      "Bytes": 2193
+    },
+    {
+      "Path": "blog/originality-samples.json",
+      "Source": "node_modules/.cache/ecpho-blog-audit-20261016/originality-samples.json",
+      "SHA256": "E86E7D987D3DE867E09CE7B21A062DAA98C0D22B857C2CC6B5151755640F8460",
+      "Bytes": 2799
+    },
+    {
+      "Path": "blog/web-originality-checks.json",
+      "Source": "node_modules/.cache/ecpho-blog-audit-20261016/web-originality-checks.json",
+      "SHA256": "78C3044E8DA36509D7B303C4406EBB40870CF8EEB85E852D340956AD4FD95871",
+      "Bytes": 15240
+    },
+    {
+      "Path": "blog/menu-link-check.json",
+      "Source": "node_modules/.cache/ecpho-blog-audit-20261016/menu-link-check.json",
+      "SHA256": "EC0ED0BB2B6BA39DA7FA422787C5A9786B9FCF832D9A3625F9ABA5CDDB9A9E64",
+      "Bytes": 259
+    },
+    {
+      "Path": "blog/legacy-check.json",
+      "Source": "node_modules/.cache/ecpho-blog-audit-20261016/legacy-check.json",
+      "SHA256": "CB78A3342AFCD4B9E32E5BA7CCE4EB4EEE245D33A781CB7570C3DC8E822E9431",
+      "Bytes": 123
+    },
+    {
+      "Path": "blog/blog-desktop.jpg",
+      "Source": "node_modules/.cache/ecpho-blog-audit-20261016/blog-desktop.jpg",
+      "SHA256": "2B2B3F58F205864901AFB6D78F80E67C9604A4A0D265B9B8A0B8A8E68EAEA8F8",
+      "Bytes": 139030
+    },
+    {
+      "Path": "blog/blog-article-mobile.jpg",
+      "Source": "node_modules/.cache/ecpho-blog-audit-20261016/blog-article-mobile.jpg",
+      "SHA256": "F4B6196117C2ED8E5B87186B813BEAEB347B666A94DDB9FC199C2887E92C3B0A",
+      "Bytes": 36644
+    }
+  ]
+}

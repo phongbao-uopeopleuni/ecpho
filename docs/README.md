@@ -2,7 +2,9 @@
 
 Điểm vào duy nhất cho toàn bộ tài liệu của dự án. Bắt đầu tra cứu từ đây.
 
-**Cập nhật lần cuối:** 2026-08-03
+**Cập nhật lần cuối:** 2026-10-25
+
+Rà soát gần nhất: [báo cáo độ đầy đủ của tài liệu](./documentation-review-2026-10-25.md). Bằng chứng kiểm thử ngày 16/10 đã được lưu trong Git tại [`evidence/2026-10-16/`](./evidence/2026-10-16/README.md); không còn phụ thuộc vào cache local để đọc các kết quả chính.
 
 ---
 
@@ -14,6 +16,9 @@
 | Sửa nội dung: món ăn, giờ mở cửa, ảnh | [`README.md`](../README.md) → mục *Updating Information* |
 | Biết file nào gọi file nào | [`code-knowledge-graph/OVERVIEW.md`](./code-knowledge-graph/OVERVIEW.md) + `viewer.html` |
 | Xem đã thay đổi gì, khi nào | [`CHANGELOG.md`](./CHANGELOG.md) |
+| Menu hiện tại: bố cục, ảnh chạy, tiêu đề, thanh mục mobile | [`menu-review-2026-10-16.md`](./menu-review-2026-10-16.md) |
+| 10 bài mới: món ăn, keyword, SEO và phạm vi rà plagiarism | [`blog-content-review-2026-10-16.md`](./blog-content-review-2026-10-16.md) |
+| Ảnh và số liệu kiểm chứng Menu / Blog | [`evidence/2026-10-16/README.md`](./evidence/2026-10-16/README.md) |
 | Lỗi cuộn trang / điều hướng / anchor menu | [`navigation-audit.md`](./navigation-audit.md) |
 | Vấn đề SEO, canonical, schema, sitemap | [`SEO_REFACTOR_PLAN.md`](./SEO_REFACTOR_PLAN.md) |
 | URL cũ từ Google Sites, redirect, DNS | [`MIGRATION.md`](./MIGRATION.md) |
@@ -31,8 +36,9 @@
 | Tài liệu | Ngày | Trạng thái | Nội dung |
 |---|---|---|---|
 | [`README.md`](../README.md) | 2026-05-17 | Hiệu lực | Stack, lệnh dev/build, deploy, trỏ tới các file dữ liệu cần sửa |
-| [`code-knowledge-graph/OVERVIEW.md`](./code-knowledge-graph/OVERVIEW.md) | 2026-05-29 | Hiệu lực | Bản đồ phụ thuộc mã nguồn: entry point, module, quan hệ gọi nhau |
-| [`code-knowledge-graph/viewer.html`](./code-knowledge-graph/viewer.html) | 2026-06-07 | Hiệu lực | Trình xem đồ thị tương tác — mở trực tiếp bằng trình duyệt |
+| [`code-knowledge-graph/OVERVIEW.md`](./code-knowledge-graph/OVERVIEW.md) | 2026-10-16 | Snapshot working tree | Bản đồ phụ thuộc; có cả MenuPreview chưa commit, không phải snapshot chỉ của HEAD |
+| [`code-knowledge-graph/viewer.html`](./code-knowledge-graph/viewer.html) | 2026-10-16 | Hiệu lực | Trình xem đồ thị tương tác — mở trực tiếp bằng trình duyệt |
+| [JSON](./code-knowledge-graph/ecpho.code-knowledge-graph.json) / [dữ liệu viewer](./code-knowledge-graph/ecpho.code-knowledge-graph.data.js) | 2026-10-16 | Snapshot working tree | Hai dạng dữ liệu của cùng một lần sinh đồ thị |
 
 > Sinh lại đồ thị: `npm run graph:code`
 
@@ -42,7 +48,7 @@ Nguồn chân lý về việc *gì đã đổi, ngày nào, vì sao*.
 
 | Tài liệu | Ngày | Trạng thái | Nội dung |
 |---|---|---|---|
-| [`CHANGELOG.md`](./CHANGELOG.md) | 2026-08-03 | Hiệu lực | Nhật ký theo phase, mới nhất ở trên. Format: `[Phase X] — YYYY-MM-DD — Mô tả` |
+| [`CHANGELOG.md`](./CHANGELOG.md) | 2026-10-25 | Hiệu lực | Nhật ký theo phase, mới nhất ở trên. Format: `[Phase X] — YYYY-MM-DD — Mô tả` |
 
 ### 🔍 Nhóm 3 — Audit & kế hoạch kỹ thuật
 
@@ -50,7 +56,11 @@ Báo cáo điều tra kèm bằng chứng đo đạc và việc còn tồn.
 
 | Tài liệu | Ngày | Trạng thái | Nội dung |
 |---|---|---|---|
-| [`navigation-audit.md`](./navigation-audit.md) | 2026-08-03 | Hiệu lực | Audit routing/cuộn trang/anchor. 5 lỗi đã sửa, 3 việc còn mở, checklist hồi quy |
+| [`menu-review-2026-10-16.md`](./menu-review-2026-10-16.md) | 2026-10-16 | Lưu trữ kiểm chứng | Trạng thái Menu sau các chỉnh sửa mới nhất và liên kết tới số liệu / ảnh |
+| [`blog-content-review-2026-10-16.md`](./blog-content-review-2026-10-16.md) | 2026-10-16 | Lưu trữ kiểm chứng | 10 món, keyword, SEO, phương pháp và giới hạn rà trùng lặp |
+| [`documentation-review-2026-10-25.md`](./documentation-review-2026-10-25.md) | 2026-10-25 | Đã hoàn thành | Kiểm kê tài liệu, phần thiếu đã bổ sung, giới hạn của lần rà soát |
+| [`evidence/2026-10-16/README.md`](./evidence/2026-10-16/README.md) | 2026-10-25 | Lưu trữ | 20 file bằng chứng gốc và manifest SHA256, kiểm chứng thực hiện ngày 16/10 |
+| [`navigation-audit.md`](./navigation-audit.md) | 2026-08-03 | Lưu trữ | Audit cũ: 5 lỗi đã sửa, 3 việc còn mở; mô tả Menu mới nằm ở báo cáo 16/10 |
 | [`SEO_REFACTOR_PLAN.md`](./SEO_REFACTOR_PLAN.md) | 2026-05-29 | Đã hoàn thành | Kế hoạch SEO 5 phase — đã triển khai xong, giữ để tham chiếu |
 | [`SECURITY.md`](../SECURITY.md) | 2026-05-16 | Hiệu lực | Audit bảo mật: DOM-XSS, CSP, các biện pháp đã áp dụng |
 | [`ec-pho-seo-audit.docx`](./ec-pho-seo-audit.docx) | 2026-05-29 | Lưu trữ | Báo cáo SEO đầy đủ dạng Word, kèm bảng vấn đề và cơ hội từ khoá |
@@ -60,7 +70,7 @@ Báo cáo điều tra kèm bằng chứng đo đạc và việc còn tồn.
 
 | Tài liệu | Ngày | Trạng thái | Nội dung |
 |---|---|---|---|
-| [`MIGRATION.md`](./MIGRATION.md) | 2026-05-17 | Hiệu lực | Chuyển Google Sites → Vercel: bản đồ URL, redirect, DNS, checklist |
+| [`MIGRATION.md`](./MIGRATION.md) | 2026-05-17 | Lưu trữ | Hướng dẫn migration ban đầu; URL và quy trình hosting phải đối chiếu cấu hình hiện tại |
 
 > **Ghi chú:** file này trước đây nằm ở gốc với tên `README_MIGRATION.md`. Đã chuyển vào `docs/`, nội dung giữ nguyên 100%.
 
@@ -68,7 +78,7 @@ Báo cáo điều tra kèm bằng chứng đo đạc và việc còn tồn.
 
 | Tài liệu | Ngày | Trạng thái | Nội dung |
 |---|---|---|---|
-| [`public/images/README.md`](../public/images/README.md) | 2026-05-17 | Hiệu lực | Cấu trúc thư mục ảnh, quy ước đặt tên theo mã món |
+| [`public/images/README.md`](../public/images/README.md) | 2026-05-17 | Tham khảo | Cấu trúc ảnh và quy ước cũ; cần mở ảnh đối chiếu vì số file có thể lệch mã món hiện tại |
 
 ---
 
@@ -78,6 +88,10 @@ Mốc thay đổi lớn, mới nhất trước.
 
 | Ngày | Việc | Tài liệu |
 |---|---|---|
+| 2026-10-25 | Bổ sung báo cáo Menu, lưu bằng chứng vào docs, đồng bộ chỉ mục và trạng thái tài liệu | [`documentation-review-2026-10-25.md`](./documentation-review-2026-10-25.md) |
+| 2026-10-16 | 10 bài món ăn mới, keyword địa phương và metadata blog | [`blog-content-review-2026-10-16.md`](./blog-content-review-2026-10-16.md) |
+| 2026-10-16 | Menu gọn hơn, khôi phục ảnh chạy, tiêu đề EC Phở Menu và thanh mục mobile | [`menu-review-2026-10-16.md`](./menu-review-2026-10-16.md) |
+| 2026-10-16 | Sinh lại code graph, bổ sung tooling và tài liệu | [`code-knowledge-graph/OVERVIEW.md`](./code-knowledge-graph/OVERVIEW.md) |
 | 2026-08-03 | Audit điều hướng & cuộn trang — sửa 5 lỗi | [`navigation-audit.md`](./navigation-audit.md) |
 | 2026-06-07 | Cập nhật trình xem code knowledge graph | [`code-knowledge-graph/`](./code-knowledge-graph/) |
 | 2026-05-29 | Sinh code knowledge graph | [`code-knowledge-graph/OVERVIEW.md`](./code-knowledge-graph/OVERVIEW.md) |
@@ -96,7 +110,9 @@ Gom từ các tài liệu audit để không phải mở từng file.
 |---|---|---|---|
 | 1 | Trang 404 thiếu `noindex` → soft 404 | Trung bình | [`navigation-audit.md` §6.4](./navigation-audit.md) |
 | 2 | `urlMigration.ts` là dead code, không được import | Thấp | [`navigation-audit.md` §6.1](./navigation-audit.md) |
-| 3 | Bundle JS 532 kB, vượt ngưỡng 500 kB của Vite | Thấp | [`navigation-audit.md` §6.2](./navigation-audit.md) |
+| 3 | Cảnh báo bundle vượt 500 kB; 532 kB là số đo audit 03/08, chưa phải số đo hiện tại | Thấp | [`navigation-audit.md` §6.2](./navigation-audit.md) |
+
+Các việc trên là tồn đọng được ghi nhận trong audit cũ; lần rà soát tài liệu 25/10 không chạy lại kiểm thử chức năng hoặc đo bundle. Báo cáo 16/10 có phạm vi riêng, không chứng nhận Safari/Firefox, thiết bị thật, Googlebot hoặc thứ hạng SEO.
 
 ---
 
