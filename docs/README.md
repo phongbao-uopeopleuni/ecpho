@@ -32,7 +32,7 @@ Rà soát gần nhất: [báo cáo độ đầy đủ của tài liệu](./docum
 
 ## Phân loại tài liệu
 
-### 📘 Nhóm 1 — Tổng quan & kiến trúc
+### Nhóm 1 — Tổng quan & kiến trúc
 
 Đọc trước khi đụng vào mã nguồn.
 
@@ -45,7 +45,7 @@ Rà soát gần nhất: [báo cáo độ đầy đủ của tài liệu](./docum
 
 > Sinh lại đồ thị: `npm run graph:code`
 
-### 📋 Nhóm 2 — Lịch sử thay đổi
+### Nhóm 2 — Lịch sử thay đổi
 
 Nguồn chân lý về việc *gì đã đổi, ngày nào, vì sao*.
 
@@ -53,7 +53,7 @@ Nguồn chân lý về việc *gì đã đổi, ngày nào, vì sao*.
 |---|---|---|---|
 | [`CHANGELOG.md`](./CHANGELOG.md) | 2026-10-25 | Hiệu lực | Nhật ký theo phase, mới nhất ở trên. Format: `[Phase X] — YYYY-MM-DD — Mô tả` |
 
-### 🔍 Nhóm 3 — Audit & kế hoạch kỹ thuật
+### Nhóm 3 — Audit & kế hoạch kỹ thuật
 
 Báo cáo điều tra kèm bằng chứng đo đạc và việc còn tồn.
 
@@ -72,15 +72,15 @@ Báo cáo điều tra kèm bằng chứng đo đạc và việc còn tồn.
 | [`ec-pho-seo-audit.docx`](./ec-pho-seo-audit.docx) | 2026-05-29 | Lưu trữ | Báo cáo SEO đầy đủ dạng Word, kèm bảng vấn đề và cơ hội từ khoá |
 | [`ec-pho-refactor-plan.docx`](./ec-pho-refactor-plan.docx) | 2026-05-29 | Lưu trữ | Kế hoạch refactor theo phase kèm snippet và đánh giá rủi ro |
 
-### 🚀 Nhóm 4 — Vận hành & triển khai
+### Nhóm 4 — Vận hành & triển khai
 
 | Tài liệu | Ngày | Trạng thái | Nội dung |
 |---|---|---|---|
 | [`MIGRATION.md`](./MIGRATION.md) | 2026-05-17 | Lưu trữ | Hướng dẫn migration ban đầu; URL và quy trình hosting phải đối chiếu cấu hình hiện tại |
 
-> **Ghi chú:** file này trước đây nằm ở gốc với tên `README_MIGRATION.md`. Đã chuyển vào `docs/`, nội dung giữ nguyên 100%.
+> **Ghi chú:** file này trước đây nằm ở gốc với tên `README_MIGRATION.md`. Đã chuyển vào `docs/`; nội dung hướng dẫn được giữ, các icon trang trí đã được bỏ theo quy ước trình bày.
 
-### 🎨 Nhóm 5 — Tài nguyên
+### Nhóm 5 — Tài nguyên
 
 | Tài liệu | Ngày | Trạng thái | Nội dung |
 |---|---|---|---|
@@ -141,6 +141,7 @@ Các việc trên là tồn đọng được ghi nhận trong audit cũ; lần r
 4. **Thêm mốc vào *Dòng thời gian*.**
 5. **Nếu có thay đổi mã nguồn**, ghi thêm một mục trong [`CHANGELOG.md`](./CHANGELOG.md) theo format `[Phase X] — YYYY-MM-DD — Mô tả`, mới nhất đặt trên cùng.
 6. **Nếu tài liệu để lại việc chưa làm**, thêm vào bảng *Việc còn tồn*.
+7. **Trình bày chuyên nghiệp, không thêm emoji hoặc icon trang trí.** Dùng tiêu đề rõ ràng và trạng thái bằng chữ; chỉ giữ ký hiệu cần thiết để diễn đạt nội dung kỹ thuật.
 
 **Ý nghĩa trạng thái:**
 

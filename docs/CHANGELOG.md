@@ -109,13 +109,13 @@ Dependency dùng `location.key` chứ không phải `pathname`, vì `Menu.tsx` g
 **`src/index.css`** — tốc độ marquee ảnh menu `85s` → `50s` theo yêu cầu riêng, không thuộc phạm vi sửa lỗi.
 
 ### Verification
-- 11 lần chuyển route từ đáy trang → tất cả về `scrollY = 0` ✅
-- Back/forward khôi phục đúng vị trí cũ (`scrollY = 2211`), không bị ép về đầu ✅
-- 11/11 section ID sạch và duy nhất; 8/8 anchor cam kết phân giải được ✅
-- Anchor cũ `#vermicelli--b-n-` vẫn vào đúng section, URL tự chuẩn hoá ✅
-- Click nhanh 5 danh mục cách 120ms: trước mất một nửa, nay 5/5 đúng ✅
-- Gallery 9 tab desktop + 4 tab mobile: cửa sổ dịch 0px ✅
-- `tsc --noEmit` sạch, `vite build` thành công ✅
+- 11 lần chuyển route từ đáy trang → tất cả về `scrollY = 0`
+- Back/forward khôi phục đúng vị trí cũ (`scrollY = 2211`), không bị ép về đầu
+- 11/11 section ID sạch và duy nhất; 8/8 anchor cam kết phân giải được
+- Anchor cũ `#vermicelli--b-n-` vẫn vào đúng section, URL tự chuẩn hoá
+- Click nhanh 5 danh mục cách 120ms: trước mất một nửa, nay 5/5 đúng
+- Gallery 9 tab desktop + 4 tab mobile: cửa sổ dịch 0px
+- `tsc --noEmit` sạch, `vite build` thành công
 
 ### Known limitation
 Browser pane dùng để kiểm chứng không vẽ frame (`rAF = 0 fps`) nên mọi cuộn `behavior: 'smooth'` không chạy — lần verify đầu đã bỏ sót lỗi thứ hai vì lý do này. Các lần sau ép `behavior: 'instant'` khi instrument. Chi tiết ở §5 của `navigation-audit.md`.
@@ -138,8 +138,8 @@ Google Rich Results Test phát hiện console error: `transparenttextures.com` b
 ```
 
 ### Verification
-- Console error sẽ biến mất sau khi deploy ✅
-- Tất cả security headers khác giữ nguyên ✅
+- Console error sẽ biến mất sau khi deploy
+- Tất cả security headers khác giữ nguyên
 
 ---
 
@@ -176,7 +176,7 @@ Three content/metadata improvements: (1) FAQ schema on homepage to trigger Googl
 
 #### `src/pages/BlogPostDetail.tsx` _(pre-existing — confirmed correct)_
 - Already had `description={post.excerpt}`, `image={post.image}`, `article={true}`
-- All 5 blog posts have non-empty excerpts in `blog.ts` ✅
+- All 5 blog posts have non-empty excerpts in `blog.ts`
 
 ### Expected Google impact
 - **People Also Ask**: FAQ schema makes EC Phở eligible for expanded SERP real estate on queries like "is ec pho open monday", "does ec pho deliver", "ec pho greenville nc"
@@ -184,11 +184,11 @@ Three content/metadata improvements: (1) FAQ schema on homepage to trigger Googl
 - **Blog meta descriptions**: each post shows its own excerpt in search results (not the generic site description)
 
 ### Verification
-- 27/27 audit checks passed ✅
-- `generateFAQSchema` exports 6 valid Question/Answer blocks ✅
-- `SEOHead` handles both `schema={obj}` and `schema={[obj1, obj2]}` ✅
-- All pages other than Home unaffected (backward compatible) ✅
-- `SEO.tsx` still deleted, zero references ✅
+- 27/27 audit checks passed
+- `generateFAQSchema` exports 6 valid Question/Answer blocks
+- `SEOHead` handles both `schema={obj}` and `schema={[obj1, obj2]}`
+- All pages other than Home unaffected (backward compatible)
+- `SEO.tsx` still deleted, zero references
 
 ---
 
@@ -207,8 +207,8 @@ Two high-priority structural issues: (1) `openingHoursSpecification` in Schema.o
 
 **Before → After (simulated output):**
 ```
-Monday:    opens: "00:00", closes: "00:00"  ❌ → EXCLUDED ✓
-Tuesday:   opens: "11:00 AM"               ❌ → opens: "11:00", closes: "21:30" ✓
+Monday:    opens: "00:00", closes: "00:00"  (invalid) → EXCLUDED (valid)
+Tuesday:   opens: "11:00 AM"               (invalid) → opens: "11:00", closes: "21:30" (valid)
 (Wed–Sun identical)
 ```
 
@@ -235,12 +235,12 @@ Tuesday:   opens: "11:00 AM"               ❌ → opens: "11:00", closes: "21:3
 - `/blog/vietnamese-coffee-ritual` — lastmod 2026-05-01
 
 ### Verification
-- Schema.org: 6 days (Tue–Sun), all `opens: "11:00"` `closes: "21:30"` ISO 8601 ✅
-- Schema.org: Monday excluded (not `00:00`) ✅
-- Sitemap: 10 URLs, no `/home-page`, no `/blogs`, no stale 2024 dates ✅
-- Sitemap: all 5 blog slugs match `blog.ts` exactly ✅
-- Sitemap: trailing slashes removed except homepage `/` ✅
-- `robots.txt` still points to correct sitemap URL ✅
+- Schema.org: 6 days (Tue–Sun), all `opens: "11:00"` `closes: "21:30"` ISO 8601
+- Schema.org: Monday excluded (not `00:00`)
+- Sitemap: 10 URLs, no `/home-page`, no `/blogs`, no stale 2024 dates
+- Sitemap: all 5 blog slugs match `blog.ts` exactly
+- Sitemap: trailing slashes removed except homepage `/`
+- `robots.txt` still points to correct sitemap URL
 - **Next step post-deploy**: submit updated sitemap in Google Search Console
 
 ---
@@ -297,11 +297,11 @@ Four issues addressed: (1) canonical URLs had trailing slashes that didn't match
 | Blog posts | {post.title} \| EC Phở (Phase 5) |
 
 ### Verification
-- Canonical output correct for all 8 routes ✅
-- `SEO.tsx` deleted, zero remaining references ✅
-- `ecphognc.com` not found in any `.tsx/.ts` file ✅
-- All page title tags free of duplicate brand name ✅
-- Only files modified: `SEOHead.tsx`, `seo.ts`, `Menu.tsx`, `Privacy.tsx`, `Terms.tsx`; `SEO.tsx` deleted ✅
+- Canonical output correct for all 8 routes
+- `SEO.tsx` deleted, zero remaining references
+- `ecphognc.com` not found in any `.tsx/.ts` file
+- All page title tags free of duplicate brand name
+- Only files modified: `SEOHead.tsx`, `seo.ts`, `Menu.tsx`, `Privacy.tsx`, `Terms.tsx`; `SEO.tsx` deleted
 
 ---
 
@@ -337,11 +337,11 @@ Legacy Google Sites URLs (`/home-page`, `/blogs`) were rendering duplicate conte
 | `src/layouts/shared/SEOHead.tsx` | Canonical URL logic already maps `/home-page` → `/` — correct, keep working |
 
 ### Verification
-- `/home-page` → redirects to `/` ✅
-- `/blogs` → redirects to `/blog` ✅
-- Footer logo, Footer "Home" link, Header logo, Header nav "Home" → all go to `/` ✅
-- Zero remaining `/home-page` navigation references in `src/` ✅
-- All other routes unaffected ✅
+- `/home-page` → redirects to `/`
+- `/blogs` → redirects to `/blog`
+- Footer logo, Footer "Home" link, Header logo, Header nav "Home" → all go to `/`
+- Zero remaining `/home-page` navigation references in `src/`
+- All other routes unaffected
 
 ---
 
@@ -372,11 +372,11 @@ Two critical bugs identified in SEO audit: (1) the OG image referenced in every 
 | `src/layouts/shared/Footer.tsx` | Already linked `/privacy` and `/terms` correctly |
 
 ### Verification
-- `public/images/og-image.jpg` exists, 1200×630px, JPEG, 61KB ✅
-- `/privacy` renders Privacy page (not 404) ✅
-- `/terms` renders Terms page (not 404) ✅
-- Route order: `/privacy` (42) < `/terms` (43) < wildcard (78) ✅
-- Only 2 files modified: `src/App.tsx`, `public/images/og-image.jpg` ✅
+- `public/images/og-image.jpg` exists, 1200×630px, JPEG, 61KB
+- `/privacy` renders Privacy page (not 404)
+- `/terms` renders Terms page (not 404)
+- Route order: `/privacy` (42) < `/terms` (43) < wildcard (78)
+- Only 2 files modified: `src/App.tsx`, `public/images/og-image.jpg`
 
 ---
 
@@ -386,12 +386,12 @@ Two critical bugs identified in SEO audit: (1) the OG image referenced in every 
 
 | Phase | Description | Status |
 |-------|-------------|--------|
-| Phase 1 | OG image · Privacy/Terms 404 | ✅ Done — 2026-05-29 |
-| Phase 2 | Duplicate routes → 301 redirects · Update nav links | ✅ Done — 2026-05-29 |
-| Phase 3 | Fix canonical trailing slash · Delete unused `SEO.tsx` · Clean `seo.ts` · Improve Menu title | ✅ Done — 2026-05-29 |
-| Phase 4 | Fix Schema.org time format (AM/PM → 24h) · Filter closed days · Rebuild sitemap.xml | ✅ Done — 2026-05-29 |
-| Phase 5 | Add FAQ schema · Blog post meta descriptions · Homepage schema array | ✅ Done — 2026-05-29 |
-| Phase 6 | Sửa lỗi điều hướng & cuộn trang | ✅ Done — 2026-08-03 |
+| Phase 1 | OG image · Privacy/Terms 404 | Done — 2026-05-29 |
+| Phase 2 | Duplicate routes → 301 redirects · Update nav links | Done — 2026-05-29 |
+| Phase 3 | Fix canonical trailing slash · Delete unused `SEO.tsx` · Clean `seo.ts` · Improve Menu title | Done — 2026-05-29 |
+| Phase 4 | Fix Schema.org time format (AM/PM → 24h) · Filter closed days · Rebuild sitemap.xml | Done — 2026-05-29 |
+| Phase 5 | Add FAQ schema · Blog post meta descriptions · Homepage schema array | Done — 2026-05-29 |
+| Phase 6 | Sửa lỗi điều hướng & cuộn trang | Done — 2026-08-03 |
 
 ### Việc còn tồn
 

@@ -1,4 +1,4 @@
-# 🍜 EC Phở Vietnamese Noodle House - Website Migration Guide
+# EC Phở Vietnamese Noodle House - Website Migration Guide
 
 **Ngày:** 2026-05-17
 
@@ -10,7 +10,7 @@
 
 This project is a high-performance, SEO-optimized static reconstruction of the **EC Phở Vietnamese Noodle House** website, migrated from Google Sites to a React + Vite + Tailwind architecture.
 
-## 🚀 Migration Overview
+## Migration Overview
 
 - **Old Platform:** Google Sites
 - **New Platform:** GitHub Pages (Recommended) / Static Hosting
@@ -19,7 +19,7 @@ This project is a high-performance, SEO-optimized static reconstruction of the *
 
 ---
 
-## 🗺️ URL Migration Map
+## URL Migration Map
 
 The following mapping ensures that existing search engine indexed URLs do not break and preserve their link equity.
 
@@ -43,7 +43,7 @@ The following mapping ensures that existing search engine indexed URLs do not br
 
 ---
 
-## 🛠️ Deployment & DNS Migration (Squarespace)
+## Deployment & DNS Migration (Squarespace)
 
 ### Phase 1: Preparation (Before Changing DNS)
 1. Verify the site build works on a temporary staging URL (e.g., `<username>.github.io/<repo-name>`).
@@ -71,7 +71,7 @@ To route your domain to the new hosting, replace only the following records:
 
 ---
 
-## 📈 Search Console & SEO Preservation
+## Search Console & SEO Preservation
 
 ### Pre-Launch Checklist
 - [ ] `sitemap.xml` generated and valid in `public/`.
@@ -89,7 +89,7 @@ To route your domain to the new hosting, replace only the following records:
 
 ---
 
-## 🆘 Rollback Plan
+## Rollback Plan
 If the new site fails to load or critical errors occur after DNS change:
 1. Revert the `www` CNAME back to `ghs.googlehosted.com`.
 2. This will instantly reconnect your original Google Sites website once DNS propagates.
@@ -97,7 +97,7 @@ If the new site fails to load or critical errors occur after DNS change:
 
 ---
 
-## 📝 Maintenance
+## Maintenance
 
 ### Updating the Menu
 Edit `src/data/menu.ts`. The UI will automatically generate the corresponding anchors and categories based on your edits.
