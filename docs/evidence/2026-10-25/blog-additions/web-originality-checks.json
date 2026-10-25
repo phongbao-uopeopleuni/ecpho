@@ -1,0 +1,132 @@
+{
+  "checkedOn": "2026-10-25",
+  "method": "Ten quoted sentence searches, two samples per article. Compare returned search text to normalized sample sentences and their 12-word phrases. Search engines may relax quotation marks; this is not a full-text plagiarism service or a guarantee covering all indexed/unindexed content.",
+  "evidence": [
+    {
+      "slug": "taro-smoothie-boba-greenville-nc",
+      "query": "\"The wide straw has a job: it brings a little chew into an otherwise smooth sip.\"",
+      "batch": 0,
+      "completed": true,
+      "exactSentenceFound": false,
+      "matching12WordPhrases": []
+    },
+    {
+      "slug": "taro-smoothie-boba-greenville-nc",
+      "query": "\"Taro is one of the smoothie flavors listed on our menu, alongside strawberry, peach, mango, banana, and avocado.\"",
+      "batch": 0,
+      "completed": true,
+      "exactSentenceFound": false,
+      "matching12WordPhrases": []
+    },
+    {
+      "slug": "three-bean-dessert-greenville-nc",
+      "query": "\"The first spoonful of a three-bean dessert rarely looks like the second.\"",
+      "batch": 0,
+      "completed": true,
+      "exactSentenceFound": false,
+      "matching12WordPhrases": []
+    },
+    {
+      "slug": "three-bean-dessert-greenville-nc",
+      "query": "\"Try a little from the top before reaching farther into the cup.\"",
+      "batch": 0,
+      "completed": true,
+      "exactSentenceFound": false,
+      "matching12WordPhrases": []
+    },
+    {
+      "slug": "lemongrass-beef-vermicelli-greenville-nc",
+      "query": "\"Lemongrass gives a beef vermicelli bowl a fragrant lift before the noodles even reach your fork.\"",
+      "batch": 1,
+      "completed": true,
+      "exactSentenceFound": false,
+      "matching12WordPhrases": []
+    },
+    {
+      "slug": "lemongrass-beef-vermicelli-greenville-nc",
+      "query": "\"The bún section of our menu uses rice vermicelli as a base for several dishes.\"",
+      "batch": 1,
+      "completed": true,
+      "exactSentenceFound": false,
+      "matching12WordPhrases": []
+    },
+    {
+      "slug": "grilled-pork-chop-egg-rice-greenville-nc",
+      "query": "\"A grilled pork chop, a fried egg and steamed rice give this plate three distinct jobs.\"",
+      "batch": 1,
+      "completed": true,
+      "exactSentenceFound": false,
+      "matching12WordPhrases": []
+    },
+    {
+      "slug": "grilled-pork-chop-egg-rice-greenville-nc",
+      "query": "\"An egg gives the rice another savory partner alongside the pork.\"",
+      "batch": 1,
+      "completed": true,
+      "exactSentenceFound": false,
+      "matching12WordPhrases": []
+    },
+    {
+      "slug": "general-tsos-chicken-steamed-rice-greenville-nc",
+      "query": "\"Steamed rice is the quiet half of a plate built around glossy, sauce-coated chicken.\"",
+      "batch": 2,
+      "completed": true,
+      "exactSentenceFound": false,
+      "matching12WordPhrases": []
+    },
+    {
+      "slug": "general-tsos-chicken-steamed-rice-greenville-nc",
+      "query": "\"The appeal is in the meeting of the chicken’s exterior and its sauce.\"",
+      "batch": 2,
+      "completed": true,
+      "exactSentenceFound": false,
+      "matching12WordPhrases": []
+    }
+  ],
+  "sources": [
+    {
+      "batch": 0,
+      "resultHeaders": [
+        "Tried, Tasted, and Rated: 8 Fresh Trader Joe’s Finds Worth a Look This Week – RetailShout.com (https://retailshout.com/tried-tasted-and-rated-8-new-trader-joes-finds-this-week/)",
+        "Article ► Zoomserie Vienna (https://zoomserie.at/en/category/article/)",
+        "His Girlfriend Broke Up with Him Because He Was Poor, But in Reality, He Was a Five-Star Chef - Dining and Cooking | DiningAndCooking.com (https://www.diningandcooking.com/2098589/his-girlfriend-broke-up-with-him-because-he-was-poor-but-in-reality-he-was-a-five-star-chef/)",
+        "August 2007 – Page 2 – gastropoda (https://gastropoda.com/2007/08/page/2/)",
+        "The Complete Golfer by Harry Vardon (1870~1937) (https://classic-literature.net/harry-vardon-1870-1937/the-complete-golfer/)",
+        "All The News (https://unto.me/pod7/cache/news.html)",
+        "Culinary Dictionary Index - What's Cooking America (https://whatscookingamerica.net/glossary/)",
+        "Liquid Intelligence: Cocktail Science & Techniques (https://studylib.net/doc/28518528/259362754-liquid-intelligence-the-art-and-science-of-the-...)",
+        "Benchmark Poetry (https://benchmarkinc.com.au/web/poetry)",
+        "carlsemptyeyesocket - Tumblr blog | Tumgik (https://www.tumgik.com/carlsemptyeyesocket?pageNumber=VKv0fgTpFZrGnSKjvgnzjUhCfyj7-H-HG2bbDXwJZoV9aGhWS1ROL29UY0ZVMFRWUFlwSEU5SjhpZmgzT0E2S205QlZnMEhmZjNLaDBYaHE0TG5aYjJMQytTcE1BeHJMeXd1d0VHU2VJM0QyQkdSaHNxZ3VhK0ZMWWhPTm1kcENvbkNIUCt0a2lRL2dTa2svVXh2UnpSSnArdmQ3ZmRYTU1FTGJWVWJiTEV6Q0t4dWpaZkU2bUE2V2E2cWlkMUJveVd2YnNrUEl5NkR4UEtBaWNBeXZyNkZiaGJNanUwd0I2cW5sUDdrVy8xb3lKR0YyV2tjVmdXV1c4Q2loN2NURUVvRVc1M2JPM1h0cUcrQUZrOXVJZ3BTZlU4TXNyQitvSndYVUV0RWc0dld6Y0R5QmljZjh3eHpwcnQvaUlkRWplVzBuU29YVmd3SGxSbWpnWW9YREhFcnI5czEya3pDbi9oYmR6YmMrd0J3aGcrU0pBMVlhbDlPa1dIRUtWR2M5b0VCc1EzeW0rMlUvcU8zUDR5RGVCMDZyc2J4NnJySHh1eEphdkE5MkxpeW92SFlWL2dOMzl4bzE1amxucTFCUUcwVjd5d0dGOHp1ZlhDcFFLSkRnRHhOcE90NUthYzBoTC9WQmdGbC9yaGJhaThwRGlsWkJZMGpEY1RoeXRVQzVxVmgwdGNRbHRRVnJvVzUzWmxUd3VYUDRpSHhwbXk5UGY.)",
+        "Watching the English: Understanding English Behavior (https://studylib.net/doc/27278975/watching-the-english-the-hidden-rules-of-english-behaviour)",
+        "tales_from_the_jazz_age [Brian Carnell's Wiki] (https://brian.carnell.com/wiki/tales_from_the_jazz_age)"
+      ]
+    },
+    {
+      "batch": 1,
+      "resultHeaders": [
+        "Recipes - Hot Thai Kitchen (https://hot-thai-kitchen.com/blog/)",
+        "Blog — Page 4 of 16 — Bend Magazine (https://bendmagazine.com/venue/mcmenamins/page/4/?eventDisplay=past)",
+        "Word Vietnam Feb 2014 | PDF | Ho Chi Minh City | Vietnam (https://www.scribd.com/document/335545964/Word-Vietnam-Feb-2014)",
+        "Food menu : Ringetsu - Karasuma Oike/Japanese Cuisine | Tabelog (https://tabelog.com/en/kyoto/A2601/A260202/26007927/dtlmenu/)",
+        "Dining Room and Banquet Management Guide | PDF | Restaurants (https://www.scribd.com/document/904274651/Dining-Room-and-Banquet-Management-Strianese-Anthony-J-Strianese-Pamela-P-2003-Clifton-Park-NY-Thomson-Delmar-Learning-9780766826861)",
+        "Aprenda Inglês: Vocabulário e Hobbies | PDF (https://pt.scribd.com/document/722652269/Livro-2-WORDS-2023-PDF)",
+        "Import Regulations (https://agriexchange.apeda.gov.in/Reports/Marketreport/IR_Standards)",
+        "Foodmarket, the premier source of market news for the food industry. (https://www.foodmarket.com/)",
+        "Repetytorium Maturalne Zakres Rozszerzony | PDF (https://www.scribd.com/document/1027214946/Repetytorium-Maturalne-Zakres-Rozszerzony)",
+        "Huntingdon Train Attack Suspect Arrested | PDF | Cost Of Living | Cemetery (https://www.scribd.com/document/942782826/The-Times-UK-4-November-2025)"
+      ]
+    },
+    {
+      "batch": 2,
+      "resultHeaders": [
+        "MUST EAT MAP ｜ 絶対食べるべきグルメマップ (https://www.musteatmap.com/)",
+        "New Restaurants and Menus in Singapore: October 2026 (https://thehoneycombers.com/singapore/new-restaurants-menus-singapore/)",
+        "samarkand — AAPI LEAD (https://www.aapilead.org/samarkand)",
+        "Better Homes and Gardens AU July 2026 | PDF | Subscription Business Model | Privacy (https://www.scribd.com/document/1056259536/Better-Homes-and-Gardens-AU-July-2026)",
+        "NYT 2907 | PDF | Iran | Donald Trump (https://www.scribd.com/document/1077417166/NYT-2907)",
+        "All The News (https://unto.me/pod7/cache/news.html)",
+        "News Archive - tralac trade law centre (https://www.tralac.org/news/news-archive.html?start=420)"
+      ]
+    }
+  ]
+}

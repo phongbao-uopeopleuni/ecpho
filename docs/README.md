@@ -16,6 +16,7 @@ Rà soát gần nhất: [báo cáo độ đầy đủ của tài liệu](./docum
 | Sửa nội dung: món ăn, giờ mở cửa, ảnh | [`README.md`](../README.md) → mục *Updating Information* |
 | Biết file nào gọi file nào | [`code-knowledge-graph/OVERVIEW.md`](./code-knowledge-graph/OVERVIEW.md) + `viewer.html` |
 | Xem đã thay đổi gì, khi nào | [`CHANGELOG.md`](./CHANGELOG.md) |
+| 5 bài mới về Taro, chè, bún bò sả, cơm sườn trứng, General Tso | [`blog-additions-review-2026-10-25.md`](./blog-additions-review-2026-10-25.md) |
 | Menu hiện tại: bố cục, ảnh chạy, tiêu đề, thanh mục mobile | [`menu-review-2026-10-16.md`](./menu-review-2026-10-16.md) |
 | 10 bài mới: món ăn, keyword, SEO và phạm vi rà plagiarism | [`blog-content-review-2026-10-16.md`](./blog-content-review-2026-10-16.md) |
 | Ảnh và số liệu kiểm chứng Menu / Blog | [`evidence/2026-10-16/README.md`](./evidence/2026-10-16/README.md) |
@@ -58,6 +59,7 @@ Báo cáo điều tra kèm bằng chứng đo đạc và việc còn tồn.
 |---|---|---|---|
 | [`menu-review-2026-10-16.md`](./menu-review-2026-10-16.md) | 2026-10-16 | Lưu trữ kiểm chứng | Trạng thái Menu sau các chỉnh sửa mới nhất và liên kết tới số liệu / ảnh |
 | [`blog-content-review-2026-10-16.md`](./blog-content-review-2026-10-16.md) | 2026-10-16 | Lưu trữ kiểm chứng | 10 món, keyword, SEO, phương pháp và giới hạn rà trùng lặp |
+| [`blog-additions-review-2026-10-25.md`](./blog-additions-review-2026-10-25.md) | 2026-10-25 | Kiểm chứng local | Năm bài bổ sung, tổng 20 bài, ảnh, keyword, liên kết món và rà trùng lặp |
 | [`documentation-review-2026-10-25.md`](./documentation-review-2026-10-25.md) | 2026-10-25 | Đã hoàn thành | Kiểm kê tài liệu, phần thiếu đã bổ sung, giới hạn của lần rà soát |
 | [`evidence/2026-10-16/README.md`](./evidence/2026-10-16/README.md) | 2026-10-25 | Lưu trữ | 20 file bằng chứng gốc và manifest SHA256, kiểm chứng thực hiện ngày 16/10 |
 | [`navigation-audit.md`](./navigation-audit.md) | 2026-08-03 | Lưu trữ | Audit cũ: 5 lỗi đã sửa, 3 việc còn mở; mô tả Menu mới nằm ở báo cáo 16/10 |
@@ -88,6 +90,7 @@ Mốc thay đổi lớn, mới nhất trước.
 
 | Ngày | Việc | Tài liệu |
 |---|---|---|
+| 2026-10-25 | Bổ sung năm bài món ăn, tổng 20 bài Blog | [`blog-additions-review-2026-10-25.md`](./blog-additions-review-2026-10-25.md) |
 | 2026-10-25 | Bổ sung báo cáo Menu, lưu bằng chứng vào docs, đồng bộ chỉ mục và trạng thái tài liệu | [`documentation-review-2026-10-25.md`](./documentation-review-2026-10-25.md) |
 | 2026-10-16 | 10 bài món ăn mới, keyword địa phương và metadata blog | [`blog-content-review-2026-10-16.md`](./blog-content-review-2026-10-16.md) |
 | 2026-10-16 | Menu gọn hơn, khôi phục ảnh chạy, tiêu đề EC Phở Menu và thanh mục mobile | [`menu-review-2026-10-16.md`](./menu-review-2026-10-16.md) |

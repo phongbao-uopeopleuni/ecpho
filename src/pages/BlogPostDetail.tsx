@@ -61,6 +61,9 @@ export const BlogPostDetail = () => {
 
   const blocks = parseContent(post.content);
   const menuItem = menuItems.find(item => item.id === post.menuItemId);
+  const menuLink = post.menuLink ?? (menuItem
+    ? { category: menuItem.category, label: `View ${menuItem.name} on the menu` }
+    : undefined);
   const relatedPosts = post.relatedSlugs
     ? post.relatedSlugs.map(relatedSlug => blogPosts.find(item => item.slug === relatedSlug)).filter(Boolean)
     : blogPosts.filter(item => item.slug !== post.slug).slice(0, 3);
@@ -248,15 +251,15 @@ export const BlogPostDetail = () => {
                 </div>
               </article>
 
-              {menuItem && (
+              {menuLink && (
                 <div className="mt-8 border border-brand-green/20 bg-brand-paper p-6 md:p-8">
                   <h2 className="font-serif text-3xl text-brand-dark mb-3">Find your next meal at EC Phở</h2>
                   <p className="text-brand-dark/70 leading-8 mb-5">
                     Visit us at {business.location.address}, {business.location.city}, {business.location.state} {business.location.zip}.
                   </p>
                   <div className="flex flex-wrap gap-x-8 gap-y-4">
-                    <Link reloadDocument to={`/menu#${slugify(menuItem.category)}`} className="text-brand-green underline underline-offset-4 font-medium">
-                      View {menuItem.name} on the menu
+                    <Link reloadDocument to={`/menu#${slugify(menuLink.category)}`} className="text-brand-green underline underline-offset-4 font-medium">
+                      {menuLink.label}
                     </Link>
                     <Link to="/contact" className="text-brand-green underline underline-offset-4 font-medium">
                       Contact EC Phở in Greenville

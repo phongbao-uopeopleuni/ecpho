@@ -1,7 +1,182 @@
 import type { BlogPost } from './blog';
 
-// Dish descriptions are grounded in menu.ts; existing restaurant photos are reused.
-const stories: Omit<BlogPost, 'date' | 'author' | 'readTime'>[] = [
+// Descriptions use menu data, restaurant photos, and owner-confirmed dish names.
+const stories: (Omit<BlogPost, 'date' | 'author' | 'readTime'> & { date?: string })[] = [
+  {
+    slug: 'taro-smoothie-boba-greenville-nc',
+    title: 'Taro Smoothie with Boba: A Creamy Sip with a Little Chew',
+    seoTitle: 'Taro Smoothie with Boba in Greenville, NC',
+    excerpt: 'Explore a taro smoothie with boba at EC Phở in Greenville, NC: a creamy blended drink, chewy pearls, and a sweet companion for your next meal.',
+    date: '2026-10-25',
+    keywords: ['taro smoothie with boba Greenville NC', 'taro boba smoothie', 'taro drinks Greenville', 'EC Phở smoothies'],
+    image: '/images/menu/drinks/taro.jpg',
+    imageAlt: 'EC Phở taro smoothie with dark boba pearls and a wide straw',
+    menuItemId: 'd96',
+    relatedSlugs: ['three-bean-dessert-greenville-nc', 'lemongrass-beef-vermicelli-greenville-nc', 'vietnamese-coffee-ritual'],
+    content: `The wide straw has a job: it brings a little chew into an otherwise smooth sip. A taro smoothie with boba combines a creamy blended drink with pearls that change its texture. At EC Phở in Greenville, NC, it is a sweet option to consider alongside lunch, after dinner, or as the part of the order you have been looking forward to all afternoon.
+
+## Two textures in the same cup
+
+Our restaurant photograph shows the taro smoothie with dark pearls gathered at the bottom and a generous blended top. The straw connects those two parts of the cup. You get the softness of the smoothie and the more substantial chew of the boba together, rather than one uniform texture from beginning to end.
+
+Give the drink a gentle stir so the first few sips can reach both components. You can decide how often to gather pearls with the smoothie as you go. That small change makes boba part of the experience, rather than simply something left at the bottom.
+
+## A mellow choice among the smoothies
+
+Taro is one of the smoothie flavors listed on our menu, alongside strawberry, peach, mango, banana, and avocado. Choosing taro gives you another direction to explore when you want a creamy dessert-style drink. Its pale color in the photograph is part of the presentation, while the texture is what makes the combination with boba especially appealing.
+
+Choose taro when you are in the mood for a mellow, creamy sip. Mango or strawberry gives you a fruit-led alternative, while Vietnamese iced coffee puts coffee at the center of the drink. The same meal can feel different depending on which one you pick.
+
+## Pair sweetness with a savory meal
+
+A taro smoothie can sit beside a grilled pork chop rice plate or a bowl of lemongrass beef vermicelli. The food brings savory flavors, and the smoothie gives you a sweet pause between them. It also works as the final part of the meal when you would rather sip your dessert.
+
+If another person at the table is considering a three-bean dessert, the two orders make an interesting comparison: one is blended, while the other has layers to explore with a spoon.
+
+## Ordering taro with boba in Greenville
+
+Look for Taro under the smoothie choices in the Drinks section and specify boba when ordering. Our menu also lists boba among the drink extras, so confirm the complete order with the team. Visit EC Phở on Greenville Blvd SE and choose the combination that sounds right for your meal.`
+  },
+  {
+    slug: 'three-bean-dessert-greenville-nc',
+    title: 'Three-Bean Dessert: Discovering Chè One Spoonful at a Time',
+    seoTitle: 'Vietnamese Three-Bean Dessert in Greenville, NC',
+    excerpt: 'Discover the three-bean dessert at EC Phở in Greenville, NC. Explore the layered textures of Vietnamese chè and a sweet way to finish your meal.',
+    date: '2026-10-25',
+    keywords: ['three bean dessert Greenville NC', 'Vietnamese chè dessert', '3 bean dessert', 'Vietnamese dessert Greenville'],
+    image: '/images/menu/drinks/3-bean.jpg',
+    imageAlt: 'EC Phở three-bean dessert in a clear cup with visible layers and a spoon',
+    menuItemId: 'd94',
+    relatedSlugs: ['taro-smoothie-boba-greenville-nc', 'vietnamese-coffee-ritual', 'grilled-pork-chop-egg-rice-greenville-nc'],
+    content: `The first spoonful of a three-bean dessert rarely looks like the second. A clear cup lets you see several layers before they begin to mingle, making the dessert as much about texture as sweetness. At EC Phở in Greenville, NC, look for 3 Bean Dessert in the Drinks section of the menu.
+
+## Getting to know Vietnamese chè
+
+Chè is a broad Vietnamese dessert category that includes sweet soups and puddings. Beans, jellies, fruit, and other ingredients appear in different versions, served in a bowl or cup. The category leaves room for many combinations, so the name chè describes a family of desserts rather than one fixed recipe.
+
+Our three-bean dessert belongs in that spirit of variety. The menu describes it as sweet and creamy, and the restaurant photograph shows its layered presentation. You do not need to identify every component to appreciate the way the textures work together.
+
+## Start with the layers, then find your mixture
+
+Try a little from the top before reaching farther into the cup. A deeper spoonful gathers a different combination, and a gentle stir brings more of the dessert together. You can keep some layers distinct or mix them more thoroughly according to the texture you enjoy.
+
+The pleasure comes from that choice. A soft, creamy spoonful and one with more of the beans offer different experiences within the same dessert. There is no need to make every bite identical or to finish the cup in a particular order.
+
+## A sweet finish beyond a drink
+
+Three-bean dessert gives you something to linger over after a savory rice plate or noodle bowl. Its spoonable layers create a different ending from a smoothie, which blends its main components into one drink. If you are choosing between the two, think about whether you want to sip or spend a little time with a spoon.
+
+The tall cup also makes the dessert easy to recognize in our menu photograph. The picture offers a guide to the presentation; the team can answer questions about the current ingredients if you need the full list.
+
+## Find three-bean dessert at EC Phở
+
+Browse Drinks for 3 Bean Dessert when planning a visit to our Greenville restaurant. It can be the closing course to a full meal or the sweet item you order while others finish their food. For another dessert-style option, explore our taro smoothie with boba; for a different kind of finish, read our story about Vietnamese iced coffee.`
+  },
+  {
+    slug: 'lemongrass-beef-vermicelli-greenville-nc',
+    title: 'Lemongrass Beef Vermicelli: Fragrance at the Center of the Bowl',
+    seoTitle: 'Lemongrass Beef Vermicelli in Greenville, NC',
+    excerpt: 'Explore lemongrass beef with vermicelli at EC Phở in Greenville, NC: aromatic sautéed beef, fine rice noodles, and a bowl with plenty of texture.',
+    date: '2026-10-25',
+    keywords: ['lemongrass beef vermicelli Greenville NC', 'bún bò xào sả', 'Vietnamese lemongrass beef noodles', 'EC Phở vermicelli'],
+    image: '/images/menu/bun/037.jpg',
+    imageAlt: 'Lemongrass beef vermicelli with onions, peppers, vegetables, and herbs at EC Phở',
+    menuItemId: 'b37',
+    relatedSlugs: ['grilled-beef-vermicelli-greenville-nc', 'grilled-pork-chop-egg-rice-greenville-nc', 'green-papaya-salad-greenville-nc'],
+    content: `Lemongrass gives a beef vermicelli bowl a fragrant lift before the noodles even reach your fork. At EC Phở, Vermicelli with Lemongrass Beef is described as sautéed beef with aromatic lemongrass. It is a good dish to know when you want Vietnamese noodles in Greenville, NC and the aroma of the main ingredient is part of the appeal.
+
+## Follow the fragrance
+
+Lemongrass brings a citrus-like fragrance to the beef. That aroma can suggest brightness without requiring the dish to taste like a squeeze of citrus juice. It gives the bowl a recognizable direction, especially when the beef and noodles are gathered together.
+
+Our menu photograph shows beef with onions and peppers over the noodle bowl, surrounded by vegetables and herbs. The visible components give you an idea of the variety on the plate. Some forkfuls can be led by the beef, while others bring more noodles and vegetables into the mixture.
+
+## Sautéed beef and fine rice noodles
+
+The bún section of our menu uses rice vermicelli as a base for several dishes. Its fine strands gather easily around the beef and provide a soft counterpart to the vegetables. Bringing some noodles up from underneath helps spread the seasoning through the part of the bowl you are eating.
+
+If sauce is served alongside, taste the bowl before adding a little. You can work it into a portion of the noodles and adjust as you go. That gives you control over how the different parts come together, especially if you like to keep some vegetables separate.
+
+## Compare the two beef vermicelli choices
+
+Vermicelli with Grilled Beef is another option at EC Phở, described as char-grilled marinated beef over rice vermicelli. The lemongrass version puts aromatic sautéed beef at the center. Both start with noodles, but the preparation gives you a different reason to choose each one.
+
+If you have already enjoyed our grilled beef bowl, the lemongrass dish offers a way to explore the same menu section with another flavor focus. Our separate story about grilled beef vermicelli gives you a useful comparison before your next visit.
+
+## Make it your next noodle order
+
+Find Vermicelli with Lemongrass Beef in the Bún section of the EC Phở menu. Pair it with an appetizer if you want another texture at the table, or follow it with three-bean dessert. Our Greenville Blvd SE restaurant offers several ways to build a meal around the noodles you enjoy.`
+  },
+  {
+    slug: 'grilled-pork-chop-egg-rice-greenville-nc',
+    title: 'Grilled Pork Chop and Egg: A Steamed Rice Plate with Variety',
+    seoTitle: 'Grilled Pork Chop & Egg in Greenville, NC',
+    excerpt: 'Explore grilled pork chop and egg with steamed rice at EC Phở in Greenville, NC, where grilled meat, egg, and rice bring variety to one plate.',
+    date: '2026-10-25',
+    keywords: ['grilled pork chop egg rice Greenville NC', 'Vietnamese pork chop rice plate', 'pork chop with steamed rice', 'EC Phở rice plates'],
+    image: '/images/menu/rice/047.jpg',
+    imageAlt: 'Grilled pork chop, fried egg, and steamed rice with vegetables at EC Phở',
+    menuLink: { category: 'Rice Plates', label: 'Explore rice plates at EC Phở' },
+    relatedSlugs: ['grilled-pork-rice-plate-greenville-nc', 'grilled-chicken-egg-rolls-rice-greenville-nc', 'taro-smoothie-boba-greenville-nc'],
+    content: `A grilled pork chop, a fried egg and steamed rice give this plate three distinct jobs. The pork brings the grilled character, the egg adds another savory element, and the rice connects them. At EC Phở in Greenville, NC, it is a satisfying format for diners who enjoy several textures on a single plate.
+
+## A plate with a clear center
+
+The pork chop is the part you can build the meal around. Cut a manageable piece and bring some rice into the same forkful. You can appreciate the grilled exterior on its own, then notice how the rice changes the balance of the next bite.
+
+Our restaurant photograph shows the pork with a fried egg, steamed rice, vegetables, and accompaniments arranged around the plate. It is an inviting presentation because the main components remain easy to recognize. You can decide what to combine without losing track of the individual ingredients.
+
+## What the egg adds
+
+An egg gives the rice another savory partner alongside the pork. Some diners like to cut it into small pieces and mix those through the rice; others prefer to alternate between egg and meat. Either approach lets you change the character of the meal as you work across the plate.
+
+The combination is especially appealing when you enjoy variety within one order. The egg has a different texture from the grilled chop, so the meal can move between the two while the steamed rice stays familiar. Ask about preparation if a particular style of egg is important to you.
+
+## Why steamed rice belongs here
+
+Steamed rice provides a simple base for the grilled meat and egg. It gives you space to enjoy the savory parts without adding another strongly seasoned main component. Keep some rice separate so you can bring it into the combinations you like best.
+
+Vegetables and any sauce served alongside offer further choices. Add a little to one portion first, then return to the pork, egg, and rice. You can build a varied plate without needing several separate main dishes for yourself.
+
+## Explore rice plates in Greenville
+
+If this combination appeals to you, ask for grilled pork chop and egg with steamed rice when ordering at EC Phở. Browse our Rice Plates section to explore more grilled meat and rice combinations, and read our other pork rice plate story for another perspective. A taro smoothie with boba makes a sweet companion when you want to add a drink to the meal.`
+  },
+  {
+    slug: 'general-tsos-chicken-steamed-rice-greenville-nc',
+    title: 'General Tso’s Chicken with Steamed Rice: Sauce Meets Simplicity',
+    seoTitle: 'General Tso’s Chicken in Greenville, NC',
+    excerpt: 'Discover General Tso’s Chicken with steamed rice at EC Phở in Greenville, NC: sauce-coated chicken, vegetables, and a simple rice pairing.',
+    date: '2026-10-25',
+    keywords: ['General Tso chicken Greenville NC', 'General Tso chicken with steamed rice', 'chicken dinner Greenville', 'EC Phở house specials'],
+    image: '/images/menu/specials/general-tsos-chicken.jpg',
+    imageAlt: 'EC Phở General Tso’s Chicken with vegetables and a separate bowl of steamed rice',
+    menuLink: { category: 'House Specials', label: 'Explore house specials at EC Phở' },
+    relatedSlugs: ['sweet-sour-chicken-rice-greenville-nc', 'grilled-chicken-egg-rolls-rice-greenville-nc', 'three-bean-dessert-greenville-nc'],
+    content: `Steamed rice is the quiet half of a plate built around glossy, sauce-coated chicken. General Tso’s Chicken with steamed rice brings a familiar sweet-savory combination to a meal at EC Phở in Greenville, NC. The chicken leads with sauce and texture, while the rice gives you a simple way to bring the plate together.
+
+## Getting to know the dish
+
+General Tso’s Chicken is a familiar Chinese American restaurant dish, recognized for pieces of chicken in a flavorful sauce. For a diner choosing between a noodle bowl and a chicken plate, it offers a familiar starting point while the rest of the table explores the menu.
+
+The restaurant photograph shows the chicken with vegetables and a separate bowl of steamed rice. You can see the coated pieces, the color of the vegetables, and the space around each part of the meal. It is a useful guide to the kind of plate to expect.
+
+## Sauce, texture, and a simple partner
+
+The appeal is in the meeting of the chicken’s exterior and its sauce. A piece eaten on its own gives you a concentrated taste, while one gathered with rice spreads that seasoning through a larger bite. Alternating between the two lets you enjoy the sauce without making every forkful identical.
+
+Chilies appear in our menu photograph. If you have a preference about heat, ask the team about the preparation when ordering rather than assuming a particular spice level from the name. The sweet-savory character and the strength of the heat are separate parts of choosing the meal you want.
+
+## Why choose steamed rice?
+
+Steamed rice gives the sauced chicken a straightforward base. You can spoon some beside the vegetables, bring it into a bite of chicken, or keep a little separate until later in the meal. Its simplicity gives the other parts of the plate more room.
+
+This makes a useful comparison with our other chicken-and-rice stories. Sweet and sour chicken focuses on pineapple and bell peppers, while grilled chicken with egg rolls brings a crisp roll into the combination. Each offers a different reason to choose chicken for dinner.
+
+## Plan your order at EC Phở
+
+Ask for General Tso’s Chicken with steamed rice on your next visit to our Greenville Blvd SE restaurant. Explore House Specials for more ideas and choose any appetizer or dessert according to your appetite. Three-bean dessert offers a spoonable finish if you would like to end the meal with something sweet.`
+  },
   {
     slug: 'vietnamese-egg-rolls-greenville-nc',
     title: 'Vietnamese Egg Rolls: A Crisp Start to Dinner',
@@ -346,7 +521,7 @@ Find Stir Fried Vegetables & Tofu in the Vegetarian section of the EC Phở menu
 
 export const dishStories: BlogPost[] = stories.map(story => ({
   ...story,
-  date: '2026-10-16',
+  date: story.date ?? '2026-10-16',
   author: 'EC Phở Team',
   readTime: `${Math.max(1, Math.ceil(story.content.split(/\s+/).length / 200))} min`,
 }));
