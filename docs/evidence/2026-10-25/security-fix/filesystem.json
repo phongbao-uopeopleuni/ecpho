@@ -1,5 +1,5 @@
 {
-  "CheckedAtUtc": "2026-10-25T13:58:42.7040731Z",
+  "CheckedAtUtc": "2026-10-25T14:04:56.6465435Z",
   "RootDistBeforeCount": 305,
   "RootDistNowCount": 305,
   "RootDistDifferences": [],
@@ -27,7 +27,5 @@
   ],
   "TestBuildPresent": false,
   "TestProcessPresent": false,
-  "TestPorts": [
-    "TCP    127.0.0.1:54933        127.0.0.1:4173         TIME_WAIT       0"
-  ]
+  "TestPorts": []
 }

@@ -1,13 +1,18 @@
 [
   {
     "file": "audit-after.json",
-    "bytes": 365,
-    "sha256": "4d0a9e6121826a6388e3fda8d5d6053e3179e58d532821f2fcb4565a0bd4e8a8"
+    "bytes": 366,
+    "sha256": "0f0ba7e73c0dc48c335ac51bb61b844f5e5b47fde48dd1f3d44e711630c6cf4f"
   },
   {
     "file": "browser-local.json",
     "bytes": 1856,
     "sha256": "962639f636573681b0112f8ce333a49a64978a0f8cbe5360b846c2ce92f7e697"
+  },
+  {
+    "file": "browser-production.json",
+    "bytes": 1822,
+    "sha256": "7a17be500db00517cc943a667b943be8508086c90debb7aac956f342fa411059"
   },
   {
     "file": "csp-probe.jpg",
@@ -16,13 +21,28 @@
   },
   {
     "file": "filesystem.json",
-    "bytes": 771,
-    "sha256": "b54c3106a49b0c47442ae1453532b335be4344a5b62f723b9a9d714b3bf0abb8"
+    "bytes": 691,
+    "sha256": "5ff7bcee15e82175c6b5ea3b6e4085c05907dbca4a1f265de47d70cfce120e2e"
   },
   {
     "file": "headers-local.txt",
     "bytes": 787,
     "sha256": "4b2ea0b90bd7fbbbf310d91cf26568eb9114925e7a0260dc23735db98407d1b3"
+  },
+  {
+    "file": "headers-production-analytics.txt",
+    "bytes": 576,
+    "sha256": "c15fd7ccc74b04b267edb0d42b4bb41941cdf17059a28e32ccc11a7ccc8971e6"
+  },
+  {
+    "file": "headers-production-blog.txt",
+    "bytes": 1117,
+    "sha256": "3eb0e809e0a2cb0b405709d3487a15db862514f601e69829586f99523da9bd0f"
+  },
+  {
+    "file": "headers-production-contact.txt",
+    "bytes": 1117,
+    "sha256": "990b1a1928a59befb497d0ad3280409c1cb236fd161113e20f6dcba0a3e30761"
   },
   {
     "file": "mobile-menu.json",

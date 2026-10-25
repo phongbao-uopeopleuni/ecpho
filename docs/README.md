@@ -59,7 +59,7 @@ Báo cáo điều tra kèm bằng chứng đo đạc và việc còn tồn.
 
 | Tài liệu | Ngày | Trạng thái | Nội dung |
 |---|---|---|---|
-| [`security-fix-2026-10-25.md`](./security-fix-2026-10-25.md) | 2026-10-25 | Đã kiểm chứng local | Audit 13 → 0, chặn script inline / onclick, kiểm tra các trang và bảo toàn dist / MenuPreview |
+| [`security-fix-2026-10-25.md`](./security-fix-2026-10-25.md) | 2026-10-25 | Đã kiểm chứng production | Audit 13 → 0, chặn script / onclick, header và SEO trên domain thật; sửa metadata lock cho npm 10 |
 | [`security-review-2026-10-25.md`](./security-review-2026-10-25.md) | 2026-10-25 | Baseline trước sửa | Đối chiếu source, advisory, header production và rule GitHub; tham chiếu báo cáo khắc phục cho trạng thái sau sửa |
 | [`menu-review-2026-10-16.md`](./menu-review-2026-10-16.md) | 2026-10-16 | Lưu trữ kiểm chứng | Trạng thái Menu sau các chỉnh sửa mới nhất và liên kết tới số liệu / ảnh |
 | [`blog-content-review-2026-10-16.md`](./blog-content-review-2026-10-16.md) | 2026-10-16 | Lưu trữ kiểm chứng | 10 món, keyword, SEO, phương pháp và giới hạn rà trùng lặp |
