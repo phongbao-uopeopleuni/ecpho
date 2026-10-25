@@ -7,6 +7,14 @@ Format: `[Phase X] — YYYY-MM-DD — Short description`
 
 ---
 
+## [Content] — 2026-10-25 — Sửa năm trong giới thiệu footer thành 2012
+
+Theo xác nhận của chủ nhà hàng, đổi “since 2015” thành “since 2012” trong `src/layouts/shared/Footer.tsx`. Đây là footer dùng chung trên các trang. Giữ nguyên phần còn lại của câu giới thiệu.
+
+Kiểm chứng: đối chiếu chuỗi trong source và diff đúng một thay đổi năm; không chạy build local hoặc khởi động server cho chỉnh sửa nội dung này.
+
+---
+
 ## [Phase 9] — 2026-10-25 — Lưu đầy đủ báo cáo và bằng chứng trong docs
 
 ### Context

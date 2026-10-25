@@ -16,7 +16,7 @@ export const Footer = () => {
               </span>
             </Link>
             <p className="text-sm leading-relaxed max-w-xs font-light">
-              Crafting authentic Vietnamese stories through slow-simmered broths and traditional heritage since 2015 in Greenville, NC.
+              Crafting authentic Vietnamese stories through slow-simmered broths and traditional heritage since 2012 in Greenville, NC.
             </p>
             <div className="flex gap-4 pt-4">
               <a href={business.social.facebook} target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-brand-green transition-colors">
