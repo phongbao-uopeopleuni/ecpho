@@ -16,15 +16,15 @@ Xuất phát từ một báo lỗi: *"click Menu trên desktop thì bị nhảy 
 
 | # | Vấn đề | Mức độ | Trạng thái |
 |---|---|---|---|
-| 1 | Không có reset scroll khi đổi route | Cao | ✅ Đã sửa |
-| 2 | `scrollIntoView` trong thanh sticky kéo cả cửa sổ xuống ~20000px | Cao | ✅ Đã sửa |
-| 3 | Anchor `/pho`, `/bun` trỏ tới ID không tồn tại | Trung bình | ✅ Đã sửa |
-| 4 | Click danh mục thứ 2 trong vòng 750ms bị nuốt | Trung bình | ✅ Đã sửa |
-| 5 | Cùng mẫu `scrollIntoView` rủi ro ở Gallery | Thấp | ✅ Đã sửa phòng ngừa |
-| 6 | `urlMigration.ts` là dead code | Thấp | ⬜ Chưa xử lý |
-| 7 | Bundle JS 532 kB (>500 kB warning) | Thấp | ⬜ Chưa xử lý |
-| 8 | Nghi vấn tích tụ DOM khi đổi route | — | ✅ Đã bác bỏ — artifact môi trường |
-| 9 | Trang 404 thiếu `noindex` (soft 404) | Trung bình | ⬜ Chưa xử lý |
+| 1 | Không có reset scroll khi đổi route | Cao | Đã sửa |
+| 2 | `scrollIntoView` trong thanh sticky kéo cả cửa sổ xuống ~20000px | Cao | Đã sửa |
+| 3 | Anchor `/pho`, `/bun` trỏ tới ID không tồn tại | Trung bình | Đã sửa |
+| 4 | Click danh mục thứ 2 trong vòng 750ms bị nuốt | Trung bình | Đã sửa |
+| 5 | Cùng mẫu `scrollIntoView` rủi ro ở Gallery | Thấp | Đã sửa phòng ngừa |
+| 6 | `urlMigration.ts` là dead code | Thấp | Chưa xử lý |
+| 7 | Bundle JS 532 kB (>500 kB warning) | Thấp | Chưa xử lý |
+| 8 | Nghi vấn tích tụ DOM khi đổi route | — | Đã bác bỏ — artifact môi trường |
+| 9 | Trang 404 thiếu `noindex` (soft 404) | Trung bình | Chưa xử lý |
 
 ---
 
@@ -59,9 +59,9 @@ Ba chi tiết quan trọng:
 Đây mới là thủ phạm chính của báo lỗi ban đầu. Trace runtime:
 
 ```
-window.scrollTo [0,0]   ← ScrollToTop.tsx    y: 3355 → 0       ✅
+window.scrollTo [0,0]   ← ScrollToTop.tsx    y: 3355 → 0       Đạt
 scrollIntoView          ← Menu.tsx:122       y: 0 → 63
-scrollIntoView          ← Menu.tsx:122       y: 63 → 20194     ❌
+scrollIntoView          ← Menu.tsx:122       y: 63 → 20194     Lỗi
 ```
 
 `ScrollToTop` đưa về đầu trang đúng như thiết kế, rồi effect auto-scroll thanh danh mục ngang **kéo ngược cửa sổ xuống ~20000px** — đúng vị trí footer.
@@ -85,8 +85,8 @@ Logic sinh slug bị lặp lại **5 lần** trong `Menu.tsx` (`category.toLower
 
 | Danh mục | ID thật (cũ) | Anchor `App.tsx` hứa | Khớp? |
 |---|---|---|---|
-| Noodle Soups (Phở) | `noodle-soups--ph--` | `noodle-soups-pho` | ❌ |
-| Vermicelli (Bún) | `vermicelli--b-n-` | `vermicelli-bun` | ❌ |
+| Noodle Soups (Phở) | `noodle-soups--ph--` | `noodle-soups-pho` | Không khớp |
+| Vermicelli (Bún) | `vermicelli--b-n-` | `vermicelli-bun` | Không khớp |
 | Beer & Wine | `beer---wine` | — | — |
 
 Hệ quả: `/pho` và `/bun` đổ về đầu trang menu thay vì đúng section. `urlMigration.ts` và thẻ canonical trong `CompatibilityPage` cũng dùng dạng slug sạch → xác nhận slug sạch mới là thiết kế chủ đích.
@@ -187,7 +187,7 @@ Khuyến nghị: mọi kết luận về hành vi cuộn mượt nên được x
 
 Vượt ngưỡng cảnh báo 500 kB của Vite. Chưa xử lý vì nằm ngoài phạm vi audit này. Hướng xử lý: `React.lazy` cho các route ít truy cập (`/privacy`, `/terms`, `/blog/:slug`), hoặc `manualChunks` tách `motion` + `lucide-react`.
 
-### 6.3 ✅ Nghi vấn tích tụ DOM — **đã bác bỏ**
+### 6.3 Nghi vấn tích tụ DOM — **đã bác bỏ**
 
 Khi quét route trong browser pane, số thẻ `<h1>` tăng dần 2 → 3 → 4 → 5 → 6 → 7, và `main > div` đạt 7 phần tử = đúng số trang đã ghé. Trông như DOM trang cũ không được gỡ bỏ.
 

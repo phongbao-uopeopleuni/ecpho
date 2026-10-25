@@ -19,11 +19,11 @@
 
 | Phase | Name | Scope | Priority | Est. Time | Status |
 |-------|------|-------|----------|-----------|--------|
-| 1 | Critical fixes | OG image missing · Privacy/Terms 404 | Critical | ~1.5 hrs | ✅ Done |
-| 2 | Routing & redirects | Duplicate routes → 301 redirects · Update nav links | High | ~30 min | ✅ Done |
-| 3 | SEOHead & canonicals | Trailing slash · Dead code · Meta improvements | High | ~45 min | ✅ Done — xem CHANGELOG |
-| 4 | Schema & sitemap | Schema.org time format · Closed days · Sitemap rebuild | High | ~1 hr | ✅ Done — xem CHANGELOG |
-| 5 | Content & metadata | FAQ schema · Blog meta descriptions · Schema array | Medium | ~1 hr | ✅ Done — xem CHANGELOG |
+| 1 | Critical fixes | OG image missing · Privacy/Terms 404 | Critical | ~1.5 hrs | Done |
+| 2 | Routing & redirects | Duplicate routes → 301 redirects · Update nav links | High | ~30 min | Done |
+| 3 | SEOHead & canonicals | Trailing slash · Dead code · Meta improvements | High | ~45 min | Done — xem CHANGELOG |
+| 4 | Schema & sitemap | Schema.org time format · Closed days · Sitemap rebuild | High | ~1 hr | Done — xem CHANGELOG |
+| 5 | Content & metadata | FAQ schema · Blog meta descriptions · Schema array | Medium | ~1 hr | Done — xem CHANGELOG |
 
 ---
 
