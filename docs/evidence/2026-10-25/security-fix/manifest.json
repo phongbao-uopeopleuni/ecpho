@@ -1,0 +1,47 @@
+[
+  {
+    "file": "audit-after.json",
+    "bytes": 365,
+    "sha256": "4d0a9e6121826a6388e3fda8d5d6053e3179e58d532821f2fcb4565a0bd4e8a8"
+  },
+  {
+    "file": "browser-local.json",
+    "bytes": 1856,
+    "sha256": "962639f636573681b0112f8ce333a49a64978a0f8cbe5360b846c2ce92f7e697"
+  },
+  {
+    "file": "csp-probe.jpg",
+    "bytes": 33493,
+    "sha256": "45f5962df328db659837b84cd339d5208827bc133ecb3203de6f5a7c6e58c0c9"
+  },
+  {
+    "file": "filesystem.json",
+    "bytes": 771,
+    "sha256": "b54c3106a49b0c47442ae1453532b335be4344a5b62f723b9a9d714b3bf0abb8"
+  },
+  {
+    "file": "headers-local.txt",
+    "bytes": 787,
+    "sha256": "4b2ea0b90bd7fbbbf310d91cf26568eb9114925e7a0260dc23735db98407d1b3"
+  },
+  {
+    "file": "mobile-menu.json",
+    "bytes": 230,
+    "sha256": "49c52531dbc98bfc2cdd3b3f8751c2ba9779d4a9765352129cd4aeb77d5a686d"
+  },
+  {
+    "file": "security-csp-probe.html",
+    "bytes": 469,
+    "sha256": "9754a81f11712450b2d62e1ca953f600707e36e87461400dd9a68b250d03dba0"
+  },
+  {
+    "file": "security-csp-probe.js",
+    "bytes": 1124,
+    "sha256": "df74c327f170c01884e71b37ba47797224321641fedaedd9aa51c8c979d4e351"
+  },
+  {
+    "file": "versions.json",
+    "bytes": 1094,
+    "sha256": "55860e63ce9855cbac414da318add76ca456ffd56c3e03354728b5dd46ba574b"
+  }
+]

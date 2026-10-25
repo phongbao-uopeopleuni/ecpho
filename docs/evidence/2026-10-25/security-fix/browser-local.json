@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-25",
+  "origin": "http://127.0.0.1:4173",
+  "headersSource": "vercel.json",
+  "routes": [
+    {
+      "path": "/",
+      "title": "EC Phở Vietnamese Noodle House | Authentic Vietnamese in Greenville, NC",
+      "h1": "Soulful\nComfort.",
+      "schema": [
+        "Restaurant",
+        "FAQPage"
+      ],
+      "brokenLoadedImages": []
+    },
+    {
+      "path": "/menu",
+      "title": "EC Phở Menu",
+      "h1": "EC Phở Menu",
+      "schema": [],
+      "brokenLoadedImages": []
+    },
+    {
+      "path": "/blog",
+      "title": "Vietnamese Food Stories & Guides in Greenville, NC | EC Phở",
+      "h1": "THE SOUL BEHIND THE BOWL",
+      "schema": [
+        "Blog"
+      ],
+      "brokenLoadedImages": []
+    },
+    {
+      "path": "/blog/taro-smoothie-boba-greenville-nc",
+      "title": "Taro Smoothie with Boba in Greenville, NC | EC Phở",
+      "h1": "Taro Smoothie with Boba: A Creamy Sip with a Little Chew",
+      "schema": [
+        "BlogPosting",
+        "BreadcrumbList"
+      ],
+      "brokenLoadedImages": []
+    },
+    {
+      "path": "/contact",
+      "title": "Contact & Location | EC Phở",
+      "h1": "LET'S CONNECT.",
+      "schema": [],
+      "brokenLoadedImages": []
+    }
+  ],
+  "probe": {
+    "inlineScriptExecuted": false,
+    "inlineHandlerExecuted": false,
+    "inlineButtonClicked": true,
+    "allowedExternalHandlerExecuted": true,
+    "violations": [
+      {
+        "directive": "script-src-elem",
+        "blockedURI": "inline",
+        "disposition": "enforce"
+      },
+      {
+        "directive": "script-src-attr",
+        "blockedURI": "inline",
+        "disposition": "enforce"
+      }
+    ]
+  },
+  "notes": [
+    "Local helper does not implement Vercel Analytics hosting endpoint.",
+    "Separate fixture tests enforced CSP, not an early listener on each application document."
+  ]
+}

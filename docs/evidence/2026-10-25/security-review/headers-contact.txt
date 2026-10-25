@@ -1,0 +1,20 @@
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Access-Control-Allow-Origin: *
+Age: 4288
+Cache-Control: public, max-age=0, must-revalidate
+Content-Disposition: inline; filename="index.html"
+Content-Length: 488
+Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://www.doordash.com https://www.transparenttextures.com; frame-src https://www.google.com https://maps.google.com;
+Content-Type: text/html; charset=utf-8
+Date: Sun, 25 Oct 2026 13:30:19 GMT
+Etag: "9c002dcdced3dc144c8e213edc1c298c"
+Last-Modified: Sun, 25 Oct 2026 12:18:51 GMT
+Permissions-Policy: camera=(), microphone=(), geolocation=()
+Referrer-Policy: strict-origin-when-cross-origin
+Server: Vercel
+Strict-Transport-Security: max-age=63072000
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+X-Vercel-Cache: HIT
+X-Vercel-Id: hkg1::sl69w-1792935019582-a629afb14a34

@@ -1,88 +1,42 @@
-# EC Pho Noodle House - Security Architecture & Vulnerability Mitigation Plan
-**Role:** Senior Full Stack Architect
-**Status:** Active Mitigations Deployed
+# EC Phở — Security notes
 
-This document details the security audit performed on the EC Pho Noodle House React/Vite codebase, list identified security risks, and provides concrete client-side and structural mitigation plans.
+**Updated:** 2026-10-25
 
----
+**Scope:** React/Vite static website deployed on Vercel
 
-## 1. Identified Security Risks & Vulnerabilities
+**Status:** Current architecture; dated verification is linked below.
 
-### A. Client-Side Input Manipulation (DOM-XSS)
-- **Problem:** Dynamic user submission systems (like writing reviews, creating custom dining notes, other checkout/reservation comments) do not save to a backend database yet, but render instantly into the React tree. Although React escapes variables inside JSX expressions, bypassing this via unsafe URL redirection, dynamic styling, or string manipulation could trigger DOM XSS.
-- **Vulnerability:** Unfiltered strings could containing HTML attributes or scripts (e.g., `<script src="evil.js">`) that would cause rendering bugs or crash browsers if serialized.
-- **Plan deployed:** Constructed `securityService.ts` containing `sanitizeInput` which recursively strips HTML tag matches and encodes standard characters.
+The website presents restaurant information, a menu and food articles. Online ordering links to DoorDash. The current application does not implement customer accounts, payment processing, a database, booking/review submissions or a Gemini API integration. Earlier versions of this document described validators and services that are absent from the current source; those claims have been removed.
 
-### B. Navigation Protocol Hijacking (Link Safety)
-- **Problem:** Linking or dynamically triggering `window.open` (like launching Google Maps direction coordinates, or social icons) with unfiltered links is a major injection vector if link variables are modified or spoofed.
-- **Vulnerability:** If an attacker inserts `javascript:alert(document.cookie)` onto maps, coordinate selectors, or booking handlers, opening it can compromise browsing sessions.
-- **Plan deployed:** All links and GPS routes pass through a custom regex `sanitizeUrl()` helper verifying they exclusively utilize safe protocols (`https://`, `http://`, `tel:`, `mailto:`, relative paths, or standard anchors).
+## Browser protections
 
-### C. Client-Side Denial of Service (Memory Saturation / Heap Crash)
-- **Problem:** Forms for customer names, dining logs, phone numbers, or allergy fields lacked limits. A malicious user pasting a multi-megabyte string into the reviews name/comment area could cause local memory exhaustion, lagging browser thread loops and crashing the website for that user.
-- **Vulnerability:** Unconstrained string storage on React state blocks.
-- **Plan deployed:** Explicit `maxLength` clipping implemented in `sanitizeInput()` alongside field-level character counter validations.
+`vercel.json` defines the deployed response headers. `public/_headers` carries the same CSP for hosts that support that file; its presence alone does not mean a host enforces it.
 
-### D. Private Key Security (Gemini API Secret Handling)
-- **Problem:** API keys used directly in client-side code are vulnerable to inspection by opening the DevTools Network/Source tabs.
-- **Vulnerability:** Exposing `process.env.GEMINI_API_KEY` on public networks can lead to key hijacking and quota exhaustion.
-- **Mitigation plan:**
-  1. We lazily initialize the Gemini API and secure the build layer within Vite.
-  2. For a production-ready setup, we recommend moving the conversational AI layer to a microservice proxy. We have documented the transition pattern in this file, decoupling the browser client completely from the LLM execution key.
+- `script-src 'self'` permits same-origin JavaScript files; inline script and `eval` are not permitted.
+- `script-src-attr 'none'` blocks inline event attributes such as `onclick`.
+- `object-src 'none'`, `base-uri 'self'`, `form-action 'self'` and `frame-ancestors 'none'` constrain plugins, base URLs, form destinations and framing.
+- Google Fonts, the existing image origins and Google Maps frames have explicit allowances. Same-origin connections support Vercel Analytics.
+- Inline **styles** remain allowed for the existing animation/rendering code. This does not allow inline JavaScript.
+- X-Frame-Options, nosniff, Referrer-Policy and Permissions-Policy remain configured. Vercel also supplies HSTS; inspect the live response when verifying deployment.
 
----
+This is an origin allowlist CSP, not a nonce/hash-based strict CSP. It is a supplementary defense: a compromised same-origin script or hosting account can still affect the site. React text escaping does not make arbitrary HTML injection safe. Do not introduce untrusted HTML rendering, `eval`, script-bearing URLs or client-side secrets.
 
-## 2. Dynamic Input Validators & Sanitization Architecture
+JSON-LD uses non-executable `application/ld+json` script elements. Verify that Restaurant, Blog and BlogPosting schemas remain present when changing the policy.
 
-We created `/src/services/securityService.ts` defining zero-dependency guards:
-1. `sanitizeInput(val, maxLength)`: Truncates length, strips HTML tags, and escapes markup symbols (`<`, `>`, `&`, `"`, `'`, `/`).
-2. `sanitizeUrl(url, default)`: Checks protocol bounds to accept only safe prefixes.
-3. `validateAndCleanPhone(phone)`: Strip all non-numeric, hyphen, parentheses, and spaces to maintain structural integrity.
-4. `validateAndCleanEmail(email)`: Standard regex validator to refuse invalid form requests before processing.
+## Dependency maintenance and verification
 
-These gates have been integrated into:
-- Reviews Form Handler
-- Restaurant Booking Center
-- Shopping Bag Checkout Flow
-- Navigation & Landmark trigger map links
+Use the committed lockfile with `npm ci`. Review compatible security updates and run TypeScript checks, a production build, the package audit and browser checks before publishing. Test CSP using production headers: Vite development refresh code has different inline-script requirements.
 
----
+The 2026-10-25 update reduced the audit from 13 affected packages to zero known findings at that time. An audit result is limited to the advisories known to the registry and is not a penetration test or a guarantee of future safety.
 
-## 3. Recommended Future Server-Authoritative Path (Zero-Trust API Proxies)
+Local `npm run build` replaces `dist/`; preserve it or choose a separate verified output directory when needed. Stop temporary servers after testing and record changes to ignored build/cache files.
 
-When transitioning EC Pho to a fully-coupled server backend, use the following Express API proxy to fully isolate key secrets:
+## Accounts and repository controls
 
-```typescript
-// server.ts (Safe Node Backend Proxy Pattern)
-import express from 'express';
-import { GoogleGenAI } from "@google/genai";
+The owner reports two-factor authentication enabled on GitHub and Vercel. This was not independently verified. The dependency/CSP update does not change account access, repository rules, workflow permissions or Dependabot settings. Open recommendations from the dated audit remain tracked in the reports.
 
-const app = express();
-app.use(express.json());
+## Dated evidence
 
-// API Key strictly hidden on the server host environment
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY! });
-
-app.post('/api/recommend-pho', async (req, res) => {
-  try {
-    const { mood, hungerLevel, spiceTolerance, dislikes, prefersVeg } = req.body;
-    
-    // Server-side validation
-    if (typeof mood !== 'string' || mood.length > 200) {
-      return res.status(400).json({ error: "Invalid parameters" });
-    }
-    
-    const prompt = `Generate Pho recommendation for mood: ${mood}...`;
-    const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
-      contents: prompt,
-    });
-    
-    res.json({ recommendation: response.text });
-  } catch (error) {
-    res.status(500).json({ error: "Intermittent connection delay" });
-  }
-});
-
-app.listen(3000, () => console.log("Secure server listening on port 3000"));
-```
+- [Baseline security review](docs/security-review-2026-10-25.md)
+- [Dependency and CSP remediation](docs/security-fix-2026-10-25.md)
+- [Documentation index](docs/README.md)

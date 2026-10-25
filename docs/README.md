@@ -16,6 +16,8 @@ Rà soát gần nhất: [báo cáo độ đầy đủ của tài liệu](./docum
 | Sửa nội dung: món ăn, giờ mở cửa, ảnh | [`README.md`](../README.md) → mục *Updating Information* |
 | Biết file nào gọi file nào | [`code-knowledge-graph/OVERVIEW.md`](./code-knowledge-graph/OVERVIEW.md) + `viewer.html` |
 | Xem đã thay đổi gì, khi nào | [`CHANGELOG.md`](./CHANGELOG.md) |
+| Cập nhật thư viện, CSP và kiểm chứng chặn script | [`security-fix-2026-10-25.md`](./security-fix-2026-10-25.md) |
+| Baseline bảo mật, các khuyến nghị về quyền deploy còn mở | [`security-review-2026-10-25.md`](./security-review-2026-10-25.md) |
 | 5 bài mới về Taro, chè, bún bò sả, cơm sườn trứng, General Tso | [`blog-additions-review-2026-10-25.md`](./blog-additions-review-2026-10-25.md) |
 | Menu hiện tại: bố cục, ảnh chạy, tiêu đề, thanh mục mobile | [`menu-review-2026-10-16.md`](./menu-review-2026-10-16.md) |
 | 10 bài mới: món ăn, keyword, SEO và phạm vi rà plagiarism | [`blog-content-review-2026-10-16.md`](./blog-content-review-2026-10-16.md) |
@@ -57,6 +59,8 @@ Báo cáo điều tra kèm bằng chứng đo đạc và việc còn tồn.
 
 | Tài liệu | Ngày | Trạng thái | Nội dung |
 |---|---|---|---|
+| [`security-fix-2026-10-25.md`](./security-fix-2026-10-25.md) | 2026-10-25 | Đã kiểm chứng local | Audit 13 → 0, chặn script inline / onclick, kiểm tra các trang và bảo toàn dist / MenuPreview |
+| [`security-review-2026-10-25.md`](./security-review-2026-10-25.md) | 2026-10-25 | Baseline trước sửa | Đối chiếu source, advisory, header production và rule GitHub; tham chiếu báo cáo khắc phục cho trạng thái sau sửa |
 | [`menu-review-2026-10-16.md`](./menu-review-2026-10-16.md) | 2026-10-16 | Lưu trữ kiểm chứng | Trạng thái Menu sau các chỉnh sửa mới nhất và liên kết tới số liệu / ảnh |
 | [`blog-content-review-2026-10-16.md`](./blog-content-review-2026-10-16.md) | 2026-10-16 | Lưu trữ kiểm chứng | 10 món, keyword, SEO, phương pháp và giới hạn rà trùng lặp |
 | [`blog-additions-review-2026-10-25.md`](./blog-additions-review-2026-10-25.md) | 2026-10-25 | Kiểm chứng local | Năm bài bổ sung, tổng 20 bài, ảnh, keyword, liên kết món và rà trùng lặp |
@@ -64,7 +68,7 @@ Báo cáo điều tra kèm bằng chứng đo đạc và việc còn tồn.
 | [`evidence/2026-10-16/README.md`](./evidence/2026-10-16/README.md) | 2026-10-25 | Lưu trữ | 20 file bằng chứng gốc và manifest SHA256, kiểm chứng thực hiện ngày 16/10 |
 | [`navigation-audit.md`](./navigation-audit.md) | 2026-08-03 | Lưu trữ | Audit cũ: 5 lỗi đã sửa, 3 việc còn mở; mô tả Menu mới nằm ở báo cáo 16/10 |
 | [`SEO_REFACTOR_PLAN.md`](./SEO_REFACTOR_PLAN.md) | 2026-05-29 | Đã hoàn thành | Kế hoạch SEO 5 phase — đã triển khai xong, giữ để tham chiếu |
-| [`SECURITY.md`](../SECURITY.md) | 2026-05-16 | Hiệu lực | Audit bảo mật: DOM-XSS, CSP, các biện pháp đã áp dụng |
+| [`SECURITY.md`](../SECURITY.md) | 2026-10-25 | Hiệu lực | Kiến trúc SPA, CSP, bảo trì thư viện, giới hạn và các bằng chứng theo ngày |
 | [`ec-pho-seo-audit.docx`](./ec-pho-seo-audit.docx) | 2026-05-29 | Lưu trữ | Báo cáo SEO đầy đủ dạng Word, kèm bảng vấn đề và cơ hội từ khoá |
 | [`ec-pho-refactor-plan.docx`](./ec-pho-refactor-plan.docx) | 2026-05-29 | Lưu trữ | Kế hoạch refactor theo phase kèm snippet và đánh giá rủi ro |
 
@@ -90,6 +94,8 @@ Mốc thay đổi lớn, mới nhất trước.
 
 | Ngày | Việc | Tài liệu |
 |---|---|---|
+| 2026-10-25 | Vá thư viện và siết CSP; audit 13 → 0, thử chặn script và onclick | [`security-fix-2026-10-25.md`](./security-fix-2026-10-25.md) |
+| 2026-10-25 | Rà soát bảo mật source, thư viện, header và thiết lập GitHub | [`security-review-2026-10-25.md`](./security-review-2026-10-25.md) |
 | 2026-10-25 | Bổ sung năm bài món ăn, tổng 20 bài Blog | [`blog-additions-review-2026-10-25.md`](./blog-additions-review-2026-10-25.md) |
 | 2026-10-25 | Bổ sung báo cáo Menu, lưu bằng chứng vào docs, đồng bộ chỉ mục và trạng thái tài liệu | [`documentation-review-2026-10-25.md`](./documentation-review-2026-10-25.md) |
 | 2026-10-16 | 10 bài món ăn mới, keyword địa phương và metadata blog | [`blog-content-review-2026-10-16.md`](./blog-content-review-2026-10-16.md) |
@@ -114,6 +120,7 @@ Gom từ các tài liệu audit để không phải mở từng file.
 | 1 | Trang 404 thiếu `noindex` → soft 404 | Trung bình | [`navigation-audit.md` §6.4](./navigation-audit.md) |
 | 2 | `urlMigration.ts` là dead code, không được import | Thấp | [`navigation-audit.md` §6.1](./navigation-audit.md) |
 | 3 | Cảnh báo bundle vượt 500 kB; 532 kB là số đo audit 03/08, chưa phải số đo hiện tại | Thấp | [`navigation-audit.md` §6.2](./navigation-audit.md) |
+| 4 | Bảo vệ main, cập nhật bảo mật Dependabot, tối thiểu quyền CI và ghim action SHA | Hardening | [`security-review-2026-10-25.md`](./security-review-2026-10-25.md) |
 
 Các việc trên là tồn đọng được ghi nhận trong audit cũ; lần rà soát tài liệu 25/10 không chạy lại kiểm thử chức năng hoặc đo bundle. Báo cáo 16/10 có phạm vi riêng, không chứng nhận Safari/Firefox, thiết bị thật, Googlebot hoặc thứ hạng SEO.
 
