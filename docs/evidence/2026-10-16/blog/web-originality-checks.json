@@ -1,0 +1,247 @@
+{
+  "checkedAt": "2026-10-16",
+  "method": "20 quoted sentence searches, two samples per new article; normalized exact-sentence and 12-word phrase comparisons against returned search text. Search engines may relax quotes; results do not cover the entire web, paywalls, or plagiarism databases.",
+  "evidence": [
+    {
+      "query": "\"A crisp egg roll gives the table a little punctuation before the first bowl of noodles arrives.\"",
+      "batch": 0,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 12
+    },
+    {
+      "query": "\"For a table that likes variety, order both styles and compare a bite of each.\"",
+      "batch": 0,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 12
+    },
+    {
+      "query": "\"A forkful of grilled beef and fine rice noodles tells you more about a vermicelli bowl than its size ever could.\"",
+      "batch": 0,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 12
+    },
+    {
+      "query": "\"You do not need to mix the whole bowl immediately.\"",
+      "batch": 0,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 12
+    },
+    {
+      "query": "\"A mound of rice gives grilled pork somewhere to leave its flavor between bites.\"",
+      "batch": 1,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 9
+    },
+    {
+      "query": "\"Check the variation when placing your order, since the rice choices have different prices.\"",
+      "batch": 1,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 9
+    },
+    {
+      "query": "\"A spoonful of vegetable broth gives this bowl its starting point before tofu and noodles join the conversation.\"",
+      "batch": 1,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 9
+    },
+    {
+      "query": "\"Gather a manageable portion of noodles with the tofu instead of lifting a large bundle at once.\"",
+      "batch": 1,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 9
+    },
+    {
+      "query": "\"The carrot in a spoonful of bò kho changes the bite as much as the beef does.\"",
+      "batch": 2,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 11
+    },
+    {
+      "query": "\"If you usually order phở, trying bò kho on a later visit gives you a different reference point.\"",
+      "batch": 2,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 11
+    },
+    {
+      "query": "\"A shrimp changes the pace of a plate of fried rice, giving the next forkful a firmer centerpiece.\"",
+      "batch": 2,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 11
+    },
+    {
+      "query": "\"If shrimp is what you are looking forward to, the shrimp version keeps the order clear.\"",
+      "batch": 2,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 11
+    },
+    {
+      "query": "\"One plate can carry three distinct textures without asking you to choose just one of them.\"",
+      "batch": 3,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 10
+    },
+    {
+      "query": "\"Read the full name when ordering: this particular combination is served with steamed rice.\"",
+      "batch": 3,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 10
+    },
+    {
+      "query": "\"Pineapple and bell peppers make a plate of chicken change direction from one forkful to the next.\"",
+      "batch": 3,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 10
+    },
+    {
+      "query": "\"The variations have different prices, so select the version you want when ordering.\"",
+      "batch": 3,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 10
+    },
+    {
+      "query": "\"Thin strands of green papaya turn a salad into something you gather as much as something you scoop.\"",
+      "batch": 4,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 12
+    },
+    {
+      "query": "\"That distinction is especially useful if you have a dietary requirement.\"",
+      "batch": 4,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 12
+    },
+    {
+      "query": "\"A piece of tofu, a little vegetable, and a spoonful of rice let you build the bite yourself.\"",
+      "batch": 4,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 12
+    },
+    {
+      "query": "\"Keeping some rice separate also gives you room to change the balance as you eat.\"",
+      "batch": 4,
+      "searchCompleted": true,
+      "exactSentenceInReturnedText": false,
+      "matching12WordPhrases": [],
+      "resultCount": 12
+    }
+  ],
+  "sources": [
+    {
+      "batch": 0,
+      "resultHeaders": [
+        "Enjoy Hyogo's Famous Local Cuisine: 18 Popular Restaurants by Area [Tabelog] (https://tabelog.com/en/matome/28748/)",
+        "How to Give Liquid Medicine to a Cat Without a Mess (https://www.zubairkhalid.com/knowledge/veterinary-medicine/pet-medication-guide/how-to-give-liquid-medicine-to-cat)",
+        "BIBIMBAP – Meals.GeekMill (https://meals.geekmill.co.uk/bibimbap/)",
+        "Shrimp Taco Salad Recipe - Awesome Cuisine (https://www.awesomecuisine.com/recipes/17689/shrimp-taco-salad/)",
+        "If you're drinking around Okachimachi Station, start here! 19 popular izakaya (Japanese pubs) [Tabelog] (https://tabelog.com/en/matome/31712/)",
+        "Kobe’s Finest Steaks: 20 Must-Try Restaurants in the City’s Competitive Dining Scene [Tabelog] (https://tabelog.com/en/matome/19183/)",
+        "After 'Naan and Curry' comes Dal Bhat: Why Japanese dining out is shifting from 'flashy dishes' to 'set meals you want to eat every day'｜anms (https://note.com/anms/n/n87f44fe48754?hl=en)",
+        "Cuisinart Frozen Dessert Maker ICE-31A Instruction Booklet | Manualzz (https://manualzz.com/doc/47899563/cuisinart-ice-31a-frozen-dessert-maker-instruction-booklet)",
+        "30 Must-Try Local Dishes in Hiroshima: From Okonomiyaki to Soupless Tantanmen [Tabelog] (https://tabelog.com/en/matome/25833/)",
+        "Shrimp Avocado Bowls with Mango Salsa - Adventure Footstep (https://adventurefootstep.com/shrimp-avocado-bowls-with-mango-salsa/)",
+        "2021 – Darina's Saturday Letter (https://letters.cookingisfun.ie/2021/)",
+        "Buttercream Frosting Recipe: Easy, Fluffy & Stable | Masala Monk (https://masalamonk.com/buttercream-frosting-recipe/)"
+      ]
+    },
+    {
+      "batch": 1,
+      "resultHeaders": [
+        "(PDF) Water Privatisation: Trans-National Corporations and the Re-Regulation of the Water Industry (https://www.researchgate.net/publication/37408336_Water_Privatisation_Trans-National_Corporations_and_the_Re-Regulation_of_the_Water_Industry)",
+        "2023 Weekly Jumpchain Challenge RP | Page 33 | SpaceBattles (https://forums.spacebattles.com/threads/2023-weekly-jumpchain-challenge.1062539/page-33)",
+        "(PDF) Volume 6.3 Journal of Tourism, Heritage & Services Marketing (https://www.researchgate.net/publication/344853840_Volume_63_Journal_of_Tourism_Heritage_Services_Marketing)",
+        "(PDF) PERCEPTIONS, ADAPTATIONS AND VULNERABILITY OF THE FARMERS TO CLIMATE VARIABILITY AND CHANGE IN KARNATAKA PERCEPTIONS, ADAPTATIONS AND VULNERABILITY OF THE FARMERS TO CLIMATE VARIABILITY AND CHANGE IN KARNATAKA (https://www.researchgate.net/publication/371322123_PERCEPTIONS_ADAPTATIONS_AND_VULNERABILITY_OF_THE_FARMERS_TO_CLIMATE_VARIABILITY_AND_CHANGE_IN_KARNATAKA_PERCEPTIONS_ADAPTATIONS_AND_VULNERABILITY_OF_THE_FARMERS_TO_CLIMATE_VARIABILITY_AND_CHANGE_IN_KA)",
+        "Jumpchain Table System (Creative Writing Tool) | Page 3 | SpaceBattles (https://forums.spacebattles.com/threads/jumpchain-table-system-creative-writing-tool.1226252/page-3)",
+        "(PDF) Ethnic Minorities and Regional Development in Asia: Reality and Challenges (https://www.researchgate.net/publication/295258002_Ethnic_Minorities_and_Regional_Development_in_Asia_Reality_and_Challenges)",
+        "(PDF) Emissions Trading in Practice: A Handbook on Design and Implementation (https://www.researchgate.net/publication/319477510_Emissions_Trading_in_Practice_A_Handbook_on_Design_and_Implementation)",
+        "(PDF) EXAMINING INCLUSIVE EDUCATION OF MINORITY CHILDREN IN INDONESIA Examining Inclusive Education of Minority Children in Indonesia i (https://www.researchgate.net/publication/404798722_EXAMINING_INCLUSIVE_EDUCATION_OF_MINORITY_CHILDREN_IN_INDONESIA_Examining_Inclusive_Education_of_Minority_Children_in_Indonesia_i)",
+        "(PDF) The Palestinian Strategic Report 2012–2013 (https://www.researchgate.net/publication/362945291_The_Palestinian_Strategic_Report_2012-2013)"
+      ]
+    },
+    {
+      "batch": 2,
+      "resultHeaders": [
+        "20 Izakaya Picks Around Gotanda Station! Including places known for seafood and yakitori (grilled chicken skewers) [Tabelog] (https://tabelog.com/en/matome/31621/)",
+        "Creativity & Memory — Show Notes — The Science of Success Podcast (https://matt-bodnar.squarespace.com/show-notes/category/Creativity%2B%26%2BMemory)",
+        "Blog @ Katherine Tallmadge, MA, RD (https://katherinetallmadge.com/blog/)",
+        "German Language Learning This Book Includes Learn German For Beginner PDF | PDF | Grammatical Gender | Linguistic Morphology (https://www.scribd.com/document/644405330/German-Language-Learning-This-Book-includes-Learn-German-For-Beginner-pdf)",
+        "The Left Words - authoresswithoutwords - Harry Potter - J. K. Rowling [Archive of Our Own] (https://icantbelieveitsnotao3.org/works/18394907?view_full_work=true)",
+        "Everyday Apology Phrases Guide | PDF | Forgiveness (https://www.scribd.com/document/531218029/Englishcrumbs-useful-everyday-phrases)",
+        "london restaurants (https://ilxor.com/ILX/ThreadSelectedControllerServlet?action=showall&boardid=40&threadid=3773)",
+        "weekend free-for-all - May 18-19, 2019 - Ask a Manager (https://www.askamanager.org/2019/05/weekend-free-for-all-may-18-19-2019.html)",
+        "Vietnamese Food & Cooking | PDF | Cambodia | Vietnamese Cuisine (https://pt.scribd.com/document/35499681/Vietnamese-Food-Cooking)",
+        "2013 - theatre (https://doczz.net/doc/497810/2013)",
+        "(PDF) The Relocalization of Buddhism in Thailand (https://www.researchgate.net/publication/255578241_The_Relocalization_of_Buddhism_in_Thailand)"
+      ]
+    },
+    {
+      "batch": 3,
+      "resultHeaders": [
+        "19 Must-Try Restaurants in Kyoto: Top Picks for Breakfast, Lunch, and Dinner [Tabelog] (https://tabelog.com/en/matome/26997/)",
+        "Latest Posts » Big Flavors from a Tiny Kitchen (https://bigflavorstinykitchen.com/latest-posts/)",
+        "(PDF) Economics for farm management extension (https://www.researchgate.net/publication/269761886_Economics_for_farm_management_extension)",
+        "24 Must-Try Local Tokyo Dishes: A Guide by Area, Including Tsukishima and Fukagawa [Tabelog] (https://tabelog.com/en/matome/26196/)",
+        "Experience the Best of Hokkaido Cuisine! 29 Restaurants to Enjoy Local Specialties by Area [Tabelog] (https://tabelog.com/en/matome/26402/)",
+        "Close to Ginza and Tsukiji! 20 sushi restaurants around Shimbashi Station [Tabelog] (https://tabelog.com/en/matome/31625/)",
+        "(PDF) The Metaphysics and Ethics of Copyright (https://www.researchgate.net/publication/277244202_The_Metaphysics_and_Ethics_of_Copyright)",
+        "Sushi in Sapporo, Hokkaido’s central city! 20 popular spots by area [Tabelog] (https://tabelog.com/en/matome/31679/)",
+        "(PDF) Seafood in Mediterranean countries: A culinary journey through history (https://www.researchgate.net/publication/355071310_Seafood_in_Mediterranean_countries_A_culinary_journey_through_history)",
+        "(PDF) Chronotopic Identity Work. Sociolinguistic Analyses of Cultural and Linguistic Phenomena in Time and Space (https://www.researchgate.net/publication/337907485_Chronotopic_Identity_Work_Sociolinguistic_Analyses_of_Cultural_and_Linguistic_Phenomena_in_Time_and_Space)"
+      ]
+    },
+    {
+      "batch": 4,
+      "resultHeaders": [
+        "A Quiet Guide to Reading the Back of the Pack | GOLA GALA (https://golagala.com/blog/a-quiet-guide-to-reading-the-back-of-the-pack)",
+        "Diet Dr Pepper: A Refreshing Guide to Calories, Nutrition, Sizes, Allergens, and Everyday Enjoyment (https://menupricesaustralia.com/diet-dr-pepper/)",
+        "What Does Nistisimo Mean? The Single Word That Makes Being Vegan in Greece Dramatically Easier (https://www.thedharmastore.com/blogs/vegan-posts/what-does-nistisimo-mean)",
+        "Does Avalon Waterways Offer 24-Hour Room Service? (https://www.portjourney.com/blog/does-avalon-waterways-offer-24-hour-room-service)",
+        "Manual of Dietetic Practice [4&nbsp;ed.] 9781118687291, 9781405135252 - DOKUMEN.PUB (https://dokumen.pub/manual-of-dietetic-practice-4nbsped-9781118687291-9781405135252.html)",
+        "AI Recipe Ideation Without Fake Nutrition Claims (https://naturalolives.uk/use-ai-for-recipe-ideation-without-falling-for-fake-nutritio)",
+        "Best Vegetarian Indian Restaurants in Brooklyn Heights: Top Veg & Vegan Spots (https://indianfooder.com/best-vegetarian-indian-restaurants-in-brooklyn-heights/)",
+        "Tokyo: Sumo Experience and Chanko Nabe Lunch – The Japanese Traveller (https://thejapanesetraveller.com/tokyo-sumo-experience-and-chanko-nabe-lunch/)",
+        "How to Find Vegan Restaurants China: 素食 and 斋菜 Signs Explained (https://www.thedharmastore.com/blogs/vegan-posts/how-to-find-vegan-restaurants-china)",
+        "GCSE AQA Physical Education -- Chapter 12: Diet, Nutrition and Hydration (Textbook Notes) | Williams Physics Education (https://www.williamsphysics.co.uk/pe/gcse/aqa/notebook/diet_nutrition_hydration)",
+        "Meal Plans for Food Restrictions: Complete Guide | Mealzo Store (https://mealzo.store/blog/meal-plans-food-restrictions?lang=en)",
+        "Personal Trainer Blog : Fitness / Diet / Exercise / Weight Loss (https://www.michaelmoodyfitness.com/personaltrainersfitnessanddietblog/)"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,13 @@
 # 🍜 EC Phở Vietnamese Noodle House - Website Migration Guide
 
+**Ngày:** 2026-05-17
+
+**Phạm vi:** Kế hoạch migration ban đầu từ Google Sites
+
+**Trạng thái:** Lưu trữ
+
+> Ghi chú rà soát 2026-10-25: bảng URL và hướng dẫn hosting bên dưới thuộc kế hoạch ban đầu, không mô tả cấu hình đang chạy đã được xác minh. Đối chiếu route trong `src/App.tsx`, canonical trong `SEOHead.tsx`, `vercel.json` và `.github/workflows/deploy.yml` trước khi triển khai. Changelog ghi lại các lần đổi redirect/canonical sau migration. Lần rà soát tài liệu này không kiểm tra hay thay đổi DNS. [Chỉ mục tài liệu](./README.md) · [Changelog](./CHANGELOG.md).
+
 This project is a high-performance, SEO-optimized static reconstruction of the **EC Phở Vietnamese Noodle House** website, migrated from Google Sites to a React + Vite + Tailwind architecture.
 
 ## 🚀 Migration Overview

@@ -1,5 +1,13 @@
 # EC Phở — 10 bài món ăn mới, ngày 16/10/2026
 
+**Ngày kiểm chứng:** 2026-10-16
+
+**Phạm vi:** 10 bài món ăn mới, metadata SEO, ảnh và rà trùng lặp theo mẫu
+
+**Trạng thái:** Lưu trữ kiểm chứng — chuyển bằng chứng vào docs ngày 2026-10-25
+
+Đây là kết quả local ngày 16/10, không phải lần kiểm thử mới ngày 25/10. Mã blog có trong commit `65e179e` trên `main`; việc có mặt trong Git không xác nhận trạng thái deploy hoặc Google index. [Chỉ mục tài liệu](./README.md) · [Bằng chứng đã lưu](./evidence/2026-10-16/README.md).
+
 Đã thêm 10 bài tiếng Anh cho khách hàng Greenville, NC; blog hiện có 15 bài. Mỗi bài mới khoảng 394–414 từ, có bốn mục nội dung, ảnh món ăn sẵn trong dự án, liên kết đến đúng nhóm menu và ba bài liên quan. Năm bài cũ được giữ nguyên nội dung.
 
 ## Bản đồ chủ đề và từ khóa
@@ -36,7 +44,7 @@ Nội dung mới được biên soạn riêng theo menu. Kiểm tra gồm hai ph
 
 Đây là rà trùng lặp theo mẫu trên web và so sánh nội bộ, không phải quét toàn văn qua Turnitin/Copyscape, không có “điểm originality” và không chứng nhận 100% không trùng. Nó không bao phủ nội dung chưa được lập chỉ mục, trang trả phí hay cơ sở dữ liệu riêng. Chỉ 10 bài mới nằm trong phạm vi rà trùng lặp này.
 
-Các mẫu và danh sách kết quả được lưu ở `node_modules/.cache/ecpho-blog-audit-20261016/web-originality-checks.json`; số từ và kết quả so sánh nội bộ ở `content-checks.json` cùng thư mục. Các file này bị gitignore và phục vụ kiểm chứng local.
+Các mẫu và danh sách kết quả đã được lưu trong Git: [web-originality-checks.json](./evidence/2026-10-16/blog/web-originality-checks.json), [originality-samples.json](./evidence/2026-10-16/blog/originality-samples.json), [content-checks.json](./evidence/2026-10-16/blog/content-checks.json). Bản cache local ban đầu vẫn được giữ; bản docs được đối chiếu SHA256 với bản gốc.
 
 ## SEO đã triển khai
 
@@ -48,7 +56,7 @@ Các mẫu và danh sách kết quả được lưu ở `node_modules/.cache/ecp
 - Thêm đủ 10 URL vào sitemap và cập nhật ngày sửa trang Blog.
 - Ngày bài hiển thị nhất quán theo ngày xuất bản trong dữ liệu, tránh lệch một ngày do parse ngày UTC.
 
-Google không dùng thẻ meta keywords để tính thứ hạng; lợi ích dự kiến đến từ nội dung hữu ích, tiêu đề, mô tả và liên kết phù hợp. Tham khảo chính thức: [thẻ meta Google hỗ trợ](https://developers.google.com/search/docs/crawling-indexing/special-tags), [tiêu đề trang](https://developers.google.com/search/docs/appearance/title-link), [dữ liệu Article](https://developers.google.com/search/docs/appearance/structured-data/article). Chưa triển khai lên website công khai nên Google chưa thể lập chỉ mục các bài mới từ localhost.
+Google không dùng thẻ meta keywords để tính thứ hạng; lợi ích dự kiến đến từ nội dung hữu ích, tiêu đề, mô tả và liên kết phù hợp. Tham khảo chính thức: [thẻ meta Google hỗ trợ](https://developers.google.com/search/docs/crawling-indexing/special-tags), [tiêu đề trang](https://developers.google.com/search/docs/appearance/title-link), [dữ liệu Article](https://developers.google.com/search/docs/appearance/structured-data/article). Lần kiểm chứng này thực hiện trên localhost; không xác nhận trạng thái deploy, index hoặc thứ hạng của website công khai.
 
 ## Kiểm chứng
 
@@ -68,3 +76,5 @@ Google không dùng thẻ meta keywords để tính thứ hạng; lợi ích d�
 - Không chạy build hoặc cài dependency trong lượt này; không ghi đè `dist/`. Bằng chứng filesystem, trạng thái Git và cổng chạy cuối lượt được ghi ở `final-state.txt` trong thư mục kiểm chứng.
 - Viewport kiểm thử được trả về mặc định; giữ tab Blog mở để người dùng xem.
 - Cache/log do browser và runtime tự quản lý ngoài repo không được kiểm kê theo ranh giới thư mục của phiên.
+
+Ảnh và số liệu chính hiện có bản lưu lâu dài: [kiểm tra browser](./evidence/2026-10-16/blog/browser-checks.json), [liên kết menu](./evidence/2026-10-16/blog/menu-link-check.json), [bài cũ](./evidence/2026-10-16/blog/legacy-check.json), [ảnh Blog desktop](./evidence/2026-10-16/blog/blog-desktop.jpg), [ảnh bài mobile](./evidence/2026-10-16/blog/blog-article-mobile.jpg). Các mô tả tiến trình/cache ở trên ghi nhận lượt 16/10, không mô tả tiến trình hiện tại.

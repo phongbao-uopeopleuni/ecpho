@@ -2,9 +2,11 @@
 
 **Ngày:** 2026-08-03
 **Phạm vi:** routing, hành vi cuộn trang, anchor/slug của menu
-**Trạng thái:** Hiệu lực
+**Trạng thái:** Lưu trữ — snapshot audit ngày 2026-08-03
 **Nhánh:** `main`
 **Liên quan:** [`CHANGELOG.md` → Phase 6](./CHANGELOG.md) · [Chỉ mục tài liệu](./README.md)
+
+> Rà soát tài liệu 2026-10-25: mã Menu đã được thay đổi tiếp sau audit này. Bố cục, cuộn 240ms, thanh mục mobile và kết quả kiểm chứng mới được ghi tại [báo cáo Menu 16/10](./menu-review-2026-10-16.md). Các số dòng, đoạn mã và giới hạn môi trường bên dưới mô tả thời điểm 03/08.
 
 ---
 

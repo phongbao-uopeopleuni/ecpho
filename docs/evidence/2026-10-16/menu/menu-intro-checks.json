@@ -1,0 +1,50 @@
+[
+  {
+    "font": "Lora, ui-serif, Georgia, serif",
+    "height": 812,
+    "lines": 3,
+    "overflow": 0,
+    "size": "15px",
+    "width": 375
+  },
+  {
+    "font": "Lora, ui-serif, Georgia, serif",
+    "height": 844,
+    "lines": 2,
+    "overflow": 0,
+    "size": "15px",
+    "width": 390
+  },
+  {
+    "font": "Lora, ui-serif, Georgia, serif",
+    "height": 932,
+    "lines": 2,
+    "overflow": 0,
+    "size": "15px",
+    "width": 430
+  },
+  {
+    "font": "Lora, ui-serif, Georgia, serif",
+    "height": 1024,
+    "lines": 1,
+    "overflow": 0,
+    "size": "15px",
+    "width": 768
+  },
+  {
+    "font": "Lora, ui-serif, Georgia, serif",
+    "height": 800,
+    "lines": 1,
+    "overflow": 0,
+    "size": "16px",
+    "width": 1280
+  },
+  {
+    "font": "Lora, ui-serif, Georgia, serif",
+    "height": 900,
+    "lines": 1,
+    "overflow": 0,
+    "size": "18px",
+    "width": 1440
+  }
+]

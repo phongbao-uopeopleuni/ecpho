@@ -1,5 +1,13 @@
 # SEO Refactoring Plan — EC Phở
 
+**Ngày:** 2026-05-29
+
+**Phạm vi:** Kế hoạch SEO ban đầu
+
+**Trạng thái:** Đã hoàn thành phần triển khai — lưu để tham chiếu
+
+> Đối chiếu mã ngày 2026-10-25: Phase 3–5 đã được triển khai theo [CHANGELOG](./CHANGELOG.md); các ví dụ bên dưới là kế hoạch tại thời điểm lập. Menu hiện dùng tiêu đề “EC Phở Menu” theo yêu cầu sau đó. Blog mới và bằng chứng local xem [báo cáo blog 16/10](./blog-content-review-2026-10-16.md). Các tác động Google dự kiến trong kế hoạch không phải kết quả đo thứ hạng hay xác minh rich results hiện tại.
+
 > **Stack:** React 18 + Vite + Tailwind + react-helmet-async  
 > **Domain:** https://www.ecphonoodlehousenc.com  
 > **Audit date:** May 29, 2026  
@@ -13,9 +21,9 @@
 |-------|------|-------|----------|-----------|--------|
 | 1 | Critical fixes | OG image missing · Privacy/Terms 404 | Critical | ~1.5 hrs | ✅ Done |
 | 2 | Routing & redirects | Duplicate routes → 301 redirects · Update nav links | High | ~30 min | ✅ Done |
-| 3 | SEOHead & canonicals | Trailing slash · Dead code · Meta improvements | High | ~45 min | Pending |
-| 4 | Schema & sitemap | Schema.org time format · Closed days · Sitemap rebuild | High | ~1 hr | Pending |
-| 5 | Content & metadata | FAQ schema · Blog meta descriptions · Schema array | Medium | ~1 hr | Pending |
+| 3 | SEOHead & canonicals | Trailing slash · Dead code · Meta improvements | High | ~45 min | ✅ Done — xem CHANGELOG |
+| 4 | Schema & sitemap | Schema.org time format · Closed days · Sitemap rebuild | High | ~1 hr | ✅ Done — xem CHANGELOG |
+| 5 | Content & metadata | FAQ schema · Blog meta descriptions · Schema array | Medium | ~1 hr | ✅ Done — xem CHANGELOG |
 
 ---
 
