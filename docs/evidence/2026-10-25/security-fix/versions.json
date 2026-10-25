@@ -1,0 +1,67 @@
+[
+  {
+    "Package": "vite",
+    "Before": "6.4.2",
+    "After": "6.4.5"
+  },
+  {
+    "Package": "react-router",
+    "Before": "7.15.1",
+    "After": "7.18.4"
+  },
+  {
+    "Package": "react-router-dom",
+    "Before": "7.15.1",
+    "After": "7.18.4"
+  },
+  {
+    "Package": "esbuild",
+    "Before": "0.28.0",
+    "After": "0.28.2"
+  },
+  {
+    "Package": "proxy-addr",
+    "Before": "2.0.7",
+    "After": "2.0.8"
+  },
+  {
+    "Package": "body-parser",
+    "Before": "2.2.2",
+    "After": "2.4.0"
+  },
+  {
+    "Package": "postcss",
+    "Before": "8.5.14",
+    "After": "8.5.31"
+  },
+  {
+    "Package": "browserslist",
+    "Before": "4.28.2",
+    "After": "4.29.4"
+  },
+  {
+    "Package": "nanoid",
+    "Before": "3.3.12",
+    "After": "3.3.20"
+  },
+  {
+    "Package": "@babel/core",
+    "Before": "7.29.0",
+    "After": "7.29.7"
+  },
+  {
+    "Package": "source-map-js",
+    "Before": "1.2.1",
+    "After": "1.2.2"
+  },
+  {
+    "Package": "qs",
+    "Before": "6.15.1",
+    "After": "6.16.1"
+  },
+  {
+    "Package": "baseline-browser-mapping",
+    "Before": "2.10.29",
+    "After": "2.11.32"
+  }
+]

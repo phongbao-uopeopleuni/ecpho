@@ -7,6 +7,14 @@ Format: `[Phase X] — YYYY-MM-DD — Short description`
 
 ---
 
+## [Phase 11] — 2026-10-25 — Vá thư viện và chặn JavaScript inline
+
+Cập nhật Vite 6.4.5, React Router DOM 7.18.4, esbuild 0.28.2 và dependency liên quan; npm audit giảm từ 13 gói bị cảnh báo về 0. Đồng bộ CSP ở vercel.json và public/_headers: chỉ cho script cùng nguồn, chặn onclick inline, bổ sung object-src / base-uri / form-action / frame-ancestors. Giữ style runtime cần cho animation.
+
+TypeScript và build production riêng đạt; trình duyệt xác nhận chặn script/onclick, cho phép handler hợp lệ, giữ schema và điều hướng menu mobile. Viết lại SECURITY.md theo source thực tế. Báo cáo, giới hạn và tác dụng phụ: [security-fix-2026-10-25.md](./security-fix-2026-10-25.md); baseline và khuyến nghị GitHub/CI còn mở được giữ riêng.
+
+---
+
 ## [Phase 10] — 2026-10-25 — Thêm năm bài món ăn và đồ ngọt
 
 Thêm bài Taro Smoothie with Boba, Three-Bean Dessert, Lemongrass Beef with Vermicelli, Grilled Pork Chop and Egg with Steamed Rice, General Tso’s Chicken with Steamed Rice. Blog có 20 bài; 15 bài cũ giữ nguyên nội dung và ngày đăng. Từng bài có keyword / title / description / ảnh riêng, bài liên quan và URL sitemap.

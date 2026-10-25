@@ -1,0 +1,290 @@
+{
+  "CheckedDate": "2026-10-25",
+  "SourceRevision": "00e8f0fc340061840c26b5f4d18dd60964448f2d",
+  "Scope": "Passive source/configuration review, npm lockfile advisory check, HTTP HEAD and read-only GitHub repository settings. No exploit test.",
+  "VulnerabilityCounts": {
+    "info": 0,
+    "low": 2,
+    "moderate": 3,
+    "high": 7,
+    "critical": 1,
+    "total": 13
+  },
+  "Packages": [
+    {
+      "Name": "@babel/core",
+      "Severity": "low",
+      "Direct": false,
+      "Advisories": [
+        {
+          "Title": "@babel/core: Arbitrary File Read via sourceMappingURL Comment",
+          "Url": "https://github.com/advisories/GHSA-4x5r-pxfx-6jf8",
+          "Range": "<=7.29.0"
+        }
+      ]
+    },
+    {
+      "Name": "baseline-browser-mapping",
+      "Severity": "moderate",
+      "Direct": false,
+      "Advisories": [
+        {
+          "Title": "baseline-browser-mapping process termination on invalid input causes denial of service",
+          "Url": "https://github.com/advisories/GHSA-w5vr-8v7q-w6rv",
+          "Range": ">=2.0.0 <2.11.0"
+        }
+      ]
+    },
+    {
+      "Name": "body-parser",
+      "Severity": "high",
+      "Direct": false,
+      "Advisories": [
+        {
+          "Title": "body-parser vulnerable to denial of service when invalid limit value silently disables size enforcement",
+          "Url": "https://github.com/advisories/GHSA-v422-hmwv-36x6",
+          "Range": ">=2.0.0 <2.3.0"
+        },
+        {
+          "Title": "body-parser vulnerable to Denial of Service via trailing bytes after a compressed request body",
+          "Url": "https://github.com/advisories/GHSA-27r3-jxmh-p828",
+          "Range": ">=2.0.0 <2.4.0"
+        }
+      ]
+    },
+    {
+      "Name": "browserslist",
+      "Severity": "high",
+      "Direct": false,
+      "Advisories": [
+        {
+          "Title": "Browserslist: Unbounded memory growth (no cache eviction) via distinct query results, leading to eventual OOM",
+          "Url": "https://github.com/advisories/GHSA-c83g-rgw3-j3cx",
+          "Range": "<=4.28.6"
+        },
+        {
+          "Title": "Browserslist: Uncaught crash / prototype write via untrusted browserslist-stats.json custom stats (normalizeStats)",
+          "Url": "https://github.com/advisories/GHSA-73wf-gq98-2v4g",
+          "Range": "<=4.28.6"
+        }
+      ]
+    },
+    {
+      "Name": "esbuild",
+      "Severity": "low",
+      "Direct": true,
+      "Advisories": [
+        {
+          "Title": "esbuild allows arbitrary file read when running the development server on Windows",
+          "Url": "https://github.com/advisories/GHSA-g7r4-m6w7-qqqr",
+          "Range": ">=0.27.3 <0.28.1"
+        }
+      ]
+    },
+    {
+      "Name": "nanoid",
+      "Severity": "high",
+      "Direct": false,
+      "Advisories": [
+        {
+          "Title": "nanoid: non-secure generators can loop indefinitely with negative size",
+          "Url": "https://github.com/advisories/GHSA-28wg-ghj8-5hjv",
+          "Range": "<3.3.16"
+        },
+        {
+          "Title": "nanoid: custom generators can loop indefinitely when size is zero",
+          "Url": "https://github.com/advisories/GHSA-2v37-7h3g-55p8",
+          "Range": "<3.3.18"
+        }
+      ]
+    },
+    {
+      "Name": "postcss",
+      "Severity": "high",
+      "Direct": false,
+      "Advisories": [
+        {
+          "Title": "PostCSS: incomplete fix of GHSA-6g55-p6wh-862q — attacker-controlled sourceMappingURL reads arbitrary .map files when `from` is unset",
+          "Url": "https://github.com/advisories/GHSA-fxqj-rqcc-2cmp",
+          "Range": "<=8.5.22"
+        },
+        {
+          "Title": "PostCSS: Path Traversal in Previous Source Map Auto-Loading (sourceMappingURL) leads to Arbitrary .map File Disclosure",
+          "Url": "https://github.com/advisories/GHSA-r28c-9q8g-f849",
+          "Range": "<=8.5.17"
+        }
+      ]
+    },
+    {
+      "Name": "proxy-addr",
+      "Severity": "critical",
+      "Direct": false,
+      "Advisories": [
+        {
+          "Title": "proxy-addr vulnerable to IP spoofing via IPv4-mapped IPv6 trust subnet",
+          "Url": "https://github.com/advisories/GHSA-jqcg-44mw-7w3h",
+          "Range": ">=1.1.0 <2.0.8"
+        }
+      ]
+    },
+    {
+      "Name": "qs",
+      "Severity": "moderate",
+      "Direct": false,
+      "Advisories": [
+        {
+          "Title": "qs has a remotely triggerable DoS: qs.stringify crashes with TypeError on null/undefined entries in comma-format arrays when encodeValuesOnly is set",
+          "Url": "https://github.com/advisories/GHSA-q8mj-m7cp-5q26",
+          "Range": ">=6.11.1 <=6.15.1"
+        },
+        {
+          "Title": "qs array-limit bypass via bracket-key comma parsing",
+          "Url": "https://github.com/advisories/GHSA-x5fp-wj9c-mxmx",
+          "Range": ">=6.14.2 <=6.15.3"
+        },
+        {
+          "Title": "qs: Denial of Service via Attacker Controlled isBuffer",
+          "Url": "https://github.com/advisories/GHSA-4mjr-xmp4-gh2g",
+          "Range": ">=2.2.5 <6.16.0"
+        }
+      ]
+    },
+    {
+      "Name": "react-router",
+      "Severity": "high",
+      "Direct": false,
+      "Advisories": [
+        {
+          "Title": "React Router: Open redirect via backslash in <Link> and useNavigate (CVE-2025-68470 bypass)",
+          "Url": "https://github.com/advisories/GHSA-wrjc-x8rr-h8h6",
+          "Range": ">=6.0.0 <7.18.0"
+        },
+        {
+          "Title": "React Router: RSCErrorHandler Missing Protocol Validation (XSS)",
+          "Url": "https://github.com/advisories/GHSA-h8fp-f39c-q6mh",
+          "Range": ">=7.11.0 <7.18.0"
+        },
+        {
+          "Title": "React Router: Arbitrary Constructor Injection via deserializeErrors() in React Router SSR Hydration",
+          "Url": "https://github.com/advisories/GHSA-337j-9hxr-rhxg",
+          "Range": ">=6.4.0 <7.18.0"
+        },
+        {
+          "Title": "React Router: Unauthenticated Denial of Service via Inefficient Route Matching",
+          "Url": "https://github.com/advisories/GHSA-chx6-hx7r-mcp5",
+          "Range": ">=7.0.0 <7.18.0"
+        },
+        {
+          "Title": "React Router: RSC Mode CSRF Bypass Allows Action Execution Before 400 Response",
+          "Url": "https://github.com/advisories/GHSA-qwww-vcr4-c8h2",
+          "Range": ">=7.12.0 <7.18.2"
+        }
+      ]
+    },
+    {
+      "Name": "react-router-dom",
+      "Severity": "moderate",
+      "Direct": true,
+      "Advisories": []
+    },
+    {
+      "Name": "source-map-js",
+      "Severity": "high",
+      "Direct": false,
+      "Advisories": [
+        {
+          "Title": "source-map-js allows event-loop denial of service through indexed source-map section offsets",
+          "Url": "https://github.com/advisories/GHSA-68fv-2mgg-jv7q",
+          "Range": ">=1.0.0 <1.2.2"
+        }
+      ]
+    },
+    {
+      "Name": "vite",
+      "Severity": "high",
+      "Direct": true,
+      "Advisories": [
+        {
+          "Title": "launch-editor: NTLMv2 hash disclosure via UNC path handling on Windows",
+          "Url": "https://github.com/advisories/GHSA-v6wh-96g9-6wx3",
+          "Range": "<=6.4.2"
+        },
+        {
+          "Title": "vite: `server.fs.deny` bypass on Windows alternate paths",
+          "Url": "https://github.com/advisories/GHSA-fx2h-pf6j-xcff",
+          "Range": "<=6.4.2"
+        },
+        {
+          "Title": "launch-editor: escapeCmdArgs() omits % escaping on Windows",
+          "Url": "https://github.com/advisories/GHSA-698v-4r3x-3vcv",
+          "Range": "<=6.4.3"
+        },
+        {
+          "Title": "launch-editor: Editor CLI flag misinterpretation causing arbitrary command execution for some editors",
+          "Url": "https://github.com/advisories/GHSA-r825-w8mm-5pxw",
+          "Range": "<=6.4.3"
+        },
+        {
+          "Title": "launch-editor: `fs.existsSync()` existence check can be bypassed on Windows",
+          "Url": "https://github.com/advisories/GHSA-587h-7wmj-h5pm",
+          "Range": "<=6.4.3"
+        },
+        {
+          "Title": "Vite: Cross origin script execution through Vite custom middleware",
+          "Url": "https://github.com/advisories/GHSA-9jrq-w75r-8gcw",
+          "Range": "<=6.4.3"
+        },
+        {
+          "Title": "Vite: Files outside `server.fs.allow` could be served when project paths match system paths on non-Windows machine",
+          "Url": "https://github.com/advisories/GHSA-rq7h-c2jc-7f22",
+          "Range": "<=6.4.3"
+        }
+      ]
+    }
+  ],
+  "MainProtection": {
+    "name": "main",
+    "protected": false,
+    "protection": {
+      "enabled": false,
+      "required_status_checks": {
+        "checks": [],
+        "contexts": [],
+        "enforcement_level": "off"
+      }
+    }
+  },
+  "MainRules": [],
+  "RepositorySecurity": {
+    "private": false,
+    "security_and_analysis": {
+      "dependabot_security_updates": {
+        "status": "disabled"
+      },
+      "secret_scanning": {
+        "status": "enabled"
+      },
+      "secret_scanning_non_provider_patterns": {
+        "status": "disabled"
+      },
+      "secret_scanning_push_protection": {
+        "status": "enabled"
+      },
+      "secret_scanning_validity_checks": {
+        "status": "disabled"
+      }
+    }
+  },
+  "PackageFilesPreserved": [
+    {
+      "Path": "package.json",
+      "ContentUnchanged": true,
+      "MtimeUnchanged": true
+    },
+    {
+      "Path": "package-lock.json",
+      "ContentUnchanged": true,
+      "MtimeUnchanged": true
+    }
+  ]
+}
