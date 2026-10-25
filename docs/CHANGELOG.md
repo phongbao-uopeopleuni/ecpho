@@ -7,6 +7,14 @@ Format: `[Phase X] — YYYY-MM-DD — Short description`
 
 ---
 
+## [Phase 10] — 2026-10-25 — Thêm năm bài món ăn và đồ ngọt
+
+Thêm bài Taro Smoothie with Boba, Three-Bean Dessert, Lemongrass Beef with Vermicelli, Grilled Pork Chop and Egg with Steamed Rice, General Tso’s Chicken with Steamed Rice. Blog có 20 bài; 15 bài cũ giữ nguyên nội dung và ngày đăng. Từng bài có keyword / title / description / ảnh riêng, bài liên quan và URL sitemap.
+
+Thêm menuLink theo nhóm cho hai món chưa có dòng riêng trong catalog; không sửa giá hay dữ liệu menu. Kiểm tra TypeScript, dữ liệu, năm trang local và 10 câu mẫu tìm kiếm web. Báo cáo và tác dụng phụ: [blog-additions-review-2026-10-25.md](./blog-additions-review-2026-10-25.md).
+
+---
+
 ## [Content] — 2026-10-25 — Sửa năm trong giới thiệu footer thành 2012
 
 Theo xác nhận của chủ nhà hàng, đổi “since 2015” thành “since 2012” trong `src/layouts/shared/Footer.tsx`. Đây là footer dùng chung trên các trang. Giữ nguyên phần còn lại của câu giới thiệu.

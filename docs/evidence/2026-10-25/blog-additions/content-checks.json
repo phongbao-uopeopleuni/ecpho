@@ -1,0 +1,42 @@
+{
+  "totalPosts": 20,
+  "newPosts": 5,
+  "preservedPosts": 15,
+  "checks": [
+    {
+      "slug": "taro-smoothie-boba-greenville-nc",
+      "words": 424,
+      "titleLength": 50,
+      "descriptionLength": 142,
+      "overlap": []
+    },
+    {
+      "slug": "three-bean-dessert-greenville-nc",
+      "words": 411,
+      "titleLength": 56,
+      "descriptionLength": 144,
+      "overlap": []
+    },
+    {
+      "slug": "lemongrass-beef-vermicelli-greenville-nc",
+      "words": 405,
+      "titleLength": 53,
+      "descriptionLength": 145,
+      "overlap": []
+    },
+    {
+      "slug": "grilled-pork-chop-egg-rice-greenville-nc",
+      "words": 412,
+      "titleLength": 50,
+      "descriptionLength": 142,
+      "overlap": []
+    },
+    {
+      "slug": "general-tsos-chicken-steamed-rice-greenville-nc",
+      "words": 409,
+      "titleLength": 48,
+      "descriptionLength": 138,
+      "overlap": []
+    }
+  ]
+}

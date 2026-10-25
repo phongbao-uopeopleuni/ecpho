@@ -1,0 +1,87 @@
+[
+  {
+    "articleHeadings": 4,
+    "canonical": "https://www.ecphonoodlehousenc.com/blog/taro-smoothie-boba-greenville-nc",
+    "description": "Explore a taro smoothie with boba at EC Phở in Greenville, NC: a creamy blended drink, chewy pearls, and a sweet companion for your next meal.",
+    "h1": 1,
+    "menuLabel": "View Fruit Smoothie on the menu",
+    "menuLink": "/menu#drinks",
+    "overflow": false,
+    "path": "/blog/taro-smoothie-boba-greenville-nc",
+    "photoLoaded": true,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "title": "Taro Smoothie with Boba in Greenville, NC | EC Phở",
+    "width": 1536
+  },
+  {
+    "articleHeadings": 4,
+    "canonical": "https://www.ecphonoodlehousenc.com/blog/three-bean-dessert-greenville-nc",
+    "description": "Discover the three-bean dessert at EC Phở in Greenville, NC. Explore the layered textures of Vietnamese chè and a sweet way to finish your meal.",
+    "h1": 1,
+    "menuLabel": "View 3 Bean Dessert on the menu",
+    "menuLink": "/menu#drinks",
+    "overflow": false,
+    "path": "/blog/three-bean-dessert-greenville-nc",
+    "photoLoaded": true,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "title": "Vietnamese Three-Bean Dessert in Greenville, NC | EC Phở",
+    "width": 1536
+  },
+  {
+    "articleHeadings": 4,
+    "canonical": "https://www.ecphonoodlehousenc.com/blog/lemongrass-beef-vermicelli-greenville-nc",
+    "description": "Explore lemongrass beef with vermicelli at EC Phở in Greenville, NC: aromatic sautéed beef, fine rice noodles, and a bowl with plenty of texture.",
+    "h1": 1,
+    "menuLabel": "View Vermicelli with Lemongrass Beef on the menu",
+    "menuLink": "/menu#vermicelli-bun",
+    "overflow": false,
+    "path": "/blog/lemongrass-beef-vermicelli-greenville-nc",
+    "photoLoaded": true,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "title": "Lemongrass Beef Vermicelli in Greenville, NC | EC Phở",
+    "width": 1536
+  },
+  {
+    "articleHeadings": 4,
+    "canonical": "https://www.ecphonoodlehousenc.com/blog/grilled-pork-chop-egg-rice-greenville-nc",
+    "description": "Explore grilled pork chop and egg with steamed rice at EC Phở in Greenville, NC, where grilled meat, egg, and rice bring variety to one plate.",
+    "h1": 1,
+    "menuLabel": "Explore rice plates at EC Phở",
+    "menuLink": "/menu#rice-plates",
+    "overflow": false,
+    "path": "/blog/grilled-pork-chop-egg-rice-greenville-nc",
+    "photoLoaded": true,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "title": "Grilled Pork Chop & Egg in Greenville, NC | EC Phở",
+    "width": 1536
+  },
+  {
+    "articleHeadings": 4,
+    "canonical": "https://www.ecphonoodlehousenc.com/blog/general-tsos-chicken-steamed-rice-greenville-nc",
+    "description": "Discover General Tso’s Chicken with steamed rice at EC Phở in Greenville, NC: sauce-coated chicken, vegetables, and a simple rice pairing.",
+    "h1": 1,
+    "menuLabel": "Explore house specials at EC Phở",
+    "menuLink": "/menu#house-specials",
+    "overflow": false,
+    "path": "/blog/general-tsos-chicken-steamed-rice-greenville-nc",
+    "photoLoaded": true,
+    "schemaTypes": [
+      "BlogPosting",
+      "BreadcrumbList"
+    ],
+    "title": "General Tso’s Chicken in Greenville, NC | EC Phở",
+    "width": 1536
+  }
+]

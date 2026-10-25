@@ -1,0 +1,11 @@
+{
+  "Date": "2026-10-25",
+  "ServerPid": 34736,
+  "ChildPids": [
+    36524,
+    39332,
+    36972
+  ],
+  "ListenersRemaining": 0,
+  "Netstat": []
+}

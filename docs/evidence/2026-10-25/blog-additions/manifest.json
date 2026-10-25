@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-25",
+  "scope": "Local checks for five additional blog articles",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1086,
+      "sha256": "8faf1a0e42c001b5fe085756e62528c9343a269ad10edb487f17a13e299ccebd"
+    },
+    {
+      "path": "blog-additions.jpg",
+      "bytes": 63689,
+      "sha256": "e7bb9eb97e7f3c8f05778d7ceae52ff71efbbb71f3655350bfc613f58e29ed75"
+    },
+    {
+      "path": "browser-checks.json",
+      "bytes": 3385,
+      "sha256": "17de9b1cb6a0ef59aada854ac87ca6bb62465c1ad637d0b4068b63483db1a1aa"
+    },
+    {
+      "path": "content-checks.json",
+      "bytes": 913,
+      "sha256": "e22a8f6170811ff0d8ce524a82ae35c3dc855b0213598957aa22473fd41a9a86"
+    },
+    {
+      "path": "filesystem-checks.json",
+      "bytes": 843,
+      "sha256": "e84babaa1e11b5562cf13f326408beefb4f961aed52a2e84c11ed1507e53a236"
+    },
+    {
+      "path": "menu-link-check.json",
+      "bytes": 154,
+      "sha256": "e965fbd0375d5de0c7eec5db1e4149b4e71a738c9d2d573e3908a55be528dee8"
+    },
+    {
+      "path": "originality-samples.json",
+      "bytes": 1335,
+      "sha256": "ade662c5eca4d10e09d7401e92dfba853ce720e2360830d26ae72dca2bc8c019"
+    },
+    {
+      "path": "server-stop.json",
+      "bytes": 147,
+      "sha256": "3162e341eb0ed33fc8da3f6d961fd14aa6aa2912c565b5a03be81ac5190f4f1e"
+    },
+    {
+      "path": "web-originality-checks.json",
+      "bytes": 7816,
+      "sha256": "6a962354464353e944ea8c388a0c2496457d5847282d1a92fa2b454cc62f90ea"
+    }
+  ]
+}

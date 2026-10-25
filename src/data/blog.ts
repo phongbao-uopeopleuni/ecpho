@@ -21,6 +21,7 @@ export interface BlogPost {
   keywords?: string[];
   imageAlt?: string;
   menuItemId?: string;
+  menuLink?: { category: string; label: string };
   relatedSlugs?: string[];
 }
 
