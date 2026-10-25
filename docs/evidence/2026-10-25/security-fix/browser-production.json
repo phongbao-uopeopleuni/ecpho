@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-25",
+  "origin": "https://www.ecphonoodlehousenc.com",
+  "revision": "d7c6ea655f11529888b2d3ae75608e793b7a68a7",
+  "routes": [
+    {
+      "analyticsScript": true,
+      "brokenLoadedImages": [],
+      "h1": "THE SOUL BEHIND THE BOWL",
+      "path": "/blog",
+      "schema": [
+        "Blog"
+      ],
+      "storyLinks": 20,
+      "title": "Vietnamese Food Stories & Guides in Greenville, NC | EC Phở"
+    },
+    {
+      "analyticsScript": true,
+      "brokenLoadedImages": [],
+      "h1": "Soulful\nComfort.",
+      "path": "/",
+      "schema": [
+        "Restaurant",
+        "FAQPage"
+      ],
+      "storyLinks": 0,
+      "title": "EC Phở Vietnamese Noodle House | Authentic Vietnamese in Greenville, NC"
+    },
+    {
+      "analyticsScript": true,
+      "brokenLoadedImages": [],
+      "h1": "EC Phở Menu",
+      "path": "/menu",
+      "schema": [],
+      "storyLinks": 0,
+      "title": "EC Phở Menu"
+    },
+    {
+      "analyticsScript": true,
+      "brokenLoadedImages": [],
+      "h1": "Taro Smoothie with Boba: A Creamy Sip with a Little Chew",
+      "path": "/blog/taro-smoothie-boba-greenville-nc",
+      "schema": [
+        "BlogPosting",
+        "BreadcrumbList"
+      ],
+      "storyLinks": 3,
+      "title": "Taro Smoothie with Boba in Greenville, NC | EC Phở"
+    },
+    {
+      "brokenLoadedImages": [],
+      "frames": [
+        {
+          "src": "https://maps.google.com/maps?q=109+Greenville+Blvd+SE+%23100,+Greenville,+NC+27858&t=m&z=15&ie=UTF8&iwloc=&output=embed",
+          "title": "EC Phở Location"
+        }
+      ],
+      "h1": "LET'S CONNECT.",
+      "path": "/contact",
+      "title": "Contact & Location | EC Phở"
+    }
+  ],
+  "notes": [
+    "DOM and loaded image checks; no claim of complete analytics event delivery or all Maps frame internals."
+  ]
+}

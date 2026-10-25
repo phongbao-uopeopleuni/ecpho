@@ -13,6 +13,8 @@ Cập nhật Vite 6.4.5, React Router DOM 7.18.4, esbuild 0.28.2 và dependency 
 
 TypeScript và build production riêng đạt; trình duyệt xác nhận chặn script/onclick, cho phép handler hợp lệ, giữ schema và điều hướng menu mobile. Viết lại SECURITY.md theo source thực tế. Báo cáo, giới hạn và tác dụng phụ: [security-fix-2026-10-25.md](./security-fix-2026-10-25.md); baseline và khuyến nghị GitHub/CI còn mở được giữ riêng.
 
+Sau PR #5, đối chiếu CSP và nội dung trên domain production; lưu bằng chứng header/browser. Bổ sung metadata bundled @emnapi mà npm 10 trên CI cần khi cài sạch, giữ nguyên các phiên bản đã vá và không thay workflow để bỏ npm ci.
+
 ---
 
 ## [Phase 10] — 2026-10-25 — Thêm năm bài món ăn và đồ ngọt

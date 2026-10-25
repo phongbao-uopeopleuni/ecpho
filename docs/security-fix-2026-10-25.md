@@ -4,7 +4,7 @@
 
 **Phạm vi:** thư viện npm, Content Security Policy và tài liệu bảo mật của `D:\ecpho`.
 
-**Trạng thái:** Đã kiểm chứng local; kết quả triển khai được ghi riêng theo thời điểm.
+**Trạng thái:** Đã kiểm chứng local và website production; lần sửa metadata lockfile cho npm 10 được ghi riêng bên dưới.
 
 [Chỉ mục](./README.md) · [Baseline trước sửa](./security-review-2026-10-25.md) · [Bằng chứng](./evidence/2026-10-25/security-fix/).
 
@@ -35,11 +35,21 @@ Viết lại SECURITY.md theo source hiện tại, loại bỏ mô tả nhầm v
 
 Không ghi listener từ trước khi ứng dụng khởi động trên từng route; không dùng việc log trống để khẳng định toàn bộ trang không có CSP violation. Local helper không cung cấp endpoint Analytics của Vercel. Không kiểm chứng Safari/Firefox hoặc mọi trạng thái ảnh lazy-load. CSP không ngăn được mã độc nếu chính file JS cùng nguồn hoặc tài khoản deploy đã bị chiếm.
 
+## Triển khai và tương thích cài sạch
+
+[PR #5](https://github.com/phongbao-uopeopleuni/ecpho/pull/5) đã merge thành `d7c6ea655f11529888b2d3ae75608e793b7a68a7`; Vercel báo triển khai thành công. Header thực tế của [Blog](./evidence/2026-10-25/security-fix/headers-production-blog.txt) và [Contact](./evidence/2026-10-25/security-fix/headers-production-contact.txt) trả 200 và CSP mới; HSTS tiếp tục có hiệu lực. Endpoint script [Vercel Analytics](./evidence/2026-10-25/security-fix/headers-production-analytics.txt) trả 200 với MIME JavaScript; không suy diễn thành xác nhận tất cả sự kiện analytics đã được thu thập.
+
+Trên domain thật, Home, Menu, Blog, bài Taro và Contact có nội dung / title đúng, ảnh đã tải không hỏng tại lúc đọc; Blog có 20 liên kết bài, schema giữ nguyên, iframe Maps có nguồn và tiêu đề đúng. [Kết quả browser production](./evidence/2026-10-25/security-fix/browser-production.json). Không kiểm tra nội dung bên trong iframe Google Maps. Preview riêng yêu cầu đăng nhập Vercel; không hạ bảo vệ preview để kiểm thử.
+
+Workflow GitHub Pages đầu tiên [run 40200583657](https://github.com/phongbao-uopeopleuni/ecpho/actions/runs/40200583657) thất bại ở `npm ci` trên Linux / Node 20.20.2 / npm 10.8.2 vì thiếu metadata bundled `@emnapi` trong lockfile do npm 11 sinh. Vercel vẫn build và phục vụ bình thường. Đã tái sinh lock trong thư mục cache sạch bằng đúng npm 10.8.2: thêm lại hai entry bundled core/runtime, không đổi phiên bản các package đã có; chuẩn hóa peer metadata. `npm ci --dry-run` với npm 10 và cấu hình Linux/x64/glibc đạt; audit sau đó vẫn 0. Đây là kiểm tra metadata trên Windows, không thay thế một build Linux thật. Xem trạng thái lần chạy sau trên [workflow hiện hành](https://github.com/phongbao-uopeopleuni/ecpho/actions/workflows/deploy.yml).
+
+`npm ci` chủ động từ chối lock không đồng bộ theo [tài liệu npm](https://docs.npmjs.com/cli/v11/commands/npm-ci/). Sửa metadata lockfile; không đổi workflow sang npm install để né bước kiểm tra.
+
 ## Tác dụng phụ và bảo toàn công việc
 
 - npm đã thêm 1, gỡ 8, thay 38 package trong `node_modules` và ghi lại metadata cài đặt/lockfile. Chạy cài đặt với `--ignore-scripts`; không cập nhật npm/Node toàn máy. Lockfile có chỉnh sửa metadata dở trước lượt này và được tái sinh cho các bản vá đã cho phép.
-- Tạo cache `node_modules/.cache/ecpho-security-fix-20261025`: snapshot trước sửa, npm-cache/log tải gói, audit, helper, log server và script kiểm chứng. Cache audit baseline riêng `ecpho-security-audit-20261025` tiếp tục được giữ. Công cụ build có thể ghi cache phụ dưới node_modules; không mô tả git status sạch như không có tác dụng phụ.
+- Tạo cache `node_modules/.cache/ecpho-security-fix-20261025`: snapshot trước sửa, npm-cache/log tải gói, audit, helper, log server, script kiểm chứng và thư mục clean-lock có bản sao package/lock để sửa metadata. Tải npm 10.8.2 vào cache bằng npm exec, không thay npm toàn máy; kiểm tra cài sạch chỉ dùng dry-run. Cache audit baseline riêng `ecpho-security-audit-20261025` tiếp tục được giữ. Snapshot .vite / .vite-temp đối chiếu kích thước và mtime không đổi.
 - Production build thử nghiệm tạo **307 file, 331,916,582 byte**, gồm hai file fixture. Thư mục build thử đã được xóa sau kiểm tra. **Không chạy npm run build vào dist gốc, không ghi đè dist cũ**: đối chiếu đủ 305 file, SHA256, kích thước và mtime không đổi. [Bằng chứng filesystem](./evidence/2026-10-25/security-fix/filesystem.json).
 - Đã dừng server thử PID 30188 và tiến trình console con PID 33728. Netstat tại thời điểm lưu bằng chứng không còn listener 3000/4173; có thể còn kết nối TIME_WAIT của hệ điều hành. Đã đóng tab thử và khôi phục viewport.
 - Giữ nguyên cả hash và mtime của App.tsx, BaseLayout.tsx, Header.tsx và MenuPreview.tsx đang dở; không đưa các thay đổi đó vào commit bảo mật. Build local bao gồm working tree này; preview từ Git sẽ kiểm tra riêng nội dung commit.
-- Các file package/config/docs được sửa có nội dung và mtime mới. Nhánh làm việc: `codex/security-dependencies-csp`; trạng thái commit/push/merge cần đối chiếu lịch sử Git và thông tin triển khai.
+- Các file package/config/docs được sửa có nội dung và mtime mới. Đã commit/push/merge bản vá trên nhánh `codex/security-dependencies-csp`; bổ sung metadata lock và bằng chứng production ở `codex/security-lockfile-ci`. GitHub/Vercel tạo preview và deploy tự động do push/merge. Các header text lưu trong docs được chuẩn hóa LF / bỏ dòng trống cuối; manifest SHA256 áp dụng cho bản lưu này, bản thu thập ban đầu còn trong cache.

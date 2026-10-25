@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Access-Control-Allow-Origin: *
+Age: 126546
+Cache-Control: public, max-age=2678400
+Content-Disposition: inline; filename="script.js"
+Content-Length: 4522
+Content-Type: application/javascript; charset=utf-8
+Cross-Origin-Resource-Policy: cross-origin
+Date: Sun, 25 Oct 2026 14:11:53 GMT
+Etag: "5672cc1c1ca37ca2b61e89aa7295517d"
+Last-Modified: Sat, 24 Oct 2026 02:57:22 GMT
+Server: Vercel
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+X-Vercel-Cache: HIT
+X-Vercel-Id: hkg1:hkg1:hkg1::db5tl-1792937513237-23f6f93703fa
