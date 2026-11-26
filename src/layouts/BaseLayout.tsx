@@ -15,7 +15,7 @@ export const BaseLayout = ({ children }: BaseLayoutProps) => {
   return (
     <div className="flex flex-col min-h-screen bg-brand-cream selection:bg-brand-red selection:text-white">
       <Header />
-      <main className="flex-grow">
+      <main className="site-main flex-grow">
         <AnimatePresence initial={false}>
           <motion.div
             key={pathname}

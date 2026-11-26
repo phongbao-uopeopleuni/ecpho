@@ -1,0 +1,32 @@
+[
+  {
+    "file": "browser-checks.json",
+    "bytes": 2309,
+    "sha256": "4a099985b2bdb86e88169ac19246701416b6794a9fcc2921a892498a72f55d09"
+  },
+  {
+    "file": "desktop.jpg",
+    "bytes": 102530,
+    "sha256": "09d173770542c50e33b412272681f4062d812ff1456d0311823d1bf25ab3d956"
+  },
+  {
+    "file": "mobile.jpg",
+    "bytes": 3914,
+    "sha256": "37bd28a33c7c777281d3254c5a845b4f81b6c09c538a31d8f4a2f72aa2081b95"
+  },
+  {
+    "file": "preservation.json",
+    "bytes": 217,
+    "sha256": "bd4c92660856aa464599bef7a2ec50ed13e26aabd67f85f39579dfdbb4b6702a"
+  },
+  {
+    "file": "reduced-motion.jpg",
+    "bytes": 3564,
+    "sha256": "ae5e76dca86e07b3d83238bc1b9d7e8b139a10945f18b4cab7ae320411fddb4a"
+  },
+  {
+    "file": "staging-check.json",
+    "bytes": 111,
+    "sha256": "d95b0eaa36132b57f829a830a85707c661334f5c0cc95dd070d70f6bec73f31d"
+  }
+]

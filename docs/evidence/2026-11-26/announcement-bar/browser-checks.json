@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-26",
+  "origin": "http://127.0.0.1:4174",
+  "checks": [
+    {
+      "name": "desktop-effects",
+      "barHeight": 40,
+      "glow": "announcement-label-glow",
+      "headerBottom": 150.5,
+      "mainPadding": "40px",
+      "overflow": false,
+      "shimmer": "announcement-shimmer",
+      "text": "Thanksgiving update: Closed November 26, 2026. Reopening November 27, 2026. Thank you for your support!",
+      "trackState": "running",
+      "trackX": -50.2808723449707,
+      "width": 1536
+    },
+    {
+      "name": "all-effects-paused",
+      "glow": "paused",
+      "shimmer": "paused",
+      "text": "paused",
+      "x": -52.297889709472656
+    },
+    {
+      "name": "pause-all-effects",
+      "glow": "paused",
+      "scroll": "paused",
+      "shimmer": "paused",
+      "x": -1173.2178955078125,
+      "afterX": -1208.246826171875
+    },
+    {
+      "name": "resume-leftward",
+      "before": {
+        "state": "running",
+        "x": -1208.246826171875
+      },
+      "after": {
+        "state": "running",
+        "x": -1210.2650146484375
+      }
+    },
+    {
+      "name": "mobile-layout",
+      "barHeight": 40,
+      "headerBottom": 150.5,
+      "headingTop": 204.5,
+      "mainPadding": "40px",
+      "overflow": false,
+      "width": 375
+    },
+    {
+      "name": "reduced-motion-mobile",
+      "barHeight": 77.5999984741211,
+      "buttonDisplay": "none",
+      "glowAnimation": "none",
+      "hash": "#noodle-soups-pho",
+      "mainPadding": "77.6px",
+      "messageHeight": 54.400001525878906,
+      "overflow": false,
+      "scrollAnimation": "none",
+      "shimmerDisplay": "none",
+      "width": 375
+    },
+    {
+      "name": "mobile-sticky-insets",
+      "barTop": 0,
+      "hash": "#vermicelli-bun",
+      "headerBottom": 117.3000030517578,
+      "headingTop": 189.4499969482422,
+      "navBottom": 173.3000030517578,
+      "navTop": 117.3000030517578,
+      "selectedLeft": 16.325000762939453
+    },
+    {
+      "name": "blog-shared-header",
+      "barCount": 1,
+      "h1": "The Soul Behind The Bowl",
+      "screenReaderCopy": "Thanksgiving update: Closed November 26, 2026. Reopening November 27, 2026. Thank you for your support!",
+      "title": "Vietnamese Food Stories & Guides in Greenville, NC | EC Phở",
+      "visualCopiesHidden": "true"
+    }
+  ]
+}

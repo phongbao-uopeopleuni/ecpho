@@ -7,6 +7,14 @@ Format: `[Phase X] — YYYY-MM-DD — Short description`
 
 ---
 
+## [Phase 12] — 2026-11-26 — Thông báo đầu trang và hiệu ứng chú ý
+
+Thêm thanh thông báo trên logo/điều hướng dùng chung, chữ chạy phải sang trái, vệt sáng trên nền và nhãn Updates phát sáng nhẹ. Nội dung ban đầu: nghỉ Thanksgiving 26/11/2026, mở lại 27/11/2026. Cấu hình bật/tắt và nội dung nằm trong business.ts.
+
+Nút Pause/Resume điều khiển cả ba hiệu ứng; chế độ giảm chuyển động hiển thị nội dung tĩnh đầy đủ. Header và khoảng bù nội dung tự cập nhật theo chiều cao thanh, giữ đúng vị trí danh mục Menu trên điện thoại. TypeScript, production build riêng và kiểm tra Chrome desktop/mobile đạt. Hướng dẫn, giới hạn và tác dụng phụ: [announcement-bar-2026-11-26.md](./announcement-bar-2026-11-26.md).
+
+---
+
 ## [Phase 11] — 2026-10-25 — Vá thư viện và chặn JavaScript inline
 
 Cập nhật Vite 6.4.5, React Router DOM 7.18.4, esbuild 0.28.2 và dependency liên quan; npm audit giảm từ 13 gói bị cảnh báo về 0. Đồng bộ CSP ở vercel.json và public/_headers: chỉ cho script cùng nguồn, chặn onclick inline, bổ sung object-src / base-uri / form-action / frame-ancestors. Giữ style runtime cần cho animation.

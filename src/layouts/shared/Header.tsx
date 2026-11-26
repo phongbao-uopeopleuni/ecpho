@@ -7,6 +7,7 @@ import { business } from '../../data/business';
 import { cn } from '../../utils/format';
 import { assetUrl } from '../../utils/assets';
 import { motion, AnimatePresence } from 'motion/react';
+import { AnnouncementBar } from './AnnouncementBar';
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,11 +34,12 @@ export const Header = () => {
       className={cn(
         'fixed top-0 z-50 w-full transition-all duration-700 ease-in-out',
         isScrolled
-          ? 'bg-brand-cream/80 backdrop-blur-md border-b border-brand-dark/5 py-4 shadow-[0_2px_20px_rgba(0,0,0,0.02)]'
-          : 'bg-transparent py-8'
+          ? 'bg-brand-cream/80 backdrop-blur-md border-b border-brand-dark/5 shadow-[0_2px_20px_rgba(0,0,0,0.02)]'
+          : 'bg-transparent'
       )}
     >
-      <Container>
+      <AnnouncementBar />
+      <Container className={cn('transition-[padding] duration-700 ease-in-out', isScrolled ? 'py-4' : 'py-8')}>
         <nav className="flex items-center justify-between">
           <Link to="/" className="flex items-center group">
             <img

@@ -35,6 +35,9 @@ export const business = {
     { day: "Saturday", open: "11:00 AM", close: "9:30 PM" },
     { day: "Sunday", open: "11:00 AM", close: "9:30 PM" },
   ],
-  announcement: "Serving authentic Vietnamese comfort food in Greenville, NC.",
+  announcement: {
+    enabled: true,
+    message: "Thanksgiving update: Closed November 26, 2026. Reopening November 27, 2026. Thank you for your support!",
+  },
   searchConsoleVerificationNotes: "Do not delete Google verification DNS records during Squarespace migration."
 };
