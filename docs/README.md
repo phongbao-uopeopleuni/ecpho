@@ -2,7 +2,7 @@
 
 Điểm vào duy nhất cho toàn bộ tài liệu của dự án. Bắt đầu tra cứu từ đây.
 
-**Cập nhật lần cuối:** 2026-10-25
+**Cập nhật lần cuối:** 2026-11-26
 
 Rà soát gần nhất: [báo cáo độ đầy đủ của tài liệu](./documentation-review-2026-10-25.md). Bằng chứng kiểm thử ngày 16/10 đã được lưu trong Git tại [`evidence/2026-10-16/`](./evidence/2026-10-16/README.md); không còn phụ thuộc vào cache local để đọc các kết quả chính.
 
@@ -16,6 +16,7 @@ Rà soát gần nhất: [báo cáo độ đầy đủ của tài liệu](./docum
 | Sửa nội dung: món ăn, giờ mở cửa, ảnh | [`README.md`](../README.md) → mục *Updating Information* |
 | Biết file nào gọi file nào | [`code-knowledge-graph/OVERVIEW.md`](./code-knowledge-graph/OVERVIEW.md) + `viewer.html` |
 | Xem đã thay đổi gì, khi nào | [`CHANGELOG.md`](./CHANGELOG.md) |
+| Đổi thông báo đầu trang, nghỉ lễ và hiệu ứng chú ý | [`announcement-bar-2026-11-26.md`](./announcement-bar-2026-11-26.md) |
 | Cập nhật thư viện, CSP và kiểm chứng chặn script | [`security-fix-2026-10-25.md`](./security-fix-2026-10-25.md) |
 | Baseline bảo mật, các khuyến nghị về quyền deploy còn mở | [`security-review-2026-10-25.md`](./security-review-2026-10-25.md) |
 | 5 bài mới về Taro, chè, bún bò sả, cơm sườn trứng, General Tso | [`blog-additions-review-2026-10-25.md`](./blog-additions-review-2026-10-25.md) |
@@ -76,6 +77,7 @@ Báo cáo điều tra kèm bằng chứng đo đạc và việc còn tồn.
 
 | Tài liệu | Ngày | Trạng thái | Nội dung |
 |---|---|---|---|
+| [`announcement-bar-2026-11-26.md`](./announcement-bar-2026-11-26.md) | 2026-11-26 | Đã kiểm chứng local | Cách đổi/tắt thông báo, hiệu ứng, trợ năng và bằng chứng desktop/mobile |
 | [`MIGRATION.md`](./MIGRATION.md) | 2026-05-17 | Lưu trữ | Hướng dẫn migration ban đầu; URL và quy trình hosting phải đối chiếu cấu hình hiện tại |
 
 > **Ghi chú:** file này trước đây nằm ở gốc với tên `README_MIGRATION.md`. Đã chuyển vào `docs/`; nội dung hướng dẫn được giữ, các icon trang trí đã được bỏ theo quy ước trình bày.
@@ -94,6 +96,7 @@ Mốc thay đổi lớn, mới nhất trước.
 
 | Ngày | Việc | Tài liệu |
 |---|---|---|
+| 2026-11-26 | Thêm thanh thông báo nghỉ Thanksgiving, chữ chạy và hiệu ứng chú ý | [`announcement-bar-2026-11-26.md`](./announcement-bar-2026-11-26.md) |
 | 2026-10-25 | Vá thư viện và siết CSP; audit 13 → 0, thử chặn script và onclick | [`security-fix-2026-10-25.md`](./security-fix-2026-10-25.md) |
 | 2026-10-25 | Rà soát bảo mật source, thư viện, header và thiết lập GitHub | [`security-review-2026-10-25.md`](./security-review-2026-10-25.md) |
 | 2026-10-25 | Bổ sung năm bài món ăn, tổng 20 bài Blog | [`blog-additions-review-2026-10-25.md`](./blog-additions-review-2026-10-25.md) |
